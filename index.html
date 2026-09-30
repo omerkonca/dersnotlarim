@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=2.2">
 </head>
 <body>
 
@@ -748,7 +748,7 @@
     </div>
 
     <!-- SINIF ÇARKIFELEĞİ MODALI (ÖĞRENCİ / SORU SEÇİCİ) -->
-    <div id="lucky-wheel-modal" class="wheel-modal" style="display: none;">
+    <div id="lucky-wheel-modal" class="wheel-modal" style="display: none;" onclick="if(event.target === this) toggleWheelModal()">
         <div class="wheel-modal-content">
             <div class="wheel-header">
                 <h3>🎲 Sınıf Çarkıfeleği (Sıradaki Soruyu Kim Çözecek?)</h3>
@@ -780,7 +780,7 @@ Selin</textarea>
     </div>
 
     <!-- 60 SANİYE HIZLI ATEŞ (SPEED RUN) MODALI -->
-    <div id="speedrun-modal" class="speedrun-modal" style="display: none;">
+    <div id="speedrun-modal" class="speedrun-modal" style="display: none;" onclick="if(event.target === this) interactiveLab.closeSpeedRun()">
         <div class="speedrun-modal-content">
             <button class="sr-close-x" onclick="interactiveLab.closeSpeedRun()">✕</button>
             <div class="sr-top-bar">
@@ -809,7 +809,7 @@ Selin</textarea>
     </div>
 
     <!-- TAHTADAN TELEFONA QR KOD MODALI -->
-    <div id="qr-modal" class="qr-modal" style="display: none;">
+    <div id="qr-modal" class="qr-modal" style="display: none;" onclick="if(event.target === this) interactiveLab.toggleQRModal()">
         <div class="qr-modal-content">
             <button class="sr-close-x" onclick="interactiveLab.toggleQRModal()">✕</button>
             <h3 style="color:var(--primary); font-size:1.3rem; margin-bottom:0.4rem;">📱 Tahtadan Telefona Bağlan</h3>
