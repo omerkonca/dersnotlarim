@@ -1,288 +1,153 @@
 /**
- * DERS NOTLARIM - PORTAL UYGULAMA MANTIĞI
- * Kategoriler, Sınıf/Ders filtreleme, interaktif test çözümü, sunum modalı ve arama
+ * DERS NOTLARIM - ANA SAYFA & KATEGORİK DERS YÖNETİMİ
  */
 
 class App {
     constructor() {
-        this.currentClass = '8'; // Varsayılan 8. Sınıf
-        this.currentSubject = 'fen'; // Varsayılan Fen Bilimleri
-        this.currentCategory = 'all'; // 'all', 'presentations', 'notes', 'quiz', 'curriculum'
-        this.searchQuery = '';
+        this.currentClass = '8';
+        this.currentSubject = 'fen';
+        this.currentTab = 'tab-presentation';
         this.userAnswers = {};
-        
+
         this.init();
     }
 
     init() {
-        this.renderClassFilters();
-        this.renderSubjectFilters();
-        this.setupCategoryTabs();
-        this.renderContent();
-        this.setupEventListeners();
         this.setupThemeToggle();
+        // Varsayılan olarak ana sayfayı göster
+        this.showHome();
     }
 
-    // Sınıf Butonlarını Oluştur
-    renderClassFilters() {
-        const container = document.getElementById('class-filters');
-        if (!container) return;
+    // Ana Sayfayı Göster
+    showHome() {
+        document.getElementById('view-home').style.display = 'block';
+        document.getElementById('view-course').style.display = 'none';
 
-        container.innerHTML = EDUCATION_DATA.classes.map(cls => `
-            <button class="pill-btn ${cls.id === this.currentClass ? 'active' : ''}" data-class="${cls.id}">
-                <span>${cls.name}</span>
-                ${cls.badge ? `<span class="pill-tag">${cls.badge}</span>` : ''}
-            </button>
-        `).join('');
+        // Navigasyon aktifliği
+        document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById('nav-btn-home')?.classList.add('active');
 
-        container.querySelectorAll('.pill-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                this.currentClass = btn.getAttribute('data-class');
-                this.renderClassFilters();
-                this.renderContent();
-            });
-        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Branş / Ders Butonlarını Oluştur
-    renderSubjectFilters() {
-        const container = document.getElementById('subject-filters');
-        if (!container) return;
+    // Belirli bir Dersi Seç ve Ders Alanına Git
+    selectSubject(grade, subject) {
+        this.currentClass = grade;
+        this.currentSubject = subject;
 
-        container.innerHTML = EDUCATION_DATA.subjects.map(sub => `
-            <button class="pill-btn ${sub.id === this.currentSubject ? 'active' : ''}" data-subject="${sub.id}">
-                <i class="bi ${sub.icon}"></i>
-                <span>${sub.name}</span>
-            </button>
-        `).join('');
+        document.getElementById('view-home').style.display = 'none';
+        document.getElementById('view-course').style.display = 'block';
 
-        container.querySelectorAll('.pill-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                this.currentSubject = btn.getAttribute('data-subject');
-                this.renderSubjectFilters();
-                this.renderContent();
-            });
-        });
+        // Navigasyon aktifliği
+        document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+
+        this.renderCourseContent();
+        this.switchInnerTab('tab-presentation');
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Kategori Sekmelerini Kur
-    setupCategoryTabs() {
-        const tabs = document.querySelectorAll('.cat-tab-btn');
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                tabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                this.currentCategory = tab.getAttribute('data-category');
-                this.applyCategoryFilter();
-            });
-        });
-    }
-
-    // Seçilen Kategoriye Göre İlgili Bölümü Göster / Diğerlerini Gizle
-    applyCategoryFilter() {
-        const sections = {
-            presentations: document.getElementById('cat-section-presentations'),
-            notes: document.getElementById('cat-section-notes'),
-            quiz: document.getElementById('cat-section-quiz'),
-            curriculum: document.getElementById('cat-section-curriculum')
-        };
-
-        if (this.currentCategory === 'all') {
-            Object.values(sections).forEach(sec => {
-                if (sec) sec.style.display = 'block';
-            });
-        } else {
-            Object.entries(sections).forEach(([key, sec]) => {
-                if (sec) {
-                    sec.style.display = (key === this.currentCategory) ? 'block' : 'none';
-                }
-            });
-        }
-    }
-
-    // Mevcut Sınıf ve Derse Göre Sayfayı Güncelle
-    renderContent() {
+    // Ders İçeriğini Doldur
+    renderCourseContent() {
         const key = `${this.currentClass}-${this.currentSubject}`;
         const data = EDUCATION_DATA.content[key] || this.getFallbackData();
 
-        // Aktif Rozeti Güncelle
-        const activeBadge = document.getElementById('active-class-subject-badge');
-        if (activeBadge) {
-            const clsObj = EDUCATION_DATA.classes.find(c => c.id === this.currentClass);
-            const subObj = EDUCATION_DATA.subjects.find(s => s.id === this.currentSubject);
-            activeBadge.innerHTML = `<i class="bi bi-mortarboard-fill"></i> ${clsObj ? clsObj.name : ''} &bull; ${subObj ? subObj.name : ''}`;
-        }
+        // Başlıklar
+        document.getElementById('detail-title').textContent = data.title;
+        document.getElementById('detail-desc').textContent = data.subtitle;
+        document.getElementById('detail-grade-badge').textContent = `${this.currentClass}. Sınıf`;
 
-        // Başlık ve Açıklamaları Güncelle
-        document.getElementById('current-page-title').textContent = data.title;
-        document.getElementById('current-page-desc').textContent = data.subtitle;
-
-        // 1. Sunum Kartı
+        // 1. Sunum Bölümü
         this.renderPresentation(data.presentation);
 
-        // 2. Ders Notları
+        // 2. Notlar Bölümü
         this.renderNotes(data.notes);
 
-        // 3. Müfredat Tablosu
-        this.renderCurriculum(data.curriculum);
-
-        // 4. Soru Çözümü / Quiz
+        // 3. Quiz Bölümü
         this.renderQuiz(data.quiz);
 
-        // Kategori filtresini uygula
-        this.applyCategoryFilter();
+        // 4. Müfredat Bölümü
+        this.renderCurriculum(data.curriculum);
     }
 
-    getFallbackData() {
-        return {
-            title: `${this.currentClass}. Sınıf ${this.getSubjectName(this.currentSubject)}`,
-            subtitle: "Bu kademe için ders materyalleri ve sunumlar sisteme eklenmektedir.",
-            presentation: {
-                title: "Yakında Yayında",
-                desc: "Öğretmeniniz bu konu için sunum hazırlamaktadır.",
-                file: "#",
-                slidesCount: "Hazırlanıyor",
-                badge: "Planlama Aşamasında"
-            },
-            notes: [
-                {
-                    title: "İçerikler Hazırlanıyor",
-                    important: "Takipte Kalın",
-                    badge: "Yeni Ünite",
-                    content: "<p>Bu sınıf ve derse ait müfredat içerikleri, slaytlar ve soru çözümleri çok yakında buraya yüklenecektir.</p>"
-                }
-            ],
-            curriculum: [
-                { unit: "1. Ünite", name: "Genel Konu Girişi", hours: "12 Saat", period: "1. Dönem", status: "Yakında" }
-            ],
-            quiz: []
-        };
+    // Ders İçi Sekme Değiştir (Sunum / Notlar / Quiz / Müfredat)
+    switchInnerTab(tabId) {
+        this.currentTab = tabId;
+
+        // Butonları güncelle
+        document.querySelectorAll('.inner-tab-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.getAttribute('data-tab') === tabId);
+        });
+
+        // Tab içeriklerini güncelle
+        document.querySelectorAll('.tab-pane').forEach(pane => {
+            pane.classList.toggle('active', pane.id === tabId);
+        });
     }
 
-    getSubjectName(id) {
-        const sub = EDUCATION_DATA.subjects.find(s => s.id === id);
-        return sub ? sub.name : "Ders";
-    }
-
-    // 1. Sunum Kartı Render
+    // Sunum Render
     renderPresentation(pres) {
-        const card = document.getElementById('presentation-card');
-        if (!card) return;
+        const box = document.getElementById('presentation-box-content');
+        if (!box) return;
 
         const isAvailable = pres.file && pres.file !== '#';
 
-        card.innerHTML = `
-            <div class="presentation-flex">
-                <div class="presentation-info">
-                    <span class="badge-unit">${pres.badge || 'İnteraktif Slayt'}</span>
-                    <h3 class="presentation-title">${pres.title}</h3>
-                    <p class="presentation-desc">${pres.desc}</p>
-                    
-                    <div class="presentation-stats">
-                        <div class="stat-item">
-                            <i class="bi bi-collection-play-fill"></i>
-                            <span>${pres.slidesCount}</span>
-                        </div>
-                        <div class="stat-item">
-                            <i class="bi bi-display-fill"></i>
-                            <span>Akıllı Tahta Uyumlu</span>
-                        </div>
-                        <div class="stat-item">
-                            <i class="bi bi-lightning-charge-fill"></i>
-                            <span>Reveal.js Altyapısı</span>
-                        </div>
-                    </div>
-
-                    <div class="presentation-actions">
-                        ${isAvailable ? `
-                            <button class="btn-present-launch" onclick="app.openPresentationModal('${pres.file}', '${pres.title}')">
-                                <i class="bi bi-play-circle-fill"></i>
-                                <span>Ders Sunumunu Başlat (Gömülü)</span>
-                            </button>
-                            <a href="${pres.file}" target="_blank" class="btn-present-fullscreen">
-                                <i class="bi bi-box-arrow-up-right"></i>
-                                <span>Ayrı Sekmede Aç</span>
-                            </a>
-                        ` : `
-                            <button class="btn-present-launch" style="opacity: 0.6; cursor: not-allowed;" disabled>
-                                <i class="bi bi-clock-history"></i>
-                                <span>İçerik Hazırlanıyor</span>
-                            </button>
-                        `}
-                    </div>
+        box.innerHTML = `
+            <div class="presentation-inner-card">
+                <span class="pres-badge">${pres.badge || 'İnteraktif Slayt Seti'}</span>
+                <h3 class="pres-title">${pres.title}</h3>
+                <p class="pres-desc">${pres.desc}</p>
+                <div class="pres-meta">
+                    <span>📊 ${pres.slidesCount}</span>
+                    <span>🖥️ Akıllı Tahta & Projeksiyon Uyumlu</span>
+                    <span>⚡ Reveal.js Altyapısı</span>
+                </div>
+                <div class="pres-btn-row">
+                    ${isAvailable ? `
+                        <button class="btn-play-presentation" onclick="app.openPresentationModal('${pres.file}', '${pres.title}')">
+                            ▶️ Sunumu Başlat (Gömülü Ekran)
+                        </button>
+                        <a href="${pres.file}" target="_blank" class="btn-fullscreen-link">
+                            ↗️ Ayrı Sekmede Aç
+                        </a>
+                    ` : `
+                        <button class="btn-play-presentation" style="opacity: 0.6; cursor: not-allowed;" disabled>
+                            ⏳ Bu Dersin Sunumu Hazırlanıyor
+                        </button>
+                    `}
                 </div>
             </div>
         `;
     }
 
-    // 2. Ders Notları Render
+    // Notlar Render
     renderNotes(notes) {
         const container = document.getElementById('notes-container');
         if (!container) return;
 
         if (!notes || notes.length === 0) {
-            container.innerHTML = '<p class="text-muted">Bu bölüm için henüz not eklenmedi.</p>';
+            container.innerHTML = '<p style="color:var(--text-muted); padding:2rem;">Bu ders için henüz ders notu eklenmedi.</p>';
             return;
         }
 
-        // Filtreleme (arama sorgusu varsa)
-        const filtered = notes.filter(n => 
-            n.title.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-            n.content.toLowerCase().includes(this.searchQuery.toLowerCase())
-        );
-
-        if (filtered.length === 0) {
-            container.innerHTML = '<p class="text-muted">Aramanıza uygun not bulunamadı.</p>';
-            return;
-        }
-
-        container.innerHTML = filtered.map(note => `
+        container.innerHTML = notes.map(note => `
             <div class="note-card">
-                <div>
-                    <div class="note-header">
-                        <h4 class="note-title">${note.title}</h4>
-                        <span class="note-badge">${note.badge}</span>
-                    </div>
-                    <div class="note-body">
-                        ${note.content}
-                    </div>
+                <div class="note-top">
+                    <h4>${note.title}</h4>
+                    <span class="note-tag">${note.badge}</span>
                 </div>
-                <div class="note-footer">
+                <div class="note-body">
+                    ${note.content}
+                </div>
+                <div class="note-bottom">
                     <span>💡 ${note.important}</span>
-                    <button class="btn-icon-print" title="Yazdır / PDF" onclick="window.print()">
-                        <i class="bi bi-printer"></i>
-                    </button>
+                    <button class="btn-print" onclick="window.print()">🖨️ Yazdır</button>
                 </div>
             </div>
         `).join('');
     }
 
-    // 3. Müfredat Tablosu Render
-    renderCurriculum(curriculum) {
-        const tbody = document.getElementById('curriculum-tbody');
-        if (!tbody) return;
-
-        if (!curriculum || curriculum.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="5" class="text-center">Müfredat bilgisi bulunamadı.</td></tr>';
-            return;
-        }
-
-        tbody.innerHTML = curriculum.map((item, index) => `
-            <tr>
-                <td><strong>${item.unit}</strong></td>
-                <td>${item.name}</td>
-                <td>${item.hours}</td>
-                <td>${item.period}</td>
-                <td>
-                    <span class="status-badge ${item.status.includes('Aktif') ? 'active' : 'pending'}">
-                        ${item.status}
-                    </span>
-                </td>
-            </tr>
-        `).join('');
-    }
-
-    // 4. Soru Çözümü / Quiz Render
+    // Quiz Render
     renderQuiz(quiz) {
         const container = document.getElementById('quiz-container');
         if (!container) return;
@@ -291,39 +156,35 @@ class App {
 
         if (!quiz || quiz.length === 0) {
             container.innerHTML = `
-                <div style="text-align: center; padding: 2.5rem 1rem;">
-                    <i class="bi bi-journal-check" style="font-size: 2.5rem; color: var(--primary);"></i>
-                    <h4 style="margin-top: 1rem;">Bu Ders İçin Sorular Yükleniyor</h4>
-                    <p style="color: var(--text-secondary); margin-top: 0.5rem;">Çok yakında yeni nesil MEB ve LGS tarzı sorular eklenecektir.</p>
+                <div style="text-align:center; padding: 3rem 1rem;">
+                    <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">📝</div>
+                    <h4>Bu Ders İçin Sorular Yükleniyor</h4>
+                    <p style="color: var(--text-muted); margin-top: 0.4rem;">Yeni nesil LGS ve yazılı soruları hazırlanmaktadır.</p>
                 </div>
             `;
             return;
         }
 
         container.innerHTML = `
-            <div class="quiz-header">
-                <div>
-                    <span class="quiz-progress-text">Toplam ${quiz.length} Soru (Yeni Nesil)</span>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.2rem;">Şıkları tıklayarak anında çözümü ve açıklamayı görebilirsiniz.</p>
-                </div>
-                <div class="quiz-score-badge" id="quiz-score-badge">Puan: 0 / ${quiz.length * 25}</div>
+            <div class="quiz-status-bar">
+                <span>Toplam ${quiz.length} İnteraktif Soru</span>
+                <span class="quiz-score" id="quiz-score-val">Puan: 0 / ${quiz.length * 25}</span>
             </div>
-
-            <div class="questions-list">
+            <div class="quiz-questions">
                 ${quiz.map((q, qIndex) => `
-                    <div class="question-card" id="q-card-${qIndex}">
-                        <h4 class="question-title"><strong>Soru ${qIndex + 1}:</strong> ${q.question}</h4>
-                        <div class="options-grid">
+                    <div class="question-block" id="qb-${qIndex}">
+                        <h4 class="q-title"><strong>Soru ${qIndex + 1}:</strong> ${q.question}</h4>
+                        <div class="q-options">
                             ${q.options.map((opt, optIndex) => `
-                                <button class="option-btn" onclick="app.checkAnswer(${qIndex}, ${optIndex})">
-                                    <span class="opt-prefix">${['A', 'B', 'C', 'D'][optIndex]}</span>
+                                <button class="q-opt-btn" onclick="app.checkAnswer(${qIndex}, ${optIndex})">
+                                    <span class="opt-letter">${['A', 'B', 'C', 'D'][optIndex]}</span>
                                     <span>${opt}</span>
                                 </button>
                             `).join('')}
                         </div>
-                        <div class="explanation-box" id="explanation-${qIndex}">
-                            <strong>💡 Soru Çözümü & Açıklama:</strong>
-                            <p style="margin-top: 0.4rem;">${q.explanation}</p>
+                        <div class="q-solution" id="solution-${qIndex}">
+                            <strong>💡 Çözüm ve Açıklama:</strong>
+                            <p style="margin-top: 0.35rem;">${q.explanation}</p>
                         </div>
                     </div>
                 `).join('')}
@@ -331,47 +192,65 @@ class App {
         `;
     }
 
-    // Şık Kontrolü
+    // Soru Cevaplama
     checkAnswer(qIndex, selectedOptIndex) {
         const key = `${this.currentClass}-${this.currentSubject}`;
         const quiz = EDUCATION_DATA.content[key]?.quiz;
         if (!quiz || !quiz[qIndex]) return;
 
         if (this.userAnswers[qIndex] !== undefined) return;
-
         this.userAnswers[qIndex] = selectedOptIndex;
-        const correctOptIndex = quiz[qIndex].correct;
-        const qCard = document.getElementById(`q-card-${qIndex}`);
-        const buttons = qCard.querySelectorAll('.option-btn');
 
-        buttons.forEach((btn, index) => {
+        const correct = quiz[qIndex].correct;
+        const qBlock = document.getElementById(`qb-${qIndex}`);
+        const buttons = qBlock.querySelectorAll('.q-opt-btn');
+
+        buttons.forEach((btn, idx) => {
             btn.classList.add('locked');
-            if (index === correctOptIndex) {
+            if (idx === correct) {
                 btn.classList.add('correct');
-            } else if (index === selectedOptIndex) {
+            } else if (idx === selectedOptIndex) {
                 btn.classList.add('wrong');
             }
         });
 
-        const expBox = document.getElementById(`explanation-${qIndex}`);
-        if (expBox) expBox.style.display = 'block';
+        const sol = document.getElementById(`solution-${qIndex}`);
+        if (sol) sol.style.display = 'block';
 
         this.updateScore(quiz);
     }
 
     updateScore(quiz) {
         let correctCount = 0;
-        Object.keys(this.userAnswers).forEach(qIndex => {
-            if (this.userAnswers[qIndex] === quiz[qIndex].correct) {
-                correctCount++;
-            }
+        Object.keys(this.userAnswers).forEach(idx => {
+            if (this.userAnswers[idx] === quiz[idx].correct) correctCount++;
         });
 
-        const score = correctCount * 25;
-        const scoreBadge = document.getElementById('quiz-score-badge');
-        if (scoreBadge) {
-            scoreBadge.textContent = `Puan: ${score} / ${quiz.length * 25}`;
+        const scoreEl = document.getElementById('quiz-score-val');
+        if (scoreEl) {
+            scoreEl.textContent = `Puan: ${correctCount * 25} / ${quiz.length * 25}`;
         }
+    }
+
+    // Müfredat Render
+    renderCurriculum(curriculum) {
+        const tbody = document.getElementById('curriculum-tbody');
+        if (!tbody) return;
+
+        if (!curriculum || curriculum.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;">Müfredat bulunamadı.</td></tr>';
+            return;
+        }
+
+        tbody.innerHTML = curriculum.map(item => `
+            <tr>
+                <td><strong>${item.unit}</strong></td>
+                <td>${item.name}</td>
+                <td>${item.hours}</td>
+                <td>${item.period}</td>
+                <td><span class="status-pill ${item.status.includes('Aktif') ? 'active' : ''}">${item.status}</span></td>
+            </tr>
+        `).join('');
     }
 
     // Gömülü Sunum Modalı
@@ -379,15 +258,14 @@ class App {
         const modal = document.getElementById('presentation-modal');
         const iframe = document.getElementById('modal-presentation-iframe');
         const modalTitle = document.getElementById('modal-presentation-title');
-        const externalLink = document.getElementById('modal-external-link');
+        const link = document.getElementById('modal-external-link');
 
         if (!modal || !iframe) return;
 
         iframe.src = url;
         modalTitle.textContent = title;
-        externalLink.href = url;
+        link.href = url;
         modal.classList.add('open');
-
         document.body.style.overflow = 'hidden';
     }
 
@@ -401,57 +279,49 @@ class App {
         document.body.style.overflow = 'auto';
     }
 
-    setupEventListeners() {
-        const searchInput = document.getElementById('global-search-input');
-        if (searchInput) {
-            searchInput.addEventListener('input', (e) => {
-                this.searchQuery = e.target.value.trim();
-                const key = `${this.currentClass}-${this.currentSubject}`;
-                const data = EDUCATION_DATA.content[key] || this.getFallbackData();
-                this.renderNotes(data.notes);
-            });
-        }
-
-        const closeBtn = document.getElementById('close-presentation-modal');
-        if (closeBtn) {
-            closeBtn.addEventListener('click', () => this.closePresentationModal());
-        }
-
-        window.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                this.closePresentationModal();
-            }
-        });
+    getFallbackData() {
+        return {
+            title: `${this.currentClass}. Sınıf ${this.currentSubject === 'fen' ? 'Fen Bilimleri' : 'Türkçe'}`,
+            subtitle: "Bu ders için ünite sunumları ve notları sisteme yüklenmektedir.",
+            presentation: {
+                title: "Yakında Yayında",
+                desc: "Öğretmeniniz bu kademe için sunum hazırlamaktadır.",
+                file: "#",
+                slidesCount: "Hazırlanıyor",
+                badge: "Planlama Aşamasında"
+            },
+            notes: [
+                {
+                    title: "İçerikler Hazırlanıyor",
+                    important: "Çok Yakında",
+                    badge: "Yeni Konu",
+                    content: "<p>Dershane müfredatına uygun konu özetleri yakında burada yer alacaktır.</p>"
+                }
+            ],
+            curriculum: [
+                { unit: "1. Ünite", name: "Genel Konu Girişi", hours: "16 Saat", period: "1. Dönem", status: "Hazırlanıyor" }
+            ],
+            quiz: []
+        };
     }
 
     setupThemeToggle() {
-        const toggleBtn = document.getElementById('theme-toggle-btn');
-        if (!toggleBtn) return;
+        const btn = document.getElementById('theme-toggle-btn');
+        if (!btn) return;
 
         const currentTheme = localStorage.getItem('theme') || 'dark';
         document.documentElement.setAttribute('data-theme', currentTheme);
-        this.updateThemeIcon(currentTheme);
+        btn.textContent = currentTheme === 'light' ? '🌙' : '☀️';
 
-        toggleBtn.addEventListener('click', () => {
-            const now = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-            document.documentElement.setAttribute('data-theme', now);
-            localStorage.setItem('theme', now);
-            this.updateThemeIcon(now);
+        btn.addEventListener('click', () => {
+            const next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+            btn.textContent = next === 'light' ? '🌙' : '☀️';
         });
-    }
-
-    updateThemeIcon(theme) {
-        const icon = document.querySelector('#theme-toggle-btn i');
-        if (!icon) return;
-        if (theme === 'light') {
-            icon.className = 'bi bi-moon-stars-fill';
-        } else {
-            icon.className = 'bi bi-sun-fill';
-        }
     }
 }
 
-// Uygulamayı Başlat
 document.addEventListener('DOMContentLoaded', () => {
     window.app = new App();
 });
