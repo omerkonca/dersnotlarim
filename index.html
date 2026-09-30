@@ -35,6 +35,9 @@
             </nav>
 
             <div class="nav-actions">
+                <button class="btn-wheel-toggle" onclick="toggleWheelModal()" title="Rastgele Öğrenci / Soru Seçici Çark">
+                    🎲 Çarkıfelek
+                </button>
                 <button class="btn-board-toggle" id="btn-toggle-smartboard-ui" onclick="toggleSmartBoardToolbar()">
                     ✏️ Tahta Kalemi
                 </button>
@@ -229,6 +232,12 @@
                 <button class="inner-tab-btn active" data-tab="tab-presentation" onclick="app.switchInnerTab('tab-presentation')">
                     🖥️ Akıllı Tahta Sunumu
                 </button>
+                <button class="inner-tab-btn" data-tab="tab-simulations" onclick="app.switchInnerTab('tab-simulations')">
+                    🎮 Canlı Fen Simülatörü
+                </button>
+                <button class="inner-tab-btn" data-tab="tab-flashcards" onclick="app.switchInnerTab('tab-flashcards')">
+                    🃏 Sınav Hafıza Kartları
+                </button>
                 <button class="inner-tab-btn" data-tab="tab-notes" onclick="app.switchInnerTab('tab-notes')">
                     📖 Konu Notları
                 </button>
@@ -247,6 +256,163 @@
                 <div id="tab-presentation" class="tab-pane active">
                     <div class="presentation-box" id="presentation-box-content">
                         <!-- JS ile dolacak -->
+                    </div>
+                </div>
+
+                <!-- SEKME: CANLI SİMÜLASYONLAR (YENİ TEKNOLOJİ) -->
+                <div id="tab-simulations" class="tab-pane">
+                    <div class="sim-wrapper">
+                        
+                        <!-- Simülasyon 1: 8. Sınıf Mevsim ve Dünya Simülatörü -->
+                        <div class="sim-card">
+                            <div class="sim-header">
+                                <h4>🌍 İnteraktif Mevsim & Yörünge Simülatörü</h4>
+                                <span class="sim-badge">Canlı Deney</span>
+                            </div>
+                            <p style="color:var(--text-muted); font-size:0.88rem; margin-bottom:1rem;">
+                                Dünya'yı Güneş etrafında döndürmek için aşağıdaki kaydırıcıyı hareket ettirin. Işınların açısını ve sıcaklık değişimini canlı izleyin:
+                            </p>
+                            
+                            <!-- SVG Simülasyon Ekranı -->
+                            <div class="sim-canvas-box">
+                                <svg viewBox="0 0 400 220" width="100%" height="200">
+                                    <!-- Yörünge -->
+                                    <ellipse cx="200" cy="110" rx="150" ry="65" fill="none" stroke="#475569" stroke-dasharray="6"/>
+                                    
+                                    <!-- Güneş -->
+                                    <circle cx="200" cy="110" r="32" fill="#f59e0b" filter="drop-shadow(0 0 15px #f59e0b)"/>
+                                    <text x="200" y="115" fill="#0f172a" font-size="12" font-weight="bold" text-anchor="middle">GÜNEŞ</text>
+
+                                    <!-- Güneş Işını -->
+                                    <line id="sim-sun-ray" x1="200" y1="110" x2="350" y2="110" stroke="#fef08a" stroke-width="3" stroke-dasharray="4"/>
+
+                                    <!-- Hareketli Dünya -->
+                                    <circle id="sim-earth" cx="350" cy="110" r="22" fill="#0284c7" stroke="#38bdf8" stroke-width="2"/>
+                                </svg>
+                            </div>
+
+                            <!-- Simülasyon Kontrolleri -->
+                            <div class="sim-controls">
+                                <label style="font-weight:700; font-size:0.85rem; display:flex; justify-content:space-between;">
+                                    <span>📅 Yılın Günü (Dönüş Hareketi):</span>
+                                    <span id="sim-date-text" style="color:var(--accent);">21 Haziran (Yaz Gündönümü)</span>
+                                </label>
+                                <input type="range" min="0" max="365" value="172" id="sim-day-slider" style="width:100%; margin:0.6rem 0;" oninput="interactiveLab.updateSeasonsSim(this.value)">
+                            </div>
+
+                            <!-- Canlı Göstergeler -->
+                            <div class="sim-status-grid">
+                                <div class="sim-stat">
+                                    <span class="stat-lbl">Mevsim Durumu</span>
+                                    <strong id="sim-season-text" style="color:var(--primary);">☀️ KYK: YAZ | GYK: KIŞ</strong>
+                                </div>
+                                <div class="sim-stat">
+                                    <span class="stat-lbl">Gündüz / Gece</span>
+                                    <strong id="sim-day-length">Gündüz: ~15 Saat | Gece: ~9 Saat (En Uzun Gündüz)</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Simülasyon 2: Rüzgar ve Basınç Simülatörü -->
+                        <div class="sim-card" style="margin-top:1.5rem;">
+                            <div class="sim-header">
+                                <h4>🌪️ İnteraktif Rüzgar & Basınç Deneyi</h4>
+                                <span class="sim-badge">Hava Hareketleri</span>
+                            </div>
+                            <p style="color:var(--text-muted); font-size:0.88rem; margin-bottom:1rem;">
+                                İki komşu bölgenin sıcaklığını değiştirin, rüzgarın esme yönünü ve hızını gözlemleyin:
+                            </p>
+
+                            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem; margin-bottom:1rem;">
+                                <div style="background:rgba(56,189,248,0.1); border:1px solid rgba(56,189,248,0.3); padding:1rem; border-radius:8px; text-align:center;">
+                                    <strong style="color:var(--primary);">❄️ K Bölgesi Sıcaklığı</strong>
+                                    <div id="temp-k-val" style="font-size:1.8rem; font-weight:800; margin:0.3rem 0;">10°C</div>
+                                    <input type="range" min="-10" max="40" value="10" id="slider-temp-k" oninput="document.getElementById('temp-k-val').textContent=this.value+'°C'; interactiveLab.updateWindSim(parseInt(this.value), parseInt(document.getElementById('slider-temp-l').value))" style="width:100%;">
+                                </div>
+                                <div style="background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.3); padding:1rem; border-radius:8px; text-align:center;">
+                                    <strong style="color:#ef4444;">🔥 L Bölgesi Sıcaklığı</strong>
+                                    <div id="temp-l-val" style="font-size:1.8rem; font-weight:800; margin:0.3rem 0;">32°C</div>
+                                    <input type="range" min="-10" max="40" value="32" id="slider-temp-l" oninput="document.getElementById('temp-l-val').textContent=this.value+'°C'; interactiveLab.updateWindSim(parseInt(document.getElementById('slider-temp-k').value), parseInt(this.value))" style="width:100%;">
+                                </div>
+                            </div>
+
+                            <div style="background:rgba(15,23,42,0.9); border:1px solid var(--border-color); padding:1rem; border-radius:8px; text-align:center;">
+                                <div id="wind-fan-icon" style="font-size:2.5rem; display:inline-block; margin-bottom:0.4rem;">💨</div>
+                                <div id="wind-dir-text" style="font-size:1.05rem; color:#f59e0b;"><strong>Rüzgarın Yönü:</strong> K Bölgesi (Yüksek Basınç / Soğuk) &rarr; L Bölgesi (Alçak Basınç / Sıcak)</div>
+                                <div id="wind-speed-text" style="font-size:0.88rem; color:var(--text-muted); margin-top:0.3rem;">Fark: 22°C &rarr; Rüzgar Şiddeti: Kuvvetli Rüzgar</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- SEKME: HAFIZA KARTLARI (FLASHCARDS) -->
+                <div id="tab-flashcards" class="tab-pane">
+                    <div style="margin-bottom:1.5rem; text-align:center;">
+                        <h3>🃏 Sınav Öncesi 60 Saniye Hafıza Kartları</h3>
+                        <p style="color:var(--text-muted); font-size:0.88rem;">Kartın üzerine tıklayarak cevabı arkasında görün. Sınavda en çok karıştırılan yerler!</p>
+                    </div>
+
+                    <div class="flashcards-grid">
+                        <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <span class="card-hint">❓ Soru / Kavram</span>
+                                    <h4>Işık Yılı bir zaman birimi midir?</h4>
+                                    <p class="click-hint">Cevabı görmek için tıkla &rarr;</p>
+                                </div>
+                                <div class="card-back">
+                                    <span class="card-hint">💡 Kesin Bilgi</span>
+                                    <h4>HAYIR! Kesinlikle Değildir!</h4>
+                                    <p>Işık yılı, ışığın 1 yılda aldığı <strong>MESAFE / UZAKLIK</strong> ölçüsüdür (~9.5 trilyon km).</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <span class="card-hint">❓ Soru / Kavram</span>
+                                    <h4>Dünya Güneş'e yaklaştığında yaz mı olur?</h4>
+                                    <p class="click-hint">Cevabı görmek için tıkla &rarr;</p>
+                                </div>
+                                <div class="card-back">
+                                    <span class="card-hint">💡 Sınav Tuzağı</span>
+                                    <h4>HAYIR! Alakası Yoktur!</h4>
+                                    <p>Ocak ayında Güneş'e en yakınız ama bizde kış yaşanır. Mevsimleri mesafe değil, <strong>Eksen Eğikliği ve Geliş Açısı</strong> belirler.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <span class="card-hint">❓ Soru / Kavram</span>
+                                    <h4>Rüzgar hangi basınçtan hangisine eser?</h4>
+                                    <p class="click-hint">Cevabı görmek için tıkla &rarr;</p>
+                                </div>
+                                <div class="card-back">
+                                    <span class="card-hint">💡 Altın Kural</span>
+                                    <h4>Yüksek Basınç &rarr; Alçak Basınç</h4>
+                                    <p>Her zaman <strong>SOĞUKTAN &rarr; SICAĞA</strong> doğru yatay hava akımıdır.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <span class="card-hint">❓ Soru / Kavram</span>
+                                    <h4>Basit makinelerde İŞ'ten kazanç sağlanır mı?</h4>
+                                    <p class="click-hint">Cevabı görmek için tıkla &rarr;</p>
+                                </div>
+                                <div class="card-back">
+                                    <span class="card-hint">💡 LGS Kuralı</span>
+                                    <h4>ASLA! İş ve Enerjiden Kazanç Olmaz!</h4>
+                                    <p>Sadece iş kolaylığı sağlanır. Kuvvetten kazanırsan yoldan aynı oranda kaybedersin.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -366,6 +532,38 @@
         </div>
     </div>
 
+    <!-- SINIF ÇARKIFELEĞİ MODALI (ÖĞRENCİ / SORU SEÇİCİ) -->
+    <div id="lucky-wheel-modal" class="wheel-modal" style="display: none;">
+        <div class="wheel-modal-content">
+            <div class="wheel-header">
+                <h3>🎲 Sınıf Çarkıfeleği (Sıradaki Soruyu Kim Çözecek?)</h3>
+                <button class="wheel-close-btn" onclick="toggleWheelModal()">✕</button>
+            </div>
+            <div class="wheel-body">
+                <div class="wheel-canvas-container">
+                    <canvas id="lucky-wheel-canvas" width="300" height="300"></canvas>
+                    <button class="btn-spin-now" onclick="interactiveLab.spinWheel()">🎯 ÇARK'I ÇEVİR!</button>
+                </div>
+                <div class="wheel-settings">
+                    <div id="wheel-result-text" class="wheel-result">
+                        Çarkı çevirin ve tahtaya kalkacak şanslı öğrenciyi belirleyin!
+                    </div>
+                    <label style="font-size:0.82rem; font-weight:700; color:var(--text-muted); display:block; margin-top:0.75rem;">
+                        👥 Sınıf Listesi (Her satıra bir isim yazabilirsiniz):
+                    </label>
+                    <textarea id="wheel-student-names" rows="5" style="width:100%; background:rgba(0,0,0,0.3); border:1px solid var(--border-color); color:#fff; border-radius:6px; padding:8px; font-size:0.85rem;" oninput="interactiveLab.drawWheel(document.getElementById('lucky-wheel-canvas').getContext('2d'), interactiveLab.getStudentNames())">Ahmet
+Zeynep
+Mehmet
+Elif
+Can
+Ayşe
+Burak
+Selin</textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- ALT BİLGİ -->
     <footer class="footer">
         <div class="container footer-content">
@@ -381,6 +579,21 @@
     <!-- JS -->
     <script src="js/data.js"></script>
     <script src="js/board-tools.js"></script>
+    <script src="js/interactive-lab.js"></script>
     <script src="js/app.js"></script>
+    <script>
+        function toggleWheelModal() {
+            const modal = document.getElementById('lucky-wheel-modal');
+            if (!modal) return;
+            const isHidden = modal.style.display === 'none' || modal.style.display === '';
+            modal.style.display = isHidden ? 'flex' : 'none';
+            if (isHidden) {
+                setTimeout(() => {
+                    const canvas = document.getElementById('lucky-wheel-canvas');
+                    if (canvas) interactiveLab.drawWheel(canvas.getContext('2d'), interactiveLab.getStudentNames());
+                }, 50);
+            }
+        }
+    </script>
 </body>
 </html>
