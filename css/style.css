@@ -1469,15 +1469,16 @@ body {
 /* 3D FLASHCARDS (HAFIZA KARTLARI) */
 .flashcards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 1.25rem;
-    perspective: 1000px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
     margin-bottom: 3rem;
 }
 
 .flashcard {
-    height: 220px;
+    height: 250px;
     cursor: pointer;
+    perspective: 1000px;
+    user-select: none;
 }
 
 .card-inner {
@@ -1487,6 +1488,7 @@ body {
     text-align: center;
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     transform-style: preserve-3d;
+    border-radius: var(--radius-lg);
 }
 
 .flashcard.flipped .card-inner {
@@ -1495,46 +1497,79 @@ body {
 
 .card-front, .card-back {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    border-radius: var(--radius-md);
-    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    padding: 1.75rem 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
 }
 
 .card-front {
-    background: linear-gradient(135deg, #1e293b, #0f172a);
-    border: 2px solid rgba(56, 189, 248, 0.3);
+    background: linear-gradient(145deg, #1e293b, #0f172a);
+    border: 2px solid rgba(56, 189, 248, 0.4);
     color: var(--text-main);
 }
 
+.card-front h4 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    line-height: 1.4;
+    color: #f8fafc;
+    margin: auto 0;
+}
+
 .card-back {
-    background: linear-gradient(135deg, #0284c7, #0369a1);
+    background: linear-gradient(145deg, #0369a1, #0c4a6e);
     border: 2px solid #38bdf8;
     color: #ffffff;
     transform: rotateY(180deg);
 }
 
+.card-back h4 {
+    font-size: 1.35rem;
+    font-weight: 900;
+    color: #fef08a;
+    margin-bottom: 0.5rem;
+}
+
+.card-back p {
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: #f1f5f9;
+    margin: auto 0;
+}
+
 .card-hint {
-    font-size: 0.75rem;
-    font-weight: 700;
+    font-size: 0.8rem;
+    font-weight: 800;
     text-transform: uppercase;
-    color: var(--primary);
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    background: rgba(245, 158, 11, 0.15);
+    padding: 0.35rem 0.9rem;
+    border-radius: var(--radius-full);
+    display: inline-block;
+    align-self: center;
 }
 
 .card-back .card-hint {
-    color: #fef08a;
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.25);
 }
 
 .click-hint {
-    font-size: 0.75rem;
-    color: var(--text-dim);
+    font-size: 0.85rem;
+    color: #38bdf8;
     margin: 0;
+    font-weight: 700;
 }
 
 .card-back .click-hint {
@@ -1703,86 +1738,110 @@ body {
    DNA EŞLEME MİNİ OYUNU STİLLERİ
    =================================================== */
 .dna-game-container {
-    background: rgba(15, 23, 42, 0.85);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    padding: 1.5rem;
+    background: #0f172a;
+    border: 2px solid rgba(56, 189, 248, 0.3);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
 }
 
 .dna-strands-grid {
     display: grid;
-    grid-template-columns: 140px 80px 140px;
+    grid-template-columns: minmax(160px, 220px) minmax(120px, 160px) minmax(160px, 220px);
     justify-content: center;
     align-items: center;
-    gap: 0.75rem;
-    margin: 1.25rem 0;
+    gap: 1rem;
+    margin: 1.5rem 0;
 }
 
 .dna-strand {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.65rem;
 }
 
 .strand-title {
     text-align: center;
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: var(--text-muted);
-    margin-bottom: 0.25rem;
+    color: var(--primary);
+    background: rgba(56, 189, 248, 0.1);
+    padding: 0.35rem 0.6rem;
+    border-radius: 6px;
+    margin-bottom: 0.35rem;
 }
 
 .dna-base-card {
-    height: 38px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 1rem;
+    font-weight: 800;
+    font-size: 1.15rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    user-select: none;
+    transition: all 0.2s ease;
+    gap: 0.75rem;
+}
+
+.dna-base-card .base-badge {
+    width: 32px;
+    height: 32px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 1.2rem;
     font-weight: 900;
-    font-size: 1.1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-    user-select: none;
-    transition: all 0.2s ease;
 }
 
-.dna-base-card.base-A { background: linear-gradient(135deg, #ef4444, #dc2626); color: #fff; }
-.dna-base-card.base-T { background: linear-gradient(135deg, #0284c7, #0369a1); color: #fff; }
-.dna-base-card.base-G { background: linear-gradient(135deg, #10b981, #059669); color: #fff; }
-.dna-base-card.base-C { background: linear-gradient(135deg, #f59e0b, #d97706); color: #0f172a; }
+.dna-base-card .base-name {
+    font-size: 1.05rem;
+    font-weight: 800;
+}
+
+.dna-base-card.base-A { background: linear-gradient(135deg, #ef4444, #b91c1c); color: #fff; }
+.dna-base-card.base-T { background: linear-gradient(135deg, #0284c7, #075985); color: #fff; }
+.dna-base-card.base-G { background: linear-gradient(135deg, #10b981, #047857); color: #fff; }
+.dna-base-card.base-C { background: linear-gradient(135deg, #f59e0b, #b45309); color: #0f172a; }
 
 .dna-base-card.empty {
     background: rgba(255, 255, 255, 0.04);
     border: 2px dashed rgba(255, 255, 255, 0.2);
-    color: var(--text-dim);
+    color: var(--text-muted);
+    justify-content: center;
 }
 
 .dna-base-card.active-slot {
     border: 2px solid var(--accent);
     color: var(--accent);
+    background: rgba(245, 158, 11, 0.12);
     animation: pulseSlot 1.2s infinite ease-in-out;
 }
 
 @keyframes pulseSlot {
     0%, 100% { box-shadow: 0 0 5px rgba(245, 158, 11, 0.4); }
-    50% { box-shadow: 0 0 15px rgba(245, 158, 11, 0.9); }
+    50% { box-shadow: 0 0 18px rgba(245, 158, 11, 0.9); }
 }
 
 .dna-bonds-col {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.65rem;
 }
 
 .dna-bond-line {
-    height: 38px;
+    height: 52px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     color: var(--text-dim);
-    letter-spacing: -1px;
 }
 
 .dna-bond-line.active {
@@ -1790,31 +1849,41 @@ body {
     font-weight: 800;
 }
 
+.dna-bond-line .bond-tag {
+    background: rgba(56, 189, 248, 0.15);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    color: #38bdf8;
+    padding: 0.25rem 0.65rem;
+    border-radius: 6px;
+    font-weight: 800;
+    font-size: 0.85rem;
+}
+
 .dna-picker-row {
     display: flex;
     justify-content: center;
-    gap: 0.75rem;
-    margin-top: 1rem;
+    gap: 1rem;
+    margin-top: 1.5rem;
     flex-wrap: wrap;
 }
 
 .btn-dna-pick {
     border: none;
     font-weight: 800;
-    font-size: 1.05rem;
-    padding: 0.6rem 1.4rem;
-    border-radius: var(--radius-sm);
+    font-size: 1.15rem;
+    padding: 0.85rem 1.6rem;
+    border-radius: 12px;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.4);
     transition: transform 0.15s, box-shadow 0.15s;
     display: flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.5rem;
 }
 
 .btn-dna-pick:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 14px rgba(0,0,0,0.5);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.6);
 }
 
 /* ===================================================

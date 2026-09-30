@@ -219,37 +219,68 @@ class InteractiveLab {
         const infoEl = document.getElementById('dna-game-info');
         if (!board) return;
 
+        const baseMeta = {
+            'A': { name: 'Adenin', icon: '🔴', tag: 'A' },
+            'T': { name: 'Timin', icon: '🔵', tag: 'T' },
+            'G': { name: 'Guanin', icon: '🟢', tag: 'G' },
+            'C': { name: 'Sitozin', icon: '🟡', tag: 'C' }
+        };
+
         let html = '<div class="dna-strands-grid">';
         
         // 1. Zincir (Kalıp Zincir)
         html += '<div class="dna-strand left-strand">';
-        html += '<div class="strand-title">1. İplik (Kalıp)</div>';
-        this.dnaTemplate.forEach((base, idx) => {
-            html += `<div class="dna-base-card base-${base}">${base}</div>`;
+        html += '<div class="strand-title">1. İplik (Kalıp İplik)</div>';
+        this.dnaTemplate.forEach((base) => {
+            const meta = baseMeta[base];
+            html += `
+                <div class="dna-base-card base-${base}">
+                    <span class="base-badge">${meta.tag}</span>
+                    <span class="base-name">${meta.name}</span>
+                </div>
+            `;
         });
         html += '</div>';
 
         // Hidrojen Bağları
         html += '<div class="dna-bonds-col">';
-        html += '<div class="strand-title">Bağ</div>';
+        html += '<div class="strand-title">Zayıf H-Bağı</div>';
         this.dnaTemplate.forEach((base, idx) => {
             const isMatched = idx < this.dnaUser.length;
-            const bondType = (base === 'A' || base === 'T') ? '═ (2\'li)' : '≡ (3\'lü)';
-            html += `<div class="dna-bond-line ${isMatched ? 'active' : ''}">${isMatched ? bondType : '┄'}</div>`;
+            const bondType = (base === 'A' || base === 'T') ? '═ 2\'li Bağ' : '≡ 3\'lü Bağ';
+            html += `
+                <div class="dna-bond-line ${isMatched ? 'active' : ''}">
+                    ${isMatched ? `<span class="bond-tag">${bondType}</span>` : '<span style="opacity:0.3;">┄ ┄ ┄</span>'}
+                </div>
+            `;
         });
         html += '</div>';
 
-        // 2. Zincir (Öğrencinin Eşlediği)
+        // 2. Zincir (Öğrencinin Eşlediği Yeni İplik)
         html += '<div class="dna-strand right-strand">';
-        html += '<div class="strand-title">2. İplik (Yeni)</div>';
+        html += '<div class="strand-title">2. İplik (Yeni İplik)</div>';
         this.dnaTemplate.forEach((base, idx) => {
             const matched = this.dnaUser[idx];
             if (matched) {
-                html += `<div class="dna-base-card base-${matched} locked">${matched}</div>`;
+                const meta = baseMeta[matched];
+                html += `
+                    <div class="dna-base-card base-${matched} locked">
+                        <span class="base-badge">${meta.tag}</span>
+                        <span class="base-name">${meta.name}</span>
+                    </div>
+                `;
             } else if (idx === this.dnaStep) {
-                html += `<div class="dna-base-card empty active-slot">?</div>`;
+                html += `
+                    <div class="dna-base-card empty active-slot">
+                        <span style="font-weight:800; font-size:1rem;">👉 Burayı Seçin (?)</span>
+                    </div>
+                `;
             } else {
-                html += `<div class="dna-base-card empty">...</div>`;
+                html += `
+                    <div class="dna-base-card empty">
+                        <span style="opacity:0.4;">Bekliyor...</span>
+                    </div>
+                `;
             }
         });
         html += '</div>';
@@ -259,10 +290,24 @@ class InteractiveLab {
 
         if (infoEl) {
             if (this.dnaStep >= this.dnaTemplate.length) {
-                infoEl.innerHTML = `<span style="color:#10b981; font-weight:700;">🎉 Harika! DNA kendini kusursuz eşledi. 2 adet tıpatıp aynı yeni DNA oluştu!</span>`;
+                infoEl.innerHTML = `
+                    <div style="background: rgba(16, 185, 129, 0.2); border: 2px solid #10b981; padding: 1.25rem; border-radius: 14px; text-align:center;">
+                        <div style="color:#10b981; font-weight:900; font-size:1.4rem;">🎉 TEBRİKLER! DNA KENDİNİ KUSURSUZ EŞLEDİ!</div>
+                        <div style="color:#f8fafc; font-size:1.05rem; margin-top:0.4rem;">
+                            Kalıp iplikler karşısına doğru nükleotidler dizildi. 2 adet genetik olarak tıpatıp aynı yeni DNA oluştu!
+                        </div>
+                    </div>
+                `;
             } else {
                 const target = this.dnaTemplate[this.dnaStep];
-                infoEl.innerHTML = `Sıradaki nükleotid: <strong>${target}</strong>. Karşısına hangi nükleotid gelmelidir?`;
+                const meta = baseMeta[target];
+                const targetColor = target === 'A' ? '#ef4444' : (target === 'T' ? '#38bdf8' : (target === 'G' ? '#10b981' : '#f59e0b'));
+                infoEl.innerHTML = `
+                    <div style="background:rgba(255,255,255,0.05); border:1px solid var(--border-color); padding:0.9rem 1.25rem; border-radius:12px; display:inline-block;">
+                        Sıradaki Nükleotit: <strong style="color:${targetColor}; font-size:1.35rem; font-weight:900;">${meta.icon} ${meta.name} (${target})</strong>.
+                        Karşısına hangi nükleotit gelmelidir?
+                    </div>
+                `;
             }
         }
     }
