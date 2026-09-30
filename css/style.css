@@ -833,15 +833,307 @@ body {
     display: none;
 }
 
-/* MÜFREDAT TABLOSU */
+/* ===================================================
+   MÜFREDAT & AYRINTILI ÜNİTE AKORDİYON SİSTEMİ
+   =================================================== */
 .curriculum-container {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    overflow-x: auto;
     margin-bottom: 3rem;
 }
 
+.curriculum-header-action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+    background: var(--bg-card);
+    padding: 1.25rem 1.5rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+}
+
+.btn-toggle-all-units {
+    background: rgba(56, 189, 248, 0.12);
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    color: var(--primary);
+    padding: 0.6rem 1.25rem;
+    border-radius: var(--radius-full);
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-toggle-all-units:hover {
+    background: var(--primary);
+    color: #0f172a;
+    box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+}
+
+.curriculum-accordion-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.curriculum-unit-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.curriculum-unit-card:hover {
+    border-color: rgba(56, 189, 248, 0.4);
+}
+
+.curriculum-unit-card.expanded {
+    border-color: rgba(56, 189, 248, 0.6);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+.curr-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    cursor: pointer;
+    user-select: none;
+    background: rgba(255, 255, 255, 0.02);
+    transition: background 0.2s ease;
+}
+
+.curr-card-header:hover {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.curr-header-left {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    flex: 1;
+}
+
+.curr-unit-badge {
+    background: linear-gradient(135deg, #0284c7, #38bdf8);
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 800;
+    padding: 0.45rem 0.9rem;
+    border-radius: 8px;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+    box-shadow: 0 3px 10px rgba(56, 189, 248, 0.3);
+}
+
+.curr-unit-title {
+    margin: 0 0 0.4rem 0;
+    font-size: 1.15rem;
+    color: var(--text-main);
+    font-weight: 700;
+}
+
+.curr-unit-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+
+.curr-lgs-weight {
+    background: rgba(245, 158, 11, 0.15);
+    color: #fbbf24;
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-full);
+    font-weight: 700;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.curr-header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.curr-status-pill {
+    padding: 0.3rem 0.75rem;
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 700;
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--success);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    white-space: nowrap;
+}
+
+.curr-arrow-icon {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    transition: transform 0.3s ease;
+}
+
+.curriculum-unit-card.expanded .curr-arrow-icon {
+    transform: rotate(180deg);
+    color: var(--primary);
+}
+
+/* Gövde */
+.curr-card-body {
+    display: none;
+    padding: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    background: rgba(15, 23, 42, 0.4);
+}
+
+.curriculum-unit-card.expanded .curr-card-body {
+    display: block;
+    animation: fadeIn 0.25s ease-out;
+}
+
+.curr-exam-tip-box {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(245, 158, 11, 0.03));
+    border-left: 4px solid #f59e0b;
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.curr-exam-tip-box .tip-badge {
+    display: inline-block;
+    color: #fbbf24;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.35rem;
+}
+
+.curr-exam-tip-box p {
+    margin: 0;
+    color: var(--text-main);
+    font-size: 0.92rem;
+    line-height: 1.5;
+}
+
+.curr-topics-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.curr-topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.curr-topic-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1rem 1.15rem;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.curr-topic-item:hover {
+    transform: translateY(-2px);
+    border-color: rgba(56, 189, 248, 0.4);
+}
+
+.curr-topic-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin-bottom: 0.5rem;
+}
+
+.curr-topic-code {
+    background: rgba(56, 189, 248, 0.15);
+    color: var(--primary);
+    padding: 0.15rem 0.45rem;
+    border-radius: 4px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+}
+
+.curr-topic-header strong {
+    color: var(--text-main);
+    font-size: 0.92rem;
+    line-height: 1.35;
+}
+
+.curr-topic-desc {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.curr-card-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--border-color);
+}
+
+.btn-curr-act {
+    background: rgba(56, 189, 248, 0.12);
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    color: var(--primary);
+    padding: 0.55rem 1.15rem;
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.btn-curr-act:hover {
+    background: var(--primary);
+    color: #0f172a;
+    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+}
+
+.btn-curr-act.quiz {
+    background: rgba(244, 63, 94, 0.12);
+    border-color: rgba(244, 63, 94, 0.35);
+    color: #fb7185;
+}
+
+.btn-curr-act.quiz:hover {
+    background: #f43f5e;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(244, 63, 94, 0.35);
+}
+
+.btn-curr-act.lab {
+    background: rgba(16, 185, 129, 0.12);
+    border-color: rgba(16, 185, 129, 0.35);
+    color: #34d399;
+}
+
+.btn-curr-act.lab:hover {
+    background: #10b981;
+    color: #0f172a;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.35);
+}
+
+/* Eski tablo uyumluluğu */
 .curriculum-table {
     width: 100%;
     border-collapse: collapse;

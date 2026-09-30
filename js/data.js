@@ -352,15 +352,207 @@ const EDUCATION_DATA = {
                 }
             ],
 
-            // 2026-2027 MEB Resmi Müfredatı
+            // 2026-2027 MEB Resmi Müfredatı (Tüm Ünitelerin Ayrıntılı Konu ve Kazanım Dökümü)
             curriculum: [
-                { unit: "1. Ünite", name: "Mevsimler ve İklim", hours: "14 Saat (%9.7)", period: "1. Dönem (Eylül - Ekim)", status: "Mevcut & Aktif" },
-                { unit: "2. Ünite", name: "DNA ve Genetik Kod", hours: "36 Saat (%25.0)", period: "1. Dönem (Ekim - Aralık)", status: "Mevcut & Aktif" },
-                { unit: "3. Ünite", name: "Basınç (Katı, Sıvı, Gaz)", hours: "14 Saat (%9.7)", period: "1. Dönem (Aralık - Ocak)", status: "Mevcut & Aktif" },
-                { unit: "4. Ünite", name: "Madde ve Endüstri (Periyodik Sistem, Tepkimeler, Asit-Baz)", hours: "36 Saat (%25.0)", period: "2. Dönem (Şubat - Nisan)", status: "Mevcut & Aktif" },
-                { unit: "5. Ünite", name: "Basit Makineler (Kaldıraç, Makara, Eğik Düzlem)", hours: "16 Saat (%11.1)", period: "2. Dönem (Nisan - Mayıs)", status: "Mevcut & Aktif" },
-                { unit: "6. Ünite", name: "Enerji Dönüşümleri ve Çevre Bilimi", hours: "14 Saat (%9.7)", period: "2. Dönem (Mayıs)", status: "Mevcut & Aktif" },
-                { unit: "7. Ünite", name: "Elektrik Yükleri ve Elektrik Enerjisi", hours: "14 Saat (%9.7)", period: "2. Dönem (Haziran)", status: "Mevcut & Aktif" }
+                {
+                    unitId: 1,
+                    unit: "1. Ünite",
+                    name: "Mevsimler ve İklim",
+                    hours: "14 Saat (%9.7)",
+                    period: "1. Dönem (Eylül - Ekim)",
+                    lgsWeight: "LGS'de 1 - 2 Soru (%10)",
+                    status: "Mevcut & Aktif",
+                    examTip: "Sınav Tuzağı: Dünya'nın Güneş'e olan mesafesi (Ocak ayında yakın, Temmuzda uzak olması) mevsimleri ASLA etkilemez. Mevsimleri 23° 27' eksen eğikliği ve Güneş ışınlarının geliş açısı belirler!",
+                    topics: [
+                        {
+                            title: "Mevsimlerin Oluşumu & Gün Dönümleri",
+                            code: "F.8.1.1.1",
+                            summary: "Dünya'nın dönme ekseni eğikliği (23° 27') ve Güneş etrafında dolanması. Birim yüzeye aktarılan ısı enerjisi, ışınların geliş açısı (dik gelirse yaz, eğik gelirse kış). 21 Haziran (Yengeç Dönencesi dik, KYK yaz başlangıcı), 21 Aralık (Oğlak Dönencesi dik, GYK yaz başlangıcı), 21 Mart ve 23 Eylül (Ekinoks, tüm dünyada 12 saat gece - 12 saat gündüz)."
+                        },
+                        {
+                            title: "İklim ve Hava Hareketleri",
+                            code: "F.8.1.2.1",
+                            summary: "Rüzgarın oluşumu: Yüksek Basınç (Soğuk, alçalıcı hava, açık hava) alanından Alçak Basınç (Sıcak, yükselici hava, bulutlu ve yağışlı) alanına doğru yatay hava akımı. Havadaki nem, yağış türleri (gökyüzüne yakın: yağmur, kar, dolu; yeryüzüne yakın: çiy, kırağı, sis)."
+                        },
+                        {
+                            title: "İklim vs Hava Olayları & Küresel Isınma",
+                            code: "F.8.1.2.2",
+                            summary: "Meteoroloji (günlük, tahminî hava olayları, meteorolog) ile Klimatoloji (35-40 yıllık geniş bölge ortalaması, kesin, klimatolog) karşılaştırması. Sera gazları (CO2, CH4), sera etkisi ve küresel iklim değişikliğinin sonuçları."
+                        }
+                    ]
+                },
+                {
+                    unitId: 2,
+                    unit: "2. Ünite",
+                    name: "DNA ve Genetik Kod",
+                    hours: "36 Saat (%25.0)",
+                    period: "1. Dönem (Ekim - Aralık)",
+                    lgsWeight: "LGS'de 4 - 5 Soru (%25)",
+                    status: "Mevcut & Aktif",
+                    examTip: "Altın Formül: Toplam Fosfat = Toplam Şeker = Toplam Nükleotid = Toplam Baz. A=T ve G=C. Karmaşıktan basite: KROMOZOM > DNA > GEN > NÜKLEOTİD (KEDİGENİ formülü).",
+                    topics: [
+                        {
+                            title: "DNA'nın Yapısı ve Kendini Eşlemesi",
+                            code: "F.8.2.1.1",
+                            summary: "Çift zincirli sarmal yapı. Nükleotidin bileşenleri (Fosfat, Deoksiriboz Şekeri, Organik Baz: A, T, G, C). DNA'nın fermuar gibi açılarak kendini eşlemesi, sitoplazmadaki serbest nükleotidlerin çekirdeğe girmesi ve oluşan 2 yeni DNA'nın birbirinin kopyası olması. Tek zincirdeki mutasyonlar onarılır, karşılıklı boş kalan yerler onarılamaz!"
+                        },
+                        {
+                            title: "Kalıtım ve Mendel Çaprazlamaları",
+                            code: "F.8.2.2.1",
+                            summary: "Genotip (genetik yapı) ve Fenotip (dış görünüş). Baskın (dominant - A) ve Çekinik (resesif - a) genler. Saf döl (Homozigot - AA veya aa), Melez döl (Heterozigot - Aa). Monohibrit çaprazlamalar (Aa x Aa çaprazlamasında %75 baskın, %25 çekinik fenotip). İnsanda cinsiyetin belirlenmesi (Babadan gelen X veya Y kromozomu belirler). Akraba evliliğinin sakıncaları."
+                        },
+                        {
+                            title: "Mutasyon, Modifikasyon ve Adaptasyon",
+                            code: "F.8.2.3.1",
+                            summary: "Mutasyon: DNA dizilimindeki kalıcı bozulmalar (Radyasyon, kimyasallar; orak hücreli anemi, albinoluk, Down sendromu). Modifikasyon: Çevre etkisiyle genin İŞLEYİŞİNİN değişmesi, kalıtsal değildir (Himalaya tavşanı, kas gelişimi, çuha çiçeği). Adaptasyon: Canlının yaşama ve üreme şansını artıran kalıtsal uyumlar (Kutup ayısının beyaz kürkü, kaktüsün iğne yaprakları, bukalemunun kamufle olması)."
+                        },
+                        {
+                            title: "Biyoteknoloji ve Genetik Mühendisliği",
+                            code: "F.8.2.4.1",
+                            summary: "Gen aktarımı, gen tedavisi, klonlama (Dolly örneği), geleneksel ıslah, DNA parmak izi, aşılama ve yapay seçilim. Biyoteknolojinin tarım, tıp ve çevre alanındaki olumlu (insülin hormonu üretimi) ve olumsuz (alerjik reaksiyonlar, gen kaçışı) etkileri."
+                        }
+                    ]
+                },
+                {
+                    unitId: 3,
+                    unit: "3. Ünite",
+                    name: "Basınç (Katı, Sıvı, Gaz)",
+                    hours: "14 Saat (%9.7)",
+                    period: "1. Dönem (Aralık - Ocak)",
+                    lgsWeight: "LGS'de 2 - 3 Soru (%15)",
+                    status: "Mevcut & Aktif",
+                    examTip: "LGS Tüyosu: Katı basıncında P=G/S (yüzey küçülürse basınç artar). Sıvı basıncında P=h.d.g (kabın şekline ve sıvı miktarına ASLA bağlı değildir, sadece derinlik ve yoğunluk!).",
+                    topics: [
+                        {
+                            title: "Katı Basıncı ve Günlük Yaşam",
+                            code: "F.8.3.1.1",
+                            summary: "Birim yüzeye dik uygulanan kuvvet. Ağırlıkla doğru, temas yüzeyiyle ters orantılıdır. Basıncı artırma örnekleri: Bıçağın bilenmesi, krampon çivileri, toplu iğne ucu. Basıncı azaltma örnekleri: Traktörün geniş tekerlekleri, fil/deve geniş tabanları, kar ayakkabısı."
+                        },
+                        {
+                            title: "Sıvı Basıncı ve Pascal Prensibi",
+                            code: "F.8.3.1.2",
+                            summary: "Sıvıların ağırlıklarından dolayı temas ettikleri yüzeye uyguladığı basınç. Derinlik (h) ve sıvı yoğunluğu (d) ile doğru orantılıdır. Pascal Prensibi: Sıvılar sıkıştırılamaz ve üzerlerine uygulanan basıncı her doğrultuda aynen iletir. Uygulamalar: Berber koltuğu, hidrolik fren sistemi, itfaiye merdiveni, su cendereleri."
+                        },
+                        {
+                            title: "Açık Hava & Gaz Basıncı",
+                            code: "F.8.3.1.3",
+                            summary: "Torricelli deneyi (Deniz seviyesinde 0°C'de 76 cm cıva basıncı). Denizden yükseklere çıkıldıkça açık hava basıncı AZALIR (Hava seyrekleşir). Magdeburk yarım küreleri deneyi, vantuzlar, pipetle meyve suyu içilmesi. Kapalı kaplardaki gaz basıncı taneciklerin çarpmasıyla oluşur ve her noktada eşittir."
+                        }
+                    ]
+                },
+                {
+                    unitId: 4,
+                    unit: "4. Ünite",
+                    name: "Madde ve Endüstri",
+                    hours: "36 Saat (%25.0)",
+                    period: "2. Dönem (Şubat - Nisan)",
+                    lgsWeight: "LGS'de 4 - 5 Soru (%25)",
+                    status: "Mevcut & Aktif",
+                    examTip: "En Kritik Kural: Kimyasal tepkimelerde kütle, atom cinsi ve atom sayısı DAİMA korunur. Asitler metallerle tepkimeye girer (metal kapta saklanmaz), bazlar cam ve porseleni matlaştırır!",
+                    topics: [
+                        {
+                            title: "Periyodik Sistem ve Element Sınıfları",
+                            code: "F.8.4.1.1",
+                            summary: "Elementlerin artan proton sayılarına (atom numaralarına) göre dizilimi (Moseley). 7 periyot, 18 grup (8A, 10B). Metaller (iletken, parlak, tel/levha olur), Ametaller (kırılgan, mat, yalıtkan; 1A'daki Hidrojen istisnası!), Yarı metaller (fiziksel metal, kimyasal ametal), Soygazlar (8A kararlı, gaz; Helyum'un son katmanında 2 elektron vardır!)."
+                        },
+                        {
+                            title: "Fiziksel ve Kimyasal Değişimler & Kimyasal Tepkimeler",
+                            code: "F.8.4.2.1",
+                            summary: "Fiziksel değişimde sadece dış görünüş değişir (erime, buharlaşma, kırılma). Kimyasal değişimde maddenin kimliği değişir (yanma, paslanma, mayalanma, fotosentez). Kimyasal tepkime denklemleri: Girenler -> Ürünler. Kütlenin Korunumu Kanunu: Tepkimeye giren maddelerin kütlesi = Ürünlerin kütlesi."
+                        },
+                        {
+                            title: "Asitler, Bazlar ve Ayıraçlar (İndikatörler)",
+                            code: "F.8.4.3.1",
+                            summary: "Asitler (pH 0-7, tatları ekşi, H+ iyonu, mavi turnusolu kırmızı yapar, mermeri aşındırır, metallerle H2 gazı çıkarır). Bazlar (pH 7-14, tatları acı, ele kayganlık verir, OH- iyonu, kırmızı turnusolu mavi yapar, cam/porseleni tahrip eder). Asit yağmurları (SO2, NO2, CO2 gazları) ve çevreye zararları."
+                        },
+                        {
+                            title: "Maddenin Isı ile Etkileşimi & Isınma Grafikleri",
+                            code: "F.8.4.4.1",
+                            summary: "Özısı (c): 1 gram maddenin sıcaklığını 1°C artırmak için gereken ısı. Özısısı küçük olan çabuk ısınır ve çabuk soğur! Hal değişim ısıları (erime ısısı Le, buharlaşma ısısı Lb). Isınma ve soğuma eğrileri; hal değişimi sırasında sıcaklık SABİT kalır."
+                        }
+                    ]
+                },
+                {
+                    unitId: 5,
+                    unit: "5. Ünite",
+                    name: "Basit Makineler",
+                    hours: "16 Saat (%11.1)",
+                    period: "2. Dönem (Nisan - Mayıs)",
+                    lgsWeight: "LGS'de 2 - 3 Soru (%15)",
+                    status: "Mevcut & Aktif",
+                    examTip: "LGS'nin Asla Şaşmayan Kuralı: HİÇBİR basit makinede İŞ'TEN VE ENERJİDEN KAZANÇ OLMAZ! Kuvvetten kazanırsan aynı oranda yoldan kaybedersin.",
+                    topics: [
+                        {
+                            title: "Basit Makinelerin Temel İlkeleri",
+                            code: "F.8.5.1.1",
+                            summary: "Kuvvet kazancı = Yük / Kuvvet (1'den büyükse kuvvetten kazanç, yoldan kayıp vardır). İş kolaylığı sağlarlar. Asla yapılan işi veya enerjiyi azaltmazlar!"
+                        },
+                        {
+                            title: "Makaralar (Sabit, Hareketli ve Palangalar)",
+                            code: "F.8.5.1.2",
+                            summary: "Sabit Makara: Kuvvet kazancı yoktur (F = P), sadece kuvvetin yönünü değiştirir. Hareketli Makara: 2 kat kuvvet kazancı sağlar (F = P / 2), ip 2 metre çekilirse yük 1 metre yükselir. Palangalar: Sabit ve hareketli makaraların birleşimiyle yüksek kuvvet kazancı sağlar."
+                        },
+                        {
+                            title: "Kaldıraçlar, Eğik Düzlem, Çıkrık, Dişli ve Kasnaklar",
+                            code: "F.8.5.1.3",
+                            summary: "Kaldıraç türleri: Destek ortada (makas, tahterevalli), Yük ortada (el arabası, ceviz kıracağı - daima kuvvet kazancı), Kuvvet ortada (cımbız, maşa, tenis raketi - yoldan kazanç). Eğik düzlem: Daima kuvvet kazancı vardır (Kuvvet = Yük x Yükseklik / Boy). Çıkrık (kuyu kolu, kapı anahtarı), dişli çarklar ve vidanın çalışma prensipleri."
+                        }
+                    ]
+                },
+                {
+                    unitId: 6,
+                    unit: "6. Ünite",
+                    name: "Enerji Dönüşümleri ve Çevre Bilimi",
+                    hours: "14 Saat (%9.7)",
+                    period: "2. Dönem (Mayıs)",
+                    lgsWeight: "LGS'de 1 - 2 Soru (%10)",
+                    status: "Mevcut & Aktif",
+                    examTip: "Kritik Eşitlik: Fotosentez (Girenler: CO2 + H2O + Işık -> Çıkanlar: Besin/Glikoz + O2). Solunum (Girenler: Besin + O2 -> Çıkanlar: CO2 + H2O + ATP Enerjisi). Biri diğerinin tersidir!",
+                    topics: [
+                        {
+                            title: "Besin Zinciri ve Enerji Piramidi",
+                            code: "F.8.6.1.1",
+                            summary: "Üreticiler (bitkiler, siyanobakteriler) -> Tüketiciler (otçul, etçil, hepçil) -> Ayrıştırıcılar (mantarlar, bakteriler). Enerji piramidinde aşağıdan yukarıya çıkıldıkça: Aktarılan enerji azalır (%10 kuralı), biyokütle azalır, canlı sayısı azalır, zehirli madde birikimi (biyolojik birikim) ARTAR!"
+                        },
+                        {
+                            title: "Enerji Dönüşümleri: Fotosentez ve Solunum",
+                            code: "F.8.6.2.1",
+                            summary: "Fotosentez: Işık enerjisinin kimyasal bağ enerjisine çevrilmesi (Kloroplastta gerçekleşir, sadece ışıklı ortamda olur). Fotosentez hızını etkileyen faktörler: Işık şiddeti, ışığın rengi (morda/kırmızıda en hızlı, yeşilde en yavaş!), CO2 miktarı, sıcaklık. Solunum: Oksijenli solunum (mitokondri, çok ATP), Oksijensiz solunum (sitoplazma, az ATP), Fermantasyon (Laktik asit - yoğurt/çizgili kas, Etil alkol - ekmek mayası)."
+                        },
+                        {
+                            title: "Madde Döngüleri ve Çevre Sorunları",
+                            code: "F.8.6.3.1",
+                            summary: "Su döngüsü, Karbon döngüsü, Oksijen döngüsü ve Azot döngüsü (Azot bağlayıcı bakteriler). Ozon tabakasının incelmesi (CFC gazları), sera etkisi, küresel ısınma ve Ekolojik Ayak İzi'ni küçültme yolları."
+                        }
+                    ]
+                },
+                {
+                    unitId: 7,
+                    unit: "7. Ünite",
+                    name: "Elektrik Yükleri ve Elektrik Enerjisi",
+                    hours: "14 Saat (%9.7)",
+                    period: "2. Dönem (Haziran)",
+                    lgsWeight: "LGS'de 1 - 2 Soru (%10)",
+                    status: "Mevcut & Aktif",
+                    examTip: "Unutma: Yalnızca NEGATİF YÜKLER (-) hareket eder! Pozitif yükler (+) proton çekirdekte olduğu için ASLA hareket etmez. Topraklamada nötrlenme gerçekleşir.",
+                    topics: [
+                        {
+                            title: "Elektrik Yükleri ve Elektriklenme Çeşitleri",
+                            code: "F.8.7.1.1",
+                            summary: "Pozitif (+) ve Negatif (-) yükler. Aynı yükler iter, zıt yükler çeker. Nötr cisim = (+) ve (-) yük sayıları eşit olan cisim. Sürtünme ile elektriklenme (Ebonit çubuk yün kumaşa sürülürse ebonit eksi (-), Cam çubuk ipek kumaşa sürülürse cam artı (+) yüklenir). Dokunma ile elektriklenme (Toplam yük kapasitelerine göre paylaşılır). Etki (tesir) ile elektriklenme (Yüklerin kutuplanması)."
+                        },
+                        {
+                            title: "Elektroskop ve Topraklama",
+                            code: "F.8.7.2.1",
+                            summary: "Elektroskop: Bir cismin yüklü olup olmadığını, yüklüyse hangi cins yükle yüklü olduğunu belirleyen araç (Topuz, iletken gövde ve hareketli yapraklar). Topraklama: Yüklü cismin iletken bir telle toprağa bağlanarak nötr hale getirilmesi. Yıldırımsavar (paratoner), tankerlerin topraklama zincirleri."
+                        },
+                        {
+                            title: "Elektrik Enerjisinin Dönüşümü",
+                            code: "F.8.7.3.1",
+                            summary: "Elektrik enerjisinin ısıya dönüşümü (fırın, ütü, su ısıtıcısı - direnci yüksek tel), ışığa dönüşümü (akkor lamba, floresan, LED), harekete dönüşümü (elektrik motoru - mikser, vantilatör, çamaşır makinesi). Hareketten elektrik üretimi: Jeneratör / Dinamo (manyetik indüksiyon). Sigortanın devreyi koruma görevi ve kaçak akım rölesi."
+                        }
+                    ]
+                }
             ],
 
             quiz: [
@@ -761,14 +953,192 @@ const EDUCATION_DATA = {
                 }
             ],
 
+            // 2026-2027 MEB Resmi 7. Sınıf Müfredatı (Tüm Ünitelerin Ayrıntılı Konu ve Kazanım Dökümü)
             curriculum: [
-                { unit: "1. Ünite", name: "Güneş Sistemi ve Ötesi", hours: "16 Saat (%11.1)", period: "1. Dönem (Eylül - Ekim)", status: "Mevcut & Aktif" },
-                { unit: "2. Ünite", name: "Hücre ve Bölünmeler (Mitoz / Mayoz)", hours: "28 Saat (%19.4)", period: "1. Dönem (Ekim - Aralık)", status: "Mevcut & Aktif" },
-                { unit: "3. Ünite", name: "Kuvvet ve Enerji (Kütle, Ağırlık, İş, Enerji)", hours: "24 Saat (%16.7)", period: "1. Dönem (Aralık - Ocak)", status: "Mevcut & Aktif" },
-                { unit: "4. Ünite", name: "Saf Madde ve Karışımlar (Atom, Bileşik, Çözelti)", hours: "28 Saat (%19.4)", period: "2. Dönem (Şubat - Mart)", status: "Mevcut & Aktif" },
-                { unit: "5. Ünite", name: "Işığın Madde ile Etkileşimi (Aynalar, Kırılma)", hours: "28 Saat (%19.4)", period: "2. Dönem (Nisan - Mayıs)", status: "Mevcut & Aktif" },
-                { unit: "6. Ünite", name: "Canlılarda Üreme, Büyüme ve Gelişme", hours: "10 Saat (%6.9)", period: "2. Dönem (Mayıs)", status: "Mevcut & Aktif" },
-                { unit: "7. Ünite", name: "Elektrik Devreleri (Seri / Paralel Bağlama)", hours: "10 Saat (%6.9)", period: "2. Dönem (Haziran)", status: "Mevcut & Aktif" }
+                {
+                    unitId: 1,
+                    unit: "1. Ünite",
+                    name: "Güneş Sistemi ve Ötesi",
+                    hours: "16 Saat (%11.1)",
+                    period: "1. Dönem (Eylül - Ekim)",
+                    lgsWeight: "7. Sınıf 1. Yazılı Konusu",
+                    status: "Mevcut & Aktif",
+                    examTip: "Sınav Tuzağı: Işık yılı bir ZAMAN birimi DEĞİLDİR! Işığın 1 yılda aldığı 9.5 trilyon kilometrelik UZAKLIK birimidir. Yıldızlar ısı ve ışık yayar, gezegenler ise yansıtır.",
+                    topics: [
+                        {
+                            title: "Uzay Araştırmaları ve Teknolojisi",
+                            code: "F.7.1.1.1",
+                            summary: "Yapay uydular (Türksat, Göktürk, Rasat), uzay istasyonları, uzay mekikleri ve sondaları. Uzay kirliliği nedenleri ve sonuçları. Uzay teknolojisinin günlük yaşama kazandırdıkları (teflon, cırt cırt, duman dedektörü, dijital termometre, GPS)."
+                        },
+                        {
+                            title: "Teleskobun Yapısı & Astronomlar",
+                            code: "F.7.1.1.2",
+                            summary: "Teleskobun gökbilimindeki önemi (Optik, radyo, x-ışını teleskopları). Rasathanelerin (gözlemevlerinin) kurulma şartları (şehir ışıklarından uzak, yüksek, bulutsuz tepe noktalar). Ali Kuşçu, Uluğ Bey, Galileo ve Hubble."
+                        },
+                        {
+                            title: "Gök Cisimleri: Yıldızlar, Galaksiler ve Evren",
+                            code: "F.7.1.2.1",
+                            summary: "Bulutsu (Nebula - yıldızların doğum yeri). Yıldızların yaşam döngüsü (Küçük kütleli -> Beyaz cüce; Büyük kütleli -> Süpernova -> Nötron yıldızı veya Karadelik). Takımyıldızları (Büyükayı, Küçükayı, Avcı). Galaksi türleri (Sarmal, Eliptik, Düzensiz; Samanyolu sarmaldır, Avcı kolundayız). Kuyruklu yıldızlar (Kirli kartopu)."
+                        }
+                    ]
+                },
+                {
+                    unitId: 2,
+                    unit: "2. Ünite",
+                    name: "Hücre ve Bölünmeler",
+                    hours: "28 Saat (%19.4)",
+                    period: "1. Dönem (Ekim - Aralık)",
+                    lgsWeight: "7. Sınıf 1. ve 2. Yazılı Konusu",
+                    status: "Mevcut & Aktif",
+                    examTip: "Kritik Fark: Mitoz vücut hücrelerinde görülür (2n -> 2n, 2 hücre, çeşitlilik YOK). Mayoz üreme ana hücrelerinde görülür (2n -> n, 4 hücre, parça değişimi ile çeşitlilik VAR!).",
+                    topics: [
+                        {
+                            title: "Hücrenin Temel Kısımları ve Organeller",
+                            code: "F.7.2.1.1",
+                            summary: "Hücre zarı (seçici geçirgen), Sitoplazma ve Çekirdek (yönetim merkezi, DNA). Organeller: Ribozom (protein), Mitokondri (enerji/ATP), Kloroplast (fotosentez, sadece bitkide), Koful (bitkide büyük ve az, hayvanda küçük ve çok), Sentrozom (bölünme, sadece hayvanda), Lizozom (sindirim), Golgi (salgı/paket), Endoplazmik retikulum (taşıma). Bitki vs Hayvan hücresi karşılaştırması."
+                        },
+                        {
+                            title: "Mitoz Bölünme ve Evreleri",
+                            code: "F.7.2.2.1",
+                            summary: "Tek hücrelilerde üremeyi, çok hücrelilerde büyüme, gelişme ve yaraların onarımını sağlar. Kromozom sayısı SABİT kalır (2n -> 2n). Oluşan 2 hücre genetik ikizdir. Evreler (PMAT): Hazırlık (DNA eşlenmesi) -> Profaz -> Metafaz (kromozomlar ortada dizilir) -> Anafaz (kardeş kromatitler zıt kutuplara ayrılır) -> Telofaz ve Sitokinez (boğumlanma/ara lamel)."
+                        },
+                        {
+                            title: "Mayoz Bölünme ve Eşeyli Üreme",
+                            code: "F.7.2.3.1",
+                            summary: "Üreme ana hücrelerinde (testis, yumurtalık) gerçekleşir, sperm ve yumurta hücrelerini üretir. Kromozom sayısı YARIYA İNER (2n -> n, tür içi kromozom sayısının nesiller boyu sabit kalmasını sağlar). Parça Değişimi (Crossing-over): Homolog kromozomlar arası gen değiş tokuşu genetik çeşitliliği sağlar."
+                        }
+                    ]
+                },
+                {
+                    unitId: 3,
+                    unit: "3. Ünite",
+                    name: "Kuvvet ve Enerji",
+                    hours: "24 Saat (%16.7)",
+                    period: "1. Dönem (Aralık - Ocak)",
+                    lgsWeight: "7. Sınıf 2. Yazılı Konusu",
+                    status: "Mevcut & Aktif",
+                    examTip: "Fiziksel İş Kuralı: Bir kuvvetin iş yapabilmesi için cismin KUVVET DOĞRULTUSUNDA hareket etmesi şarttır! Sırtında çantayla düz yolda yürüyen çocuk fiziksel anlamda İŞ YAPMAZ.",
+                    topics: [
+                        {
+                            title: "Kütle ve Ağırlık İlişkisi",
+                            code: "F.7.3.1.1",
+                            summary: "Kütle (m): Değişmeyen madde miktarıdır, birimi kg veya g, eşit kollu teraziyle ölçülür, Evren'in her yerinde aynıdır. Ağırlık (G): Kütleye etki eden yer çekimi kuvvetidir, birimi Newton (N), dinamometreyle ölçülür, gök cisminin büyüklüğüne göre değişir (Ay'daki ağırlık Dünya'dakinin 1/6'sı kadardır)."
+                        },
+                        {
+                            title: "Fiziksel Anlamda İş (W = F . x)",
+                            code: "F.7.3.2.1",
+                            summary: "İş = Uygulanan Kuvvet x Alınan Yol. Birimi Joule (J). İş yapılabilmesi için: 1) Kuvvet uygulanmalı, 2) Cisim kuvvetle aynı doğrultuda yer değiştirmelidir. Örnek: Kutuyu yukarı kaldıran iş yapar, duvara yüklenip hareket ettiremeyen iş yapmaz!"
+                        },
+                        {
+                            title: "Kinetik Enerji, Potansiyel Enerji ve Korunum",
+                            code: "F.7.3.3.1",
+                            summary: "Kinetik Enerji: Hareket eden cisimlerin enerjisi (kütle ve sürate bağlı). Çekim Potansiyel Enerjisi: Yüksekteki cisimlerin enerjisi (kütle ve yüksekliğe bağlı). Esneklik Potansiyel Enerjisi: Gerilmiş yay veya paket lastiği. Enerjinin Korunumu: Enerji yok olmaz, sadece birbirine dönüşür (Sürtünme yoksa Potansiyel Enerji + Kinetik Enerji = Sabit Mekanik Enerji)."
+                        }
+                    ]
+                },
+                {
+                    unitId: 4,
+                    unit: "4. Ünite",
+                    name: "Saf Madde ve Karışımlar",
+                    hours: "28 Saat (%19.4)",
+                    period: "2. Dönem (Şubat - Mart)",
+                    lgsWeight: "7. Sınıf 2. Dönem 1. Yazılı",
+                    status: "Mevcut & Aktif",
+                    examTip: "Unutma: Element ve Bileşikler SAF MADDELERDİR (belli erime/kaynama noktaları vardır). Karışımlar ise saf değildir, formülle gösterilmezler ve fiziksel yollarla ayrılırlar.",
+                    topics: [
+                        {
+                            title: "Atomun Yapısı ve Geçmişten Günümüze Modeller",
+                            code: "F.7.4.1.1",
+                            summary: "Atomun temel tanecikleri: Çekirdekte Proton (+), Nötron (yüksüz); katmanlarda dönen Elektron (-). Atom modelleri tarihi: Democritus (bölünemez tanecik) -> Dalton (içi dolu berk küre) -> Thomson (üzümlü kek) -> Rutherford (çekirdekli model, gezegen modeli) -> Bohr (yörüngeli model) -> Modern Atom Teorisi (elektron bulutu)."
+                        },
+                        {
+                            title: "Saf Maddeler: Elementler ve Bileşikler",
+                            code: "F.7.4.2.1",
+                            summary: "Element: Tek cins atomdan oluşan saf madde. Sembollerle gösterilir (H, He, Li, Be, B, C, N, O, F, Ne, Na, Mg, Al, Si, P, S, Cl, Ar, K, Ca). Bileşik: En az iki farklı elementin kimyasal bağla birleşmesi. Formüllerle gösterilir (H2O, CO2, NaCl, NH3, CH4, HCl). Bileşikler kendini oluşturan elementlerin özelliklerini GÖSTERMEZ!"
+                        },
+                        {
+                            title: "Karışımlar ve Karışımları Ayırma Yöntemleri",
+                            code: "F.7.4.3.1",
+                            summary: "Homojen Karışım (Çözelti): Her yerinde aynı özellik (Tuzlu su, hava, maden suyu, kolonya, alaşımlar). Heterojen Karışım: Kumlu su, ayran, zeytinyağı-su, salata. Çözünme hızını artıranlar: Sıcaklık artışı, karıştırma, temas yüzeyi (pudra şekeri > küp şeker). Ayırma yöntemleri: Buharlaştırma, Damıtma (ayrımsal damıtma - kaynama noktası farkı), Yoğunluk farkı (ayırma hunisi), Mıknatısla ayırma (demir, nikel, kobalt), Süzme."
+                        }
+                    ]
+                },
+                {
+                    unitId: 5,
+                    unit: "5. Ünite",
+                    name: "Işığın Madde ile Etkileşimi",
+                    hours: "28 Saat (%19.4)",
+                    period: "2. Dönem (Nisan - Mayıs)",
+                    lgsWeight: "7. Sınıf 2. Dönem 1. ve 2. Yazılı",
+                    status: "Mevcut & Aktif",
+                    examTip: "Ayna Kuralları: Düz ayna daima cisimle aynı boyda ve düz görüntü verir. Tümsek ayna DAİMA DÜZ VE KÜÇÜK (Geniş görüş alanı: otopark/kavşak). Çukur ayna devasa düz görüntü veya ters görüntü verebilir (dişçi aynası, teleskop).",
+                    topics: [
+                        {
+                            title: "Işığın Soğurulması ve Cisimlerin Renkli Görünmesi",
+                            code: "F.7.5.1.1",
+                            summary: "Koyu renkli cisimler ışığı çok soğurur (ısınır), açık renkler yansıtır (serin kalır). Güneş enerjisinin kullanım alanları (güneş panelleri, güneş fırınları). Cisimler kendi renklerindeki ışığı yansıtır, diğer renkleri soğurur. Beyaz cisim tüm renkleri yansıtır, siyah cisim tüm renkleri soğurur."
+                        },
+                        {
+                            title: "Aynalar ve Görüntü Özellikleri",
+                            code: "F.7.5.2.1",
+                            summary: "Düzlem Aynalar: Simetrik, düz, cisimle eşit boyda ve eşit mesafede görüntü (Ev aynaları, periskop). Çukur Ayna: Işığı bir noktada (odak noktası) toplar. Cisme yakınken DÜZ ve BÜYÜK (makyaj aynası, dişçi aynası), uzaktayken TERS görüntü verir. Tümsek Ayna: Işığı dağıtır. Her zaman DÜZ ve KÜÇÜK görüntü vererek geniş bir alanı gösterir (Araç yan aynası, kavşak güvenlik aynaları)."
+                        },
+                        {
+                            title: "Işığın Kırılması ve Mercekler",
+                            code: "F.7.5.3.1",
+                            summary: "Işığın yoğunluğu farklı saydam bir ortamdan diğerine geçerken hızının ve doğrultusunun değişmesi. Az yoğundan (hava) -> Çok yoğuna (su/cam) geçerken NORMALE YAKLAŞIR ve yavaşlar. Çok yoğundan -> Az yoğuna geçerken NORMALDEN UZAKLAŞIR ve hızlanır. İnce kenarlı mercek (Işığı toplar, hipermetrop göz kusurunu düzeltir, büyüteç görevi görür). Kalın kenarlı mercek (Işığı dağıtır, miyop göz kusurunu düzeltir)."
+                        }
+                    ]
+                },
+                {
+                    unitId: 6,
+                    unit: "6. Ünite",
+                    name: "Canlılarda Üreme, Büyüme ve Gelişme",
+                    hours: "10 Saat (%6.9)",
+                    period: "2. Dönem (Mayıs)",
+                    lgsWeight: "7. Sınıf 2. Yazılı Konusu",
+                    status: "Mevcut & Aktif",
+                    examTip: "Çimlenme Şartları: SOS (Sıcaklık, Oksijen, Su). Çimlenen tohum fotosentez YAPMAZ (yeşil yaprağı yoktur), bu yüzden çimlenmek için IŞIK GEREKMEZ!",
+                    topics: [
+                        {
+                            title: "İnsanda Üreme, Büyüme ve Gelişme",
+                            code: "F.7.6.1.1",
+                            summary: "Erkek üreme sistemi (testis, sperm kanalı, salgı bezleri, penis). Dişi üreme sistemi (yumurtalık, yumurta kanalı - döllenmenin olduğu yer!, döl yatağı/rahim, vajina). Zigot (döllenmiş yumurta) -> Embriyo -> Fetüs -> Bebek. Anne adayının dikkat etmesi gerekenler (sağlıklı beslenme, röntgenden/ilaçtan kaçınma)."
+                        },
+                        {
+                            title: "Hayvanlarda Üreme ve Başkalaşım (Metamorfoz)",
+                            code: "F.7.6.2.1",
+                            summary: "Eşeyli üreme (İç döllenme/iç gelişme - memeliler; İç döllenme/dış gelişme - kuşlar, sürüngenler; Dış döllenme/dış gelişme - balıklar, kurbağalar). Başkalaşım geçiren canlılar: Yumurtadan çıkan yavrunun ana canlıya benzemeyip zamanla değişim geçirmesi (Kurbağa, kelebek, ipek böceği, sinek)."
+                        },
+                        {
+                            title: "Bitkilerde Eşeyli ve Eşeysiz Üreme, Çimlenme",
+                            code: "F.7.6.2.2",
+                            summary: "Çiçeğin kısımları: Çanak yaprak (yeşil, korur), Taç yaprak (renkli, kokulu, böcekleri çeker), Erkek organ (başçık ve sapçık - polen üretir), Dişi organ (tepecik, dişicik borusu, yumurtalık). Tozlaşma -> Döllenme -> Tohum ve Meyve oluşumu. Çimlenme için gerekli şartlar: Uygun Sıcaklık + Oksijen + Su (Nem). Çimlenmede ışık aranmaz!"
+                        }
+                    ]
+                },
+                {
+                    unitId: 7,
+                    unit: "7. Ünite",
+                    name: "Elektrik Devreleri",
+                    hours: "10 Saat (%6.9)",
+                    period: "2. Dönem (Haziran)",
+                    lgsWeight: "7. Sınıf Yıl Sonu Değerlendirmesi",
+                    status: "Mevcut & Aktif",
+                    examTip: "Altın Kural: Seri bağlı devrede ampul sayısı arttıkça eşdeğer direnç artar, ampul parlaklığı AZALIR (Biri patlarsa hepsi söner). Paralel bağlı devrede ampul sayısı artsa da parlaklık DEĞİŞMEZ (Biri patlarsa diğerleri yanmaya devam eder)!",
+                    topics: [
+                        {
+                            title: "Ampullerin Bağlanma Şekilleri: Seri ve Paralel Bağlama",
+                            code: "F.7.7.1.1",
+                            summary: "Seri Bağlama: Ampullerin uç uca tek bir hat üzerinde dizilmesi. Akım her ampulden aynı geçer. Ampul sayısı arttıkça toplam direnç artar, kollardan geçen akım azalır, parlaklık düşer. Paralel Bağlama: Ampullerin farklı kollara bağlanması. Her kolun gerilimi pil gerilimine eşittir. Ampul sayısı artsa da parlaklık değişmez. Evlerimizde tesisat paralel bağlıdır."
+                        },
+                        {
+                            title: "Akım, Gerilim ve Direnç İlişkisi (Ohm Kanunu)",
+                            code: "F.7.7.1.2",
+                            summary: "Ohm Kanunu: Bir iletkenin uçları arasındaki gerilimin (V), iletkenden geçen akıma (I) oranı sabittir ve bu oran iletkenin direncine (R) eşittir: V = I . R. Gerilim birimi Volt (V, Voltmetre ile ölçülür ve devreye PARALEL bağlanır). Akım birimi Amper (A, Ampermetre ile ölçülür ve devreye SERİ bağlanır). Direnç birimi Ohm (Ω)."
+                        }
+                    ]
+                }
             ],
 
             quiz: [

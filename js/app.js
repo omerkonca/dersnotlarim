@@ -14,6 +14,8 @@ class App {
 
     init() {
         this.setupThemeToggle();
+        // İçerikleri baştan hazırla
+        this.renderCourseContent();
         // Varsayılan olarak ana sayfayı göster
         this.showHome();
     }
@@ -135,7 +137,11 @@ class App {
 
         const filteredNotes = selectedUnit === 'all' 
             ? notes 
-            : notes.filter(n => (n.unitName || n.badge) === selectedUnit);
+            : notes.filter(n => {
+                const u = (n.unitName || n.badge || '').toLowerCase();
+                const s = selectedUnit.toLowerCase();
+                return u === s || u.includes(s) || s.includes(u);
+            });
 
         container.innerHTML = `
             ${units.length > 1 ? `
@@ -199,7 +205,11 @@ class App {
         const units = Array.from(new Set(quiz.map(q => q.unitName))).filter(Boolean);
         const filteredQuiz = selectedUnit === 'all' 
             ? quiz 
-            : quiz.filter(q => q.unitName === selectedUnit);
+            : quiz.filter(q => {
+                const u = (q.unitName || '').toLowerCase();
+                const s = selectedUnit.toLowerCase();
+                return u === s || u.includes(s) || s.includes(u);
+            });
 
         const currentScore = filteredQuiz.filter(q => this.userAnswers[q.id || q.question] === q.correct).length;
         const totalPoints = filteredQuiz.length * 10;
@@ -299,25 +309,122 @@ class App {
         this.renderQuiz(quiz, this.currentQuizUnit || 'all');
     }
 
-    // Müfredat Render
+    // Müfredat & Ünite Detayları Render (Genişletilebilir Akordiyon Tasarımı)
     renderCurriculum(curriculum) {
-        const tbody = document.getElementById('curriculum-tbody');
-        if (!tbody) return;
+        const container = document.getElementById('tab-curriculum');
+        if (!container) return;
 
         if (!curriculum || curriculum.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;">Müfredat bulunamadı.</td></tr>';
+            container.innerHTML = '<p style="color:var(--text-muted); padding:3rem; text-align:center;">Müfredat bulunamadı.</p>';
             return;
         }
 
-        tbody.innerHTML = curriculum.map(item => `
-            <tr>
-                <td><strong>${item.unit}</strong></td>
-                <td>${item.name}</td>
-                <td>${item.hours}</td>
-                <td>${item.period}</td>
-                <td><span class="status-pill ${item.status.includes('Aktif') ? 'active' : ''}">${item.status}</span></td>
-            </tr>
-        `).join('');
+        let html = `
+            <div class="curriculum-container">
+                <div class="curriculum-header-action" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem; flex-wrap:wrap; gap:1rem;">
+                    <div>
+                        <h3 style="margin:0 0 0.3rem 0; font-size:1.3rem; color:var(--text-main);">📋 MEB 2026-2027 Resmi Müfredatı & Ayrıntılı Ünite Dökümü</h3>
+                        <span style="font-size:0.88rem; color:var(--text-muted);">
+                            Her ünitenin alt konularını, MEB kazanımlarını ve LGS soru ağırlıklarını görmek için kartlara tıklayın.
+                        </span>
+                    </div>
+                    <button class="btn-toggle-all-units" onclick="app.toggleAllCurriculum()" style="background:rgba(56,189,248,0.15); border:1px solid rgba(56,189,248,0.4); color:var(--primary); padding:0.5rem 1.15rem; border-radius:var(--radius-full); font-size:0.85rem; font-weight:800; cursor:pointer;">
+                        ⚡ Tüm Detayları Aç / Kapat
+                    </button>
+                </div>
+
+                <div class="curriculum-accordion-list">
+        `;
+
+        curriculum.forEach((item, idx) => {
+            const hasTopics = item.topics && item.topics.length > 0;
+            const isFirst = idx === 0;
+
+            html += `
+                <div class="curriculum-unit-card ${isFirst ? 'expanded' : ''}" id="curr-unit-${item.unitId || idx}">
+                    <!-- Kart Başlık Çubuğu -->
+                    <div class="curr-card-header" onclick="app.toggleCurriculumCard(${item.unitId || idx})">
+                        <div class="curr-header-left">
+                            <span class="curr-unit-badge">${item.unit}</span>
+                            <div>
+                                <h4 class="curr-unit-title">${item.name}</h4>
+                                <div class="curr-unit-meta">
+                                    <span>⏱️ ${item.hours}</span>
+                                    <span>📅 ${item.period}</span>
+                                    ${item.lgsWeight ? `<span class="curr-lgs-weight">🎯 ${item.lgsWeight}</span>` : ''}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="curr-header-right">
+                            <span class="curr-status-pill">${item.status}</span>
+                            <span class="curr-arrow-icon">▼</span>
+                        </div>
+                    </div>
+
+                    <!-- Açılır Detay Gövdesi -->
+                    <div class="curr-card-body">
+                        ${item.examTip ? `
+                            <div class="curr-exam-tip-box">
+                                <span class="tip-badge">💡 Sınav Altın Tüyosu & Tuzaklar</span>
+                                <p>${item.examTip}</p>
+                            </div>
+                        ` : ''}
+
+                        ${hasTopics ? `
+                            <div class="curr-topics-title">🎯 Alt Konular & MEB Resmi Kazanımları:</div>
+                            <div class="curr-topics-grid">
+                                ${item.topics.map(tp => `
+                                    <div class="curr-topic-item">
+                                        <div class="curr-topic-header">
+                                            <span class="curr-topic-code">${tp.code}</span>
+                                            <strong>${tp.title}</strong>
+                                        </div>
+                                        <p class="curr-topic-desc">${tp.summary}</p>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        ` : '<p style="color:var(--text-muted); font-size:0.85rem;">Bu ünitenin alt konuları hazırlanıyor.</p>'}
+
+                        <!-- Hızlı Eylem Butonları -->
+                        <div class="curr-card-actions">
+                            <button class="btn-curr-act" onclick="app.switchInnerTab('tab-notes'); app.filterNotesByUnit('${item.unit}')">
+                                📖 Bu Ünitenin Notlarını Oku &rarr;
+                            </button>
+                            <button class="btn-curr-act quiz" onclick="app.switchInnerTab('tab-quiz'); app.filterQuizByUnit('${item.unit}')">
+                                ✍️ Bu Ünitenin Sorularını Çöz &rarr;
+                            </button>
+                            ${(item.unitId === 1 || item.unitId === 2 || item.unitId === 3) ? `
+                                <button class="btn-curr-act lab" onclick="app.switchInnerTab('tab-simulations')">
+                                    🎮 Canlı Simülatör & Deney &rarr;
+                                </button>
+                            ` : ''}
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+
+        html += `
+                </div>
+            </div>
+        `;
+
+        container.innerHTML = html;
+    }
+
+    toggleCurriculumCard(unitId) {
+        const card = document.getElementById(`curr-unit-${unitId}`);
+        if (!card) return;
+        card.classList.toggle('expanded');
+    }
+
+    toggleAllCurriculum() {
+        const cards = document.querySelectorAll('.curriculum-unit-card');
+        const anyClosed = Array.from(cards).some(c => !c.classList.contains('expanded'));
+        cards.forEach(c => {
+            if (anyClosed) c.classList.add('expanded');
+            else c.classList.remove('expanded');
+        });
     }
 
     // Gömülü Sunum Modalı
