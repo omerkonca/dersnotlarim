@@ -120,8 +120,8 @@ class App {
         `;
     }
 
-    // Notlar Render
-    renderNotes(notes) {
+    // Notlar Render (Ünite Filtresi ile Birlikte)
+    renderNotes(notes, selectedUnit = 'all') {
         const container = document.getElementById('notes-container');
         if (!container) return;
 
@@ -130,21 +130,51 @@ class App {
             return;
         }
 
-        container.innerHTML = notes.map(note => `
-            <div class="note-card">
-                <div class="note-top">
-                    <h4>${note.title}</h4>
-                    <span class="note-tag">${note.badge}</span>
+        // Mevcut üniteleri topla
+        const units = Array.from(new Set(notes.map(n => n.unitName || n.badge))).filter(Boolean);
+
+        const filteredNotes = selectedUnit === 'all' 
+            ? notes 
+            : notes.filter(n => (n.unitName || n.badge) === selectedUnit);
+
+        container.innerHTML = `
+            ${units.length > 1 ? `
+                <div class="unit-filter-bar" style="grid-column: 1 / -1; display:flex; gap:0.4rem; overflow-x:auto; padding-bottom:0.5rem; margin-bottom:0.5rem; scrollbar-width:none;">
+                    <button class="unit-pill ${selectedUnit === 'all' ? 'active' : ''}" onclick="app.filterNotesByUnit('all')">
+                        📚 Tüm Üniteler (${notes.length})
+                    </button>
+                    ${units.map(u => `
+                        <button class="unit-pill ${selectedUnit === u ? 'active' : ''}" onclick="app.filterNotesByUnit('${u}')">
+                            ${u}
+                        </button>
+                    `).join('')}
                 </div>
-                <div class="note-body">
-                    ${note.content}
+            ` : ''}
+            ${filteredNotes.map(note => `
+                <div class="note-card">
+                    <div class="note-top">
+                        <div>
+                            ${note.unitName ? `<span style="font-size:0.75rem; color:var(--primary); font-weight:700; display:block; margin-bottom:0.2rem;">${note.unitName}</span>` : ''}
+                            <h4 style="margin:0;">${note.title}</h4>
+                        </div>
+                        <span class="note-tag">${note.badge}</span>
+                    </div>
+                    <div class="note-body">
+                        ${note.content}
+                    </div>
+                    <div class="note-bottom">
+                        <span>💡 ${note.important}</span>
+                        <button class="btn-print" onclick="window.print()">🖨️ Yazdır</button>
+                    </div>
                 </div>
-                <div class="note-bottom">
-                    <span>💡 ${note.important}</span>
-                    <button class="btn-print" onclick="window.print()">🖨️ Yazdır</button>
-                </div>
-            </div>
-        `).join('');
+            `).join('')}
+        `;
+    }
+
+    filterNotesByUnit(unitName) {
+        const key = `${this.currentClass}-${this.currentSubject}`;
+        const notes = EDUCATION_DATA.content[key]?.notes || [];
+        this.renderNotes(notes, unitName);
     }
 
     // Quiz Render

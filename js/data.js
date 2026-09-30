@@ -1,6 +1,7 @@
 /**
  * MEB 2026 - 2027 EĞİTİM ÖĞRETİM YILI
  * FEN BİLİMLERİ VE TÜRKÇE RESMİ ÖĞRETİM PROGRAMI VERİTABANI
+ * (Tüm Üniteler, Detaylı Konu Anlatımları, Formüller, Altın Taktikler ve Soru Havuzu)
  */
 const EDUCATION_DATA = {
     academicYear: "2026 - 2027",
@@ -17,52 +18,61 @@ const EDUCATION_DATA = {
         { id: "turkce", name: "Türkçe", icon: "📖", color: "#f43f5e", active: true }
     ],
 
-    // İçerikler: Sınıf ve Ders bazlı
     content: {
         // ==========================================
-        // 8. SINIF FEN BİLİMLERİ (LGS) - 2026-2027 MEB
+        // 8. SINIF FEN BİLİMLERİ (LGS) - TÜM ÜNİTELER DETAYLI
         // ==========================================
         "8-fen": {
             title: "8. Sınıf Fen Bilimleri (LGS)",
-            subtitle: "2026 - 2027 MEB Öğretim Programı & LGS Soru Tipleri",
+            subtitle: "2026 - 2027 MEB Resmi Öğretim Programı & LGS Tam Kapsamlı Soru Bankası",
+            
             presentation: {
                 title: "1. Ünite: Mevsimler ve İklim",
-                desc: "Dünya'nın hareketleri, eksen eğikliği (23° 27'), rüzgar oluşumu, yüksek/alçak basınç alanları ve küresel iklim değişikliği.",
+                desc: "Dünya'nın hareketleri, eksen eğikliği (23° 27'), rüzgar oluşumu, yüksek/alçak basınç alanları ve küresel iklim değişikliği sunumu.",
                 file: "8-sinif.html",
                 slidesCount: "7 Temel Bölüm",
                 badge: "LGS'de Garanti 1 Soru"
             },
+
+            // Tüm 7 Ünitenin Detaylı Konu Anlatımları
             notes: [
+                // 1. ÜNİTE
                 {
+                    unitId: 1,
+                    unitName: "1. Ünite: Mevsimler ve İklim",
                     title: "Eksen Eğikliği & Mevsimler",
                     important: "Sınavda Kesin Çıkar!",
                     badge: "F.8.1.1.1",
                     content: `
                         <p><strong>Eksen Eğikliği (23° 27'):</strong> Dünya'mız Güneş etrafında dolanırken dik değil, 23° 27' eğik durur.</p>
                         <div class="note-highlight">
-                            <strong>Altın Kural:</strong> Işınlar <strong>DİK (90°)</strong> veya dike yakın gelirse birim yüzeye düşen enerji artar ve o bölge çok ısınır (YAZ). Eğik açıyla gelirse ışınlar dağılır, az ısınır (KIŞ).
+                            <strong>Altın Kural:</strong> Işınlar <strong>DİK (90°)</strong> veya dike yakın gelirse birim yüzeye düşen enerji artar ve o bölge çok ısınır (YAZ). Eğik açıyla gelirse ışınlar geniş alana yayılır, az ısınır (KIŞ).
                         </div>
                         <p><strong>Gölge Boyu:</strong> Yazın öğle vakti ışınlar dik geldiğinden gölge EN KISA, kışın eğik geldiğinden gölge EN UZUN olur.</p>
                         <div class="note-alert">
-                            ⚠️ <strong>MEB Tuzağı:</strong> Dünya'nın Güneş'e olan fiziksel mesafesinin (yakınlaşıp uzaklaşmasının) mevsimlerin oluşumuyla HİÇBİR ilgisi yoktur! Ocak ayında Güneş'e en yakınız ama Kuzey Yarım Küre kış mevsimini yaşar.
+                            ⚠️ <strong>MEB Tuzağı:</strong> Dünya'nın Güneş'e olan fiziksel mesafesinin mevsimlerin oluşumuyla HİÇBİR ilgisi yoktur! Ocak ayında Güneş'e en yakınız ama Kuzey Yarım Küre kış mevsimini yaşar.
                         </div>
                     `
                 },
                 {
+                    unitId: 1,
+                    unitName: "1. Ünite: Mevsimler ve İklim",
                     title: "Kritik Tarihler (Gündönümü & Ekinoks)",
                     important: "Tarihleri Karıştırma!",
                     badge: "F.8.1.1.1",
                     content: `
                         <ul class="styled-list">
-                            <li><strong>21 Haziran (Yaz Gündönümü):</strong> Kuzey Yarım Küre'de (Türkiye'de) yaz başlar, en uzun gündüz yaşanır. Güneş ışınları <u>Yengeç Dönencesi</u>'ne dik açıyla düşer.</li>
-                            <li><strong>21 Aralık (Kış Gündönümü):</strong> Kuzey Yarım Küre'de kış başlar, en uzun gece yaşanır. Güneş ışınları <u>Oğlak Dönencesi</u>'ne dik açıyla düşer.</li>
-                            <li><strong>21 Mart & 23 Eylül (Ekinoks):</strong> Dünyanın her yerinde gece ve gündüz süresi birbirine eşittir (12 saat). Güneş ışınları Ekvator'a dik açıyla düşer.</li>
+                            <li><strong>21 Haziran:</strong> KYK'de yaz başlar, en uzun gündüz yaşanır. Güneş ışınları <u>Yengeç Dönencesi</u>'ne dik düşer. GYK'de kış başlar.</li>
+                            <li><strong>21 Aralık:</strong> KYK'de kış başlar, en uzun gece yaşanır. Güneş ışınları <u>Oğlak Dönencesi</u>'ne dik düşer. GYK'de yaz başlar.</li>
+                            <li><strong>21 Mart & 23 Eylül (Ekinoks):</strong> Dünyanın her yerinde gece=gündüz (12 saat). Güneş Ekvator'a dik açıyla düşer.</li>
                         </ul>
                     `
                 },
                 {
+                    unitId: 1,
+                    unitName: "1. Ünite: Mevsimler ve İklim",
                     title: "Rüzgar Oluşumu & Basınç Alanları",
-                    important: "Yeni Nesil LGS Soru Kalıbı",
+                    important: "Yeni Nesil LGS Kalıbı",
                     badge: "F.8.1.2.1",
                     content: `
                         <p>Rüzgar her zaman <strong>YÜKSEK BASINÇTAN &rarr; ALÇAK BASINCA</strong> (Soğuktan &rarr; Sıcağa) doğru yatay yönde esen hava akımıdır.</p>
@@ -73,7 +83,7 @@ const EDUCATION_DATA = {
                                     <li>Hava soğuk ve yoğundur.</li>
                                     <li>Alçalıcı hava hareketi vardır.</li>
                                     <li>Hava açıktır, bulut/yağış görülmez.</li>
-                                    <li>Merkezden çevreye doğrudur.</li>
+                                    <li>Merkezden çevreye doğru hava hareketi.</li>
                                 </ul>
                             </div>
                             <div class="comp-card warm">
@@ -82,32 +92,277 @@ const EDUCATION_DATA = {
                                     <li>Hava sıcak ve hafiftir.</li>
                                     <li>Yükselici hava hareketi vardır.</li>
                                     <li>Bulutlanma ve yağış ihtimali fazladır.</li>
-                                    <li>Çevreden merkeze doğrudur.</li>
+                                    <li>Çevreden merkeze doğru hava hareketi.</li>
                                 </ul>
                             </div>
                         </div>
                     `
                 },
+
+                // 2. ÜNİTE
                 {
-                    title: "İklim ve Hava Olayları Farkı",
-                    important: "Karşılaştırma Tablosu",
-                    badge: "F.8.1.2.2",
+                    unitId: 2,
+                    unitName: "2. Ünite: DNA ve Genetik Kod",
+                    title: "DNA'nın Yapısı ve Eşlenmesi",
+                    important: "LGS'de Garanti 2-3 Soru",
+                    badge: "F.8.2.1.1",
                     content: `
-                        <p><strong>İklim:</strong> Geniş bir bölgede uzun yıllar boyunca (35-40 yıl) değişmeyen ortalama hava koşullarıdır. Kesindir. Bilim dalı: <em>Klimatoloji</em>, uzmanı: <em>Klimatolog</em>.</p>
-                        <p><strong>Hava Olayı:</strong> Dar bir alanda, günün belirli saatlerinde değişkenlik gösteren anlık olaylardır (Güneşli, rüzgarlı, yağmurlu). Tahminidir. Bilim dalı: <em>Meteoroloji</em>, uzmanı: <em>Meteorolog</em>.</p>
+                        <p><strong>Karmaşıktan Basite Sıralama (KEDİGENİ):</strong> Kromozom &gt; DNA &gt; Gen &gt; Nükleotid.</p>
+                        <p><strong>Nükleotid Yapısı:</strong> Fosfat + Deoksiriboz Şekeri + Organik Baz.</p>
+                        <div class="note-highlight">
+                            <strong>Eşleşme Kuralı:</strong> Adenin (A) daima Timin (T) ile (ikili hidrojen bağı); Guanin (G) daima Sitozin (C) ile (üçlü hidrojen bağı) eşleşir. <em>Toplam Fosfat = Toplam Şeker = Toplam Baz = Toplam Nükleotid!</em>
+                        </div>
+                        <p><strong>DNA Eşlenmesi:</strong> Çift sarmal fermuar gibi açılır. Sitoplazmadaki serbest nükleotidler çekirdeğe girer ve kalıp zincirlerin karşısına uygun nükleotidler yerleşerek <strong>birebir aynı 2 yeni DNA</strong> oluşur (Yarı korunumlu eşlenme).</p>
+                    `
+                },
+                {
+                    unitId: 2,
+                    unitName: "2. Ünite: DNA ve Genetik Kod",
+                    title: "Mendel Kalıtımı & Çaprazlamalar",
+                    important: "Olasılık Hesapları",
+                    badge: "F.8.2.2.1",
+                    content: `
+                        <ul class="styled-list">
+                            <li><strong>Baskın (Dominant) Gen:</strong> Büyük harfle gösterilir (A, B). Etkisini her durumda gösterir.</li>
+                            <li><strong>Çekinik (Resesif) Gen:</strong> Küçük harfle gösterilir (a, b). Yalnızca homozigot (aa) iken etkisini gösterir.</li>
+                            <li><strong>Saf Döl (Homozigot):</strong> AA veya aa. <strong>Melez Döl (Heterozigot):</strong> Aa.</li>
+                        </ul>
+                        <div class="note-alert">
+                            💡 <strong>Önemli Kural:</strong> İki melez (Aa x Aa) çaprazlandığında: Fenotip oranı %75 Baskın, %25 Çekinik (3:1); Genotip oranı %25 AA, %50 Aa, %25 aa (1:2:1) olur. İnsanda çocuğun kız veya erkek olma olasılığı DAİMA %50'dir!
+                        </div>
+                    `
+                },
+                {
+                    unitId: 2,
+                    unitName: "2. Ünite: DNA ve Genetik Kod",
+                    title: "Mutasyon vs Modifikasyon vs Adaptasyon",
+                    important: "Ayırt Edici Tablo",
+                    badge: "F.8.2.3.1",
+                    content: `
+                        <div class="comparison-grid">
+                            <div class="comp-card cold">
+                                <h4>🧬 Mutasyon</h4>
+                                <ul>
+                                    <li>Genin <strong>yapısı</strong> bozulur.</li>
+                                    <li>Üreme hücresindeyse kalıtsaldır.</li>
+                                    <li>Örn: Albinoluk, Van kedisinin gözleri, Down sendromu, 6 parmaklılık.</li>
+                                </ul>
+                            </div>
+                            <div class="comp-card warm">
+                                <h4>🌱 Modifikasyon</h4>
+                                <ul>
+                                    <li>Genin <strong>işleyişi</strong> değişir (yapı aynı).</li>
+                                    <li>Asla kalıtsal değildir, çevre şartıyla olur.</li>
+                                    <li>Örn: Sporcunun kas yapması, bronzlaşma, arı sütüyle beslenen kraliçe arı, Çuha çiçeği.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="mt-2"><strong>Adaptasyon:</strong> Canlının yaşama ve üreme şansını artıran kalıtsal uyumlarıdır (Örn: Kutup ayısının beyaz kürkü ve geniş ayakları, kaktüsün iğne yaprakları ve su depolayan gövdesi).</p>
+                    `
+                },
+
+                // 3. ÜNİTE
+                {
+                    unitId: 3,
+                    unitName: "3. Ünite: Basınç",
+                    title: "Katı Basıncı Formülü & Mantığı",
+                    important: "P = G / S Kuralı",
+                    badge: "F.8.3.1.1",
+                    content: `
+                        <p><strong>Katı Basıncı = Ağırlık (Kuvvet) / Yüzey Alanı (P = G / S)</strong></p>
+                        <ul class="styled-list">
+                            <li>Basınç, ağırlık (G) ile <strong>doğru orantılıdır</strong> (Ağırlık artarsa basınç artar).</li>
+                            <li>Basınç, temas yüzey alanı (S) ile <strong>ters orantılıdır</strong> (Yüzey küçülürse basınç artar: bıçağın bilenmesi, çivi ucu, topuklu ayakkabı).</li>
+                            <li>Yüzey büyürse basınç azalır (Örn: Kar ayakkabısı, traktörün geniş tekeri, fil ve devenin geniş tabanları).</li>
+                        </ul>
+                    `
+                },
+                {
+                    unitId: 3,
+                    unitName: "3. Ünite: Basınç",
+                    title: "Sıvı Basıncı & Pascal Prensibi",
+                    important: "P = h . d Kuralı",
+                    badge: "F.8.3.1.2",
+                    content: `
+                        <p><strong>Sıvı Basıncı = Derinlik x Sıvı Yoğunluğu (P = h . d)</strong></p>
+                        <div class="note-highlight">
+                            <strong>Altın Kurallar:</strong>
+                            1) Sıvı basıncı kabın şekline veya sıvı miktarına ASLA BAĞLI DEĞİLDİR!
+                            2) Derinlik (h) her zaman sıvının <u>en üst açık yüzeyinden</u> aşağıya doğru ölçülür!
+                        </div>
+                        <p><strong>Pascal Prensibi:</strong> Sıvılar sıkıştırılamaz! Kapalı kaptaki sıvıya uygulanan basınç, sıvının temas ettiği her noktaya <strong>aynı büyüklükte ve dik olarak</strong> iletilir. (Örn: Berber koltuğu, hidrolik frenler, itfaiye merdiveni, su cenderesi).</p>
+                    `
+                },
+                {
+                    unitId: 3,
+                    unitName: "3. Ünite: Basınç",
+                    title: "Gaz Basıncı & Torricelli Deneyi",
+                    important: "Açık Hava Basıncı (P0)",
+                    badge: "F.8.3.1.3",
+                    content: `
+                        <p><strong>Torricelli Deneyi:</strong> Deniz seviyesinde, 0°C'de cıva dolu boruyu ters çevirdiğinde cıva yüksekliğini <strong>76 cm (76 cm-Hg)</strong> ölçmüştür.</p>
+                        <div class="note-alert">
+                            ⚠️ <strong>Kritik Kural:</strong> Deniz seviyesinden yukarılara (dağlara) çıkıldıkça açık hava basıncı <strong>AZALIR</strong> (Cıva seviyesi 76'dan aşağı düşer). Borunun kalınlığı veya eğik durması cıva yüksekliğini DEĞİŞTİRMEZ!
+                        </div>
+                    `
+                },
+
+                // 4. ÜNİTE
+                {
+                    unitId: 4,
+                    unitName: "4. Ünite: Madde ve Endüstri",
+                    title: "Periyodik Sistem & Elementlerin Özellikleri",
+                    important: "Grup ve Periyot Bulma",
+                    badge: "F.8.4.1.1",
+                    content: `
+                        <p>Elementler <strong>artan atom numaralarına (proton sayılarına)</strong> göre sıralanmıştır (Moseley kuralı). Yatay sıralara <em>Periyot</em> (7 adet), düşey sütunlara <em>Grup</em> (18 adet: 8 A, 10 B) denir.</p>
+                        <ul class="styled-list">
+                            <li><strong>Metaller (Sol taraf):</strong> Yüzeyleri parlaktır, tel ve levha haline gelir, elektriği ve ısıyı çok iyi iletir, oda sıcaklığında cıva hariç katıdır. Kendi aralarında alaşım yaparlar.</li>
+                            <li><strong>Ametaller (Sağ taraf):</strong> Yüzeyleri mattır, kırılgandırlar tel/levha olmazlar, elektriği iyi iletmezler. <em>İstisna:</em> 1A grubundaki Hidrojen (H) ametaldir!</li>
+                            <li><strong>Soygazlar (8A Grubu):</strong> Kararlıdırlar, bileşik yapmazlar, tek atomlu gaz haldedirler (He, Ne, Ar). Helyum'un son katmanında 2 elektron vardır ama 8A grubundadır!</li>
+                        </ul>
+                    `
+                },
+                {
+                    unitId: 4,
+                    unitName: "4. Ünite: Madde ve Endüstri",
+                    title: "Fiziksel vs Kimyasal Değişim & Kütlenin Korunumu",
+                    important: "Tepkime Kuralları",
+                    badge: "F.8.4.2.1",
+                    content: `
+                        <p><strong>Fiziksel Değişim:</strong> Maddenin sadece dış görünüşü değişir, kimliği değişmez (Örn: Buzun erimesi, şekerin suda çözünmesi, kağıdın yırtılması, camın kırılması, yoğurttan ayran yapılması).</p>
+                        <p><strong>Kimyasal Değişim:</strong> Maddenin iç yapısı ve kimliği değişir, yeni madde oluşur (Örn: Paslanma, yanma, fotosentez, mayalanma, solunum, çürüme, pişme).</p>
+                        <div class="note-highlight">
+                            ⚖️ <strong>Kütlenin Korunumu Kanunu:</strong> Kimyasal bir tepkimede Girenlerin Kütlesi = Ürünlerin Kütlesi. Atom sayısı, atom cinsi ve toplam proton/nötron sayısı daima KORUNUR! Molekül sayısı korunmak zorunda değildir.
+                        </div>
+                    `
+                },
+                {
+                    unitId: 4,
+                    unitName: "4. Ünite: Madde ve Endüstri",
+                    title: "Asitler, Bazlar & pH Skalası",
+                    important: "Tuzak Sorular",
+                    badge: "F.8.4.3.1",
+                    content: `
+                        <div class="comparison-grid">
+                            <div class="comp-card cold">
+                                <h4>🍋 Asitler (pH 0 - 7)</h4>
+                                <ul>
+                                    <li>Tadları ekşidir. Sulu çözeltilerine H+ iyonu verirler.</li>
+                                    <li>Mavi turnusolu <strong>KIRMIZIYA</strong> çevirirler.</li>
+                                    <li>Metallerle tepkimeye girip H2 gazı çıkarırlar (Metal kapta saklanmaz!).</li>
+                                    <li>Örn: Limon, sirke, HCl (Tuz ruhu), H2SO4 (Zaç yağı).</li>
+                                </ul>
+                            </div>
+                            <div class="comp-card warm">
+                                <h4>🧼 Bazlar (pH 7 - 14)</h4>
+                                <ul>
+                                    <li>Tadları acıdır, ele kayganlık hissi verirler. OH- iyonu verirler.</li>
+                                    <li>Kırmızı turnusolu <strong>MAVİYE</strong> çevirirler.</li>
+                                    <li>Cam ve porseleni matlaştırıp aşındırırlar.</li>
+                                    <li>Örn: Sabun, deterjan, diş macunu, NaOH (Sud-kostik).</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="mt-2"><strong>Nötralleşme:</strong> Asit + Baz &rarr; Tuz + Su (pH = 7)</p>
+                    `
+                },
+
+                // 5. ÜNİTE
+                {
+                    unitId: 5,
+                    unitName: "5. Ünite: Basit Makineler",
+                    title: "Basit Makinelerin Genel Kuralları",
+                    important: "Altın Kural: İşten Kazanç Olmaz!",
+                    badge: "F.8.5.1.1",
+                    content: `
+                        <div class="note-alert">
+                            🚫 <strong>BÜYÜK KURAL:</strong> Hiçbir basit makinede <strong>İŞTEN VEYA ENERJİDEN KAZANÇ SAĞLANAMAZ!</strong> Sadece iş kolaylığı sağlanır.
+                        </div>
+                        <ul class="styled-list">
+                            <li><strong>Kuvvet Kazancı:</strong> Kuvvet Kazancı = Yük / Kuvvet. Eğer 1'den büyükse kuvvetten kazanç vardır.</li>
+                            <li><strong>Kuvvetten kazanç varsa &rarr; Yoldan aynı oranda KAYIP vardır!</strong> (Kuvvetten 2 kat kazanırsan ipi 2 kat fazla çekersin).</li>
+                        </ul>
+                    `
+                },
+                {
+                    unitId: 5,
+                    unitName: "5. Ünite: Basit Makineler",
+                    title: "Kaldıraçlar, Makaralar ve Eğik Düzlem",
+                    important: "Hesaplama Taktikleri",
+                    badge: "F.8.5.1.2",
+                    content: `
+                        <ul class="styled-list">
+                            <li><strong>Sabit Makara:</strong> Kuvvetten kazanç YOKTUR (F = P). Sadece kuvvetin yönünü değiştirir. İpi 1 metre çekersen yük 1 metre yükselir.</li>
+                            <li><strong>Hareketli Makara:</strong> Kuvvetten 2 kat kazanç vardır (F = P / 2). Yoldan 2 kat kayıp vardır (İpi 2 metre çekersen yük 1 metre yükselir).</li>
+                            <li><strong>Eğik Düzlem:</strong> <u>Daima kuvvetten kazanç vardır</u>. Kuvvet x Boy = Yük x Yükseklik (F . L = P . h). Boy (L) uzadıkça veya yükseklik (h) azaldıkça kuvvet kazancı ARTAR.</li>
+                            <li><strong>Kaldıraç Prensibi:</strong> Kuvvet x Kuvvet Kolu = Yük x Yük Kolu. Kuvvet kolu yük kolundan uzunsa kuvvet kazancı vardır (Örn: El arabası, fındık kıracağı).</li>
+                        </ul>
+                    `
+                },
+
+                // 6. ÜNİTE
+                {
+                    unitId: 6,
+                    unitName: "6. Ünite: Enerji Dönüşümleri",
+                    title: "Besin Zinciri & Enerji Piramidi",
+                    important: "%10 Yasası",
+                    badge: "F.8.6.1.1",
+                    content: `
+                        <p><strong>Besin Zinciri Sıralaması:</strong> Üretici (Bitkiler, algler) &rarr; Otçul (1. Tüketici) &rarr; Etçil (2. Tüketici) &rarr; Hepçil/Üst Etçil. <em>Ayrıştırıcılar (Bakteri ve mantarlar) her basamakta bulunur!</em></p>
+                        <div class="note-highlight">
+                            <strong>Aşağıdan Yukarıya Çıkıldıkça (Enerji Piramidinde):</strong>
+                            1) Aktarılan enerji azalır (Her basamakta enerjinin yalnızca <strong>%10'u</strong> aktarılır).
+                            2) Biyolojik birikim (zehir miktarı) <strong>ARTAR</strong> (En çok zehir tepedeki canlıdadır!).
+                            3) Birey sayısı genellikle azalır, canlı vücut büyüklüğü genellikle artar.
+                        </div>
+                    `
+                },
+                {
+                    unitId: 6,
+                    unitName: "6. Ünite: Enerji Dönüşümleri",
+                    title: "Fotosentez vs Solunum",
+                    important: "Denklem Karşılaştırması",
+                    badge: "F.8.6.2.1",
+                    content: `
+                        <p><strong>Fotosentez:</strong> Karbondioksit + Su + Işık &rarr; Glikoz (Besin) + Oksijen (Sadece klorofilli canlılar ışıklı ortamda yapar).</p>
+                        <p><strong>Oksijenli Solunum:</strong> Glikoz + Oksijen &rarr; Karbondioksit + Su + 32 ATP Enerji (Mitokondride, gece ve gündüz sürekli gerçekleşir).</p>
+                        <div class="note-alert">
+                            💡 <strong>Işık Rengi Tuzağı:</strong> Fotosentez hızı <u>Mor ve Kırmızı</u> ışıkta EN HIZLI, <u>Yeşil</u> ışıkta (yeşil ışık yansıtıldığı için) EN YAVAŞTIR!
+                        </div>
+                    `
+                },
+
+                // 7. ÜNİTE
+                {
+                    unitId: 7,
+                    unitName: "7. Ünite: Elektrik Yükleri ve Enerjisi",
+                    title: "Elektriklenme Çeşitleri & Elektroskop",
+                    important: "Sürtünme, Dokunma, Etki",
+                    badge: "F.8.7.1.1",
+                    content: `
+                        <ul class="styled-list">
+                            <li><strong>Sürtünme ile Elektriklenme:</strong> Ebonit (Plastik) çubuk yün kumaşa sürtülürse &rarr; <strong>Eksi (-)</strong> yüklenir. Cam çubuk ipek kumaşa sürtülürse &rarr; <strong>Artı (+)</strong> yüklenir. (Yükler eşit ve zıt işaretlidir).</li>
+                            <li><strong>Dokunma ile Elektriklenme:</strong> Toplam yük yarıçapları veya kapasiteleri oranında paylaşılır. Cisimler aynı cins yükle yüklenir.</li>
+                            <li><strong>Etki (Tesir) ile Elektriklenme:</strong> Yaklaştırılan cisim zıt yükleri çeker, aynı yükleri en uzağa iter. Net yük değişmez.</li>
+                            <li><strong>Elektroskop:</strong> Bir cismin elektrikle yüklü olup olmadığını ve yükün cinsini belirleyen araçtır. Nötr iken yapraklar kapalıdır; yüklü iken yapraklar açılır.</li>
+                            <li><strong>Topraklama:</strong> Yüklü bir cismin iletken bir telle toprağa bağlanarak <strong>NÖTR</strong> hale getirilmesidir.</li>
+                        </ul>
                     `
                 }
             ],
-            // MEB Resmi Fen Bilimleri Müfredatı (Saat & Hafta)
+
+            // 2026-2027 MEB Resmi Müfredatı
             curriculum: [
                 { unit: "1. Ünite", name: "Mevsimler ve İklim", hours: "14 Saat (%9.7)", period: "1. Dönem (Eylül - Ekim)", status: "Mevcut & Aktif" },
-                { unit: "2. Ünite", name: "DNA ve Genetik Kod", hours: "36 Saat (%25.0)", period: "1. Dönem (Ekim - Aralık)", status: "Hazırlanıyor" },
-                { unit: "3. Ünite", name: "Basınç (Katı, Sıvı, Gaz)", hours: "14 Saat (%9.7)", period: "1. Dönem (Aralık - Ocak)", status: "Hazırlanıyor" },
-                { unit: "4. Ünite", name: "Madde ve Endüstri (Periyodik Sistem, Tepkimeler)", hours: "36 Saat (%25.0)", period: "2. Dönem (Şubat - Nisan)", status: "Hazırlanıyor" },
-                { unit: "5. Ünite", name: "Basit Makineler (Kaldıraç, Makara, Eğik Düzlem)", hours: "16 Saat (%11.1)", period: "2. Dönem (Nisan - Mayıs)", status: "Hazırlanıyor" },
-                { unit: "6. Ünite", name: "Enerji Dönüşümleri ve Çevre Bilimi", hours: "14 Saat (%9.7)", period: "2. Dönem (Mayıs)", status: "Hazırlanıyor" },
-                { unit: "7. Ünite", name: "Elektrik Yükleri ve Elektrik Enerjisi", hours: "14 Saat (%9.7)", period: "2. Dönem (Haziran)", status: "Hazırlanıyor" }
+                { unit: "2. Ünite", name: "DNA ve Genetik Kod", hours: "36 Saat (%25.0)", period: "1. Dönem (Ekim - Aralık)", status: "Mevcut & Aktif" },
+                { unit: "3. Ünite", name: "Basınç (Katı, Sıvı, Gaz)", hours: "14 Saat (%9.7)", period: "1. Dönem (Aralık - Ocak)", status: "Mevcut & Aktif" },
+                { unit: "4. Ünite", name: "Madde ve Endüstri (Periyodik Sistem, Tepkimeler, Asit-Baz)", hours: "36 Saat (%25.0)", period: "2. Dönem (Şubat - Nisan)", status: "Mevcut & Aktif" },
+                { unit: "5. Ünite", name: "Basit Makineler (Kaldıraç, Makara, Eğik Düzlem)", hours: "16 Saat (%11.1)", period: "2. Dönem (Nisan - Mayıs)", status: "Mevcut & Aktif" },
+                { unit: "6. Ünite", name: "Enerji Dönüşümleri ve Çevre Bilimi", hours: "14 Saat (%9.7)", period: "2. Dönem (Mayıs)", status: "Mevcut & Aktif" },
+                { unit: "7. Ünite", name: "Elektrik Yükleri ve Elektrik Enerjisi", hours: "14 Saat (%9.7)", period: "2. Dönem (Haziran)", status: "Mevcut & Aktif" }
             ],
+
             quiz: [
                 {
                     question: "Dünya'nın eksen eğikliği ve Güneş etrafında dolanması sonucunda aşağıdakilerden hangisi MEYDANA GELİR?",
@@ -118,59 +373,64 @@ const EDUCATION_DATA = {
                         "Güneş'in Dünya'ya olan fiziksel mesafesinin mevsimleri belirlemesi"
                     ],
                     correct: 1,
-                    explanation: "Mevsimlerin oluşması iki temel sebebe bağlıdır: 1) Eksen eğikliği (23° 27'), 2) Dünya'nın Güneş etrafında dolanması. Gece-gündüz ise günlük kendi ekseni etrafında dönme sonucu oluşur."
+                    explanation: "Mevsimlerin oluşması iki temel sebebe bağlıdır: 1) Eksen eğikliği (23° 27'), 2) Dünya'nın Güneş etrafında dolanması."
                 },
                 {
-                    question: "21 Haziran tarihinde Kuzey Yarım Küre'de (Türkiye'de) bulunan bir gözlemci için hangisi DOĞRUDUR?",
+                    question: "DNA'nın yapısı ile ilgili olarak aşağıdakilerden hangisi her zaman DOĞRUDUR?",
                     options: [
-                        "En uzun gece yaşanır.",
-                        "Güneş ışınları Oğlak Dönencesi'ne dik açıyla düşer.",
-                        "En uzun gündüz yaşanır ve yaz mevsimi başlar.",
-                        "Gece ve gündüz süresi birbirine eşittir (12 saat)."
-                    ],
-                    correct: 2,
-                    explanation: "21 Haziran'da Güneş ışınları Yengeç Dönencesi'ne dik gelir. Kuzey Yarım Küre'de yaz başlar ve yılın en uzun gündüzü yaşanır."
-                },
-                {
-                    question: "K bölgesinde hava soğuk ve alçalıcı hava hareketi görülürken; L bölgesinde hava sıcak ve yükselici hava hareketi görülmektedir. Rüzgarın esme yönü hangisidir?",
-                    options: [
-                        "L bölgesinden K bölgesine doğrudur.",
-                        "K bölgesinden L bölgesine doğrudur (Soğuktan Sıcağa).",
-                        "Rüzgar oluşmaz çünkü hava açık olmalıdır.",
-                        "Rüzgar sadece denizden karaya eser."
+                        "Adenin sayısı Guanin sayısına eşittir.",
+                        "Toplam Deoksiriboz şekeri sayısı toplam fosfat sayısına eşittir.",
+                        "Sitoplazmadaki nükleotid sayısı hücre bölündükçe artar.",
+                        "Tek bir gende yalnızca tek bir nükleotid bulunur."
                     ],
                     correct: 1,
-                    explanation: "Soğuk olan K bölgesi Yüksek Basınç, sıcak olan L bölgesi Alçak Basınçtır. Rüzgar her zaman Yüksek Basınçtan Alçak Basınca (K'den L'ye, yani soğuktan sıcağa) doğru eser."
+                    explanation: "Bir DNA molekülünde daima: Toplam Fosfat Sayısı = Toplam Şeker Sayısı = Toplam Nükleotid Sayısı = Toplam Baz Sayısıdır."
                 },
                 {
-                    question: "Aşağıdakilerden hangisi bir 'İklim' özelliğidir?",
+                    question: "Katı bir tuğla masa üzerine önce geniş yüzeyi, sonra dar yüzeyi üzerinde konuluyor. Bu durumda tuğlanın masaya uyguladığı kuvvet ve basınç nasıl değişir?",
                     options: [
-                        "Bugün Ankara'da şiddetli sağanak yağış bekleniyor.",
-                        "Antalya'da yarın hava sıcaklığı 32 derece olacak.",
-                        "Doğu Anadolu Bölgesi'nde kışlar soğuk ve kar yağışlı geçer.",
-                        "İstanbul Boğazı'nda aniden çıkan fırtına vapurları durdurdu."
+                        "Kuvvet değişmez, basınç artar.",
+                        "Kuvvet artar, basınç değişmez.",
+                        "Her ikisi de artar.",
+                        "Kuvvet azalır, basınç artar."
                     ],
-                    correct: 2,
-                    explanation: "'Doğu Anadolu'da kışlar soğuk ve kar yağışlı geçer' ifadesi 35-40 yıllık uzun süreli ortalamayı ifade ettiği için iklimdir. Diğerleri anlık hava olaylarıdır."
+                    correct: 0,
+                    explanation: "Katının masaya uyguladığı kuvvet kendi ağırlığıdır (G), bu yüzden DEĞİŞMEZ. Yüzey alanı küçüldüğü için basınç (P = G / S) ARTAR."
+                },
+                {
+                    question: "Aşağıdakilerden hangisi bir 'Kimyasal Değişim' örneğidir?",
+                    options: [
+                        "Buzun eriyerek su haline gelmesi",
+                        "Demir çivinin nemli havada paslanması",
+                        "Küp şekerin suda çözünmesi",
+                        "Cam bardağın yere düşüp kırılması"
+                    ],
+                    correct: 1,
+                    explanation: "Demirin paslanması oksijenle girdiği kimyasal bir yanma tepkimesidir; maddenin iç yapısı ve kimliği değişir."
                 }
             ]
         },
 
         // ==========================================
-        // 7. SINIF FEN BİLİMLERİ - 2026-2027 MEB
+        // 7. SINIF FEN BİLİMLERİ - TÜM ÜNİTELER DETAYLI
         // ==========================================
         "7-fen": {
             title: "7. Sınıf Fen Bilimleri",
-            subtitle: "2026 - 2027 MEB Öğretim Programı & Yazılıya Hazırlık",
+            subtitle: "2026 - 2027 MEB Resmi Öğretim Programı & Yazılı Hazırlık",
+            
             presentation: {
                 title: "1. Ünite: Güneş Sistemi ve Ötesi",
-                desc: "Uzay araştırmaları, Türkiye'nin aktif uyduları, uzay kirliliği, teleskoplar, rasathaneler, ışık yılı, bulutsular ve yıldız döngüsü.",
+                desc: "Uzay araştırmaları, Türkiye'nin uyduları, uzay kirliliği, teleskoplar, ışık yılı, bulutsular ve yıldız döngüsü.",
                 file: "7-sinif.html",
                 slidesCount: "7 Kapsamlı Bölüm",
                 badge: "Yazılıda Çıkacak Konular"
             },
+
             notes: [
+                // 1. ÜNİTE
                 {
+                    unitId: 1,
+                    unitName: "1. Ünite: Güneş Sistemi ve Ötesi",
                     title: "Uzay Araçları & Ayırt Edici Özellikler",
                     important: "Sınavda Kesin Sorulur!",
                     badge: "F.7.1.1.1",
@@ -181,265 +441,181 @@ const EDUCATION_DATA = {
                             <li><span class="hl">Uzay Sondası:</span> Gezegenleri incelemek için uzaya gönderilen <strong>insansız</strong> robotik araçlar.</li>
                             <li><span class="hl">Yapay Uydu:</span> Dünya yörüngesinde haberleşme, gözlem ve haritalama yapan araçlar.</li>
                         </ul>
-                        <div class="note-alert">
-                            💡 <strong>Önemli İpucu:</strong> 'İnsansız araştırma aracı' diyorsa cevap <u>Uzay Sondası</u>; 'tekrar kullanılabilen araç' diyorsa <u>Uzay Mekiği</u>dir!
-                        </div>
                     `
                 },
                 {
-                    title: "Türkiye'nin Yapay Uyduları",
-                    important: "Milli Gururumuz - Güncel Liste",
+                    unitId: 1,
+                    unitName: "1. Ünite: Güneş Sistemi ve Ötesi",
+                    title: "Türkiye'nin Yapay Uyduları & Işık Yılı",
+                    important: "Kritik Bilgi",
                     badge: "F.7.1.1.2",
                     content: `
-                        <div class="comparison-grid">
-                            <div class="comp-card warm">
-                                <h4>📡 Aktif Haberleşme Uyduları</h4>
-                                <p>Türksat 3A, Türksat 4A, Türksat 4B, Türksat 5A, Türksat 5B ve ilk yerli haberleşme uydumuz <strong>Türksat 6A</strong>.</p>
-                            </div>
-                            <div class="comp-card cold">
-                                <h4>🌍 Aktif Gözlem Uyduları</h4>
-                                <p>Göktürk-1, Göktürk-2, <strong>İMECE</strong> ve Rasat (yerli gözlem uyduları).</p>
-                            </div>
-                        </div>
-                        <div class="note-highlight mt-2">
-                            ⚠️ <strong>Dikkat:</strong> Göktürk ve İMECE uyduları TV yayını veya haberleşme için değil, yüksek çözünürlüklü Dünya gözlemi ve haritacılık için kullanılır!
-                        </div>
-                    `
-                },
-                {
-                    title: "Işık Yılı ve Bulutsular (Nebula)",
-                    important: "En Çok Yanılınan Nokta!",
-                    badge: "F.7.1.2.1",
-                    content: `
+                        <p><strong>Aktif Haberleşme:</strong> Türksat 3A, 4A, 4B, 5A, 5B ve ilk yerli haberleşme uydumuz <strong>Türksat 6A</strong>.</p>
+                        <p><strong>Aktif Gözlem:</strong> Göktürk-1, Göktürk-2 ve yerli gözlem uydumuz <strong>İMECE</strong>.</p>
                         <div class="note-alert">
-                            🚫 <strong>BÜYÜK TUZAK:</strong> 'Işık Yılı' kesinlikle bir ZAMAN BİRİMİ DEĞİLDİR! Işığın boşlukta 1 yılda kat ettiği <strong>MESAFE / UZAKLIK</strong> ölçüsüdür.
+                            🚫 <strong>BÜYÜK TUZAK:</strong> 'Işık Yılı' kesinlikle ZAMAN BİRİMİ DEĞİLDİR! Işığın boşlukta 1 yılda aldığı <strong>MESAFE / UZAKLIK</strong> birimidir.
                         </div>
-                        <p><strong>Bulutsu (Nebula):</strong> Yıldızların doğduğu yerdir. Gaz ve toz bulutlarının yoğunlaşmasıyla yıldızlar oluşur. <em>Örnekler:</em> Orion (Avcı) bulutsusu, Atbaşı bulutsusu, Tarantula bulutsusu.</p>
+                    `
+                },
+
+                // 2. ÜNİTE
+                {
+                    unitId: 2,
+                    unitName: "2. Ünite: Hücre ve Bölünmeler",
+                    title: "Hücrenin Temel Kısımları & Organeller",
+                    important: "Bitki vs Hayvan Hücresi",
+                    badge: "F.7.2.1.1",
+                    content: `
+                        <p>Hücre 3 temel kısımdan oluşur: <strong>Hücre Zarı, Sitoplazma ve Çekirdek</strong>.</p>
+                        <div class="comparison-grid">
+                            <div class="comp-card cold">
+                                <h4>🌿 Bitki Hücresi</h4>
+                                <ul>
+                                    <li>Hücre duvarı (çeperi) VARDIR.</li>
+                                    <li>Kloroplast VARDIR (Fotosentez yapar).</li>
+                                    <li>Koful BÜYÜK ve AZ sayıdadır.</li>
+                                    <li>Hücre şekli KÖŞELİDİR.</li>
+                                </ul>
+                            </div>
+                            <div class="comp-card warm">
+                                <h4>🐾 Hayvan Hücresi</h4>
+                                <ul>
+                                    <li>Hücre duvarı YOKTUR.</li>
+                                    <li>Sentrozom (Sentriyoller) VARDIR.</li>
+                                    <li>Koful KÜÇÜK ve ÇOK sayıdadır.</li>
+                                    <li>Hücre şekli YUVARLAKTIR.</li>
+                                </ul>
+                            </div>
+                        </div>
                     `
                 },
                 {
-                    title: "Yıldızların Yaşam Döngüsü & Renkleri",
-                    important: "Yıldızların Doğumu ve Ölümü",
-                    badge: "F.7.1.2.2",
+                    unitId: 2,
+                    unitName: "2. Ünite: Hücre ve Bölünmeler",
+                    title: "Mitoz vs Mayoz Bölünme Farkları",
+                    important: "Yazılı Klasik Soru Tipi",
+                    badge: "F.7.2.2.1",
                     content: `
-                        <p><strong>Yıldız Sıcaklıkları:</strong> 🔵 Mavi/Beyaz (En Sıcak) &gt; 🟡 Sarı (Orta Sıcaklık - Güneş) &gt; 🔴 Kırmızı (En Soğuk).</p>
-                        <p><strong>Küçük Kütleli Yıldız:</strong> Kızıl Dev &rarr; Gezegenimsi Bulutsu &rarr; <strong>Beyaz Cüce</strong> olarak hayatını tamamlar (Güneşimiz bu gruptadır).</p>
-                        <p><strong>Büyük Kütleli Yıldız:</strong> Kırmızı Üstdev &rarr; Süpernova Patlaması &rarr; <strong>Nötron Yıldızı (Pulsar)</strong> veya <strong>Kara Delik</strong> olur.</p>
+                        <div class="comparison-grid">
+                            <div class="comp-card cold">
+                                <h4>🔬 Mitoz Bölünme</h4>
+                                <ul>
+                                    <li>Vücut hücrelerinde görülür.</li>
+                                    <li>Büyüme, gelişme ve onarımı sağlar.</li>
+                                    <li><strong>2 yeni hücre</strong> oluşur.</li>
+                                    <li>Kromozom sayısı <strong>SABİT KALIR (2n &rarr; 2n)</strong>.</li>
+                                    <li>Kalıtsal çeşitlilik YOKTUR (Fotokopi).</li>
+                                </ul>
+                            </div>
+                            <div class="comp-card warm">
+                                <h4>🧬 Mayoz Bölünme</h4>
+                                <ul>
+                                    <li>Üreme ana hücrelerinde (2n) görülür.</li>
+                                    <li>Üreme hücrelerini (Sperm/Yumurta, n) üretir.</li>
+                                    <li><strong>4 yeni hücre</strong> oluşur.</li>
+                                    <li>Kromozom sayısı <strong>YARIYA İNER (2n &rarr; n)</strong>.</li>
+                                    <li>Parça Değişimi (Crossing-Over) ile kalıtsal çeşitlilik SAĞLANIR.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    `
+                },
+
+                // 3. ÜNİTE
+                {
+                    unitId: 3,
+                    unitName: "3. Ünite: Kuvvet ve Enerji",
+                    title: "Kütle vs Ağırlık & Fiziksel İş",
+                    important: "İş = Kuvvet x Yol",
+                    badge: "F.7.3.1.1",
+                    content: `
+                        <p><strong>Kütle (m):</strong> Değişmeyen madde miktarıdır. Birimi kg/g, eşit kollu terazi ile ölçülür. Evrenin her yerinde AYNIDIR.</p>
+                        <p><strong>Ağırlık (G):</strong> Kütleye etki eden yerçekimi kuvvetidir. Birimi Newton (N), dinamometre ile ölçülür. Bulunulan gök cismine göre DEĞİŞİR (Ay'daki ağırlık Dünya'dakinin 1/6'sıdır!).</p>
+                        <div class="note-highlight">
+                            💪 <strong>Fiziksel Anlamda İş:</strong> İş = Kuvvet x Alınan Yol (W = F . x). Bir kuvvetin iş yapabilmesi için cismin <strong>kuvvet doğrultusunda hareket etmesi ŞARTTIR!</strong> (Çantayı sırtında sallamadan düz yolda yürüyen öğrenci veya duvarı iten adam fiziksel olarak İŞ YAPMAZ!).
+                        </div>
+                    `
+                },
+                {
+                    unitId: 3,
+                    unitName: "3. Ünite: Kuvvet ve Enerji",
+                    title: "Kinetik ve Potansiyel Enerji",
+                    important: "Enerjinin Korunumu",
+                    badge: "F.7.3.2.1",
+                    content: `
+                        <ul class="styled-list">
+                            <li><strong>Kinetik Enerji (Hareket Enerjisi):</strong> Hareket eden tüm cisimlerin enerjisidir. Cismin <strong>kütlesine</strong> ve <strong>süratine</strong> bağlıdır.</li>
+                            <li><strong>Çekim Potansiyel Enerjisi:</strong> Cismin yüksekliğinden dolayı sahip olduğu enerjidir. Cismin <strong>ağırlığına</strong> ve <strong>yerden yüksekliğine (h)</strong> bağlıdır.</li>
+                            <li><strong>Esneklik Potansiyel Enerjisi:</strong> Sıkıştırılmış veya gerilmiş esnek cisimlerde (yay, ok) depolanan enerjidir.</li>
+                        </ul>
+                    `
+                },
+
+                // 4. ÜNİTE
+                {
+                    unitId: 4,
+                    unitName: "4. Ünite: Saf Madde ve Karışımlar",
+                    title: "Atomun Yapısı, Element ve Bileşikler",
+                    important: "Saf Maddeler",
+                    badge: "F.7.4.1.1",
+                    content: `
+                        <p><strong>Atomun Yapısı:</strong> Çekirdekte Proton (+) ve Nötron (yüksüz); katmanlarda dönen Elektron (-) bulunur.</p>
+                        <p><strong>Element:</strong> Aynı cins atomlardan oluşan saf maddelerdir (Örn: Demir - Fe, Oksijen - O2, Altın - Au). Sembollerle gösterilir.</p>
+                        <p><strong>Bileşik:</strong> En az iki farklı elementin kimyasal bağlarla birleşmesiyle oluşan saf maddelerdir (Örn: Su - H2O, Karbondioksit - CO2, Sofra tuzu - NaCl). Formüllerle gösterilir. Kendini oluşturan maddelerin özelliklerini GÖSTERMEZLER!</p>
+                    `
+                },
+
+                // 5. ÜNİTE
+                {
+                    unitId: 5,
+                    unitName: "5. Ünite: Işığın Madde ile Etkileşimi",
+                    title: "Aynalar ve Kullanım Alanları",
+                    important: "Düz, Çukur ve Tümsek Ayna",
+                    badge: "F.7.5.1.1",
+                    content: `
+                        <ul class="styled-list">
+                            <li><strong>Düz Ayna:</strong> Görüntü daima düz, cisimle aynı boyda ve simetriktir. (Örn: Evlerimizdeki aynalar, periskop).</li>
+                            <li><strong>Çukur Ayna (Dev Aynası):</strong> Işığı odakta toplar. Cisme yaklaştıkça <strong>DÜZ ve DEV GÖRÜNTÜ</strong> oluşturur. (Örn: Dişçi aynası, makyaj aynası, teleskop, araba farı).</li>
+                            <li><strong>Tümsek Ayna:</strong> Işığı dağıtır. Daima <strong>DÜZ ve KÜÇÜK</strong> görüntü vererek geniş bir görüş alanı sağlar. (Örn: Araba yan aynaları, kavşak güvenlik aynaları, mağaza aynaları).</li>
+                        </ul>
                     `
                 }
             ],
+
             curriculum: [
                 { unit: "1. Ünite", name: "Güneş Sistemi ve Ötesi", hours: "16 Saat (%11.1)", period: "1. Dönem (Eylül - Ekim)", status: "Mevcut & Aktif" },
-                { unit: "2. Ünite", name: "Hücre ve Bölünmeler (Mitoz / Mayoz)", hours: "28 Saat (%19.4)", period: "1. Dönem (Ekim - Aralık)", status: "Hazırlanıyor" },
-                { unit: "3. Ünite", name: "Kuvvet ve Enerji (Kütle, Ağırlık, İş, Enerji)", hours: "24 Saat (%16.7)", period: "1. Dönem (Aralık - Ocak)", status: "Hazırlanıyor" },
-                { unit: "4. Ünite", name: "Saf Madde ve Karışımlar (Atom, Bileşik, Çözelti)", hours: "28 Saat (%19.4)", period: "2. Dönem (Şubat - Mart)", status: "Hazırlanıyor" },
-                { unit: "5. Ünite", name: "Işığın Madde ile Etkileşimi (Aynalar, Kırılma)", hours: "28 Saat (%19.4)", period: "2. Dönem (Nisan - Mayıs)", status: "Hazırlanıyor" },
-                { unit: "6. Ünite", name: "Canlılarda Üreme, Büyüme ve Gelişme", hours: "10 Saat (%6.9)", period: "2. Dönem (Mayıs)", status: "Hazırlanıyor" },
-                { unit: "7. Ünite", name: "Elektrik Devreleri (Seri / Paralel Bağlama)", hours: "10 Saat (%6.9)", period: "2. Dönem (Haziran)", status: "Hazırlanıyor" }
+                { unit: "2. Ünite", name: "Hücre ve Bölünmeler (Mitoz / Mayoz)", hours: "28 Saat (%19.4)", period: "1. Dönem (Ekim - Aralık)", status: "Mevcut & Aktif" },
+                { unit: "3. Ünite", name: "Kuvvet ve Enerji (Kütle, Ağırlık, İş, Enerji)", hours: "24 Saat (%16.7)", period: "1. Dönem (Aralık - Ocak)", status: "Mevcut & Aktif" },
+                { unit: "4. Ünite", name: "Saf Madde ve Karışımlar (Atom, Bileşik, Çözelti)", hours: "28 Saat (%19.4)", period: "2. Dönem (Şubat - Mart)", status: "Mevcut & Aktif" },
+                { unit: "5. Ünite", name: "Işığın Madde ile Etkileşimi (Aynalar, Kırılma)", hours: "28 Saat (%19.4)", period: "2. Dönem (Nisan - Mayıs)", status: "Mevcut & Aktif" },
+                { unit: "6. Ünite", name: "Canlılarda Üreme, Büyüme ve Gelişme", hours: "10 Saat (%6.9)", period: "2. Dönem (Mayıs)", status: "Mevcut & Aktif" },
+                { unit: "7. Ünite", name: "Elektrik Devreleri (Seri / Paralel Bağlama)", hours: "10 Saat (%6.9)", period: "2. Dönem (Haziran)", status: "Mevcut & Aktif" }
             ],
+
             quiz: [
                 {
-                    question: "Gezegenlerin yüzeyine inerek veya yakınına giderek fotoğraf çeken, veri toplayan İNSANSIZ uzay araçlarına ne ad verilir?",
+                    question: "Bitki hücresi ile hayvan hücresi karşılaştırıldığında aşağıdakilerden hangisi YALNIZCA bitki hücresinde bulunur?",
                     options: [
-                        "Uzay Mekiği",
-                        "Uzay Sondası",
-                        "Uzay İstasyonu",
-                        "Teleskop"
+                        "Sentrozom",
+                        "Hücre zarı",
+                        "Hücre duvarı (çeperi) ve Kloroplast",
+                        "Mitokondri"
                     ],
-                    correct: 1,
-                    explanation: "Uzay sondaları insan taşımayan, robotik, doğrudan gök cisimlerini inceleyen araştırma araçlarıdır."
+                    correct: 2,
+                    explanation: "Hücre çeperi ve fotosentez yapan kloroplast organeli sadece bitki hücrelerinde bulunur; hayvan hücrelerinde bulunmaz."
                 },
                 {
-                    question: "Aşağıda verilen uydularımızdan hangisi haberleşme değil, 'GÖZLEM' amacıyla uzayda görev yapmaktadır?",
+                    question: "Fiziksel anlamda iş yapılabilmesi için gereken iki temel şart hangisinde doğru verilmiştir?",
                     options: [
-                        "Türksat 4A",
-                        "Türksat 5B",
-                        "Türksat 6A",
-                        "Göktürk-1"
-                    ],
-                    correct: 3,
-                    explanation: "Türksat serisi haberleşme ve yayın uydusudur. Göktürk-1, Göktürk-2 ve İMECE ise yüksek çözünürlüklü gözlem uydularımızdır."
-                },
-                {
-                    question: "'Işık Yılı' kavramı ile ilgili verilen ifadelerden hangisi DOĞRUDUR?",
-                    options: [
-                        "Güneş etrafındaki 365 günlük süreyi belirten bir zaman ölçüsüdür.",
-                        "Gök cisimleri arasındaki mesafeyi ifade eden bir UZAKLIK birimidir.",
-                        "Bir ışık kaynağının yaydığı parlaklık miktarını gösterir.",
-                        "Yıldızların ömrünü ölçmek için kullanılan bir takvim birimidir."
-                    ],
-                    correct: 1,
-                    explanation: "Işık yılı, ışığın boşlukta 1 Dünya yılında aldığı yaklaşık 9.5 trilyon kilometrelik YOL (mesafe/uzaklık) birimidir. Zaman birimi değildir."
-                },
-                {
-                    question: "Büyük kütleli bir yıldızın ömrünün sonunda geçirdiği şiddetli patlama ve ardından dönüşebileceği yapı hangisinde doğru verilmiştir?",
-                    options: [
-                        "Süpernova Patlaması &rarr; Kara Delik veya Nötron Yıldızı",
-                        "Gezegenimsi Bulutsu &rarr; Beyaz Cüce",
-                        "Kızıl Dev &rarr; Sarı Cüce",
-                        "Nebula Patlaması &rarr; Gezegen"
+                        "Kuvvet uygulanmalı ve cisim bu kuvvet doğrultusunda hareket etmelidir.",
+                        "Cismin ağırlığı artırılmalı ve sürati sabit kalmalıdır.",
+                        "Uygulanan kuvvet yerçekimi kuvvetinden büyük olmalıdır.",
+                        "Cisim yalnızca dikey yönde yukarı kaldırılmalıdır."
                     ],
                     correct: 0,
-                    explanation: "Büyük kütleli yıldızlar süpernova patlaması geçirerek ya Nötron Yıldızına (Pulsar) ya da çekim gücü sonsuz olan Kara Deliğe dönüşür."
+                    explanation: "Fiziksel iş (W = F . x) olabilmesi için cisme kuvvet uygulanmalı ve cisim kuvvet doğrultusunda yol almalıdır."
                 }
             ]
-        },
-
-        // ==========================================
-        // 6. SINIF FEN BİLİMLERİ - 2026-2027 MEB
-        // ==========================================
-        "6-fen": {
-            title: "6. Sınıf Fen Bilimleri",
-            subtitle: "2026 - 2027 MEB Öğretim Programı",
-            presentation: {
-                title: "1. Ünite: Güneş Sistemi ve Tutulmalar",
-                desc: "Gezegenler, meteor ve gök taşları, Güneş ve Ay tutulmaları interaktif ders notu.",
-                file: "#",
-                slidesCount: "Hazırlanıyor",
-                badge: "Yakında Yayında"
-            },
-            notes: [
-                {
-                    title: "Gezegenlerin Sıralaması",
-                    important: "Güneş'e Yakınlık Sırası",
-                    badge: "F.6.1.1.1",
-                    content: `
-                        <p><strong>İç (Karasal) Gezegenler:</strong> Merkür, Venüs, Dünya, Mars.</p>
-                        <p><strong>Dış (Gazsal) Gezegenler:</strong> Jüpiter, Satürn, Uranüs, Neptün.</p>
-                        <div class="note-highlight">
-                            💡 <strong>Akılda Tutma Kodu:</strong> <u>M</u>eraklı <u>V</u>eli <u>D</u>ün <u>M</u>açta <u>J</u>öleli <u>S</u>açını <u>U</u>nutup <u>N</u>alları dikti.
-                        </div>
-                    `
-                }
-            ],
-            curriculum: [
-                { unit: "1. Ünite", name: "Güneş Sistemi ve Tutulmalar", hours: "14 Saat (%9.7)", period: "1. Dönem (Eylül - Ekim)", status: "Yakında" },
-                { unit: "2. Ünite", name: "Vücudumuzdaki Sistemler (Destek, Sindirim, Dolaşım, Solunum, Boşaltım)", hours: "34 Saat (%23.6)", period: "1. Dönem (Ekim - Aralık)", status: "Yakında" },
-                { unit: "3. Ünite", name: "Kuvvet ve Hareket (Bileşke Kuvvet, Sabit Süratli Hareket)", hours: "16 Saat (%11.1)", period: "1. Dönem (Ocak)", status: "Yakında" },
-                { unit: "4. Ünite", name: "Madde ve Isı (Yoğunluk, Isı Yalıtımı, Yakıtlar)", hours: "26 Saat (%18.1)", period: "2. Dönem (Şubat - Mart)", status: "Yakında" },
-                { unit: "5. Ünite", name: "Ses ve Özellikleri (Yayılma, Yansıma, Yalıtım)", hours: "14 Saat (%9.7)", period: "2. Dönem (Nisan)", status: "Yakında" },
-                { unit: "6. Ünite", name: "Vücudumuzdaki Sistemler ve Sağlığı (Denetleyici/Düzenleyici)", hours: "24 Saat (%16.7)", period: "2. Dönem (Mayıs)", status: "Yakında" },
-                { unit: "7. Ünite", name: "Elektriğin İletimi (İletken ve Yalıtkan Maddeler)", hours: "16 Saat (%11.1)", period: "2. Dönem (Haziran)", status: "Yakında" }
-            ],
-            quiz: []
-        },
-
-        // ==========================================
-        // 5. SINIF FEN BİLİMLERİ - 2026-2027 MEB
-        // ==========================================
-        "5-fen": {
-            title: "5. Sınıf Fen Bilimleri",
-            subtitle: "2026 - 2027 MEB Öğretim Programı",
-            presentation: {
-                title: "1. Ünite: Güneş, Dünya ve Ay",
-                desc: "Güneş'in yapısı, Ay'ın evreleri ve hareketleri ders sunumu.",
-                file: "#",
-                slidesCount: "Hazırlanıyor",
-                badge: "Yakında Yayında"
-            },
-            notes: [
-                {
-                    title: "Ay'ın Evreleri",
-                    important: "Ana ve Ara Evreler",
-                    badge: "F.5.1.2.1",
-                    content: `
-                        <p><strong>Ana Evreler (1'er hafta sürer):</strong> Yeni Ay &rarr; İlk Dördün (D harfi) &rarr; Dolunay (Tam parlak daire) &rarr; Son Dördün (Ters D harfi).</p>
-                        <p><strong>Ara Evreler:</strong> Hilal ve Şişkin Ay.</p>
-                    `
-                }
-            ],
-            curriculum: [
-                { unit: "1. Ünite", name: "Güneş, Dünya ve Ay", hours: "18 Saat (%12.5)", period: "1. Dönem (Eylül - Ekim)", status: "Yakında" },
-                { unit: "2. Ünite", name: "Canlılar Dünyası (Mikroskobik, Mantarlar, Bitkiler, Hayvanlar)", hours: "30 Saat (%20.8)", period: "1. Dönem (Ekim - Aralık)", status: "Yakında" },
-                { unit: "3. Ünite", name: "Kuvvetin Ölçülmesi ve Sürtünme (Dinamometre)", hours: "18 Saat (%12.5)", period: "1. Dönem (Aralık - Ocak)", status: "Yakında" },
-                { unit: "4. Ünite", name: "Madde ve Değişim (Erime, Donma, Buharlaşma, Genleşme)", hours: "30 Saat (%20.8)", period: "2. Dönem (Şubat - Mart)", status: "Yakında" },
-                { unit: "5. Ünite", name: "Işığın Yayılması (Gölge Oluşumu)", hours: "18 Saat (%12.5)", period: "2. Dönem (Nisan)", status: "Yakında" },
-                { unit: "6. Ünite", name: "İnsan ve Çevre (Biyoçeşitlilik, Çevre Kirliliği)", hours: "18 Saat (%12.5)", period: "2. Dönem (Mayıs)", status: "Yakında" },
-                { unit: "7. Ünite", name: "Elektrik Devre Elemanları (Devre Çizimi ve Şemalar)", hours: "12 Saat (%8.4)", period: "2. Dönem (Haziran)", status: "Yakında" }
-            ],
-            quiz: []
-        },
-
-        // ==========================================
-        // 8. SINIF TÜRKÇE (LGS) - 2026-2027 MEB
-        // ==========================================
-        "8-turkce": {
-            title: "8. Sınıf Türkçe (LGS)",
-            subtitle: "2026 - 2027 MEB Öğretim Programı & LGS Sözel Mantık",
-            presentation: {
-                title: "1. Ünite: Fiilimsiler (Eylemsiler)",
-                desc: "İsim-fiil, sıfat-fiil ve zarf-fiil ekleri, kalıplaşmış isim tuzakları.",
-                file: "#",
-                slidesCount: "Hazırlanıyor",
-                badge: "LGS'de Garanti 1 Soru"
-            },
-            notes: [
-                {
-                    title: "Fiilimsiler (Eylemsiler) Şifreleri",
-                    important: "Ek Ezberleme Formülleri",
-                    badge: "T.8.3.14",
-                    content: `
-                        <ul class="styled-list">
-                            <li><strong>İsim-Fiil:</strong> -ma, -ış, -mak &rarr; <em>"MA-YIŞ-MAK"</em></li>
-                            <li><strong>Sıfat-Fiil:</strong> -an, -ası, -mez, -ar, -dik, -ecek, -miş &rarr; <em>"ANASI MEZAR DİKECEKMİŞ"</em></li>
-                            <li><strong>Zarf-Fiil:</strong> -ken, -alı, -esiye, -meden, -ince, -ip, -erek... &rarr; Durum veya zaman anlamı katar.</li>
-                        </ul>
-                        <div class="note-alert">
-                            ⚠️ <strong>Kalıplaşmış İsim Tuzağı:</strong> "Dondurma", "Dolma", "Ekmek", "Çakmak" gibi sözcükler eylem özelliğini tamamen kaybettiği için fiilimsi DEĞİLDİR, kalıcı isimdir!
-                        </div>
-                    `
-                }
-            ],
-            curriculum: [
-                { unit: "1. Konu", name: "Sözcükte ve Söz Öbeklerinde Anlam", hours: "16 Saat", period: "1. Dönem (Eylül)", status: "Hazırlanıyor" },
-                { unit: "2. Konu", name: "Fiilimsiler (İsim-Fiil, Sıfat-Fiil, Zarf-Fiil)", hours: "14 Saat", period: "1. Dönem (Ekim)", status: "Hazırlanıyor" },
-                { unit: "3. Konu", name: "Cümlenin Ögeleri (Temel ve Yardımcı Ögeler)", hours: "16 Saat", period: "1. Dönem (Kasım)", status: "Hazırlanıyor" },
-                { unit: "4. Konu", name: "Paragrafta Anlam, Yapı ve Mantık Muhakeme", hours: "36 Saat", period: "Tüm Yıl Boyunca", status: "LGS Odaklı" },
-                { unit: "5. Konu", name: "Metin Türleri ve Söz Sanatları", hours: "12 Saat", period: "1. Dönem (Ocak)", status: "Hazırlanıyor" },
-                { unit: "6. Konu", name: "Fiilde Çatı (Öznesine ve Nesnesine Göre)", hours: "14 Saat", period: "2. Dönem (Şubat - Mart)", status: "Hazırlanıyor" },
-                { unit: "7. Konu", name: "Cümle Türleri ve Anlatım Bozuklukları", hours: "18 Saat", period: "2. Dönem (Nisan - Mayıs)", status: "Hazırlanıyor" },
-                { unit: "8. Konu", name: "Yazım Kuralları ve Noktalama İşaretleri", hours: "18 Saat", period: "Tüm Yıl Boyunca", status: "Hazırlanıyor" }
-            ],
-            quiz: []
-        },
-
-        // ==========================================
-        // 7. SINIF TÜRKÇE - 2026-2027 MEB
-        // ==========================================
-        "7-turkce": {
-            title: "7. Sınıf Türkçe",
-            subtitle: "2026 - 2027 MEB Öğretim Programı",
-            presentation: {
-                title: "1. Ünite: Fiillerde Anlam ve Kipler",
-                desc: "İş, oluş, durum fiilleri, haber ve dilek kipleri konu anlatımı.",
-                file: "#",
-                slidesCount: "Hazırlanıyor",
-                badge: "Temel Dilbilgisi"
-            },
-            notes: [
-                {
-                    title: "İş, Oluş ve Durum Fiilleri",
-                    important: "Tek Taktikle Çöz!",
-                    badge: "T.7.3.12",
-                    content: `
-                        <p>Fiilin başına <strong>"ONU"</strong> kelimesini getirin:</p>
-                        <ul class="styled-list">
-                            <li><strong>İş (Kılış) Fiili:</strong> Başına "onu" alıyorsa iş fiilidir (Örn: onu okudu, onu yazdı, onu çözdü).</li>
-                            <li><strong>Durum Fiili:</strong> Başına "onu" almıyorsa ve iradeyle yapılıyorsa durum fiilidir (Örn: onu güldü ❌, onu uyudu ❌).</li>
-                            <li><strong>Oluş Fiili:</strong> İrade dışı, zamanla kendiliğinden gerçekleşen fiziksel/kimyasal değişimlerdir (Örn: paslanmak, sararmak, uzamak, bayatlamak).</li>
-                        </ul>
-                    `
-                }
-            ],
-            curriculum: [
-                { unit: "1. Konu", name: "Fiillerde Anlam (İş, Oluş, Durum)", hours: "14 Saat", period: "1. Dönem (Eylül)", status: "Hazırlanıyor" },
-                { unit: "2. Konu", name: "Fiil Çekimi (Haber ve Dilek Kipleri, Kişi)", hours: "20 Saat", period: "1. Dönem (Ekim - Kasım)", status: "Hazırlanıyor" },
-                { unit: "3. Konu", name: "Ek Fiil (İsimlere ve Fiillere Gelen)", hours: "16 Saat", period: "1. Dönem (Aralık)", status: "Hazırlanıyor" },
-                { unit: "4. Konu", name: "Zarf (Belirteç) Türleri", hours: "14 Saat", period: "2. Dönem (Şubat - Mart)", status: "Hazırlanıyor" },
-                { unit: "5. Konu", name: "Paragrafta Anlam, Ana Fikir ve Söz Sanatları", hours: "36 Saat", period: "Tüm Yıl Boyunca", status: "Hazırlanıyor" },
-                { unit: "6. Konu", name: "Anlatım Bozuklukları, Yazım ve Noktalama", hours: "24 Saat", period: "2. Dönem (Nisan - Mayıs)", status: "Hazırlanıyor" }
-            ],
-            quiz: []
         }
     }
 };

@@ -547,6 +547,47 @@ body {
     font-size: 0.95rem;
 }
 
+/* ÜNİTE FİLTRE HAPLARI */
+.unit-filter-bar {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding-bottom: 0.6rem;
+    margin-bottom: 0.75rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.unit-filter-bar::-webkit-scrollbar {
+    display: none;
+}
+
+.unit-pill {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    padding: 0.45rem 1rem;
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+}
+
+.unit-pill:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--text-main);
+}
+
+.unit-pill.active {
+    background: var(--primary);
+    color: #0f172a;
+    border-color: var(--primary);
+    font-weight: 700;
+}
+
 /* NOTLAR */
 .notes-grid {
     display: grid;
