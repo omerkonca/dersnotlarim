@@ -35,6 +35,12 @@
             </nav>
 
             <div class="nav-actions">
+                <button class="btn-speedrun-toggle" onclick="interactiveLab.startSpeedRun()" title="60 Saniye Hızlı Ateş LGS Yarışması">
+                    ⚡ 60sn Hızlı Ateş
+                </button>
+                <button class="btn-qr-toggle" onclick="interactiveLab.toggleQRModal()" title="Tahtadan Telefona QR Kod Paylaşımı">
+                    📱 QR Paylaş
+                </button>
                 <button class="btn-wheel-toggle" onclick="toggleWheelModal()" title="Rastgele Öğrenci / Soru Seçici Çark">
                     🎲 Çarkıfelek
                 </button>
@@ -343,6 +349,212 @@
                             </div>
                         </div>
 
+                        <!-- Simülasyon 3: Katı Basıncı Laboratuvarı (Tuğla & Sünger Deneyi) -->
+                        <div class="sim-card" style="margin-top:1.5rem;">
+                            <div class="sim-header">
+                                <h4>🧱 Katı Basıncı Laboratuvarı (Tuğla & Sünger Çökme Deneyi)</h4>
+                                <span class="sim-badge" style="background:rgba(245,158,11,0.2); color:#f59e0b; border:1px solid rgba(245,158,11,0.4);">8. Sınıf LGS</span>
+                            </div>
+                            <p style="color:var(--text-muted); font-size:0.88rem; margin-bottom:1rem;">
+                                Katı basıncı formülü: <strong>P = G (Ağırlık) / S (Yüzey Alanı)</strong>. Tuğla sayısını artırın veya tuğlayı dik çevirin; süngere batma miktarını canlı gözlemleyin:
+                            </p>
+
+                            <div style="display:grid; grid-template-columns: 1fr 1.2fr; gap:1.25rem; align-items:center;">
+                                <!-- Kontroller -->
+                                <div style="background:rgba(255,255,255,0.03); border:1px solid var(--border-color); padding:1rem; border-radius:10px;">
+                                    <div style="margin-bottom:1rem;">
+                                        <label style="font-weight:700; font-size:0.85rem; display:block; margin-bottom:0.4rem;">
+                                            🧱 Tuğla Adedi (Ağırlık):
+                                        </label>
+                                        <select id="solid-brick-count" onchange="interactiveLab.updateSolidPressure()" style="width:100%; background:var(--bg-card); border:1px solid var(--border-color); color:#fff; padding:8px; border-radius:6px; font-weight:700;">
+                                            <option value="1">1 Tuğla (30 Newton)</option>
+                                            <option value="2">2 Tuğla (60 Newton)</option>
+                                            <option value="3">3 Tuğla (90 Newton)</option>
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <label style="font-weight:700; font-size:0.85rem; display:block; margin-bottom:0.4rem;">
+                                            📐 Temas Eden Yüzey Konumu:
+                                        </label>
+                                        <div style="display:flex; gap:1rem;">
+                                            <label style="font-size:0.85rem; cursor:pointer;">
+                                                <input type="radio" name="brick-orient" value="wide" checked onchange="interactiveLab.updateSolidPressure()">
+                                                Geniş Taban (150 cm²)
+                                            </label>
+                                            <label style="font-size:0.85rem; cursor:pointer;">
+                                                <input type="radio" name="brick-orient" value="narrow" onchange="interactiveLab.updateSolidPressure()">
+                                                Dar / Dik Taban (50 cm²)
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Canlı Değerler Tablosu -->
+                                    <div style="margin-top:1rem; background:rgba(0,0,0,0.3); border-radius:8px; padding:0.75rem; font-size:0.82rem; display:grid; grid-template-columns: 1fr 1fr; gap:0.5rem;">
+                                        <div>Ağırlık (G): <strong id="solid-val-weight" style="color:var(--primary);">30 N</strong></div>
+                                        <div>Yüzey (S): <strong id="solid-val-area" style="color:#f59e0b;">150 cm²</strong></div>
+                                        <div>Katı Basıncı: <strong id="solid-val-pressure" style="color:#10b981;">2000 Pa</strong></div>
+                                        <div>Süngere Batma: <strong id="solid-val-sink" style="color:#ef4444; font-size:0.95rem;">1.4 cm</strong></div>
+                                    </div>
+                                </div>
+
+                                <!-- SVG Tuğla & Sünger Çizimi -->
+                                <div style="background:#0f172a; border:1px solid var(--border-color); border-radius:10px; padding:0.5rem; text-align:center;">
+                                    <svg viewBox="0 0 300 200" width="100%" height="180">
+                                        <!-- Arka Plan & Zemin Çizgisi -->
+                                        <line x1="10" y1="180" x2="290" y2="180" stroke="#334155" stroke-width="3"/>
+                                        
+                                        <!-- Esnek Sünger -->
+                                        <path id="solid-sponge-svg" d="M20,130 Q150,144 280,130 L280,180 L20,180 Z" fill="#eab308" opacity="0.85"/>
+                                        <text x="150" y="165" fill="#713f12" font-size="11" font-weight="900" text-anchor="middle">ESNEK SÜNGER</text>
+
+                                        <!-- Tuğla(lar) -->
+                                        <rect id="solid-brick-svg" x="80" y="104" width="140" height="40" rx="4" fill="#ef4444" stroke="#b91c1c" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Simülasyon 4: Sıvı Basıncı Laboratuvarı (Derinlik, Sıvı Yoğunluğu & Manometre) -->
+                        <div class="sim-card" style="margin-top:1.5rem;">
+                            <div class="sim-header">
+                                <h4>🧪 Sıvı Basıncı Laboratuvarı (Manometre & Sıvı Yoğunluğu)</h4>
+                                <span class="sim-badge" style="background:rgba(56,189,248,0.2); color:var(--primary); border:1px solid rgba(56,189,248,0.4);">8. Sınıf LGS</span>
+                            </div>
+                            <p style="color:var(--text-muted); font-size:0.88rem; margin-bottom:1rem;">
+                                Sıvı basıncı formülü: <strong>P = h (Derinlik) &bull; d (Yoğunluk) &bull; g</strong>. Sıvı türünü değiştirin ve huni probunu kabın derinliklerine indirin; U borusundaki basınç seviyesini canlı izleyin:
+                            </p>
+
+                            <div style="display:grid; grid-template-columns: 1fr 1.2fr; gap:1.25rem; align-items:center;">
+                                <!-- Kontroller -->
+                                <div style="background:rgba(255,255,255,0.03); border:1px solid var(--border-color); padding:1rem; border-radius:10px;">
+                                    <div style="margin-bottom:1rem;">
+                                        <label style="font-weight:700; font-size:0.85rem; display:block; margin-bottom:0.4rem;">
+                                            🧪 Sıvı Türü (Yoğunluk - d):
+                                        </label>
+                                        <select id="liquid-type-select" onchange="interactiveLab.updateLiquidPressure()" style="width:100%; background:var(--bg-card); border:1px solid var(--border-color); color:#fff; padding:8px; border-radius:6px; font-weight:700;">
+                                            <option value="1.0">Saf Su (d = 1.0 g/cm³)</option>
+                                            <option value="0.9">Zeytinyağı (d = 0.9 g/cm³)</option>
+                                            <option value="1.2">Tuzlu Su (d = 1.2 g/cm³)</option>
+                                            <option value="13.6">Cıva (d = 13.6 g/cm³)</option>
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <label style="font-weight:700; font-size:0.85rem; display:flex; justify-content:space-between;">
+                                            <span>📏 Huni Derinliği (h):</span>
+                                            <span id="liquid-val-depth" style="color:var(--primary);">30 cm</span>
+                                        </label>
+                                        <input type="range" min="10" max="70" value="30" id="liquid-depth-slider" oninput="interactiveLab.updateLiquidPressure()" style="width:100%; margin-top:0.4rem;">
+                                    </div>
+
+                                    <!-- Canlı Değerler Tablosu -->
+                                    <div style="margin-top:1rem; background:rgba(0,0,0,0.3); border-radius:8px; padding:0.75rem; font-size:0.82rem;">
+                                        <div style="margin-bottom:0.25rem;">Sıvı Yoğunluğu: <strong id="liquid-val-density" style="color:#f59e0b;">1.0 g/cm³ (Saf Su)</strong></div>
+                                        <div>Hesaplanan Sıvı Basıncı: <strong id="liquid-val-pressure" style="color:#10b981; font-size:1.05rem;">3000 Pa</strong></div>
+                                    </div>
+                                </div>
+
+                                <!-- SVG Sıvı Kabı ve Manometre -->
+                                <div style="background:#0f172a; border:1px solid var(--border-color); border-radius:10px; padding:0.5rem; text-align:center;">
+                                    <svg viewBox="0 0 300 200" width="100%" height="180">
+                                        <!-- Sıvı Kabı -->
+                                        <rect x="30" y="40" width="120" height="140" fill="rgba(56,189,248,0.18)" stroke="#38bdf8" stroke-width="2" rx="4"/>
+                                        <text x="90" y="32" fill="#94a3b8" font-size="10" text-anchor="middle">Sıvı Kabı</text>
+
+                                        <!-- Huni Ucu / Prob -->
+                                        <g id="liquid-probe-svg" transform="translate(90, 83)">
+                                            <line x1="0" y1="-80" x2="0" y2="0" stroke="#f59e0b" stroke-width="3"/>
+                                            <polygon points="-12,-8 12,-8 0,6" fill="#f59e0b"/>
+                                            <line x1="0" y1="-80" x2="90" y2="-40" stroke="#f59e0b" stroke-width="2" stroke-dasharray="3"/>
+                                        </g>
+
+                                        <!-- U Borulu Manometre -->
+                                        <path d="M190,60 L190,160 Q205,175 220,160 L220,60" fill="none" stroke="#64748b" stroke-width="12" stroke-linecap="round"/>
+                                        <path d="M190,60 L190,160 Q205,175 220,160 L220,60" fill="none" stroke="#0f172a" stroke-width="8" stroke-linecap="round"/>
+                                        
+                                        <!-- Manometre Sıvı Kolu -->
+                                        <rect id="manometer-level-svg" x="216" y="93" width="8" height="67" fill="#ef4444" rx="3"/>
+                                        <text x="210" y="48" fill="#ef4444" font-size="10" font-weight="bold" text-anchor="middle">Manometre (Δh)</text>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Simülasyon 5: DNA Eşleme & Onarım Mini Oyunu (8. Sınıf) -->
+                        <div class="sim-card" style="margin-top:1.5rem;">
+                            <div class="sim-header">
+                                <h4>🧬 DNA Eşleme & Onarım Mini Oyunu</h4>
+                                <span class="sim-badge" style="background:rgba(236,72,153,0.2); color:#ec4899; border:1px solid rgba(236,72,153,0.4);">Oyunlaştırma</span>
+                            </div>
+                            <p style="color:var(--text-muted); font-size:0.88rem; margin-bottom:1rem;">
+                                DNA zinciri kendini eşliyor! 1. İplikteki bazların karşısına uygun nükleotidi (<strong>A - T</strong> ve <strong>G - C</strong>) seçerek yerleştirin:
+                            </p>
+
+                            <div class="dna-game-container">
+                                <div id="dna-game-info" style="text-align:center; font-size:1.05rem; margin-bottom:1rem; color:#fff;">
+                                    Sıradaki nükleotid: <strong>A</strong>. Karşısına hangi nükleotid gelmelidir?
+                                </div>
+
+                                <div id="dna-error-alert" style="display:none; background:rgba(239,68,68,0.2); border:1px solid #ef4444; color:#fca5a5; padding:0.6rem; border-radius:8px; text-align:center; font-weight:bold; margin-bottom:1rem; font-size:0.9rem;"></div>
+
+                                <!-- DNA İplikleri Gösterimi -->
+                                <div id="dna-board-container"></div>
+
+                                <!-- Nükleotid Seçim Butonları -->
+                                <div class="dna-picker-row">
+                                    <button class="btn-dna-pick" style="background:#ef4444; color:#fff;" onclick="interactiveLab.pickDNABase('A')">
+                                        🔴 Adenin (A)
+                                    </button>
+                                    <button class="btn-dna-pick" style="background:#0284c7; color:#fff;" onclick="interactiveLab.pickDNABase('T')">
+                                        🔵 Timin (T)
+                                    </button>
+                                    <button class="btn-dna-pick" style="background:#10b981; color:#fff;" onclick="interactiveLab.pickDNABase('G')">
+                                        🟢 Guanin (G)
+                                    </button>
+                                    <button class="btn-dna-pick" style="background:#f59e0b; color:#0f172a;" onclick="interactiveLab.pickDNABase('C')">
+                                        🟡 Sitozin (C)
+                                    </button>
+                                    <button class="btn-dna-pick" style="background:rgba(255,255,255,0.1); color:#fff; border:1px solid var(--border-color);" onclick="interactiveLab.initDNAGame()" title="Sıfırla">
+                                        🔄 Yeniden Başlat
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Simülasyon 6: Mitoz & Mayoz Evre Sıralama Laboratuvarı (7. Sınıf) -->
+                        <div class="sim-card" style="margin-top:1.5rem;">
+                            <div class="sim-header">
+                                <h4>🔬 Mitoz Bölünme Evre Sıralama Laboratuvarı</h4>
+                                <span class="sim-badge" style="background:rgba(16,185,129,0.2); color:#10b981; border:1px solid rgba(16,185,129,0.4);">7. Sınıf Hücre</span>
+                            </div>
+                            <p style="color:var(--text-muted); font-size:0.88rem; margin-bottom:1rem;">
+                                Hücre bölünmesi evreleri karışık verilmiştir. Kartlara tıklayarak 1'den 5'e kadar doğru biyolojik sıraya (PMAT) dizin. Doğru tamamlandığında hücrenin ikiye bölünüşünü izleyin:
+                            </p>
+
+                            <!-- Sıralama Slotları (1'den 5'e) -->
+                            <div style="font-weight:700; font-size:0.85rem; color:var(--text-muted); margin-bottom:0.4rem;">🎯 Sıralama Hattı (1. Adımdan 5. Adıma):</div>
+                            <div class="mitosis-slots-grid" id="mitosis-slots-container"></div>
+
+                            <!-- Hücre Bölünme Animasyon Alanı -->
+                            <div class="mitosis-cell-container">
+                                <div id="mitosis-anim-cell" class="mitosis-cell-single">2n</div>
+                            </div>
+                            <div id="mitosis-feedback" style="text-align:center; margin-bottom:1rem; font-size:0.9rem;">
+                                Henüz 0/5 evre yerleştirildi. Doğru sırayı tamamlayın.
+                            </div>
+
+                            <!-- Seçilebilir Evre Havuzu -->
+                            <div style="font-weight:700; font-size:0.85rem; color:var(--text-muted); margin-bottom:0.4rem;">📦 Kart Havuzu (Sıraya eklemek için karta tıklayın):</div>
+                            <div class="mitosis-pool-grid" id="mitosis-pool-container"></div>
+                            
+                            <div style="text-align:center; margin-top:1rem;">
+                                <button class="btn-primary" style="padding:0.5rem 1.5rem; font-size:0.85rem; border-radius:var(--radius-full);" onclick="interactiveLab.initMitosisGame()">
+                                    🔄 Kartları Karıştır & Baştan Başla
+                                </button>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
@@ -501,6 +713,9 @@
             <button class="board-btn" id="tool-laser" onclick="smartBoard.setTool('laser')" title="Lazer Işığı">
                 🔴 Lazer
             </button>
+            <button class="board-btn" id="tool-spotlight" onclick="smartBoard.setTool('spotlight')" title="Odak Feneri / Karartma Modu">
+                🔦 Odak
+            </button>
             <button class="board-btn" onclick="smartBoard.clearCanvas()" title="Tüm Çizimleri Temizle">
                 🧹 Temizle
             </button>
@@ -564,6 +779,106 @@ Selin</textarea>
         </div>
     </div>
 
+    <!-- 60 SANİYE HIZLI ATEŞ (SPEED RUN) MODALI -->
+    <div id="speedrun-modal" class="speedrun-modal" style="display: none;">
+        <div class="speedrun-modal-content">
+            <button class="sr-close-x" onclick="interactiveLab.closeSpeedRun()">✕</button>
+            <div class="sr-top-bar">
+                <div class="sr-timer" id="sr-timer-text">60s</div>
+                <div class="sr-stats">
+                    <span class="sr-stat-badge" id="sr-score-text" style="color:#f59e0b;">Skor: 0</span>
+                    <span class="sr-stat-badge" id="sr-combo-text" style="color:#38bdf8;">Combo: x1</span>
+                </div>
+            </div>
+
+            <div class="sr-question-box" id="sr-question-title">
+                Soru yükleniyor...
+            </div>
+
+            <div class="sr-feedback-box" id="sr-feedback-text"></div>
+
+            <div class="sr-buttons-wrap" id="sr-buttons-wrap">
+                <button class="btn-sr-choice btn-sr-true" onclick="interactiveLab.answerSpeedRun(true)">
+                    <span style="font-size:1.4rem;">✅</span> DOĞRU
+                </button>
+                <button class="btn-sr-choice btn-sr-false" onclick="interactiveLab.answerSpeedRun(false)">
+                    <span style="font-size:1.4rem;">❌</span> YANLIŞ
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAHTADAN TELEFONA QR KOD MODALI -->
+    <div id="qr-modal" class="qr-modal" style="display: none;">
+        <div class="qr-modal-content">
+            <button class="sr-close-x" onclick="interactiveLab.toggleQRModal()">✕</button>
+            <h3 style="color:var(--primary); font-size:1.3rem; margin-bottom:0.4rem;">📱 Tahtadan Telefona Bağlan</h3>
+            <p style="color:var(--text-muted); font-size:0.85rem;">
+                Öğrenciler telefon kameralarını tahtadaki bu koda tutarak canlı simülasyonları ve testleri kendi cihazlarında çözebilirler.
+            </p>
+
+            <div class="qr-code-box">
+                <!-- Vektörel Scannable QR Kodu -->
+                <svg width="200" height="200" viewBox="0 0 29 29" shape-rendering="crispEdges">
+                    <!-- Arka plan beyaz -->
+                    <rect width="29" height="29" fill="#ffffff"/>
+                    <!-- Sol Üst Bulucu Kare (Finder) -->
+                    <rect x="2" y="2" width="7" height="7" fill="#0f172a"/>
+                    <rect x="3" y="3" width="5" height="5" fill="#ffffff"/>
+                    <rect x="4" y="4" width="3" height="3" fill="#0f172a"/>
+                    <!-- Sağ Üst Bulucu Kare (Finder) -->
+                    <rect x="20" y="2" width="7" height="7" fill="#0f172a"/>
+                    <rect x="21" y="3" width="5" height="5" fill="#ffffff"/>
+                    <rect x="22" y="4" width="3" height="3" fill="#0f172a"/>
+                    <!-- Sol Alt Bulucu Kare (Finder) -->
+                    <rect x="2" y="20" width="7" height="7" fill="#0f172a"/>
+                    <rect x="3" y="21" width="5" height="5" fill="#ffffff"/>
+                    <rect x="4" y="22" width="3" height="3" fill="#0f172a"/>
+                    <!-- Zamanlama & Hizalama Çizgileri -->
+                    <rect x="9" y="4" width="2" height="1" fill="#0f172a"/>
+                    <rect x="12" y="4" width="2" height="1" fill="#0f172a"/>
+                    <rect x="15" y="4" width="2" height="1" fill="#0f172a"/>
+                    <rect x="4" y="9" width="1" height="2" fill="#0f172a"/>
+                    <rect x="4" y="12" width="1" height="2" fill="#0f172a"/>
+                    <rect x="4" y="15" width="1" height="2" fill="#0f172a"/>
+                    <!-- Hizalama Deseni (Alignment Pattern) -->
+                    <rect x="19" y="19" width="5" height="5" fill="#0f172a"/>
+                    <rect x="20" y="20" width="3" height="3" fill="#ffffff"/>
+                    <rect x="21" y="21" width="1" height="1" fill="#0f172a"/>
+                    <!-- Veri Matrisi Pikselleri -->
+                    <rect x="10" y="7" width="1" height="2" fill="#0f172a"/>
+                    <rect x="12" y="8" width="2" height="1" fill="#0f172a"/>
+                    <rect x="15" y="7" width="1" height="1" fill="#0f172a"/>
+                    <rect x="17" y="8" width="1" height="2" fill="#0f172a"/>
+                    <rect x="10" y="10" width="3" height="1" fill="#0f172a"/>
+                    <rect x="14" y="11" width="2" height="2" fill="#0f172a"/>
+                    <rect x="11" y="13" width="1" height="3" fill="#0f172a"/>
+                    <rect x="13" y="14" width="3" height="1" fill="#0f172a"/>
+                    <rect x="17" y="12" width="1" height="3" fill="#0f172a"/>
+                    <rect x="7" y="11" width="2" height="1" fill="#0f172a"/>
+                    <rect x="8" y="14" width="1" height="2" fill="#0f172a"/>
+                    <rect x="10" y="17" width="2" height="1" fill="#0f172a"/>
+                    <rect x="14" y="17" width="3" height="2" fill="#0f172a"/>
+                    <rect x="10" y="21" width="2" height="2" fill="#0f172a"/>
+                    <rect x="13" y="22" width="1" height="3" fill="#0f172a"/>
+                    <rect x="15" y="24" width="2" height="1" fill="#0f172a"/>
+                    <rect x="11" y="25" width="3" height="1" fill="#0f172a"/>
+                    <rect x="25" y="10" width="2" height="2" fill="#0f172a"/>
+                    <rect x="26" y="13" width="1" height="3" fill="#0f172a"/>
+                    <rect x="25" y="17" width="2" height="1" fill="#0f172a"/>
+                </svg>
+            </div>
+
+            <div style="background:rgba(255,255,255,0.05); padding:0.6rem; border-radius:8px; font-size:0.82rem; margin-top:0.5rem; word-break:break-all;">
+                🔗 Adres: <strong style="color:var(--primary);">dersnotlarim.vercel.app</strong>
+            </div>
+
+            <p class="qr-instruction">
+                💡 İpucu: Telefonunuzun kamerasını açıp QR koda doğrultun, çıkan bildirime dokunun.
+            </p>
+        </div>
+    </div>
+
     <!-- ALT BİLGİ -->
     <footer class="footer">
         <div class="container footer-content">
@@ -577,6 +892,7 @@ Selin</textarea>
     </footer>
 
     <!-- JS -->
+    <script src="js/sound-fx.js"></script>
     <script src="js/data.js"></script>
     <script src="js/board-tools.js"></script>
     <script src="js/interactive-lab.js"></script>
@@ -594,6 +910,16 @@ Selin</textarea>
                 }, 50);
             }
         }
+
+        // Simülasyonları hazırla
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.interactiveLab) {
+                interactiveLab.updateSolidPressure();
+                interactiveLab.updateLiquidPressure();
+                interactiveLab.initDNAGame();
+                interactiveLab.initMitosisGame();
+            }
+        });
     </script>
 </body>
 </html>

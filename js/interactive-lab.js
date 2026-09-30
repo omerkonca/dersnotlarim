@@ -1,6 +1,6 @@
 /**
  * İNTERAKTİF FEN LABORATUVARI VE SİMÜLASYONLAR
- * 7 ve 8. sınıf öğrencileri için canlı simülasyonlar, hafıza kartları ve sınıf çarkıfeleği
+ * 7 ve 8. sınıf öğrencileri için canlı simülasyonlar, hafıza kartları, DNA oyunu, basınç labı, sınıf çarkıfeleği ve 60sn Hızlı Ateş
  */
 
 class InteractiveLab {
@@ -8,11 +8,50 @@ class InteractiveLab {
         this.currentSim = 'seasons';
         this.wheelNames = ["Ahmet", "Zeynep", "Mehmet", "Elif", "Can", "Ayşe", "Burak", "Selin"];
         this.isSpinning = false;
+
+        // DNA Oyunu Durumu
+        this.dnaTemplate = ['A', 'T', 'G', 'C', 'T', 'C', 'A', 'G'];
+        this.dnaPairs = { 'A': 'T', 'T': 'A', 'G': 'C', 'C': 'G' };
+        this.dnaUser = [];
+        this.dnaStep = 0;
+
+        // 60 Saniye Hızlı Ateş Durumu
+        this.speedRunTimer = null;
+        this.speedRunSeconds = 60;
+        this.speedRunScore = 0;
+        this.speedRunCombo = 1;
+        this.speedRunIndex = 0;
+        this.speedRunQuestions = [
+            { q: "Dünya Güneş'e en yakın olduğunda (Ocak ayı) Kuzey Yarım Küre kış mevsimini yaşar.", a: true, tip: "Mevsimleri mesafe değil, eksen eğikliği ve açı belirler." },
+            { q: "Rüzgar daima Alçak Basınçtan (Sıcak) Yüksek Basınca (Soğuk) doğru eser.", a: false, tip: "Rüzgar her zaman YÜKSEK BASINÇTAN &rarr; ALÇAK BASINCA (Soğuktan &rarr; Sıcağa) eser!" },
+            { q: "Bir DNA molekülünde toplam Fosfat sayısı daima toplam Şeker sayısına eşittir.", a: true, tip: "Toplam Fosfat = Toplam Şeker = Toplam Nükleotid!" },
+            { q: "Güneş ışınları dik (90°) açıyla geldiğinde gölge boyu en uzun olur.", a: false, tip: "Işınlar dik gelirse gölge EN KISA, eğik gelirse EN UZUN olur." },
+            { q: "Katı bir cismin yüzey alanı küçüldükçe zemine uyguladığı basınç artar.", a: true, tip: "P = G / S (Yüzey küçülürse basınç artar: bıçağın bilenmesi)." },
+            { q: "Sıvı basıncı kabın şekline ve içindeki toplam sıvı miktarına bağlıdır.", a: false, tip: "Sıvı basıncı SADECE derinlik (h) ve yoğunluğa (d) bağlıdır!" },
+            { q: "Makaralar ve kaldıraçlar gibi hiçbir basit makinede İŞ'TEN KAZANÇ OLMAZ.", a: true, tip: "Altın Kural: Basit makineler asla iş ve enerjiden kazanç sağlamaz!" },
+            { q: "Spor yapan bir kişinin kaslarının gelişmesi bir Mutasyon örneğidir.", a: false, tip: "Kas gelişmesi genin işleyişiyle ilgilidir, MODİFİKASYONDUR!" },
+            { q: "Kutup ayısının beyaz kürk rengine sahip olması kalıtsal bir Adaptasyondur.", a: true, tip: "Canlının yaşama şansını artıran kalıtsal uyumdur." },
+            { q: "Demirin nemli havada paslanması fiziksel bir değişimdir.", a: false, tip: "Paslanma kimyasal bir yanma tepkimesidir." },
+            { q: "Işık Yılı bir zaman ölçüsü birimidir.", a: false, tip: "Işık yılı MESAFE / UZAKLIK birimidir!" },
+            { q: "Bitki hücrelerinde hücre duvarı (çeperi) ve kloroplast bulunur.", a: true, tip: "Hayvan hücresinde çeper ve kloroplast yoktur." },
+            { q: "Mayoz bölünmede gerçekleşen parça değişimi (crossing-over) genetik çeşitliliği sağlar.", a: true, tip: "Kardeşlerin birbirinden farklı olmasının ana sebebidir." },
+            { q: "Tümsek aynalar daima ters ve devasa görüntü verir.", a: false, tip: "Tümsek ayna daima DÜZ ve KÜÇÜK görüntü vererek geniş alan gösterir." },
+            { q: "Evlerimizdeki elektrik tesisatında ampuller seri bağlıdır.", a: false, tip: "Biri kapanınca diğerleri sönsün istemeyiz, PARALEL bağlıdır!" }
+        ];
+
+        // 7. Sınıf Mitoz Bölünme Evre Sıralama Durumu
+        this.mitosisStages = [
+            { id: 'interfaz', step: 1, name: 'Hazırlık (İnterfaz)', icon: '🧬', desc: 'DNA kendini kopyalar (2 katına çıkar), sentrozomlar eşlenir, hücre büyür.' },
+            { id: 'profaz', step: 2, name: '1. Profaz', icon: '🔬', desc: 'Çekirdek zarı erir, kromatin iplikler kısalıp kalınlaşarak kromozom olur.' },
+            { id: 'metafaz', step: 3, name: '2. Metafaz', icon: '⚖️', desc: 'Kromozomlar ekvatoral düzlemde (hücre ortasında) tek sıra halinde dizilir.' },
+            { id: 'anafaz', step: 4, name: '3. Anafaz', icon: '↔️', desc: 'Kardeş kromatitler zıt kutuplara çekilir (Ayrılma evresi).' },
+            { id: 'telofaz', step: 5, name: '4. Telofaz & Bölünme', icon: '✂️', desc: 'Çekirdek zarı tekrar oluşur, sitoplazma boğumlanır ve 2 yeni hücre oluşur!' }
+        ];
+        this.mitosisUserOrder = [];
     }
 
     // 1. MEVSİMLER VE DÜNYA SİMÜLATÖRÜ
     updateSeasonsSim(dayOfYear) {
-        // dayOfYear: 0 - 365
         const angle = (dayOfYear / 365) * 2 * Math.PI;
         const earthEl = document.getElementById('sim-earth');
         const sunRayEl = document.getElementById('sim-sun-ray');
@@ -23,20 +62,17 @@ class InteractiveLab {
 
         if (!earthEl) return;
 
-        // Yörünge koordinatları (rx: 160, ry: 70)
         const cx = 200 + Math.cos(angle) * 150;
         const cy = 110 + Math.sin(angle) * 65;
 
         earthEl.setAttribute('cx', cx);
         earthEl.setAttribute('cy', cy);
 
-        // Güneş ışını çizgisi
         if (sunRayEl) {
             sunRayEl.setAttribute('x2', cx);
             sunRayEl.setAttribute('y2', cy);
         }
 
-        // Tarih ve Mevsim Hesaplama
         let dateStr = "";
         let seasonStr = "";
         let dayLength = "";
@@ -77,7 +113,6 @@ class InteractiveLab {
     updateWindSim(tempK, tempL) {
         const windDirectionEl = document.getElementById('wind-dir-text');
         const windSpeedEl = document.getElementById('wind-speed-text');
-        const windArrowEl = document.getElementById('wind-arrow-svg');
         const fanEl = document.getElementById('wind-fan-icon');
 
         const diff = Math.abs(tempK - tempL);
@@ -101,7 +136,287 @@ class InteractiveLab {
         }
     }
 
-    // 3. SINIF ÇARKIFELEĞİ (LUCKY WHEEL)
+    // 3. KATI BASINCI LABORATUVARI (Tuğla & Sünger Deneyi)
+    updateSolidPressure() {
+        const brickCount = parseInt(document.getElementById('solid-brick-count')?.value || 1);
+        const orientation = document.querySelector('input[name="brick-orient"]:checked')?.value || 'wide';
+        
+        const weight = brickCount * 30; // Her tuğla 30 N
+        const area = orientation === 'wide' ? 150 : 50; // Geniş: 150 cm², Dar: 50 cm²
+        const pressure = Math.round((weight / (area / 10000))); // Pascal (N/m²)
+
+        // Süngere batma miktarı (px)
+        const sinkPixels = Math.min(65, Math.round((pressure / 2000) * 14));
+
+        const brickSvg = document.getElementById('solid-brick-svg');
+        const spongeSvg = document.getElementById('solid-sponge-svg');
+        const valWeight = document.getElementById('solid-val-weight');
+        const valArea = document.getElementById('solid-val-area');
+        const valPressure = document.getElementById('solid-val-pressure');
+        const valSink = document.getElementById('solid-val-sink');
+
+        if (valWeight) valWeight.textContent = `${weight} N`;
+        if (valArea) valArea.textContent = `${area} cm²`;
+        if (valPressure) valPressure.textContent = `${pressure} Pascal (Pa)`;
+        if (valSink) valSink.textContent = `${(sinkPixels / 10).toFixed(1)} cm`;
+
+        // Görsel güncelleme
+        if (brickSvg && spongeSvg) {
+            const brickWidth = orientation === 'wide' ? 140 : 50;
+            const brickHeight = orientation === 'wide' ? 40 : 110;
+            const startY = 130 - (brickHeight * brickCount) + sinkPixels;
+
+            brickSvg.setAttribute('width', brickWidth);
+            brickSvg.setAttribute('height', brickHeight * brickCount);
+            brickSvg.setAttribute('x', 150 - (brickWidth / 2));
+            brickSvg.setAttribute('y', startY);
+
+            // Sünger çökmesi
+            spongeSvg.setAttribute('d', `M20,130 Q150,${130 + sinkPixels} 280,130 L280,180 L20,180 Z`);
+        }
+    }
+
+    // 4. SIVI BASINCI LABORATUVARI (Derinlik & Sıvı Yoğunluğu & Manometre)
+    updateLiquidPressure() {
+        const depth = parseInt(document.getElementById('liquid-depth-slider')?.value || 30);
+        const liquidSelect = document.getElementById('liquid-type-select');
+        const density = parseFloat(liquidSelect ? liquidSelect.value : 1.0);
+        const liquidName = liquidSelect ? liquidSelect.options[liquidSelect.selectedIndex].text : "Saf Su";
+
+        const pressure = Math.round(depth * density * 100); // P = h . d . g (g ~ 10)
+        const manometerHeight = Math.min(100, Math.round(pressure / 80));
+
+        const valDepth = document.getElementById('liquid-val-depth');
+        const valDensity = document.getElementById('liquid-val-density');
+        const valPressure = document.getElementById('liquid-val-pressure');
+        const probeEl = document.getElementById('liquid-probe-svg');
+        const liquidLevelEl = document.getElementById('manometer-level-svg');
+
+        if (valDepth) valDepth.textContent = `${depth} cm`;
+        if (valDensity) valDensity.textContent = `${density} g/cm³ (${liquidName.split(' ')[0]})`;
+        if (valPressure) valPressure.textContent = `${pressure} Pascal (Pa)`;
+
+        if (probeEl) {
+            const probeY = 50 + (depth * 1.1);
+            probeEl.setAttribute('transform', `translate(90, ${probeY})`);
+        }
+
+        if (liquidLevelEl) {
+            liquidLevelEl.setAttribute('height', 30 + manometerHeight);
+            liquidLevelEl.setAttribute('y', 130 - manometerHeight);
+        }
+    }
+
+    // 5. DNA EŞLEME MİNİ OYUNU
+    initDNAGame() {
+        this.dnaUser = [];
+        this.dnaStep = 0;
+        this.renderDNABoard();
+    }
+
+    renderDNABoard() {
+        const board = document.getElementById('dna-board-container');
+        const infoEl = document.getElementById('dna-game-info');
+        if (!board) return;
+
+        let html = '<div class="dna-strands-grid">';
+        
+        // 1. Zincir (Kalıp Zincir)
+        html += '<div class="dna-strand left-strand">';
+        html += '<div class="strand-title">1. İplik (Kalıp)</div>';
+        this.dnaTemplate.forEach((base, idx) => {
+            html += `<div class="dna-base-card base-${base}">${base}</div>`;
+        });
+        html += '</div>';
+
+        // Hidrojen Bağları
+        html += '<div class="dna-bonds-col">';
+        html += '<div class="strand-title">Bağ</div>';
+        this.dnaTemplate.forEach((base, idx) => {
+            const isMatched = idx < this.dnaUser.length;
+            const bondType = (base === 'A' || base === 'T') ? '═ (2\'li)' : '≡ (3\'lü)';
+            html += `<div class="dna-bond-line ${isMatched ? 'active' : ''}">${isMatched ? bondType : '┄'}</div>`;
+        });
+        html += '</div>';
+
+        // 2. Zincir (Öğrencinin Eşlediği)
+        html += '<div class="dna-strand right-strand">';
+        html += '<div class="strand-title">2. İplik (Yeni)</div>';
+        this.dnaTemplate.forEach((base, idx) => {
+            const matched = this.dnaUser[idx];
+            if (matched) {
+                html += `<div class="dna-base-card base-${matched} locked">${matched}</div>`;
+            } else if (idx === this.dnaStep) {
+                html += `<div class="dna-base-card empty active-slot">?</div>`;
+            } else {
+                html += `<div class="dna-base-card empty">...</div>`;
+            }
+        });
+        html += '</div>';
+
+        html += '</div>';
+        board.innerHTML = html;
+
+        if (infoEl) {
+            if (this.dnaStep >= this.dnaTemplate.length) {
+                infoEl.innerHTML = `<span style="color:#10b981; font-weight:700;">🎉 Harika! DNA kendini kusursuz eşledi. 2 adet tıpatıp aynı yeni DNA oluştu!</span>`;
+            } else {
+                const target = this.dnaTemplate[this.dnaStep];
+                infoEl.innerHTML = `Sıradaki nükleotid: <strong>${target}</strong>. Karşısına hangi nükleotid gelmelidir?`;
+            }
+        }
+    }
+
+    pickDNABase(base) {
+        if (this.dnaStep >= this.dnaTemplate.length) return;
+
+        const needed = this.dnaPairs[this.dnaTemplate[this.dnaStep]];
+        if (base === needed) {
+            if (window.soundFX) window.soundFX.playCorrect();
+            this.dnaUser.push(base);
+            this.dnaStep++;
+            this.renderDNABoard();
+
+            if (this.dnaStep >= this.dnaTemplate.length) {
+                if (window.soundFX) window.soundFX.playVictory();
+            }
+        } else {
+            if (window.soundFX) window.soundFX.playWrong();
+            const alertBox = document.getElementById('dna-error-alert');
+            if (alertBox) {
+                alertBox.textContent = `❌ Yanlış Eşleşme! ${this.dnaTemplate[this.dnaStep]} karşısına ${needed} gelmelidir! (A-T ve G-C kuralı)`;
+                alertBox.style.display = 'block';
+                setTimeout(() => { alertBox.style.display = 'none'; }, 2500);
+            }
+        }
+    }
+
+    // 6. 60 SANİYE HIZLI ATEŞ (SPEED RUN)
+    startSpeedRun() {
+        this.speedRunSeconds = 60;
+        this.speedRunScore = 0;
+        this.speedRunCombo = 1;
+        this.speedRunIndex = 0;
+
+        const modal = document.getElementById('speedrun-modal');
+        if (modal) modal.style.display = 'flex';
+
+        const buttonsEl = document.getElementById('sr-buttons-wrap');
+        if (buttonsEl) {
+            buttonsEl.innerHTML = `
+                <button class="btn-sr-choice btn-sr-true" onclick="interactiveLab.answerSpeedRun(true)">
+                    <span style="font-size:1.4rem;">✅</span> DOĞRU
+                </button>
+                <button class="btn-sr-choice btn-sr-false" onclick="interactiveLab.answerSpeedRun(false)">
+                    <span style="font-size:1.4rem;">❌</span> YANLIŞ
+                </button>
+            `;
+        }
+
+        const timerEl = document.getElementById('sr-timer-text');
+        if (timerEl) {
+            timerEl.textContent = `${this.speedRunSeconds}s`;
+            timerEl.style.color = '#f59e0b';
+        }
+
+        this.renderSpeedRunQuestion();
+
+        if (this.speedRunTimer) clearInterval(this.speedRunTimer);
+        this.speedRunTimer = setInterval(() => {
+            this.speedRunSeconds--;
+            const timerEl = document.getElementById('sr-timer-text');
+            if (timerEl) {
+                timerEl.textContent = `${this.speedRunSeconds}s`;
+                if (this.speedRunSeconds <= 5) {
+                    timerEl.style.color = '#ef4444';
+                    if (window.soundFX) window.soundFX.playTick();
+                }
+            }
+
+            if (this.speedRunSeconds <= 0) {
+                this.endSpeedRun();
+            }
+        }, 1000);
+    }
+
+    renderSpeedRunQuestion() {
+        const qObj = this.speedRunQuestions[this.speedRunIndex % this.speedRunQuestions.length];
+        const titleEl = document.getElementById('sr-question-title');
+        const scoreEl = document.getElementById('sr-score-text');
+        const comboEl = document.getElementById('sr-combo-text');
+        const feedbackEl = document.getElementById('sr-feedback-text');
+
+        if (titleEl) titleEl.textContent = qObj.q;
+        if (scoreEl) scoreEl.textContent = `Skor: ${this.speedRunScore}`;
+        if (comboEl) comboEl.textContent = `Combo: x${this.speedRunCombo}`;
+        if (feedbackEl) feedbackEl.textContent = '';
+    }
+
+    answerSpeedRun(userChoice) {
+        if (this.speedRunSeconds <= 0) return;
+
+        const qObj = this.speedRunQuestions[this.speedRunIndex % this.speedRunQuestions.length];
+        const feedbackEl = document.getElementById('sr-feedback-text');
+
+        if (userChoice === qObj.a) {
+            if (window.soundFX) window.soundFX.playCorrect();
+            const earned = 10 * this.speedRunCombo;
+            this.speedRunScore += earned;
+            this.speedRunCombo = Math.min(5, this.speedRunCombo + 1);
+            if (feedbackEl) feedbackEl.innerHTML = `<span style="color:#10b981;">✓ Doğru! +${earned} Puan</span>`;
+        } else {
+            if (window.soundFX) window.soundFX.playWrong();
+            this.speedRunCombo = 1;
+            if (feedbackEl) feedbackEl.innerHTML = `<span style="color:#ef4444;">✗ Yanlış! (${qObj.tip})</span>`;
+        }
+
+        this.speedRunIndex++;
+        setTimeout(() => {
+            if (this.speedRunSeconds > 0) this.renderSpeedRunQuestion();
+        }, 500);
+    }
+
+    endSpeedRun() {
+        if (this.speedRunTimer) clearInterval(this.speedRunTimer);
+        if (window.soundFX) window.soundFX.playVictory();
+
+        const titleEl = document.getElementById('sr-question-title');
+        const feedbackEl = document.getElementById('sr-feedback-text');
+        const buttonsEl = document.getElementById('sr-buttons-wrap');
+
+        let titleRank = "Fen Çırağı";
+        if (this.speedRunScore >= 180) titleRank = "🏆 LGS Fen Şampiyonu";
+        else if (this.speedRunScore >= 120) titleRank = "🌟 Fen Bilgini";
+        else if (this.speedRunScore >= 60) titleRank = "⚡ Genetik Dedektifi";
+
+        if (titleEl) {
+            titleEl.innerHTML = `
+                <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">🎉</div>
+                <h3>Süre Bitti!</h3>
+                <p style="font-size:1.3rem; color:#f59e0b; font-weight:800; margin:0.5rem 0;">Toplam Skor: ${this.speedRunScore}</p>
+                <div style="background:rgba(56,189,248,0.2); padding:0.5rem 1rem; border-radius:9999px; display:inline-block; color:#38bdf8; font-weight:bold;">
+                    Unvanınız: ${titleRank}
+                </div>
+            `;
+        }
+
+        if (feedbackEl) feedbackEl.innerHTML = '';
+        if (buttonsEl) {
+            buttonsEl.innerHTML = `
+                <button class="btn-primary" style="padding:0.75rem 2rem; border-radius:9999px;" onclick="interactiveLab.startSpeedRun()">
+                    🔄 Yeniden Oyna
+                </button>
+            `;
+        }
+    }
+
+    closeSpeedRun() {
+        if (this.speedRunTimer) clearInterval(this.speedRunTimer);
+        const modal = document.getElementById('speedrun-modal');
+        if (modal) modal.style.display = 'none';
+    }
+
+    // 7. SINIF ÇARKIFELEĞİ
     spinWheel() {
         if (this.isSpinning) return;
         this.isSpinning = true;
@@ -115,7 +430,6 @@ class InteractiveLab {
         const total = names.length;
         const arc = (2 * Math.PI) / total;
 
-        let startAngle = 0;
         const spinRounds = 5 + Math.random() * 5;
         const spinAngle = spinRounds * 2 * Math.PI + Math.random() * 2 * Math.PI;
 
@@ -125,20 +439,20 @@ class InteractiveLab {
         const animate = (currentTime) => {
             const elapsed = currentTime - startTime;
             const progress = Math.min(elapsed / duration, 1);
-            // Ease out cubic
             const easeOut = 1 - Math.pow(1 - progress, 3);
             const currentAngle = easeOut * spinAngle;
 
             this.drawWheel(ctx, names, currentAngle);
 
             if (progress < 1) {
+                if (Math.random() < 0.25 && window.soundFX) window.soundFX.playTick();
                 requestAnimationFrame(animate);
             } else {
                 this.isSpinning = false;
-                // Kazananı bul
                 const normalizedAngle = (currentAngle % (2 * Math.PI));
                 const winningIndex = Math.floor((2 * Math.PI - normalizedAngle) / arc) % total;
                 const winner = names[winningIndex];
+                if (window.soundFX) window.soundFX.playVictory();
                 if (resultEl) {
                     resultEl.innerHTML = `🎉 Tebrikler: <strong style="color:#f59e0b; font-size:1.3rem;">${winner}</strong>! Sıradaki soruyu sen çözüyorsun.`;
                 }
@@ -167,7 +481,6 @@ class InteractiveLab {
             ctx.fill();
             ctx.stroke();
 
-            // İsim Yaz
             ctx.save();
             ctx.fillStyle = "#ffffff";
             ctx.font = "bold 13px system-ui";
@@ -188,7 +501,7 @@ class InteractiveLab {
         ctx.strokeStyle = "#ffffff";
         ctx.stroke();
 
-        // Gösterge İğnesi (Sağ taraf)
+        // Gösterge İğnesi
         ctx.beginPath();
         ctx.moveTo(290, 150);
         ctx.lineTo(260, 140);
@@ -204,6 +517,132 @@ class InteractiveLab {
             return textarea.value.split('\n').map(s => s.trim()).filter(Boolean);
         }
         return this.wheelNames;
+    }
+
+    // 8. 7. SINIF MİTOZ EVRE SIRALAMA OYUNU
+    initMitosisGame() {
+        this.mitosisUserOrder = [];
+        this.renderMitosisBoard();
+    }
+
+    renderMitosisBoard() {
+        const poolEl = document.getElementById('mitosis-pool-container');
+        const slotsEl = document.getElementById('mitosis-slots-container');
+        const feedbackEl = document.getElementById('mitosis-feedback');
+        const animCellEl = document.getElementById('mitosis-anim-cell');
+
+        if (!poolEl || !slotsEl) return;
+
+        // Havuzdaki (henüz seçilmemiş) kartlar
+        const unselected = this.mitosisStages.filter(st => !this.mitosisUserOrder.includes(st.id));
+        
+        let poolHtml = '';
+        unselected.forEach(st => {
+            poolHtml += `
+                <div class="mitosis-card" onclick="interactiveLab.pickMitosisStage('${st.id}')">
+                    <div class="mitosis-icon">${st.icon}</div>
+                    <strong>${st.name}</strong>
+                    <p>${st.desc}</p>
+                    <span class="mitosis-tap-hint">+ Sıraya Ekle</span>
+                </div>
+            `;
+        });
+        if (unselected.length === 0) {
+            poolHtml = '<div style="color:var(--text-muted); font-size:0.9rem; padding:0.5rem;">Tüm evreler sıraya dizildi! Kontrol edebilirsiniz.</div>';
+        }
+        poolEl.innerHTML = poolHtml;
+
+        // 5 Slot
+        let slotsHtml = '';
+        for (let i = 0; i < 5; i++) {
+            const placedId = this.mitosisUserOrder[i];
+            if (placedId) {
+                const item = this.mitosisStages.find(s => s.id === placedId);
+                slotsHtml += `
+                    <div class="mitosis-slot filled" onclick="interactiveLab.removeMitosisStage(${i})">
+                        <span class="slot-number">${i + 1}. Adım</span>
+                        <div class="slot-content">
+                            <span class="slot-icon">${item.icon}</span>
+                            <strong>${item.name}</strong>
+                        </div>
+                        <span class="slot-remove-btn" title="Kaldır">✕</span>
+                    </div>
+                `;
+            } else {
+                slotsHtml += `
+                    <div class="mitosis-slot empty">
+                        <span class="slot-number">${i + 1}. Adım</span>
+                        <div class="slot-placeholder">Evre Kartı Seçin</div>
+                    </div>
+                `;
+            }
+        }
+        slotsEl.innerHTML = slotsHtml;
+
+        if (this.mitosisUserOrder.length === 5) {
+            this.checkMitosisResult();
+        } else {
+            if (feedbackEl) feedbackEl.innerHTML = `Henüz ${this.mitosisUserOrder.length}/5 evre yerleştirildi. Doğru sırayı tamamlayın.`;
+            if (animCellEl) animCellEl.classList.remove('divided');
+        }
+    }
+
+    pickMitosisStage(stageId) {
+        if (this.mitosisUserOrder.length >= 5) return;
+        this.mitosisUserOrder.push(stageId);
+        if (window.soundFX) window.soundFX.playTick();
+        this.renderMitosisBoard();
+    }
+
+    removeMitosisStage(index) {
+        this.mitosisUserOrder.splice(index, 1);
+        if (window.soundFX) window.soundFX.playTick();
+        this.renderMitosisBoard();
+    }
+
+    checkMitosisResult() {
+        const feedbackEl = document.getElementById('mitosis-feedback');
+        const animCellEl = document.getElementById('mitosis-anim-cell');
+        const correctIds = ['interfaz', 'profaz', 'metafaz', 'anafaz', 'telofaz'];
+        const isCorrect = this.mitosisUserOrder.every((id, idx) => id === correctIds[idx]);
+
+        if (isCorrect) {
+            if (window.soundFX) window.soundFX.playVictory();
+            if (feedbackEl) {
+                feedbackEl.innerHTML = `
+                    <div style="color:#10b981; font-weight:800; font-size:1.15rem; margin-bottom:0.4rem;">
+                        🎉 MÜKEMMEL! Hücre evreleri kusursuz sıralandı!
+                    </div>
+                    <div style="color:var(--text-muted); font-size:0.88rem;">
+                        Hücre sitokinezle ikiye boğumlandı: 2n kromozomlu 2 adet genetik ikiz yeni hücre meydana geldi!
+                    </div>
+                `;
+            }
+            if (animCellEl) animCellEl.classList.add('divided');
+        } else {
+            if (window.soundFX) window.soundFX.playWrong();
+            if (feedbackEl) {
+                feedbackEl.innerHTML = `
+                    <div style="color:#ef4444; font-weight:800; font-size:1.05rem;">
+                        ❌ Sıralama Hatalı! İpucu:
+                    </div>
+                    <div style="color:var(--text-muted); font-size:0.85rem; margin-top:0.2rem;">
+                        Hazırlık &rarr; <strong>P</strong>rofaz &rarr; <strong>M</strong>etafaz (Merkez) &rarr; <strong>A</strong>nafaz (Ayrılma) &rarr; <strong>T</strong>elofaz (PMAT Formülü).
+                    </div>
+                `;
+            }
+        }
+    }
+
+    // 9. QR KOD PAYLAŞIM MODALI
+    toggleQRModal() {
+        const modal = document.getElementById('qr-modal');
+        if (!modal) return;
+        const isHidden = modal.style.display === 'none' || modal.style.display === '';
+        modal.style.display = isHidden ? 'flex' : 'none';
+        if (isHidden && window.soundFX) {
+            window.soundFX.playCorrect();
+        }
     }
 }
 

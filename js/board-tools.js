@@ -1,28 +1,32 @@
 /**
  * AKILLI TAHTA & ÇİZİM SİSTEMİ
- * Ultra hafif, donmayan, anlaşılır Türkçe menülü tahta araçları
+ * Ultra hafif, donmayan, anlaşılır Türkçe menülü tahta araçları:
+ * - Kalem, Fosforlu Kalem, Lazer İşaretçi
+ * - 🔦 Odak Feneri (Spotlight) Karartma Modu
+ * - 💣 Görsel Geri Sayım Bombası & Zamanlayıcı
  */
 
 class SmartBoard {
     constructor() {
         this.isDrawing = false;
-        this.currentTool = 'none'; // 'none', 'pen', 'highlighter', 'laser'
+        this.currentTool = 'none'; // 'none', 'pen', 'highlighter', 'laser', 'spotlight'
         this.penColor = '#f59e0b';
         this.penSize = 3;
         this.canvas = null;
         this.ctx = null;
         this.laserPointer = null;
+        this.spotlightOverlay = null;
         
         this.init();
     }
 
     init() {
-        this.createCanvasAndLaser();
+        this.createCanvasLaserAndSpotlight();
         this.setupEvents();
     }
 
-    createCanvasAndLaser() {
-        // Çizim Canvası
+    createCanvasLaserAndSpotlight() {
+        // 1. Çizim Canvası
         const canvas = document.createElement('canvas');
         canvas.id = 'smart-board-canvas';
         canvas.style.cssText = `
@@ -46,24 +50,42 @@ class SmartBoard {
         resize();
         window.addEventListener('resize', resize);
 
-        // Lazer İşaretçi
+        // 2. Lazer İşaretçi
         const laser = document.createElement('div');
         laser.id = 'smart-laser-pointer';
         laser.style.cssText = `
             position: fixed;
-            width: 18px;
-            height: 18px;
+            width: 20px;
+            height: 20px;
             background: #ff0055;
             border-radius: 50%;
             pointer-events: none;
             z-index: 99999;
-            box-shadow: 0 0 12px #ff0055, 0 0 24px #ff0055;
+            box-shadow: 0 0 14px #ff0055, 0 0 28px #ff0055;
             display: none;
             transform: translate(-50%, -50%);
             transition: none;
         `;
         document.body.appendChild(laser);
         this.laserPointer = laser;
+
+        // 3. Odak Feneri (Spotlight) Karartma Katmanı
+        const spotlight = document.createElement('div');
+        spotlight.id = 'smart-spotlight-overlay';
+        spotlight.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 99997;
+            display: none;
+            background: radial-gradient(circle 140px at 50% 50%, transparent 0%, rgba(10, 15, 29, 0.88) 100%);
+            transition: background 0.05s ease-out;
+        `;
+        document.body.appendChild(spotlight);
+        this.spotlightOverlay = spotlight;
     }
 
     setupEvents() {
@@ -75,14 +97,18 @@ class SmartBoard {
             this.ctx.moveTo(pos.x, pos.y);
         };
 
-        const draw = (e) => {
-            if (this.currentTool === 'none') return;
+        const moveHandler = (e) => {
             const pos = this.getPos(e);
 
             if (this.currentTool === 'laser') {
                 this.laserPointer.style.display = 'block';
                 this.laserPointer.style.left = `${pos.x}px`;
                 this.laserPointer.style.top = `${pos.y}px`;
+                return;
+            }
+
+            if (this.currentTool === 'spotlight') {
+                this.spotlightOverlay.style.background = `radial-gradient(circle 140px at ${pos.x}px ${pos.y}px, transparent 0%, rgba(10, 15, 29, 0.88) 100%)`;
                 return;
             }
 
@@ -110,11 +136,11 @@ class SmartBoard {
         };
 
         window.addEventListener('mousedown', startDraw);
-        window.addEventListener('mousemove', draw);
+        window.addEventListener('mousemove', moveHandler);
         window.addEventListener('mouseup', stopDraw);
 
         window.addEventListener('touchstart', startDraw, { passive: true });
-        window.addEventListener('touchmove', draw, { passive: true });
+        window.addEventListener('touchmove', moveHandler, { passive: true });
         window.addEventListener('touchend', stopDraw);
     }
 
@@ -134,30 +160,31 @@ class SmartBoard {
 
         const colorGroup = document.getElementById('board-colors-group');
 
+        // Reset overlays
+        this.laserPointer.style.display = 'none';
+        this.spotlightOverlay.style.display = 'none';
+        this.canvas.style.pointerEvents = 'none';
+        document.body.style.cursor = 'default';
+        if (colorGroup) colorGroup.style.display = 'none';
+
         if (tool === 'none') {
             document.getElementById('tool-cursor')?.classList.add('active');
-            this.canvas.style.pointerEvents = 'none';
-            this.laserPointer.style.display = 'none';
-            document.body.style.cursor = 'default';
-            if (colorGroup) colorGroup.style.display = 'none';
         } else if (tool === 'pen') {
             document.getElementById('tool-pen')?.classList.add('active');
             this.canvas.style.pointerEvents = 'auto';
-            this.laserPointer.style.display = 'none';
             document.body.style.cursor = 'crosshair';
             if (colorGroup) colorGroup.style.display = 'flex';
         } else if (tool === 'highlighter') {
             document.getElementById('tool-highlighter')?.classList.add('active');
             this.canvas.style.pointerEvents = 'auto';
-            this.laserPointer.style.display = 'none';
             document.body.style.cursor = 'crosshair';
-            if (colorGroup) colorGroup.style.display = 'none';
         } else if (tool === 'laser') {
             document.getElementById('tool-laser')?.classList.add('active');
-            this.canvas.style.pointerEvents = 'none';
             this.laserPointer.style.display = 'block';
             document.body.style.cursor = 'none';
-            if (colorGroup) colorGroup.style.display = 'none';
+        } else if (tool === 'spotlight') {
+            document.getElementById('tool-spotlight')?.classList.add('active');
+            this.spotlightOverlay.style.display = 'block';
         }
     }
 
@@ -224,10 +251,14 @@ function toggleTimerRunning() {
             if (timerSeconds > 0) {
                 timerSeconds--;
                 updateTimerDisplay();
+                if (timerSeconds <= 5 && timerSeconds > 0) {
+                    if (window.soundFX) window.soundFX.playTick();
+                }
             } else {
                 clearInterval(timerInterval);
                 isTimerRunning = false;
                 if (startBtn) startBtn.textContent = 'Başlat';
+                if (window.soundFX) window.soundFX.playBuzzer();
                 const el = document.getElementById('timer-display');
                 if (el) {
                     el.style.color = '#ef4444';
