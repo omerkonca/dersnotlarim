@@ -679,14 +679,78 @@ class InteractiveLab {
         }
     }
 
-    // 9. QR KOD PAYLAŞIM MODALI
-    toggleQRModal() {
+    // 9. QR KOD PAYLAŞIM MODALI (GERÇEK TARANABİLİR DİNAMİK QR)
+    toggleQRModal(targetUrl) {
         const modal = document.getElementById('qr-modal');
         if (!modal) return;
         const isHidden = modal.style.display === 'none' || modal.style.display === '';
         modal.style.display = isHidden ? 'flex' : 'none';
-        if (isHidden && window.soundFX) {
-            window.soundFX.playCorrect();
+        
+        if (isHidden) {
+            if (window.soundFX) window.soundFX.playCorrect();
+            const urlToUse = targetUrl || (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+                ? 'https://dersnotlarim.vercel.app' 
+                : window.location.href);
+            this.generateQRCode(urlToUse);
+        }
+    }
+
+    switchQRUrl(url) {
+        this.generateQRCode(url);
+        document.querySelectorAll('.btn-qr-choice').forEach(b => {
+            const isMatch = b.getAttribute('data-url') === url;
+            b.classList.toggle('active', isMatch);
+        });
+    }
+
+    generateQRCode(url) {
+        this.currentQRUrl = url;
+        const container = document.getElementById('qr-code-target');
+        const urlDisplay = document.getElementById('qr-url-text');
+        if (urlDisplay) urlDisplay.textContent = url;
+
+        if (!container) return;
+        container.innerHTML = '';
+
+        try {
+            if (typeof QRCode !== 'undefined') {
+                new QRCode(container, {
+                    text: url,
+                    width: 200,
+                    height: 200,
+                    colorDark: "#0f172a",
+                    colorLight: "#ffffff",
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+            } else {
+                container.innerHTML = `<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(url)}" alt="QR Kod" style="width:200px; height:200px; border-radius:8px; display:block;">`;
+            }
+        } catch (e) {
+            container.innerHTML = `<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(url)}" alt="QR Kod" style="width:200px; height:200px; border-radius:8px; display:block;">`;
+        }
+    }
+
+    copyQRUrl() {
+        const url = this.currentQRUrl || 'https://dersnotlarim.vercel.app';
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(url).then(() => {
+                const btn = document.getElementById('btn-copy-qr-url');
+                if (btn) {
+                    const orig = btn.innerHTML;
+                    btn.innerHTML = '✅ Kopyalandı!';
+                    btn.style.background = 'rgba(16, 185, 129, 0.3)';
+                    btn.style.color = '#10b981';
+                    setTimeout(() => {
+                        btn.innerHTML = orig;
+                        btn.style.background = '';
+                        btn.style.color = '';
+                    }, 2000);
+                }
+            }).catch(() => {
+                prompt('Bağlantı adresi (Kopyalayabilirsiniz):', url);
+            });
+        } else {
+            prompt('Bağlantı adresi (Kopyalayabilirsiniz):', url);
         }
     }
 }

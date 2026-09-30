@@ -2499,15 +2499,46 @@ body {
     padding: 1.25rem;
     border-radius: 16px;
     display: inline-block;
-    margin: 1.25rem auto;
+    margin: 1rem auto;
     box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+.btn-qr-choice {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    padding: 0.45rem 0.9rem;
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-qr-choice:hover {
+    color: var(--text-main);
+    border-color: var(--primary);
+}
+
+.btn-qr-choice.active {
+    background: rgba(56, 189, 248, 0.15);
+    color: var(--primary);
+    border-color: var(--primary);
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.25);
+}
+
+#qr-code-target img, #qr-code-target canvas {
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+    margin: 0 auto;
+    display: block;
 }
 
 .qr-instruction {
     color: var(--text-muted);
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     margin-top: 0.75rem;
-    line-height: 1.4;
+    line-height: 1.45;
 }
 
 
