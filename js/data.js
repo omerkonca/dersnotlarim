@@ -364,49 +364,178 @@ const EDUCATION_DATA = {
             ],
 
             quiz: [
+                // 1. ÜNİTE: MEVSİMLER VE İKLİM
                 {
-                    question: "Dünya'nın eksen eğikliği ve Güneş etrafında dolanması sonucunda aşağıdakilerden hangisi MEYDANA GELİR?",
+                    id: "8-q1",
+                    unitId: 1,
+                    unitName: "1. Ünite: Mevsimler ve İklim",
+                    topic: "Eksen Eğikliği & Mevsimler",
+                    difficulty: "LGS Çıkmış Seviyesi",
+                    question: "Dünya'nın dönme ekseninin 23° 27' eğik olması ve Güneş etrafında dolanması sonucunda aşağıdakilerden hangisi MEYDANA GELİR?",
                     options: [
-                        "Gece ve gündüzün ardalanması",
-                        "Mevsimlerin oluşması ve yıllık sıcaklık farkları",
-                        "Dünya'nın kendi etrafında dönme hızının değişmesi",
-                        "Güneş'in Dünya'ya olan fiziksel mesafesinin mevsimleri belirlemesi"
+                        "Gece ve gündüzün ardalanması (günlük döngü)",
+                        "Mevsimlerin oluşması ve yıl boyunca birim yüzeye düşen ışık enerjisinin değişmesi",
+                        "Dünya'nın kendi etrafında dönme hızının periyodik olarak yavaşlaması",
+                        "Dünya ile Güneş arasındaki mesafenin azalarak havaların ısınması"
                     ],
                     correct: 1,
-                    explanation: "Mevsimlerin oluşması iki temel sebebe bağlıdır: 1) Eksen eğikliği (23° 27'), 2) Dünya'nın Güneş etrafında dolanması."
+                    explanation: "Mevsimlerin oluşumu iki temel sebebe bağlıdır: 1) Eksen eğikliği (23° 27'), 2) Dünya'nın Güneş etrafındaki yıllık dolanımı. Gece-gündüz ise günlük dönüşle oluşur."
                 },
                 {
-                    question: "DNA'nın yapısı ile ilgili olarak aşağıdakilerden hangisi her zaman DOĞRUDUR?",
+                    id: "8-q2",
+                    unitId: 1,
+                    unitName: "1. Ünite: Mevsimler ve İklim",
+                    topic: "Rüzgar Oluşumu & Basınç Alanları",
+                    difficulty: "Yeni Nesil Beceri Temelli",
+                    question: "K ve L şehirleri arasında yatay yönde şiddetli bir rüzgar estiği gözlemleniyor. Rüzgar K şehrinden L şehrine doğru estiğine göre, bu şehirlerle ilgili hangisi KESİNLİKLE DOĞRUDUR?",
                     options: [
-                        "Adenin sayısı Guanin sayısına eşittir.",
-                        "Toplam Deoksiriboz şekeri sayısı toplam fosfat sayısına eşittir.",
-                        "Sitoplazmadaki nükleotid sayısı hücre bölündükçe artar.",
-                        "Tek bir gende yalnızca tek bir nükleotid bulunur."
+                        "K şehri sıcaktır, L şehri soğuktur.",
+                        "K şehrinde alçalıcı hava hareketi (Yüksek Basınç), L şehrinde yükselici hava hareketi (Alçak Basınç) görülür.",
+                        "L şehrinde hava tamamen açık ve bulutsuzdur.",
+                        "K şehrinde yağış ihtimali L şehrine göre çok daha yüksektir."
                     ],
                     correct: 1,
-                    explanation: "Bir DNA molekülünde daima: Toplam Fosfat Sayısı = Toplam Şeker Sayısı = Toplam Nükleotid Sayısı = Toplam Baz Sayısıdır."
+                    explanation: "Rüzgar her zaman YÜKSEK BASINÇTAN (Soğuk) &rarr; ALÇAK BASINCA (Sıcak) doğru eser. Dolayısıyla rüzgarın çıktığı K şehri soğuktur (alçalıcı hava / Yüksek Basınç), ulaştığı L şehri sıcaktır (yükselici hava / Alçak Basınç)."
+                },
+
+                // 2. ÜNİTE: DNA VE GENETİK KOD
+                {
+                    id: "8-q3",
+                    unitId: 2,
+                    unitName: "2. Ünite: DNA ve Genetik Kod",
+                    topic: "DNA'nın Yapısı ve Nükleotidler",
+                    difficulty: "LGS Klasik Kalıp",
+                    question: "Sağlıklı bir DNA molekülünün yapısı incelendiğinde aşağıdaki eşitliklerden hangisi HER ZAMAN DOĞRUDUR?",
+                    options: [
+                        "Toplam Adenin sayısı = Toplam Guanin sayısı",
+                        "Toplam Deoksiriboz Şekeri Sayısı = Toplam Fosfat Sayısı = Toplam Nükleotid Sayısı",
+                        "Bir gende daima yalnızca 4 adet nükleotid bulunur.",
+                        "Sitoplazmadaki serbest nükleotid sayısı hücre bölündükçe artar."
+                    ],
+                    correct: 1,
+                    explanation: "Her nükleotidde 1 Fosfat, 1 Şeker ve 1 Organik Baz bulunur. Dolayısıyla Toplam Fosfat = Toplam Şeker = Toplam Nükleotid = Toplam Baz sayısı daima birbirine eşittir."
                 },
                 {
-                    question: "Katı bir tuğla masa üzerine önce geniş yüzeyi, sonra dar yüzeyi üzerinde konuluyor. Bu durumda tuğlanın masaya uyguladığı kuvvet ve basınç nasıl değişir?",
+                    id: "8-q4",
+                    unitId: 2,
+                    unitName: "2. Ünite: DNA ve Genetik Kod",
+                    topic: "Mendel Kalıtımı & Çaprazlama",
+                    difficulty: "LGS Hesaplama Taktikleri",
+                    question: "Melez sarı tohumlu (Aa) iki bezelye bitkisi kendi arasında çaprazlanıyor (Sarı renk baskın, yeşil renk çekiniktir). Oluşacak yeni bezelyelerin YEŞİL tohumlu olma olasılığı yüzde kaçtır?",
                     options: [
-                        "Kuvvet değişmez, basınç artar.",
-                        "Kuvvet artar, basınç değişmez.",
-                        "Her ikisi de artar.",
-                        "Kuvvet azalır, basınç artar."
+                        "%100",
+                        "%75",
+                        "%50",
+                        "%25"
+                    ],
+                    correct: 3,
+                    explanation: "Aa x Aa çaprazlamasında genotipler: AA (%25), Aa (%50), aa (%25) şeklinde oluşur. Yeşil tohum çekinik (aa) olduğundan oluşma olasılığı %25'tir (1/4)."
+                },
+
+                // 3. ÜNİTE: BASINÇ
+                {
+                    id: "8-q5",
+                    unitId: 3,
+                    unitName: "3. Ünite: Basınç",
+                    topic: "Katı Basıncı & Yüzey Alanı",
+                    difficulty: "LGS Deney Sorusu",
+                    question: "Özdeş iki tuğla masanın üzerine önce tek olarak geniş yüzeyi üzerine konuluyor, ardından tuğlalar üst üste dik konularak yerleştiriliyor. Bu işlem sonucunda masaya uygulanan KUVVET ve BASINÇ nasıl değişir?",
+                    options: [
+                        "Kuvvet 2 katına çıkar, Basınç 2 katından fazla artar.",
+                        "Kuvvet değişmez, Basınç 2 katına çıkar.",
+                        "Kuvvet 2 katına çıkar, Basınç değişmez.",
+                        "Her ikisi de yarıya iner."
                     ],
                     correct: 0,
-                    explanation: "Katının masaya uyguladığı kuvvet kendi ağırlığıdır (G), bu yüzden DEĞİŞMEZ. Yüzey alanı küçüldüğü için basınç (P = G / S) ARTAR."
+                    explanation: "Masaya uygulanan dik kuvvet tuğlaların toplam ağırlığıdır. 1 tuğladan 2 tuğlaya çıkınca kuvvet 2 katına çıkar (G &rarr; 2G). Yüzey alanı da geniş yüzeyden dar yüzeye küçüldüğü için basınç (P = G / S) 2 katından da fazla artar."
                 },
                 {
-                    question: "Aşağıdakilerden hangisi bir 'Kimyasal Değişim' örneğidir?",
+                    id: "8-q6",
+                    unitId: 3,
+                    unitName: "3. Ünite: Basınç",
+                    topic: "Sıvı Basıncı & Derinlik",
+                    difficulty: "LGS Klasik Tuzak",
+                    question: "Taban alanları ve şekilleri birbirinden farklı olan 3 ayrı kaba aynı yükseklikte (h) saf su konuluyor. Kapların tabanına etki eden sıvı basınçları (P1, P2, P3) arasındaki ilişki nasıldır?",
                     options: [
-                        "Buzun eriyerek su haline gelmesi",
-                        "Demir çivinin nemli havada paslanması",
-                        "Küp şekerin suda çözünmesi",
-                        "Cam bardağın yere düşüp kırılması"
+                        "P1 > P2 > P3",
+                        "Geniş olan kabın taban basıncı en büyüktür.",
+                        "P1 = P2 = P3 (Basınçlar eşittir)",
+                        "Kabın daraldığı noktada sıvı basıncı artar."
+                    ],
+                    correct: 2,
+                    explanation: "Sıvı basıncı formülü: P = h . d . g'dir. Kapların şekli, taban genişliği veya içindeki toplam su miktarı sıvı basıncını ETKİLEMEZ! Derinlik (h) ve yoğunluk (d) aynı olduğu için taban basınçları eşittir."
+                },
+
+                // 4. ÜNİTE: MADDE VE ENDÜSTRİ
+                {
+                    id: "8-q7",
+                    unitId: 4,
+                    unitName: "4. Ünite: Madde ve Endüstri",
+                    topic: "Kimyasal Tepkimeler & Kütlenin Korunumu",
+                    difficulty: "LGS Grafik Sorusu",
+                    question: "Kapalı bir kapta gerçekleşen kimyasal bir tepkimede X ve Y maddeleri tepkimeye girerek Z maddesini oluşturmaktadır. Bu tepkime süresince hangisi KESİNLİKLE KORUNMAZ?",
+                    options: [
+                        "Kaptaki toplam kütle",
+                        "Toplam atom sayısı ve atom cinsi",
+                        "Toplam proton ve nötron sayısı",
+                        "Kaptaki toplam molekül sayısı"
+                    ],
+                    correct: 3,
+                    explanation: "Kimyasal tepkimelerde toplam kütle, atom sayısı, atom cinsi ve çekirdek yükü daima korunur. Ancak molekül sayısı korunmak zorunda değildir (Örn: 2H2 + O2 &rarr; 2H2O tepkimesinde 3 molekül girip 2 molekül çıkar)."
+                },
+
+                // 5. ÜNİTE: BASİT MAKİNELER
+                {
+                    id: "8-q8",
+                    unitId: 5,
+                    unitName: "5. Ünite: Basit Makineler",
+                    topic: "Basit Makinelerin Genel Kuralları",
+                    difficulty: "LGS Altın İlke",
+                    question: "Aşağıdakilerden hangisi tüm basit makineler (kaldıraç, eğik düzlem, makara vb.) için GEÇERLİ BİR KURALDIR?",
+                    options: [
+                        "Daima kuvvetten kazanç sağlarlar.",
+                        "Yapılan işten veya enerjiden kesinlikle kazanç sağlanamaz.",
+                        "Kuvvetin yönünü daima değiştirirler.",
+                        "Yoldan kazanç sağlandığında kuvvetten de kazanç sağlanır."
                     ],
                     correct: 1,
-                    explanation: "Demirin paslanması oksijenle girdiği kimyasal bir yanma tepkimesidir; maddenin iç yapısı ve kimliği değişir."
+                    explanation: "Altın Kural: Hiçbir basit makine işten veya enerjiden kazanç sağlamaz! Sadece iş yapma kolaylığı sağlar. Kuvvetten kazanç varsa aynı oranda yoldan kayıp vardır."
+                },
+
+                // 6. ÜNİTE: ENERJİ DÖNÜŞÜMLERİ
+                {
+                    id: "8-q9",
+                    unitId: 6,
+                    unitName: "6. Ünite: Enerji Dönüşümleri",
+                    topic: "Besin Zinciri & Enerji Piramidi",
+                    difficulty: "Yeni Nesil Ekoloji",
+                    question: "Bir besin piramidinde üreticilerden (en alttan) son tüketicilere (en üste) doğru çıkıldıkça aşağıdakilerden hangisi GERÇEKLEŞİR?",
+                    options: [
+                        "Biyolojik birikim (zehir miktarı) artar, aktarılan enerji azalır.",
+                        "Canlı sayısı artar, aktarılan enerji artar.",
+                        "Biyolojik birikim azalır, canlı vücut büyüklüğü küçülür.",
+                        "Her basamakta enerjinin %90'ı bir üst basamağa aktarılır."
+                    ],
+                    correct: 0,
+                    explanation: "Besin piramidinde yukarı çıkıldıkça: 1) Canlı dokularında biriken zehirli madde (biyolojik birikim) ARTAR, 2) Aktarılan enerji azalır (sadece %10 aktarılır, %90 kaybolur)."
+                },
+
+                // 7. ÜNİTE: ELEKTRİK YÜKLERİ
+                {
+                    id: "8-q10",
+                    unitId: 7,
+                    unitName: "7. Ünite: Elektrik Yükleri ve Enerjisi",
+                    topic: "Elektriklenme Çeşitleri & Elektroskop",
+                    difficulty: "LGS Yorum Sorusu",
+                    question: "Ebonit (plastik) bir çubuk yün kumaşa sürtüldükten sonra nötr bir elektroskobun topuzuna DOKUNDURULUYOR. Bu deneyle ilgili hangisi DOĞRUDUR?",
+                    options: [
+                        "Ebonit çubuk pozitif (+) yüklenir.",
+                        "Elektroskobun yaprakları negatif (-) yükle yüklenerek açılır.",
+                        "Yün kumaş negatif (-) yüklenir.",
+                        "Elektroskobun yaprakları nötr kalır ve açılmaz."
+                    ],
+                    correct: 1,
+                    explanation: "Plastik (ebonit) çubuk yün kumaşa sürtülünce elektron alarak EKSİ (-) yüklenir. Eksi yüklü çubuk nötr elektroskoba dokundurulunca elektroskop da eksi yüklenir ve yaprakları aynı yüklerin birbirini itmesiyle açılır."
                 }
             ]
         },
@@ -579,6 +708,56 @@ const EDUCATION_DATA = {
                             <li><strong>Tümsek Ayna:</strong> Işığı dağıtır. Daima <strong>DÜZ ve KÜÇÜK</strong> görüntü vererek geniş bir görüş alanı sağlar. (Örn: Araba yan aynaları, kavşak güvenlik aynaları, mağaza aynaları).</li>
                         </ul>
                     `
+                },
+
+                // 6. ÜNİTE
+                {
+                    unitId: 6,
+                    unitName: "6. Ünite: Canlılarda Üreme, Büyüme ve Gelişme",
+                    title: "İnsanda ve Hayvanlarda Üreme & Başkalaşım",
+                    important: "Döllenme & Başkalaşım Aşamaları",
+                    badge: "F.7.6.1.1",
+                    content: `
+                        <p><strong>İnsanda Üreme Sıralaması:</strong></p>
+                        <p>Sperm (n) + Yumurta (n) &rarr; <span class="highlight">Döllenme</span> &rarr; <strong>Zigot (2n)</strong> &rarr; <strong>Embriyo</strong> (ilk 8 hafta) &rarr; <strong>Fetüs</strong> &rarr; <strong>Bebek</strong>.</p>
+                        <div class="note-highlight">
+                            🦋 <strong>Başkalaşım (Metamorfoz):</strong> Yumurtadan çıkan yavrunun ana canlıya benzemeyip zamanla gelişim geçirerek ana canlıya benzemesidir (Örn: Kurbağa, Kelebek, İpekböceği, Sinek).
+                        </div>
+                    `
+                },
+
+                // 7. ÜNİTE
+                {
+                    unitId: 7,
+                    unitName: "7. Ünite: Elektrik Devreleri",
+                    title: "Seri & Paralel Bağlama ve Ampul Parlaklığı",
+                    important: "Yazılıda Kesin Çıkar!",
+                    badge: "F.7.7.1.1",
+                    content: `
+                        <div class="comparison-grid">
+                            <div class="comp-card cold">
+                                <h4>🔗 Seri Bağlama</h4>
+                                <ul>
+                                    <li>Ampuller uç uca tek bir hat üzerinde dizilir.</li>
+                                    <li>Ampul sayısı arttıkça eşdeğer direnç artar, ampul parlaklığı <strong>AZALIR</strong>.</li>
+                                    <li>Biri patlarsa veya sökülürse <u>hepsi söner</u>!</li>
+                                </ul>
+                            </div>
+                            <div class="comp-card warm">
+                                <h4>⚡ Paralel Bağlama</h4>
+                                <ul>
+                                    <li>Ampuller farklı kollar üzerine bağlanır.</li>
+                                    <li>Ampul sayısı artsa da her bir ampulün parlaklığı <strong>DEĞİŞMEZ</strong>.</li>
+                                    <li>Biri patlarsa <u>diğerleri yanmaya devam eder</u> (Evlerimizdeki tesisat).</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="note-alert">
+                            ⚠️ <strong>Ölçü Aletleri Kuralı:</strong> 
+                            Ampermetre devreye <strong>SERİ</strong> bağlanır (İç direnci çok küçüktür). 
+                            Voltmetre devreye <strong>PARALEL</strong> bağlanır (İç direnci çok büyüktür).
+                        </div>
+                    `
                 }
             ],
 
@@ -593,27 +772,162 @@ const EDUCATION_DATA = {
             ],
 
             quiz: [
+                // 1. ÜNİTE: GÜNEŞ SİSTEMİ VE ÖTESİ
                 {
-                    question: "Bitki hücresi ile hayvan hücresi karşılaştırıldığında aşağıdakilerden hangisi YALNIZCA bitki hücresinde bulunur?",
+                    id: "7-q1",
+                    unitId: 1,
+                    unitName: "1. Ünite: Güneş Sistemi ve Ötesi",
+                    topic: "Uzay Araştırmaları & Işık Yılı",
+                    difficulty: "Yazılı Klasik Soru",
+                    question: "Gökbilimde kullanılan 'Işık Yılı' kavramı ile ilgili olarak aşağıdakilerden hangisi DOĞRUDUR?",
                     options: [
-                        "Sentrozom",
-                        "Hücre zarı",
-                        "Hücre duvarı (çeperi) ve Kloroplast",
-                        "Mitokondri"
+                        "Işığın Dünya etrafında bir yılda kaç tur attığını gösteren zaman birimidir.",
+                        "Gök cisimleri arasındaki mesafeyi ölçmek için kullanılan bir UZAKLIK birimidir.",
+                        "Yalnızca Güneş Sistemi içerisindeki gezegenler arası süreyi ifade eder.",
+                        "Bir yıldızın yaşını belirlemek için kullanılan astronomik süredir."
                     ],
-                    correct: 2,
-                    explanation: "Hücre çeperi ve fotosentez yapan kloroplast organeli sadece bitki hücrelerinde bulunur; hayvan hücrelerinde bulunmaz."
+                    correct: 1,
+                    explanation: "Işık yılı kesinlikle bir zaman birimi DEĞİLDİR! Işığın boşlukta 1 yılda kat ettiği yaklaşık 9.5 trilyon kilometrelik MESAFE / UZAKLIK birimidir."
                 },
                 {
-                    question: "Fiziksel anlamda iş yapılabilmesi için gereken iki temel şart hangisinde doğru verilmiştir?",
+                    id: "7-q2",
+                    unitId: 1,
+                    unitName: "1. Ünite: Güneş Sistemi ve Ötesi",
+                    topic: "Türkiye'nin Uyduları",
+                    difficulty: "Genel Kültür & MEB Kazanım",
+                    question: "Aşağıdakilerden hangisi Türkiye'nin uzayda aktif olarak görev yapan YERLİ VE MİLLİ haberleşme uydusudur?",
                     options: [
-                        "Kuvvet uygulanmalı ve cisim bu kuvvet doğrultusunda hareket etmelidir.",
-                        "Cismin ağırlığı artırılmalı ve sürati sabit kalmalıdır.",
-                        "Uygulanan kuvvet yerçekimi kuvvetinden büyük olmalıdır.",
-                        "Cisim yalnızca dikey yönde yukarı kaldırılmalıdır."
+                        "Göktürk-1",
+                        "BİLSAT",
+                        "Türksat 6A",
+                        "Rasat"
+                    ],
+                    correct: 2,
+                    explanation: "Türksat 6A, Türkiye'nin ilk yerli ve milli haberleşme uydusudur. Göktürk ve İMECE ise yerli gözlem uydularımızdır."
+                },
+
+                // 2. ÜNİTE: HÜCRE VE BÖLÜNMELER
+                {
+                    id: "7-q3",
+                    unitId: 2,
+                    unitName: "2. Ünite: Hücre ve Bölünmeler",
+                    topic: "Hücre Organelleri",
+                    difficulty: "Yazılı Sorusu",
+                    question: "Bitki hücresi ile hayvan hücresi mikroskopta incelendiğinde aşağıdakilerden hangisi YALNIZCA bitki hücresinde gözlemlenir?",
+                    options: [
+                        "Sentrozom organeli",
+                        "Hücre zarı ve çekirdek",
+                        "Hücre duvarı (çeperi) ve Kloroplast",
+                        "Mitokondri ve ribozom"
+                    ],
+                    correct: 2,
+                    explanation: "Hücre çeperi (duvarı) ve fotosentez yaparak besin üreten kloroplast organeli sadece bitki hücrelerinde bulunur; hayvan hücrelerinde bulunmaz."
+                },
+                {
+                    id: "7-q4",
+                    unitId: 2,
+                    unitName: "2. Ünite: Hücre ve Bölünmeler",
+                    topic: "Mitoz vs Mayoz Bölünme",
+                    difficulty: "Kritik Karşılaştırma",
+                    question: "Mayoz bölünmeyi mitoz bölünmeden ayıran ve tür içi GENETİK ÇEŞİTLİLİĞİ sağlayan en önemli olay hangisidir?",
+                    options: [
+                        "Kromozomların hücre ortasına dizilmesi",
+                        "DNA'nın bölünme öncesinde kendini eşlemesi",
+                        "Homolog kromozomlar arasında gerçekleşen Parça Değişimi (Crossing-Over)",
+                        "Sitoplazmanın boğumlanarak ikiye ayrılması"
+                    ],
+                    correct: 2,
+                    explanation: "Mayoz-1 evresinde homolog kromozomlar arasında gerçekleşen parça değişimi (crossing-over), genetik çeşitliliğin (kardeşlerin birbirinden farklı olmasının) temel sebebidir."
+                },
+
+                // 3. ÜNİTE: KUVVET VE ENERJİ
+                {
+                    id: "7-q5",
+                    unitId: 3,
+                    unitName: "3. Ünite: Kuvvet ve Enerji",
+                    topic: "Fiziksel Anlamda İş",
+                    difficulty: "Yazılı Tuzak Soru",
+                    question: "Fiziksel anlamda iş yapılabilmesi için aşağıdaki iki temel şarttan hangisi KESİNLİKLE BİRLİKTE SAĞLANMALIDIR?",
+                    options: [
+                        "Cisme kuvvet uygulanmalı ve cisim bu uygulanan kuvvet doğrultusunda yol almalıdır.",
+                        "Cismin sürati sürekli artmalı ve kütlesi azalmalıdır.",
+                        "Cisim yalnızca dikey yönde yukarıya doğru taşınmalıdır.",
+                        "Uygulanan kuvvet cisme zıt yönde etki etmelidir."
                     ],
                     correct: 0,
-                    explanation: "Fiziksel iş (W = F . x) olabilmesi için cisme kuvvet uygulanmalı ve cisim kuvvet doğrultusunda yol almalıdır."
+                    explanation: "Fiziksel iş (W = F . x): Bir cisme kuvvet uygulanmalı ve cisim uygulanan bu kuvvetle AYNI DOĞRULTUDA yer değiştirmelidir. Çantasını sırtında sallamadan düz yolda yürüyen öğrenci fiziksel anlamda iş yapmaz!"
+                },
+
+                // 4. ÜNİTE: SAF MADDE VE KARIŞIMLAR
+                {
+                    id: "7-q6",
+                    unitId: 4,
+                    unitName: "4. Ünite: Saf Madde ve Karışımlar",
+                    topic: "Element ve Bileşikler",
+                    difficulty: "MEB Kavram Sorusu",
+                    question: "Su (H2O) ve Sofra Tuzu (NaCl) gibi maddelerin ortak özelliği aşağıdakilerden hangisidir?",
+                    options: [
+                        "Aynı cins atomlardan oluşmuş element olmaları",
+                        "Fiziksel yöntemlerle daha basit maddelere ayrıştırılabilmeleri",
+                        "Belirli formüllerle gösterilen Saf Madde (Bileşik) olmaları",
+                        "Kendisini oluşturan maddelerin kimyasal özelliklerini aynen korumaları"
+                    ],
+                    correct: 2,
+                    explanation: "Bileşikler en az iki farklı elementin kimyasal yollarla birleştiği saf maddelerdir. Formüllerle gösterilirler ve kendini oluşturan elementlerin özelliklerini kesinlikle GÖSTERMEZLER (Örn: Yanıcı H2 ve yakıcı O2 birleşip söndürücü H2O suyunu oluşturur)."
+                },
+
+                // 5. ÜNİTE: IŞIĞIN MADDE İLE ETKİLEŞİMİ
+                {
+                    id: "7-q7",
+                    unitId: 5,
+                    unitName: "5. Ünite: Işığın Madde ile Etkileşimi",
+                    topic: "Aynalar ve Kullanım Alanları",
+                    difficulty: "Günlük Hayat Uygulaması",
+                    question: "Araçların sağ-sol yan aynalarında ve keskin yol virajlarındaki kavşak aynalarında geniş bir görüş alanı sağlamak amacıyla hangi ayna türü kullanılır?",
+                    options: [
+                        "Çukur Ayna",
+                        "Tümsek Ayna",
+                        "Düz Ayna",
+                        "İnce Kenarlı Mercek"
+                    ],
+                    correct: 1,
+                    explanation: "Tümsek ayna üzerine gelen ışınları dağıtır ve daima düz, cisimden KÜÇÜK görüntü vererek çok geniş bir görüş alanı sağlar. Bu yüzden araç yan aynalarında ve güvenlik kavşak aynalarında tümsek ayna kullanılır."
+                },
+
+                // 6. ÜNİTE: CANLILARDA ÜREME
+                {
+                    id: "7-q8",
+                    unitId: 6,
+                    unitName: "6. Ünite: Canlılarda Üreme, Büyüme ve Gelişme",
+                    topic: "İnsanda Üreme Sıralaması",
+                    difficulty: "Sıralama Sorusu",
+                    question: "İnsanda döllenmeden bebeğin doğumuna kadar geçen süreçteki biyolojik gelişim aşamalarının doğru sıralanışı hangisidir?",
+                    options: [
+                        "Zigot &rarr; Embriyo &rarr; Fetüs &rarr; Bebek",
+                        "Embriyo &rarr; Zigot &rarr; Fetüs &rarr; Bebek",
+                        "Fetüs &rarr; Zigot &rarr; Embriyo &rarr; Bebek",
+                        "Zigot &rarr; Fetüs &rarr; Embriyo &rarr; Bebek"
+                    ],
+                    correct: 0,
+                    explanation: "Sperm ve yumurtanın birleşmesiyle oluşan ilk hücreye ZİGOT denir. Zigot bölünüp çoğalarak EMBRİYO'yu, 8. haftadan sonra FETÜS'ü ve en sonunda BEBEK'i oluşturur."
+                },
+
+                // 7. ÜNİTE: ELEKTRİK DEVRELERİ
+                {
+                    id: "7-q9",
+                    unitId: 7,
+                    unitName: "7. Ünite: Elektrik Devreleri",
+                    topic: "Seri ve Paralel Bağlama",
+                    difficulty: "Yazılı Garanti Soru",
+                    question: "Özdeş ampullerden oluşan paralel bağlı bir devredeki ampullerden biri duydan söküldüğünde diğer ampullerin durumu ne olur?",
+                    options: [
+                        "Bütün ampuller anında söner.",
+                        "Diğer ampuller aynı parlaklıkta yanmaya devam eder.",
+                        "Diğer ampullerin parlaklığı 2 katına çıkar.",
+                        "Devredeki pil hemen biter."
+                    ],
+                    correct: 1,
+                    explanation: "Paralel bağlı devrelerde her ampul kendi bağımsız elektrik koluna sahiptir. Bir ampul patlasa veya sökülse bile diğer kollar etkilenmez ve aynı parlaklıkta yanmaya devam eder. Evlerimizdeki priz ve lambalar da bu yüzden paralel bağlıdır."
                 }
             ]
         }

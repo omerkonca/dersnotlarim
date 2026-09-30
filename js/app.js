@@ -177,12 +177,13 @@ class App {
         this.renderNotes(notes, unitName);
     }
 
-    // Quiz Render
-    renderQuiz(quiz) {
+    // Quiz Render (Ünite Bazlı Kategorize ve Filtreli)
+    renderQuiz(quiz, selectedUnit = 'all') {
         const container = document.getElementById('quiz-container');
         if (!container) return;
 
-        this.userAnswers = {};
+        this.currentQuizUnit = selectedUnit;
+        if (!this.userAnswers) this.userAnswers = {};
 
         if (!quiz || quiz.length === 0) {
             container.innerHTML = `
@@ -195,71 +196,107 @@ class App {
             return;
         }
 
+        const units = Array.from(new Set(quiz.map(q => q.unitName))).filter(Boolean);
+        const filteredQuiz = selectedUnit === 'all' 
+            ? quiz 
+            : quiz.filter(q => q.unitName === selectedUnit);
+
+        const currentScore = filteredQuiz.filter(q => this.userAnswers[q.id || q.question] === q.correct).length;
+        const totalPoints = filteredQuiz.length * 10;
+        const earnedPoints = currentScore * 10;
+
         container.innerHTML = `
+            ${units.length > 1 ? `
+                <div class="unit-filter-bar" style="display:flex; gap:0.4rem; overflow-x:auto; padding-bottom:0.75rem; margin-bottom:1.25rem; scrollbar-width:none;">
+                    <button class="unit-pill ${selectedUnit === 'all' ? 'active' : ''}" onclick="app.filterQuizByUnit('all')">
+                        🎯 Tüm Üniteler Karma Deneme (${quiz.length} Soru)
+                    </button>
+                    ${units.map(u => {
+                        const count = quiz.filter(q => q.unitName === u).length;
+                        return `
+                            <button class="unit-pill ${selectedUnit === u ? 'active' : ''}" onclick="app.filterQuizByUnit('${u}')">
+                                📖 ${u} (${count})
+                            </button>
+                        `;
+                    }).join('')}
+                </div>
+            ` : ''}
+
             <div class="quiz-status-bar">
-                <span>Toplam ${quiz.length} İnteraktif Soru</span>
-                <span class="quiz-score" id="quiz-score-val">Puan: 0 / ${quiz.length * 25}</span>
+                <div>
+                    <span style="font-size: 0.95rem; font-weight: 700; color: var(--text-main);">
+                        📂 ${selectedUnit === 'all' ? 'Tüm Üniteler Karma Deneme Testi' : selectedUnit}
+                    </span>
+                    <span style="display:block; font-size:0.8rem; color:var(--text-muted); font-weight:500;">
+                        Toplam ${filteredQuiz.length} Yeni Nesil & Yazılı Sorusu
+                    </span>
+                </div>
+                <span class="quiz-score" id="quiz-score-val">Puan: ${earnedPoints} / ${totalPoints}</span>
             </div>
+
             <div class="quiz-questions">
-                ${quiz.map((q, qIndex) => `
-                    <div class="question-block" id="qb-${qIndex}">
-                        <h4 class="q-title"><strong>Soru ${qIndex + 1}:</strong> ${q.question}</h4>
-                        <div class="q-options">
-                            ${q.options.map((opt, optIndex) => `
-                                <button class="q-opt-btn" onclick="app.checkAnswer(${qIndex}, ${optIndex})">
-                                    <span class="opt-letter">${['A', 'B', 'C', 'D'][optIndex]}</span>
-                                    <span>${opt}</span>
-                                </button>
-                            `).join('')}
+                ${filteredQuiz.map((q, idx) => {
+                    const qKey = q.id || q.question;
+                    const answered = this.userAnswers[qKey] !== undefined;
+                    const userChoice = this.userAnswers[qKey];
+
+                    return `
+                        <div class="question-block" id="qb-${idx}">
+                            <div class="q-meta-header" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem; flex-wrap:wrap; gap:0.5rem;">
+                                <span class="q-unit-badge" style="background:rgba(56, 189, 248, 0.15); color:var(--primary); padding:0.2rem 0.6rem; border-radius:9999px; font-size:0.75rem; font-weight:700;">
+                                    ${q.unitName || 'Fen Bilimleri'}
+                                </span>
+                                <div style="display:flex; gap:0.4rem; align-items:center;">
+                                    ${q.difficulty ? `<span style="background:rgba(245, 158, 11, 0.15); color:var(--accent); padding:0.2rem 0.5rem; border-radius:4px; font-size:0.7rem; font-weight:700;">${q.difficulty}</span>` : ''}
+                                    ${q.topic ? `<span style="color:var(--text-muted); font-size:0.75rem;">🏷️ ${q.topic}</span>` : ''}
+                                </div>
+                            </div>
+
+                            <h4 class="q-title"><strong>Soru ${idx + 1}:</strong> ${q.question}</h4>
+                            <div class="q-options">
+                                ${q.options.map((opt, optIndex) => {
+                                    let btnClass = 'q-opt-btn';
+                                    if (answered) {
+                                        btnClass += ' locked';
+                                        if (optIndex === q.correct) btnClass += ' correct';
+                                        else if (optIndex === userChoice) btnClass += ' wrong';
+                                    }
+                                    return `
+                                        <button class="${btnClass}" onclick="app.checkAnswer('${qKey}', ${optIndex})">
+                                            <span class="opt-letter">${['A', 'B', 'C', 'D'][optIndex]}</span>
+                                            <span>${opt}</span>
+                                        </button>
+                                    `;
+                                }).join('')}
+                            </div>
+                            <div class="q-solution" id="solution-${qKey}" style="display: ${answered ? 'block' : 'none'};">
+                                <strong>💡 Çözüm ve Açıklama:</strong>
+                                <p style="margin-top: 0.35rem;">${q.explanation}</p>
+                            </div>
                         </div>
-                        <div class="q-solution" id="solution-${qIndex}">
-                            <strong>💡 Çözüm ve Açıklama:</strong>
-                            <p style="margin-top: 0.35rem;">${q.explanation}</p>
-                        </div>
-                    </div>
-                `).join('')}
+                    `;
+                }).join('')}
             </div>
         `;
     }
 
-    // Soru Cevaplama
-    checkAnswer(qIndex, selectedOptIndex) {
+    filterQuizByUnit(unitName) {
         const key = `${this.currentClass}-${this.currentSubject}`;
-        const quiz = EDUCATION_DATA.content[key]?.quiz;
-        if (!quiz || !quiz[qIndex]) return;
-
-        if (this.userAnswers[qIndex] !== undefined) return;
-        this.userAnswers[qIndex] = selectedOptIndex;
-
-        const correct = quiz[qIndex].correct;
-        const qBlock = document.getElementById(`qb-${qIndex}`);
-        const buttons = qBlock.querySelectorAll('.q-opt-btn');
-
-        buttons.forEach((btn, idx) => {
-            btn.classList.add('locked');
-            if (idx === correct) {
-                btn.classList.add('correct');
-            } else if (idx === selectedOptIndex) {
-                btn.classList.add('wrong');
-            }
-        });
-
-        const sol = document.getElementById(`solution-${qIndex}`);
-        if (sol) sol.style.display = 'block';
-
-        this.updateScore(quiz);
+        const quiz = EDUCATION_DATA.content[key]?.quiz || [];
+        this.renderQuiz(quiz, unitName);
     }
 
-    updateScore(quiz) {
-        let correctCount = 0;
-        Object.keys(this.userAnswers).forEach(idx => {
-            if (this.userAnswers[idx] === quiz[idx].correct) correctCount++;
-        });
+    // Soru Cevaplama (Kalıcı ve Hatasız)
+    checkAnswer(qKey, selectedOptIndex) {
+        const key = `${this.currentClass}-${this.currentSubject}`;
+        const quiz = EDUCATION_DATA.content[key]?.quiz || [];
+        const question = quiz.find(q => (q.id || q.question) === qKey);
+        if (!question) return;
 
-        const scoreEl = document.getElementById('quiz-score-val');
-        if (scoreEl) {
-            scoreEl.textContent = `Puan: ${correctCount * 25} / ${quiz.length * 25}`;
-        }
+        if (this.userAnswers[qKey] !== undefined) return;
+        this.userAnswers[qKey] = selectedOptIndex;
+
+        this.renderQuiz(quiz, this.currentQuizUnit || 'all');
     }
 
     // Müfredat Render
