@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ders Notlarım | Akıllı Tahta & Öğrenci Portalı</title>
+    <meta name="description" content="Ders Notlarım - 7 ve 8. Sınıf Fen Bilimleri, Türkçe, slaytlar, konu anlatımı ve soru çözümleri.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Arka Plan Efektleri -->
+    <div class="bg-ambient-lights">
+        <div class="glow-orb glow-orb-1"></div>
+        <div class="glow-orb glow-orb-2"></div>
+    </div>
+
+    <!-- ÜST MENÜ (NAVBAR) -->
+    <nav class="navbar" id="main-navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">
+                <div class="brand-icon">
+                    <i class="bi bi-journal-bookmark-fill"></i>
+                </div>
+                <div>
+                    <span class="brand-title">Ders<span>Notlarım</span></span>
+                    <span class="brand-subtitle">Öğretmen & Öğrenci Portalı</span>
+                </div>
+            </a>
+
+            <div class="nav-actions">
+                <button class="btn-smartboard-launch" onclick="smartBoard.toggleFullscreen()" title="Akıllı Tahtada Tam Ekran">
+                    <i class="bi bi-projector-fill"></i>
+                    <span>Tahta Modu</span>
+                </button>
+                <button class="theme-toggle-btn" id="theme-toggle-btn" title="Karanlık / Aydınlık Mod">
+                    <i class="bi bi-sun-fill"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- KONTROL & SEÇİM MERKEZİ (HERO & FİLTRELER) -->
+    <header class="dashboard-header">
+        <div class="container">
+            
+            <!-- Üst Başlık & Hızlı Bilgi -->
+            <div class="header-main-box">
+                <div class="active-badge-pill" id="active-class-subject-badge">
+                    <i class="bi bi-mortarboard-fill"></i> 8. Sınıf &bull; Fen Bilimleri
+                </div>
+                <h1 class="portal-main-heading" id="current-page-title">
+                    8. Sınıf Fen Bilimleri
+                </h1>
+                <p class="portal-sub-heading" id="current-page-desc">
+                    Mevsimler ve İklim, LGS çıkmış soruları, akıllı tahta ders sunumu ve ünite notları.
+                </p>
+
+                <!-- 1. KADEME / SINIF VE BRANŞ SEÇİCİ KARTLARI -->
+                <div class="selectors-container">
+                    <!-- Sınıflar -->
+                    <div class="selector-row">
+                        <span class="row-label"><i class="bi bi-mortarboard"></i> Sınıf Seç:</span>
+                        <div class="pills-group" id="class-filters">
+                            <!-- Dinamik (8. Sınıf, 7. Sınıf, 6. Sınıf, 5. Sınıf) -->
+                        </div>
+                    </div>
+
+                    <!-- Branşlar -->
+                    <div class="selector-row">
+                        <span class="row-label"><i class="bi bi-book"></i> Ders Seç:</span>
+                        <div class="pills-group" id="subject-filters">
+                            <!-- Dinamik (Fen Bilimleri, Türkçe, Matematik) -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. KATEGORİ SEKMELERİ (KULLANICININ İSTEDİĞİ KATEGORİK DÜZEN) -->
+            <div class="category-tabs-wrapper">
+                <div class="category-tabs" id="category-tabs">
+                    <button class="cat-tab-btn active" data-category="all">
+                        <i class="bi bi-grid-fill"></i>
+                        <span>Tümü</span>
+                    </button>
+                    <button class="cat-tab-btn" data-category="presentations">
+                        <i class="bi bi-easel-fill"></i>
+                        <span>Ders Sunumları (Slayt)</span>
+                    </button>
+                    <button class="cat-tab-btn" data-category="notes">
+                        <i class="bi bi-journal-text"></i>
+                        <span>Konu Anlatımı & Notlar</span>
+                    </button>
+                    <button class="cat-tab-btn" data-category="quiz">
+                        <i class="bi bi-patch-question-fill"></i>
+                        <span>Soru Çözümü & Test</span>
+                    </button>
+                    <button class="cat-tab-btn" data-category="curriculum">
+                        <i class="bi bi-calendar3"></i>
+                        <span>Ders Müfredatı</span>
+                    </button>
+                </div>
+
+                <!-- Hızlı Arama -->
+                <div class="search-input-box">
+                    <i class="bi bi-search"></i>
+                    <input type="text" id="global-search-input" placeholder="Konu, kavram veya soru ara...">
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- ANA İÇERİK KATEGORİ ALANI -->
+    <main class="container main-content-area">
+
+        <!-- KATEGORİ 1: DERS SUNUMLARI (SLAYTLAR) -->
+        <section class="category-section" id="cat-section-presentations">
+            <div class="category-title-header">
+                <h3><i class="bi bi-easel-fill text-primary"></i> 1. Ünite Akıllı Tahta Sunumu</h3>
+                <span class="cat-badge">Slayt Gösterisi</span>
+            </div>
+            <!-- Sunum Kartı -->
+            <div class="presentation-hero-card" id="presentation-card"></div>
+        </section>
+
+        <!-- KATEGORİ 2: KONU ANLATIMI & DERS NOTLARI -->
+        <section class="category-section" id="cat-section-notes">
+            <div class="category-title-header">
+                <h3><i class="bi bi-journal-text text-accent"></i> Özet Ders Notları & Altın İpuçları</h3>
+                <span class="cat-badge">Sınavda Çıkar</span>
+            </div>
+            <!-- Not Kartları -->
+            <div class="notes-grid" id="notes-container"></div>
+        </section>
+
+        <!-- KATEGORİ 3: İNTERAKTİF SORU ÇÖZÜMÜ -->
+        <section class="category-section" id="cat-section-quiz">
+            <div class="category-title-header">
+                <h3><i class="bi bi-patch-question-fill text-success"></i> Soru Çözümü & Deneme Testi</h3>
+                <span class="cat-badge">İnteraktif Test</span>
+            </div>
+            <!-- Quiz Alanı -->
+            <div class="quiz-container" id="quiz-container"></div>
+        </section>
+
+        <!-- KATEGORİ 4: MEB MÜFREDAT VE KAZANIMLAR -->
+        <section class="category-section" id="cat-section-curriculum">
+            <div class="category-title-header">
+                <h3><i class="bi bi-calendar3 text-secondary"></i> Yıllık Müfredat & Ünite Takvimi</h3>
+                <span class="cat-badge">MEB 2025-2026</span>
+            </div>
+            <!-- Müfredat Tablosu -->
+            <div class="curriculum-table-container">
+                <table class="curriculum-table">
+                    <thead>
+                        <tr>
+                            <th>Ünite No</th>
+                            <th>Ünite & Konu Başlığı</th>
+                            <th>Ders Saati</th>
+                            <th>Dönem</th>
+                            <th>Durum</th>
+                        </tr>
+                    </thead>
+                    <tbody id="curriculum-tbody"></tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- GÖMÜLÜ SUNUM MODALI (AKILLI TAHTA) -->
+    <div class="presentation-modal" id="presentation-modal">
+        <div class="modal-header">
+            <div class="modal-title-group">
+                <i class="bi bi-projector" style="color: var(--primary); font-size: 1.25rem;"></i>
+                <h3 id="modal-presentation-title" style="font-size: 1.15rem; margin: 0;">Sunum Başlığı</h3>
+            </div>
+            <div class="modal-actions">
+                <a id="modal-external-link" href="#" target="_blank" class="btn-present-fullscreen" style="padding: 0.35rem 0.75rem; font-size: 0.85rem;">
+                    <i class="bi bi-box-arrow-up-right"></i> Yeni Sekmede Aç
+                </a>
+                <button class="modal-close-btn" id="close-presentation-modal">
+                    <i class="bi bi-x-lg"></i> Kapat
+                </button>
+            </div>
+        </div>
+        <div class="modal-iframe-container">
+            <iframe id="modal-presentation-iframe" src="about:blank" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- SADE VE TEMİZ FOOTER -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-info">
+                <h4 style="font-size: 1.1rem; font-weight: 700;">📚 Ders Notlarım</h4>
+                <p>Öğretmen akıllı tahta sunumları, dershane konu notları ve soru bankası.</p>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">
+                Tüm hakları saklıdır &bull; Kolay Ders Anlatım Sistemi
+            </p>
+        </div>
+    </footer>
+
+    <!-- JS Dosyaları -->
+    <script src="js/data.js"></script>
+    <script src="js/board-tools.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

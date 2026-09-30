@@ -1,0 +1,18 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/7-sinif"
+  to = "/7-sinif.html"
+  status = 200
+
+[[redirects]]
+  from = "/8-sinif"
+  to = "/8-sinif.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
