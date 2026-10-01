@@ -26,7 +26,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css?v=5.0">
+    <link rel="stylesheet" href="css/style.css?v=5.1">
 </head>
 <body class="mode-teacher">
 
@@ -47,6 +47,7 @@
                 <button class="nav-btn" onclick="app.selectSubject('8', 'fen')">🧪 8. Sınıf Fen</button>
                 <button class="nav-btn" onclick="app.selectSubject('7', 'fen')">🚀 7. Sınıf Fen</button>
                 <button class="nav-btn" onclick="app.selectSubject('8', 'turkce')">📖 8. Türkçe</button>
+                <button class="nav-btn" onclick="app.selectSubject('5', 'fen')">🌞 5. Fen</button>
             </nav>
 
             <div class="nav-actions">
@@ -77,6 +78,7 @@
             <button class="nav-btn" onclick="app.selectSubject('7', 'fen')">🚀 7. Sınıf Fen</button>
             <button class="nav-btn" onclick="app.selectSubject('8', 'turkce')">📖 8. Sınıf Türkçe</button>
             <button class="nav-btn" onclick="app.selectSubject('7', 'turkce')">✍️ 7. Sınıf Türkçe</button>
+            <button class="nav-btn" onclick="app.selectSubject('5', 'fen')">🌞 5. Sınıf Fen</button>
             <button class="nav-btn" onclick="interactiveLab.startSpeedRun()">⚡ 60sn Hızlı Ateş</button>
             <button class="nav-btn teacher-only" onclick="interactiveLab.toggleQRModal()">📱 QR Paylaş</button>
             <button class="nav-btn teacher-only" onclick="toggleWheelModal()">🎲 Çarkıfelek</button>
@@ -225,19 +227,24 @@
                 </div>
 
                 <!-- KART 6: 5. SINIF FEN -->
-                <div class="course-card upcoming">
+                <div class="course-card">
                     <div class="course-card-top">
                         <span class="course-grade-badge">5. Sınıf</span>
-                        <span class="course-status-badge pending">Gelecek Dönem</span>
+                        <span class="course-status-badge">Aktif &bull; 1–7. Ünite</span>
                     </div>
-                    <div class="course-icon">🌱</div>
+                    <div class="course-icon">🌞</div>
                     <h3 class="course-title">5. Sınıf Fen Bilimleri</h3>
                     <p class="course-desc">
-                        Güneş, Dünya ve Ay'ın Hareketleri, Canlılar Dünyası.
+                        Güneş–Ay · Kuvvet · Hücre · Işık · Madde · Elektrik · Evsel atık ve Sıfır Atık.
                     </p>
+                    <div class="course-features">
+                        <span>📖 23 Konu Notu</span>
+                        <span>❓ 23 Yazılı Sorusu</span>
+                        <span>🃏 28 Hafıza Kartı</span>
+                    </div>
                     <div class="course-actions">
                         <button class="btn-course-primary" onclick="app.selectSubject('5', 'fen')">
-                            İncele &rarr;
+                            Ders Alanına Git &rarr;
                         </button>
                     </div>
                 </div>
@@ -859,12 +866,12 @@ Selin</textarea>
     </footer>
 
     <!-- JS -->
-    <script src="js/sound-fx.js?v=5.0"></script>
-    <script src="js/qrcode.min.js?v=5.0"></script>
-    <script src="js/data.js?v=5.0"></script>
-    <script src="js/board-tools.js?v=5.0"></script>
-    <script src="js/interactive-lab.js?v=5.0"></script>
-    <script src="js/app.js?v=5.0"></script>
+    <script src="js/sound-fx.js?v=5.1"></script>
+    <script src="js/qrcode.min.js?v=5.1"></script>
+    <script src="js/data.js?v=5.1"></script>
+    <script src="js/board-tools.js?v=5.1"></script>
+    <script src="js/interactive-lab.js?v=5.1"></script>
+    <script src="js/app.js?v=5.1"></script>
     <script>
         function toggleWheelModal() {
             const modal = document.getElementById('lucky-wheel-modal');

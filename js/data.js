@@ -10,7 +10,7 @@ const EDUCATION_DATA = {
         { id: "8", name: "8. Sınıf (LGS)", badge: "LGS Hazırlık", active: true },
         { id: "7", name: "7. Sınıf", badge: "Kritik Kademe", active: true },
         { id: "6", name: "6. Sınıf", badge: "Temel Güçlendirme", active: false },
-        { id: "5", name: "5. Sınıf", badge: "Ortaokula İlk Adım", active: false }
+        { id: "5", name: "5. Sınıf", badge: "Ortaokula İlk Adım", active: true }
     ],
 
     subjects: [
@@ -1616,6 +1616,1088 @@ const EDUCATION_DATA = {
                 { id: "7t-fc2", front: "Dilek kipleri nelerdir?", back: "gereklik (-meli), istek (-e), dilek-şart (-se), emir." },
                 { id: "7t-fc3", front: "de bağlacı nasıl yazılır?", back: "Her zaman ayrı: 'Sen de gel.'" },
                 { id: "7t-fc4", front: "Durum fiili nesne alır mı?", back: "Genelde almaz: uyumak, oturmak, gülmek..." }
+            ]
+        },
+
+        // ==========================================
+        // 5. SINIF FEN BİLİMLERİ - 1. ÜNİTE (GÜNCEL MEB)
+        // ==========================================
+        "5-fen": {
+            title: "5. Sınıf Fen Bilimleri",
+            subtitle: "1–7. Ünite güncel MEB 5. sınıf Fen (Sıfır Atık dahil)",
+            presentation: {
+                title: "5. Sınıf Fen • 1–7. Ünite",
+                desc: "Güneş–Ay’dan elektrik ve sıfır atığa kadar güncel müfredat notları.",
+                file: "#",
+                slidesCount: "Not + Test Odaklı",
+                badge: "5. Sınıf • 7 Ünite"
+            },
+            notes: [
+                {
+                    unitId: 1,
+                    unitName: "1. Ünite: Güneş, Dünya ve Ay",
+                    title: "Gökyüzündeki Komşumuz Güneş",
+                    important: "Doğrudan bakma!",
+                    badge: "F.5.1.1",
+                    content: `
+                        <ul class="styled-list">
+                            <li><strong>Isı ve ışık kaynağı:</strong> Dünya’mızın temel yaşam, ısı ve ışık kaynağıdır.</li>
+                            <li><strong>Şekil ve yapı:</strong> Şekli <strong>küreye</strong> benzer. Dünya gibi <strong>katmanlardan</strong> oluşur; yapısında sıcak <strong>gazlar</strong> bulunur.</li>
+                            <li><strong>Güneş lekeleri:</strong> Yüzeyde diğer bölgelere göre daha soğuk ve koyu görünen alanlardır.</li>
+                            <li><strong>Hareketi:</strong> Kendi ekseni etrafında <strong>saat yönünün tersine</strong> (batıdan doğuya) döner.</li>
+                        </ul>
+                        <div class="note-alert">
+                            ⚠️ <strong>Önemli uyarı:</strong> Güneş’e doğrudan ya da teleskop, dürbün, mercek ile bakmak göz sağlığı için çok tehlikelidir.
+                        </div>
+                    `
+                },
+                {
+                    unitId: 1,
+                    unitName: "1. Ünite: Güneş, Dünya ve Ay",
+                    title: "Gökyüzündeki Komşumuz Ay",
+                    important: "Ay ışık kaynağı değildir",
+                    badge: "F.5.1.2",
+                    content: `
+                        <ul class="styled-list">
+                            <li><strong>Dünya’nın uydusu:</strong> Dünya’ya en yakın gök cismi; tek doğal uydumuzdur.</li>
+                            <li><strong>Işık kaynağı değildir:</strong> Güneş’ten aldığı ışığı yansıtır.</li>
+                            <li><strong>Atmosfer:</strong> Yok denecek kadar incedir → rüzgâr ve yağmur görülmez; gece-gündüz sıcaklık farkı çok yüksektir.</li>
+                            <li><strong>Krater:</strong> Gök taşlarının (meteor) çarpmasıyla oluşan çukurlardır.</li>
+                        </ul>
+                        <div class="note-highlight">
+                            <strong>Ay’ın 3 hareketi</strong> (hepsi saat yönünün tersine):
+                            <ol>
+                                <li>Kendi ekseni etrafında döner</li>
+                                <li>Dünya etrafında dolanır</li>
+                                <li>Dünya ile birlikte Güneş etrafında dolanır</li>
+                            </ol>
+                            <p style="margin-top:0.6rem;"><strong>Neden hep aynı yüz görünür?</strong> Kendi etrafında dönme süresi ≈ Dünya etrafında dolanma süresi (~27,3 gün) olduğundan Dünya’dan bakınca Ay’ın hep aynı yüzü görünür.</p>
+                        </div>
+                    `
+                },
+                {
+                    unitId: 1,
+                    unitName: "1. Ünite: Güneş, Dünya ve Ay",
+                    title: "Ay’ın Evreleri",
+                    important: "D / ters D / C şekilleri",
+                    badge: "F.5.1.3",
+                    content: `
+                        <p>Ay Dünya etrafında dolanırken Güneş ışığını alan kısmı değişir; bu yüzden farklı şekillerde görünür. Ana evreler arası ~1 hafta; tüm döngü ~4 hafta / 29,5 gündür.</p>
+                        <div class="comparison-grid">
+                            <div class="comp-card cold">
+                                <h4>🌑 Ana Evreler</h4>
+                                <ul>
+                                    <li><strong>Yeni Ay:</strong> Dünya ile Güneş arasında; bize bakan yüz karanlık.</li>
+                                    <li><strong>İlk Dördün:</strong> Sağ yarı aydınlık, düz <strong>“D”</strong>.</li>
+                                    <li><strong>Dolunay:</strong> Bize bakan yüz tamamen aydınlık, daire.</li>
+                                    <li><strong>Son Dördün:</strong> Sol yarı aydınlık, ters <strong>“D”</strong>.</li>
+                                </ul>
+                            </div>
+                            <div class="comp-card warm">
+                                <h4>🌒 Ara Evreler</h4>
+                                <ul>
+                                    <li><strong>Hilal:</strong> “C” veya ters “C” (Yeni Ay ↔ dördünler arası).</li>
+                                    <li><strong>Şişkin Ay:</strong> Daireye yakın ama az eksik (dördün ↔ dolunay arası).</li>
+                                </ul>
+                            </div>
+                        </div>
+                    `
+                },
+                {
+                    unitId: 1,
+                    unitName: "1. Ünite: Güneş, Dünya ve Ay",
+                    title: "Güneş, Dünya ve Ay Karşılaştırması",
+                    important: "Büyüklük modeli",
+                    badge: "F.5.1.4",
+                    content: `
+                        <ul class="styled-list">
+                            <li><strong>Büyüklük:</strong> Güneş &gt; Dünya &gt; Ay</li>
+                            <li><strong>Model:</strong> Güneş = <strong>karpuz</strong>, Dünya = <strong>elma</strong>, Ay = <strong>erik</strong></li>
+                            <li><strong>Dünya’nın kendi etrafında dönmesi:</strong> 24 saat (1 gün)</li>
+                            <li><strong>Dünya’nın Güneş etrafında dolanması:</strong> 365 gün 6 saat (1 yıl)</li>
+                        </ul>
+                    `
+                },
+                {
+                    unitId: 2,
+                    unitName: "2. Ünite: Kuvvetin Ölçülmesi ve Sürtünme",
+                    title: "Kuvvet ve Kuvvetin Ölçülmesi",
+                    important: "Birim: Newton (N)",
+                    badge: "F.5.2.1",
+                    content: `
+                        <ul class="styled-list">
+                            <li><strong>Kuvvet:</strong> Duran cismi hareket ettiren; hareketli cismi hızlandıran, yavaşlatan veya durduran; yönünü ve şeklini değiştirebilen etkidir.</li>
+                            <li><strong>Birim:</strong> <strong>Newton (N)</strong> — Isaac Newton’ın soyadından gelir.</li>
+                            <li><strong>Ölçüm aleti:</strong> <strong>Dinamometre</strong>.</li>
+                            <li><strong>Esnek cisim:</strong> Kuvvetle şekli değişir, kuvvet kalkınca eski hâline döner (paket lastiği, sarmal yay). Dinamometre içinde esnek sarmal yay kullanılır.</li>
+                        </ul>
+                        <div class="note-highlight">
+                            <strong>Dinamometre ipuçları:</strong>
+                            <ul class="styled-list">
+                                <li><strong>İnce yay</strong> → küçük kuvvetleri daha <em>hassas</em> ölçer.</li>
+                                <li><strong>Kalın yay</strong> → daha büyük kuvvetleri ölçebilir.</li>
+                                <li><strong>Esneklik sınırı:</strong> Maksimum değer aşılırsa yayın esnekliği bozulur.</li>
+                                <li><strong>Bölme hesabı:</strong> Maksimum değer ÷ bölme sayısı = her bölmenin N değeri. Örn: 50 N / 5 bölme = <strong>10 N</strong>.</li>
+                            </ul>
+                        </div>
+                    `
+                },
+                {
+                    unitId: 2,
+                    unitName: "2. Ünite: Kuvvetin Ölçülmesi ve Sürtünme",
+                    title: "Kütle ve Ağırlık İlişkisi",
+                    important: "Kütle değişmez, ağırlık değişir",
+                    badge: "F.5.2.2",
+                    content: `
+                        <div class="comparison-grid">
+                            <div class="comp-card cold">
+                                <h4>⚖️ Kütle</h4>
+                                <ul>
+                                    <li>Maddenin değişmeyen madde miktarıdır.</li>
+                                    <li>Ölçüm: <strong>eşit kollu terazi</strong></li>
+                                    <li>Birim: <strong>g</strong> veya <strong>kg</strong></li>
+                                    <li>Konuma göre <strong>DEĞİŞMEZ</strong></li>
+                                </ul>
+                            </div>
+                            <div class="comp-card warm">
+                                <h4>🌍 Ağırlık</h4>
+                                <ul>
+                                    <li>Kütleye etki eden yer çekimi kuvvetidir.</li>
+                                    <li>Ölçüm: <strong>dinamometre</strong></li>
+                                    <li>Birim: <strong>Newton (N)</strong></li>
+                                    <li>Konuma / gök cismine göre <strong>DEĞİŞİR</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="note-alert" style="margin-top:0.85rem;">
+                            💡 Dünya 1 kg’a yaklaşık <strong>10 N</strong> uygular. Dünya’nın çekimi Ay’ın ~<strong>6 katı</strong>dır.<br>
+                            Örn: 60 kg cisim → Dünya’da kütle 60 kg / ağırlık <strong>600 N</strong>; Ay’da kütle yine 60 kg / ağırlık <strong>100 N</strong>.<br>
+                            Dağ zirvesinde yer çekimi azalır → ağırlık azalır, kütle aynı kalır.
+                        </div>
+                    `
+                },
+                {
+                    unitId: 2,
+                    unitName: "2. Ünite: Kuvvetin Ölçülmesi ve Sürtünme",
+                    title: "Sürtünme Kuvveti",
+                    important: "Harekete zıt yönlü",
+                    badge: "F.5.2.3",
+                    content: `
+                        <p>Temas eden yüzeyler arasında, genelde <strong>harekete zıt</strong> engelleyici kuvvettir.</p>
+                        <ul class="styled-list">
+                            <li><strong>Pürüzlü yüzey</strong> (halı, toprak): sürtünme fazla</li>
+                            <li><strong>Kaygan yüzey</strong> (cam, mermer, cilalı tahta): sürtünme az</li>
+                            <li><strong>Hava direnci:</strong> Uçak/araç önlerinin sivri olması direnci azaltır.</li>
+                            <li><strong>Su direnci:</strong> Gemilerin V biçimli önü direnci azaltır.</li>
+                        </ul>
+                        <div class="comparison-grid">
+                            <div class="comp-card warm">
+                                <h4>🔼 Sürtünmeyi artır</h4>
+                                <ul>
+                                    <li>Kışın lastiğe zincir</li>
+                                    <li>Krampon, pudra (halter)</li>
+                                    <li>Kaydırmaz bant</li>
+                                </ul>
+                            </div>
+                            <div class="comp-card cold">
+                                <h4>🔽 Sürtünmeyi azalt</h4>
+                                <ul>
+                                    <li>Menteşe / makine yağlama</li>
+                                    <li>Yüzeyi cilalama</li>
+                                    <li>Valize tekerlek</li>
+                                </ul>
+                            </div>
+                        </div>
+                    `
+                },
+                {
+                    unitId: 3,
+                    unitName: "3. Ünite: Canlılar ve Yaşam",
+                    title: "Hücre ve Organelleri",
+                    important: "En küçük canlılık birimi",
+                    badge: "F.5.3.1",
+                    content: `
+                        <p><strong>Hücre:</strong> Canlıların yapısını oluşturan ve canlılık özelliği gösteren en küçük birimdir. Gözle görülemeyecek kadar küçük olduğundan <strong>mikroskop</strong> ile incelenir.</p>
+                        <div class="note-highlight">
+                            <strong>3 temel kısım (bitki + hayvan ortak):</strong>
+                            <ul class="styled-list">
+                                <li><strong>Hücre zarı:</strong> Canlı, esnek, seçici-geçirgen; şekil verir, dağılmayı önler, madde giriş-çıkışını denetler.</li>
+                                <li><strong>Çekirdek:</strong> Yaşamsal olayları yönetir; kalıtsal bilgiyi taşır ve aktarır.</li>
+                                <li><strong>Sitoplazma:</strong> Yarı akışkan saydam sıvı; organelleri barındırır.</li>
+                            </ul>
+                            <p style="margin-top:0.5rem;"><em>Not:</em> Bitki hücresinde zarın dışında cansız <strong>hücre duvarı (çeper)</strong> vardır; hayvan hücresinde yoktur.</p>
+                        </div>
+                        <div class="comparison-grid">
+                            <div class="comp-card cold">
+                                <h4>⚙️ Organeller</h4>
+                                <ul>
+                                    <li><strong>Ribozom:</strong> Protein üretir (tüm hücreler)</li>
+                                    <li><strong>Mitokondri:</strong> Enerji üretir (bitki + hayvan)</li>
+                                    <li><strong>Kloroplast:</strong> Fotosentez (sadece bitki)</li>
+                                    <li><strong>Koful:</strong> Su, besin, atık depolar</li>
+                                    <li><strong>Golgi:</strong> Salgı üretimi / paketleme</li>
+                                    <li><strong>ER:</strong> Madde iletimi</li>
+                                    <li><strong>Lizozom:</strong> Hücre içi sindirim</li>
+                                    <li><strong>Sentrozom:</strong> Bölünme (hayvan)</li>
+                                </ul>
+                            </div>
+                            <div class="comp-card warm">
+                                <h4>🌿 Bitki vs 🐾 Hayvan</h4>
+                                <ul>
+                                    <li>Bitki: köşeli; çeper + kloroplast var; sentrozom yok; koful büyük/az</li>
+                                    <li>Hayvan: oval; çeper + kloroplast yok; sentrozom var; koful küçük/çok</li>
+                                </ul>
+                            </div>
+                        </div>
+                    `
+                },
+                {
+                    unitId: 3,
+                    unitName: "3. Ünite: Canlılar ve Yaşam",
+                    title: "Hücreden Organizmaya",
+                    important: "Hiyerarşik düzen",
+                    badge: "F.5.3.2",
+                    content: `
+                        <div class="note-highlight">
+                            <strong>Basitten karmaşığa:</strong><br>
+                            Hücre → Doku → Organ → Sistem → Organizma
+                        </div>
+                        <ul class="styled-list">
+                            <li><strong>Hücre:</strong> En küçük birim (örn: kas hücresi)</li>
+                            <li><strong>Doku:</strong> Benzer görevli hücrelerin birleşmesi (örn: kas dokusu)</li>
+                            <li><strong>Organ:</strong> Dokuların belirli görev için birleşmesi (örn: kalp, kol)</li>
+                            <li><strong>Sistem:</strong> Organların uyumlu çalışması (örn: dolaşım, destek ve hareket)</li>
+                            <li><strong>Organizma:</strong> Sistemlerin oluşturduğu canlı bütün (örn: insan, elma ağacı)</li>
+                        </ul>
+                    `
+                },
+                {
+                    unitId: 3,
+                    unitName: "3. Ünite: Canlılar ve Yaşam",
+                    title: "Destek ve Hareket Sistemi",
+                    important: "İskelet + kaslar",
+                    badge: "F.5.3.3",
+                    content: `
+                        <p>Vücudun dik durmasını sağlar, iç organları korur, hareketi gerçekleştirir. <strong>İskelet</strong> ve <strong>kaslar</strong> olmak üzere iki bölümdür. İskelet canlıdır; mineral depolar ve kan hücreleri üretir.</p>
+                        <div class="comparison-grid">
+                            <div class="comp-card cold">
+                                <h4>🦴 Kemik çeşitleri</h4>
+                                <ul>
+                                    <li><strong>Uzun:</strong> boy &gt; en (uyluk, kaval, kol)</li>
+                                    <li><strong>Kısa:</strong> en ≈ boy (el/ayak bileği)</li>
+                                    <li><strong>Yassı:</strong> levha (kafatası, kürek, kaburga)</li>
+                                </ul>
+                            </div>
+                            <div class="comp-card warm">
+                                <h4>🔗 Eklemler</h4>
+                                <ul>
+                                    <li><strong>Oynar:</strong> hareket yüksek (kol, bacak)</li>
+                                    <li><strong>Yarı oynar:</strong> kısıtlı (omurga)</li>
+                                    <li><strong>Oynamaz:</strong> hareketsiz (kafatası)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <ul class="styled-list">
+                            <li><strong>Kıkırdak:</strong> Kemikten yumuşak/esnek; burun, kulak, soluk borusu, uzun kemik uçlarında; aşınma ve sürtünmeyi azaltır.</li>
+                        </ul>
+                        <div class="note-alert">
+                            <strong>Kas çeşitleri:</strong><br>
+                            • <strong>Çizgili (iskelet) kas:</strong> İsteğimizle, hızlı, çabuk yorulur.<br>
+                            • <strong>Düz kas:</strong> Mide, bağırsak… İstemsiz, yavaş, yorulmaz.<br>
+                            • <strong>Kalp kası:</strong> Yapı çizgiliye benzer; istemsiz, ritmik, yorulmadan çalışır.
+                        </div>
+                    `
+                },
+                {
+                    unitId: 4,
+                    unitName: "4. Ünite: Işığın Yayılması ve Gölge",
+                    title: "Işığın Yayılması",
+                    important: "Doğrusal + her yöne",
+                    badge: "F.5.4.1",
+                    content: `
+                        <ul class="styled-list">
+                            <li><strong>Doğrusal yayılma:</strong> Engel yoksa ışık <strong>doğrusal yolla</strong> yayılır.</li>
+                            <li><strong>Her yöne yayılma:</strong> Kaynak etrafında her yöne gider (ampul, el feneri).</li>
+                            <li><strong>Işık ışını:</strong> Işığın yolunu gösteren, başlangıcı belli doğru ve oklar.</li>
+                        </ul>
+                        <div class="note-highlight">
+                            💡 Düz / delikli borudan bakınca kaynak görülür; <strong>bükülmüş</strong> borunun arkasındaki kaynak görülmez → doğrusal yayılmanın gözlemi.
+                        </div>
+                    `
+                },
+                {
+                    unitId: 4,
+                    unitName: "4. Ünite: Işığın Yayılması ve Gölge",
+                    title: "Maddenin Işık Geçirgenliği",
+                    important: "Saydam / yarı saydam / opak",
+                    badge: "F.5.4.2",
+                    content: `
+                        <div class="comparison-grid">
+                            <div class="comp-card cold">
+                                <h4>✨ Saydam</h4>
+                                <ul>
+                                    <li>Işığı tamamen / net geçirir</li>
+                                    <li>Arkadaki cisimler <strong>net</strong></li>
+                                    <li>Cam, hava, temiz su, gözlük camı</li>
+                                </ul>
+                            </div>
+                            <div class="comp-card warm">
+                                <h4>🌫️ Yarı saydam</h4>
+                                <ul>
+                                    <li>Işığın bir kısmını geçirir</li>
+                                    <li>Arkadaki cisimler <strong>bulanık</strong></li>
+                                    <li>Buzlu cam, yağlı kâğıt, ince tül</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="note-alert" style="margin-top:0.75rem;">
+                            <strong>Opak (saydam olmayan):</strong> Işığı hiç geçirmez; arkadaki cisimler görülmez. Örn: kitap, tahta, tuğla, demir, alüminyum folyo.
+                        </div>
+                    `
+                },
+                {
+                    unitId: 4,
+                    unitName: "4. Ünite: Işığın Yayılması ve Gölge",
+                    title: "Tam Gölgenin Oluşumu",
+                    important: "Doğrusal yayılmanın kanıtı",
+                    badge: "F.5.4.3",
+                    content: `
+                        <p><strong>Tam gölge:</strong> Işık ışınlarının <strong>opak</strong> cisimle karşılaşmasıyla cismin arkasında kalan, ışık almayan karanlık bölgedir. Gölge oluşumu, ışığın <strong>doğrusal yayıldığının</strong> önemli kanıtıdır.</p>
+                        <div class="note-highlight">
+                            <strong>Gölge büyüklüğünü etkileyenler:</strong>
+                            <ul class="styled-list">
+                                <li><strong>Cisim büyüdükçe</strong> gölge büyür (aynı uzaklıkta futbol topu &gt; tenis topu).</li>
+                                <li>Cisim ışığa <strong>yaklaşırsa</strong> → gölge <strong>BÜYÜR</strong>; uzaklaşırsa → <strong>KÜÇÜLÜR</strong>.</li>
+                                <li>Cisim ekrana <strong>yaklaşırsa</strong> → gölge <strong>KÜÇÜLÜR</strong>; ekrandan uzaklaşıp ışığa yaklaşırsa → <strong>BÜYÜR</strong>.</li>
+                            </ul>
+                        </div>
+                    `
+                },
+                {
+                    unitId: 5,
+                    unitName: "5. Ünite: Madde ve Değişim",
+                    title: "Maddenin Tanecikli Yapısı",
+                    important: "Katı / sıvı / gaz",
+                    badge: "F.5.5.1",
+                    content: `
+                        <p>Tüm maddeler <strong>tanecikli, boşluklu ve hareketli</strong> yapıya sahiptir.</p>
+                        <div class="comparison-grid">
+                            <div class="comp-card cold">
+                                <h4>🧊 Katı</h4>
+                                <ul>
+                                    <li>Boşluk <strong>en az</strong></li>
+                                    <li>Sadece <strong>titreşim</strong></li>
+                                    <li>Belirli şekil + hacim; sıkıştırılamaz</li>
+                                </ul>
+                            </div>
+                            <div class="comp-card warm">
+                                <h4>💧 Sıvı</h4>
+                                <ul>
+                                    <li>Boşluk katıdan fazla</li>
+                                    <li>Titreşim, öteleme, dönme</li>
+                                    <li>Belirli hacim; şekil kabın şekli</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="note-alert" style="margin-top:0.75rem;">
+                            <strong>💨 Gaz:</strong> Boşluk <strong>en fazla</strong>; tanecikler bağımsız titreşim–öteleme–dönme yapar. Belirli şekil/hacim yok; kabın her yerine yayılır.
+                        </div>
+                    `
+                },
+                {
+                    unitId: 5,
+                    unitName: "5. Ünite: Madde ve Değişim",
+                    title: "Isı ve Sıcaklık",
+                    important: "Isı enerji, sıcaklık değil",
+                    badge: "F.5.5.2",
+                    content: `
+                        <div class="comparison-grid">
+                            <div class="comp-card warm">
+                                <h4>🔥 Isı</h4>
+                                <ul>
+                                    <li>Bir <strong>enerji türü</strong></li>
+                                    <li>Kalorimetre ile hesaplanır</li>
+                                    <li>Birim: <strong>Joule (J)</strong> / Kalori (cal)</li>
+                                    <li>Maddeler arasında alınıp verilir</li>
+                                </ul>
+                            </div>
+                            <div class="comp-card cold">
+                                <h4>🌡️ Sıcaklık</h4>
+                                <ul>
+                                    <li>Enerji değildir; ortalama hareket enerjisi göstergesi</li>
+                                    <li><strong>Termometre</strong> ile ölçülür</li>
+                                    <li>Birim: <strong>°C</strong></li>
+                                    <li>Alınıp verilen bir şey değildir</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="note-highlight" style="margin-top:0.75rem;">
+                            Isı akışı <strong>yüksek sıcaklıktan düşük sıcaklığa</strong> doğrudur; sıcaklıklar eşitlenene kadar devam eder.
+                        </div>
+                    `
+                },
+                {
+                    unitId: 5,
+                    unitName: "5. Ünite: Madde ve Değişim",
+                    title: "Maddenin Hâl Değişimi",
+                    important: "Isı alan / ısı veren",
+                    badge: "F.5.5.3",
+                    content: `
+                        <div class="comparison-grid">
+                            <div class="comp-card warm">
+                                <h4>☀️ Isı alarak</h4>
+                                <ul>
+                                    <li><strong>Erime:</strong> katı → sıvı (buz)</li>
+                                    <li><strong>Buharlaşma:</strong> sıvı → gaz (yüzeyde, her sıcaklıkta)</li>
+                                    <li><strong>Kaynama:</strong> her yerde hızlı, sabit sıcaklıkta, kabarcıklı</li>
+                                    <li><strong>Süblimleşme:</strong> katı → gaz (naftalin, kuru buz, katı iyot)</li>
+                                </ul>
+                            </div>
+                            <div class="comp-card cold">
+                                <h4>❄️ Isı vererek</h4>
+                                <ul>
+                                    <li><strong>Donma:</strong> sıvı → katı</li>
+                                    <li><strong>Yoğuşma:</strong> gaz → sıvı (yağmur, soğuk şişe damlacıkları)</li>
+                                    <li><strong>Kırağılaşma:</strong> gaz → katı (cam/yaprak buz kristalleri)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    `
+                },
+                {
+                    unitId: 5,
+                    unitName: "5. Ünite: Madde ve Değişim",
+                    title: "Isı İletimi ve Yalıtım",
+                    important: "İletken vs yalıtkan",
+                    badge: "F.5.5.4",
+                    content: `
+                        <ul class="styled-list">
+                            <li><strong>Isı iletkeni:</strong> Isıyı iyi/hızlı aktarır — bakır, alüminyum, demir (metaller).</li>
+                            <li><strong>Isı yalıtkanı:</strong> Isıyı iyi iletmez — tahta, plastik, strafor, cam yünü.</li>
+                            <li><strong>Isı yalıtımı:</strong> Bina/araçlarda ısı kaybını önler; <strong>enerji tasarrufu</strong> sağlar.</li>
+                        </ul>
+                    `
+                },
+                {
+                    unitId: 6,
+                    unitName: "6. Ünite: Basit Elektrik Devreleri",
+                    title: "Devre Elemanları ve Semboller",
+                    important: "Duy ve pil yatağının sembolü yok",
+                    badge: "F.5.6.1",
+                    content: `
+                        <ul class="styled-list">
+                            <li><strong>Pil:</strong> Güç kaynağı; (+) uzun, (-) kısa çizgi.</li>
+                            <li><strong>Ampul:</strong> Elektrik → ışık; sembol <strong>⊗</strong> (çember içinde çarpı).</li>
+                            <li><strong>Anahtar:</strong> Açık = akım kesilir; kapalı = devre tamamlanır.</li>
+                            <li><strong>Bağlantı kablosu:</strong> Enerjiyi ileten iletken tel.</li>
+                        </ul>
+                        <div class="note-alert">
+                            ⚠️ <strong>Duy</strong> ve <strong>pil yatağının</strong> belirli bir sembolü <strong>yoktur</strong>.
+                        </div>
+                        <div class="note-highlight">
+                            Semboller <strong>ortak bilimsel dil</strong> oluşturur; çizim pratikliği sağlar. Sembollerle yapılan çizime <strong>devre şeması</strong> denir.
+                        </div>
+                    `
+                },
+                {
+                    unitId: 6,
+                    unitName: "6. Ünite: Basit Elektrik Devreleri",
+                    title: "Ampul Parlaklığı ve Değişkenler",
+                    important: "Pil artarsa parlaklık artar",
+                    badge: "F.5.6.2",
+                    content: `
+                        <div class="note-highlight">
+                            <strong>Deney değişkenleri:</strong>
+                            <ul class="styled-list">
+                                <li><strong>Bağımsız:</strong> Bilinçli değiştirilen (etkisini merak ettiğimiz)</li>
+                                <li><strong>Bağımlı:</strong> Ölçülen / gözlenen sonuç</li>
+                                <li><strong>Kontrol edilen:</strong> Sabit tutulanlar</li>
+                            </ul>
+                        </div>
+                        <ul class="styled-list">
+                            <li><strong>Pil sayısı ↑</strong> (ampul sabit) → parlaklık <strong>artar</strong>. Bağımsız: pil; bağımlı: parlaklık.</li>
+                            <li><strong>Ampul sayısı ↑</strong> (pil sabit) → parlaklık <strong>azalır</strong> (enerji paylaşılır).</li>
+                        </ul>
+                    `
+                },
+                {
+                    unitId: 7,
+                    unitName: "7. Ünite: Evsel Atıklar ve Sıfır Atık",
+                    title: "Evsel Atıklar ve Sınıflandırılması",
+                    important: "Atık ≠ çöp",
+                    badge: "F.5.7.1",
+                    content: `
+                        <ul class="styled-list">
+                            <li><strong>Evsel atık:</strong> Ev, okul, iş yeri, restoran gibi yerlerde ihtiyaç duyulmayan ve atılan maddeler.</li>
+                            <li><strong>Çöp:</strong> Evsel atıkların içinde geri dönüştürülemeyen ve tekrar kullanılamayan kısım.</li>
+                            <li><strong>Sıvı atık:</strong> Deterjanlı su, kullanılmış kızartma / bitkisel yağlar.</li>
+                            <li><strong>Katı atık:</strong> Plastik, cam, metal, kâğıt, kumaş, besin artıkları, sebze-meyve kabukları.</li>
+                        </ul>
+                    `
+                },
+                {
+                    unitId: 7,
+                    unitName: "7. Ünite: Evsel Atıklar ve Sıfır Atık",
+                    title: "Atık Yönetimi ve Dönüşüm Türleri",
+                    important: "Geri dönüşüm ≠ ileri dönüşüm",
+                    badge: "F.5.7.2",
+                    content: `
+                        <ul class="styled-list">
+                            <li><strong>Geri dönüşüm:</strong> Atıkların fiziksel/kimyasal işlemle <em>ham maddeye</em> dönüştürülüp üretime kazandırılması.</li>
+                            <li><strong>Geri kazanım:</strong> Atığın ikincil ham maddeye dönüştürülüp imalata alınması.</li>
+                            <li><strong>Yeniden kullanım:</strong> Endüstriyel işlem olmadan aynı/benzer amaçla tekrar kullanmak (kavanoz → salça kabı, yoğurt kabı → saksı, eski elbise bağışı).</li>
+                            <li><strong>İleri dönüşüm (upcycling):</strong> Atığı daha yüksek değerli / estetik ürüne dönüştürmek (kot → çanta, deterjan kutusu → kitaplık).</li>
+                        </ul>
+                    `
+                },
+                {
+                    unitId: 7,
+                    unitName: "7. Ünite: Evsel Atıklar ve Sıfır Atık",
+                    title: "Geri Dönüştürülebilen / Dönüştürülemeyen",
+                    important: "Tıbbi atık kutuya atılmaz",
+                    badge: "F.5.7.3",
+                    content: `
+                        <div class="comparison-grid">
+                            <div class="comp-card cold">
+                                <h4>✅ Dönüştürülebilir</h4>
+                                <ul>
+                                    <li>Plastik, cam, kâğıt/karton, metal</li>
+                                    <li>Atık piller, araba aküleri</li>
+                                    <li>Bitkisel atık yağlar</li>
+                                </ul>
+                            </div>
+                            <div class="comp-card warm">
+                                <h4>❌ Dönüştürülemez</h4>
+                                <ul>
+                                    <li>Yağlı kâğıt, kâğıt havlu, tuvalet kâğıdı</li>
+                                    <li>Duvar kâğıdı, yapışkan bant, kömür külü</li>
+                                    <li>Çürümüş/bozuk gıda artıkları</li>
+                                    <li>Tıbbi atıklar (özel imha)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    `
+                },
+                {
+                    unitId: 7,
+                    unitName: "7. Ünite: Evsel Atıklar ve Sıfır Atık",
+                    title: "Özel Atıklar ve Sıfır Atık",
+                    important: "Önleme en öncelikli",
+                    badge: "F.5.7.4",
+                    content: `
+                        <ul class="styled-list">
+                            <li><strong>Atık piller:</strong> Zehirli/ağır metal içerir; toprak ve suyu kirletir → <strong>kırmızı atık pil kutusu</strong>.</li>
+                            <li><strong>Bitkisel atık yağ:</strong> Lavaboya dökülmez (tıkanma + su kirliliği) → sızdırmaz kapta lisanslı toplama noktasına.</li>
+                        </ul>
+                        <div class="note-highlight">
+                            <strong>Sıfır Atık hiyerarşisi (öncelik):</strong><br>
+                            1. Önleme → 2. Azaltma → 3. Tekrar kullanım → 4. Geri dönüşüm → 5. Enerji geri kazanımı → 6. Bertaraf (en son)
+                        </div>
+                        <p style="margin-top:0.6rem; font-size:0.9rem; color:var(--text-muted);">Faydalar: doğal kaynak ve enerji korunur, maliyet düşer, gelecek nesillere temiz çevre bırakılır.</p>
+                    `
+                }
+            ],
+            curriculum: [
+                {
+                    unitId: 1,
+                    unit: "1. Ünite",
+                    name: "Güneş, Dünya ve Ay",
+                    hours: "1. Dönem",
+                    period: "1. Dönem",
+                    status: "Aktif",
+                    examTip: "Ay’ın aynı yüzünün görünmesi = dönme süresi ≈ dolanma süresi. Ay ışık kaynağı değildir; krater ≠ Güneş lekesi.",
+                    topics: [
+                        { code: "F.5.1.1", title: "Güneş", summary: "Küreye benzer, sıcak gazlar, katmanlar, Güneş lekeleri, saat yönünün tersine dönme; doğrudan bakılmaz." },
+                        { code: "F.5.1.2", title: "Ay", summary: "Doğal uydu, ışığı yansıtır, ince atmosfer, kraterler; 3 hareket; aynı yüzün görünmesi." },
+                        { code: "F.5.1.3", title: "Ay’ın evreleri", summary: "Yeni Ay, İlk Dördün (D), Dolunay, Son Dördün (ters D); hilal ve şişkin Ay." },
+                        { code: "F.5.1.4", title: "Karşılaştırma", summary: "Büyüklük: Güneş > Dünya > Ay; karpuz-elma-erik modeli; 24 saat / 365 gün 6 saat." }
+                    ]
+                },
+                {
+                    unitId: 2,
+                    unit: "2. Ünite",
+                    name: "Kuvvetin Ölçülmesi ve Sürtünme",
+                    hours: "1. Dönem",
+                    period: "1. Dönem",
+                    status: "Aktif",
+                    examTip: "Kütle (kg, terazi) değişmez; ağırlık (N, dinamometre) konuma göre değişir. Dünya’da 1 kg ≈ 10 N; Ay’da ağırlık ~1/6.",
+                    topics: [
+                        { code: "F.5.2.1", title: "Kuvvet ve dinamometre", summary: "Newton (N); dinamometre; ince yay hassas, kalın yay büyük kuvvet; esneklik sınırı; bölme hesabı." },
+                        { code: "F.5.2.2", title: "Kütle ve ağırlık", summary: "Kütle değişmez; ağırlık yer çekimine bağlıdır. 60 kg → Dünya 600 N, Ay 100 N." },
+                        { code: "F.5.2.3", title: "Sürtünme kuvveti", summary: "Harekete zıt; yüzey cinsine bağlı; hava/su direnci; artırma ve azaltma yöntemleri." }
+                    ]
+                },
+                {
+                    unitId: 3,
+                    unit: "3. Ünite",
+                    name: "Canlılar ve Yaşam",
+                    hours: "1.–2. Dönem",
+                    period: "1.–2. Dönem",
+                    status: "Aktif",
+                    examTip: "Kloroplast ve hücre çeperi sadece bitkide. Hiyerarşi: hücre→doku→organ→sistem→organizma. Düz kas istemsiz; çizgili kas istemli.",
+                    topics: [
+                        { code: "F.5.3.1", title: "Hücre ve organeller", summary: "Zar, çekirdek, sitoplazma; organel görevleri; bitki–hayvan farkları." },
+                        { code: "F.5.3.2", title: "Hücreden organizmaya", summary: "Hücre, doku, organ, sistem, organizma hiyerarşisi." },
+                        { code: "F.5.3.3", title: "Destek ve hareket", summary: "Kemik/kıkırdak/eklem çeşitleri; çizgili, düz ve kalp kası." }
+                    ]
+                },
+                {
+                    unitId: 4,
+                    unit: "4. Ünite",
+                    name: "Işığın Yayılması ve Gölge",
+                    hours: "2. Dönem",
+                    period: "2. Dönem",
+                    status: "Aktif",
+                    examTip: "Yarı saydam = bulanık (net değil). Gölge büyütmek için ışığı cisme yaklaştır. Gölge = doğrusal yayılma kanıtı.",
+                    topics: [
+                        { code: "F.5.4.1", title: "Işığın yayılması", summary: "Doğrusal ve her yöne yayılma; ışık ışını; düz/bükük boru gözlemi." },
+                        { code: "F.5.4.2", title: "Işık geçirgenliği", summary: "Saydam, yarı saydam, opak maddeler ve örnekleri." },
+                        { code: "F.5.4.3", title: "Tam gölge", summary: "Opak cisim arkasında karanlık bölge; gölge büyüklüğünü etkileyen mesafeler." }
+                    ]
+                },
+                {
+                    unitId: 5,
+                    unit: "5. Ünite",
+                    name: "Madde ve Değişim",
+                    hours: "2. Dönem",
+                    period: "2. Dönem",
+                    status: "Aktif",
+                    examTip: "Isı = enerji (J); sıcaklık = °C (termometre). Süblimleşme: katı→gaz. Kırağılaşma: gaz→katı. Katı sadece titreşir.",
+                    topics: [
+                        { code: "F.5.5.1", title: "Tanecikli yapı", summary: "Katı, sıvı, gaz tanecik boşluğu ve hareketleri." },
+                        { code: "F.5.5.2", title: "Isı ve sıcaklık", summary: "Farklar, birimler, ısı alışverişi yönü." },
+                        { code: "F.5.5.3", title: "Hâl değişimi", summary: "Erime, buharlaşma, kaynama, süblimleşme; donma, yoğuşma, kırağılaşma." },
+                        { code: "F.5.5.4", title: "İletim ve yalıtım", summary: "İletken/yalıtkan maddeler; enerji tasarrufu." }
+                    ]
+                },
+                {
+                    unitId: 6,
+                    unit: "6. Ünite",
+                    name: "Basit Elektrik Devreleri",
+                    hours: "2. Dönem",
+                    period: "2. Dönem",
+                    status: "Aktif",
+                    examTip: "Duy ve pil yatağının sembolü yoktur. Pil ↑ → parlaklık ↑; ampul ↑ → parlaklık ↓. Değiştirilen = bağımsız değişken.",
+                    topics: [
+                        { code: "F.5.6.1", title: "Devre elemanları ve semboller", summary: "Pil, ampul, anahtar, kablo; sembol avantajları; duy/pil yatağı sembolsüz." },
+                        { code: "F.5.6.2", title: "Parlaklık ve değişkenler", summary: "Bağımsız/bağımlı/kontrol; pil ve ampul sayısının etkisi." }
+                    ]
+                },
+                {
+                    unitId: 7,
+                    unit: "7. Ünite",
+                    name: "Evsel Atıklar ve Sıfır Atık",
+                    hours: "2. Dönem",
+                    period: "2. Dönem",
+                    status: "Aktif",
+                    examTip: "İleri dönüşüm = daha değerli yeni ürün (kot→çanta). Yağ lavaboya dökülmez. Sıfır Atık’ta en öncelikli adım: önleme/azaltma.",
+                    topics: [
+                        { code: "F.5.7.1", title: "Evsel atık ve çöp", summary: "Tanımlar; sıvı ve katı atık türleri." },
+                        { code: "F.5.7.2", title: "Dönüşüm türleri", summary: "Geri dönüşüm, geri kazanım, yeniden kullanım, ileri dönüşüm." },
+                        { code: "F.5.7.3", title: "Dönüştürülebilir / edilemeyen", summary: "Plastik-cam-kâğıt-metal vs yağlı kâğıt, gıda, tıbbi atık." },
+                        { code: "F.5.7.4", title: "Özel atık ve sıfır atık", summary: "Pil (kırmızı kutu), bitkisel yağ; sıfır atık hiyerarşisi ve faydalar." }
+                    ]
+                }
+            ],
+            quiz: [
+                {
+                    id: "5f-q1",
+                    unitId: 1,
+                    unitName: "1. Ünite: Güneş, Dünya ve Ay",
+                    topic: "Ay’ın Aynı Yüzü",
+                    difficulty: "Yazılı Klasik",
+                    question: "Dünya'dan bakıldığında Ay'ın her zaman aynı yüzünün görünmesinin temel sebebi aşağıdakilerden hangisidir?",
+                    options: [
+                        "Ay'ın ışık kaynağı olmaması",
+                        "Ay'ın atmosferinin çok ince olması",
+                        "Ay'ın kendi etrafında dönme süresi ile Dünya etrafında dolanma süresinin eşit olması",
+                        "Ay'ın Güneş etrafındaki dolanma süresinin Dünya ile aynı olması"
+                    ],
+                    correct: 2,
+                    explanation: "Ay’ın kendi etrafında dönme süresi ile Dünya etrafında dolanma süresi yaklaşık eşittir (~27,3 gün); bu yüzden hep aynı yüzü görünür."
+                },
+                {
+                    id: "5f-q2",
+                    unitId: 1,
+                    unitName: "1. Ünite: Güneş, Dünya ve Ay",
+                    topic: "Büyüklük Modeli",
+                    difficulty: "Yazılı",
+                    question: "Güneş, Dünya ve Ay'ın büyüklüklerini modellemek isteyen bir öğrenci aşağıdaki meyve eşleştirmelerinden hangisini seçmelidir?",
+                    options: [
+                        "Güneş: Erik | Dünya: Elma | Ay: Karpuz",
+                        "Güneş: Karpuz | Dünya: Elma | Ay: Erik",
+                        "Güneş: Elma | Dünya: Karpuz | Ay: Erik",
+                        "Güneş: Karpuz | Dünya: Erik | Ay: Elma"
+                    ],
+                    correct: 1,
+                    explanation: "Büyüklük sırası Güneş > Dünya > Ay’dır. Model: Karpuz (Güneş), Elma (Dünya), Erik (Ay)."
+                },
+                {
+                    id: "5f-q3",
+                    unitId: 1,
+                    unitName: "1. Ünite: Güneş, Dünya ve Ay",
+                    topic: "Krater",
+                    difficulty: "Temel",
+                    question: "Ay'ın yüzeyine gök taşlarının çarpması sonucu oluşan çukurlara ne ad verilir?",
+                    options: [
+                        "Güneş Lekesi",
+                        "Krater",
+                        "Katman",
+                        "Hilal"
+                    ],
+                    correct: 1,
+                    explanation: "Gök taşlarının (meteor) çarpmasıyla oluşan çukurlara krater denir. Güneş lekesi Güneş yüzeyindeki koyu alanlardır."
+                },
+                {
+                    id: "5f-q4",
+                    unitId: 1,
+                    unitName: "1. Ünite: Güneş, Dünya ve Ay",
+                    topic: "Ay Evreleri",
+                    difficulty: "Yazılı",
+                    question: "Ay’ın sağ yarısının aydınlık göründüğü düz “D” şeklindeki ana evre hangisidir?",
+                    options: [
+                        "Yeni Ay",
+                        "İlk Dördün",
+                        "Dolunay",
+                        "Son Dördün"
+                    ],
+                    correct: 1,
+                    explanation: "İlk Dördün’de Ay’ın sağ yarısı aydınlıktır (düz D). Son Dördün’de sol yarı aydınlıktır (ters D)."
+                },
+                {
+                    id: "5f-q5",
+                    unitId: 1,
+                    unitName: "1. Ünite: Güneş, Dünya ve Ay",
+                    topic: "Ay’ın Özellikleri",
+                    difficulty: "Tuzak",
+                    question: "Ay ile ilgili aşağıdakilerden hangisi DOĞRUDUR?",
+                    options: [
+                        "Ay kendi ışığını üretir.",
+                        "Ay’ın atmosferi Dünya kadar kalındır ve yağmur yağar.",
+                        "Ay, Güneş’ten aldığı ışığı yansıtır; ışık kaynağı değildir.",
+                        "Ay yalnızca Dünya etrafında dolanır, kendi ekseni etrafında dönmez."
+                    ],
+                    correct: 2,
+                    explanation: "Ay ışık kaynağı değildir; Güneş ışığını yansıtır. Atmosferi çok incedir; kendi ekseni etrafında da döner."
+                },
+                {
+                    id: "5f-q6",
+                    unitId: 2,
+                    unitName: "2. Ünite: Kuvvetin Ölçülmesi ve Sürtünme",
+                    topic: "Kütle ve Ağırlık",
+                    difficulty: "Yazılı Klasik",
+                    question: "Kütlesi 60 kg olan bir astronotun Dünya ve Ay'daki kütle ve ağırlık değerleri ile ilgili aşağıdakilerden hangisi doğrudur? (Dünya'da 1 kg = 10 N)",
+                    options: [
+                        "Dünya'da kütlesi 60 kg, ağırlığı 600 N'dır; Ay'da kütlesi 10 kg, ağırlığı 100 N'dır.",
+                        "Dünya'da kütlesi 60 kg, ağırlığı 600 N'dır; Ay'da kütlesi 60 kg, ağırlığı 100 N'dır.",
+                        "Dünya'da kütlesi 600 N, ağırlığı 60 kg'dır; Ay'da kütlesi 100 N, ağırlığı 60 kg'dır.",
+                        "Hem Dünya'da hem Ay'da ağırlığı 600 N ölçülür."
+                    ],
+                    correct: 1,
+                    explanation: "Kütle her yerde 60 kg’dır. Dünya’da ağırlık 600 N; Ay’da çekim ~1/6 olduğundan ağırlık 100 N’dır."
+                },
+                {
+                    id: "5f-q7",
+                    unitId: 2,
+                    unitName: "2. Ünite: Kuvvetin Ölçülmesi ve Sürtünme",
+                    topic: "Dinamometre",
+                    difficulty: "Yazılı",
+                    question: "Hassas ölçüm yapmak isteyen bir öğrenci dinamometre seçerken aşağıdakilerden hangisine dikkat etmelidir?",
+                    options: [
+                        "İçinde kalın ve sert yay olan dinamometreyi seçmelidir.",
+                        "Ölçebileceği maksimum kuvvet değeri çok büyük olan dinamometreyi seçmelidir.",
+                        "İçinde ince ve esnek yay bulunan dinamometreyi seçmelidir.",
+                        "Dinamometrenin dış kabının rengine dikkat etmelidir."
+                    ],
+                    correct: 2,
+                    explanation: "İnce ve esnek yaylı dinamometreler küçük kuvvetleri daha hassas ölçer."
+                },
+                {
+                    id: "5f-q8",
+                    unitId: 2,
+                    unitName: "2. Ünite: Kuvvetin Ölçülmesi ve Sürtünme",
+                    topic: "Sürtünme Kuvveti",
+                    difficulty: "Yazılı",
+                    question: "Aşağıdaki uygulamalardan hangisi sürtünme kuvvetini AZALTMAK amacıyla yapılır?",
+                    options: [
+                        "Kışın buzlu yollarda araç lastiklerine zincir takılması",
+                        "Haltercilerin halteri kaldırmadan önce ellerine pudra sürmesi",
+                        "Kapı menteşelerinin ve makine çarklarının yağlanması",
+                        "Futbolcuların çim sahada krampon giymesi"
+                    ],
+                    correct: 2,
+                    explanation: "Yağlama sürtünmeyi azaltır. Zincir, pudra ve krampon sürtünmeyi artırmaya yöneliktir."
+                },
+                {
+                    id: "5f-q9",
+                    unitId: 3,
+                    unitName: "3. Ünite: Canlılar ve Yaşam",
+                    topic: "Bitki–Hayvan Hücresi",
+                    difficulty: "Yazılı Klasik",
+                    question: "Mikroskop altında bir bitki hücresi ile hayvan hücresini inceleyen bir öğrenci, aşağıdaki yapılardan hangisini sadece bitki hücresinde gözlemler?",
+                    options: [
+                        "Mitokondri",
+                        "Hücre Zarı",
+                        "Kloroplast",
+                        "Ribozom"
+                    ],
+                    correct: 2,
+                    explanation: "Kloroplast yalnızca bitki hücresinde bulunur ve fotosentez yapar. Mitokondri, zar ve ribozom ortak yapılardır."
+                },
+                {
+                    id: "5f-q10",
+                    unitId: 3,
+                    unitName: "3. Ünite: Canlılar ve Yaşam",
+                    topic: "Hiyerarşi",
+                    difficulty: "Yazılı",
+                    question: "Bir organizmanın yapısındaki karmaşıklık sıralaması basitten karmaşığa doğru verilmiştir. Aşağıdaki eşleştirmelerden hangisinde 'Organ' düzeyindeki yapı gösterilmiştir?",
+                    options: [
+                        "Kas Hücresi",
+                        "Kas Dokusu",
+                        "Kalp",
+                        "Dolaşım Sistemi"
+                    ],
+                    correct: 2,
+                    explanation: "Kalp organ düzeyindedir. Kas hücresi=hücre, kas dokusu=doku, dolaşım=sistem."
+                },
+                {
+                    id: "5f-q11",
+                    unitId: 3,
+                    unitName: "3. Ünite: Canlılar ve Yaşam",
+                    topic: "Kas Çeşitleri",
+                    difficulty: "Yazılı",
+                    question: "Mide ve bağırsak gibi iç organlarımızın yapısında bulunan, isteğimiz dışında yavaş ve düzenli çalışan kas çeşidi aşağıdakilerden hangisidir?",
+                    options: [
+                        "Çizgili Kas",
+                        "Düz Kas",
+                        "Kalp Kası",
+                        "İskelet Kası"
+                    ],
+                    correct: 1,
+                    explanation: "Düz kas iç organlarda bulunur; istemsiz, yavaş çalışır ve yorulmaz. Çizgili/iskelet kası istemlidir."
+                },
+                {
+                    id: "5f-q12",
+                    unitId: 4,
+                    unitName: "4. Ünite: Işığın Yayılması ve Gölge",
+                    topic: "Işık Geçirgenliği",
+                    difficulty: "Yazılı Tuzak",
+                    question: "Saydam, yarı saydam ve opak maddelerin ışık geçirme özellikleri ile ilgili aşağıda verilen bilgilerden hangisi YANLIŞTIR?",
+                    options: [
+                        "Pencere camı ve hava saydam maddelere örnektir.",
+                        "Buzlu cam ve yağlı kâğıt arkasındaki cisimleri net gösterir.",
+                        "Tahta ve tuğla üzerlerine düşen ışığı geçirmeyen opak maddelerdir.",
+                        "Yarı saydam maddeler ışığın sadece bir kısmını geçirir."
+                    ],
+                    correct: 1,
+                    explanation: "Buzlu cam ve yağlı kâğıt yarı saydamdır; arkadaki cisimler bulanık (net değil) görünür."
+                },
+                {
+                    id: "5f-q13",
+                    unitId: 4,
+                    unitName: "4. Ünite: Işığın Yayılması ve Gölge",
+                    topic: "Gölge Boyu",
+                    difficulty: "Yazılı",
+                    question: "Ekranda oluşan bir cismin tam gölgesinin boyunu BÜYÜTMEK isteyen bir öğrenci aşağıdaki işlemlerden hangisini yapmalıdır?",
+                    options: [
+                        "Cismi ışık kaynağından uzaklaştırmalıdır.",
+                        "Işık kaynağını cisme yaklaştırmalıdır.",
+                        "Ekranı cisme yaklaştırmalıdır.",
+                        "Işık kaynağı ile cisim arasındaki mesafeyi artırmalıdır."
+                    ],
+                    correct: 1,
+                    explanation: "Işık kaynağı cisme yaklaşırsa (veya cisim ışığa yaklaşırsa) gölge boyu büyür."
+                },
+                {
+                    id: "5f-q14",
+                    unitId: 4,
+                    unitName: "4. Ünite: Işığın Yayılması ve Gölge",
+                    topic: "Doğrusal Yayılma",
+                    difficulty: "Yazılı Klasik",
+                    question: "Güneşli bir günde sokakta yürüyen bir insanın arkasında gölgesinin oluşması, ışığın hangi özelliği ile doğrudan açıklanır?",
+                    options: [
+                        "Işığın sadece tek bir renkten oluşmasıyla",
+                        "Işığın her yönde ve doğrusal bir yolla yayılmasıyla",
+                        "Işığın tüm maddelerden geçebilmesiyle",
+                        "Işık kaynağının sürekli yer değiştirmesiyle"
+                    ],
+                    correct: 1,
+                    explanation: "Gölge oluşumu, ışığın her yönde ve doğrusal yayılmasının doğrudan sonucudur."
+                },
+                {
+                    id: "5f-q15",
+                    unitId: 5,
+                    unitName: "5. Ünite: Madde ve Değişim",
+                    topic: "Isı ve Sıcaklık",
+                    difficulty: "Yazılı Klasik",
+                    question: "Isı ve sıcaklık kavramları ile ilgili aşağıda verilen ifadelerden hangisi DOĞRUDUR?",
+                    options: [
+                        "Sıcaklık bir enerji türüdür, ısı ise ölçüm sonucudur.",
+                        "Isı birimi derece Celsius (°C), sıcaklık birimi Jouledür.",
+                        "Isı termometre ile ölçülür, sıcaklık kalorimetre kabı ile hesaplanır.",
+                        "Sıcaklıkları farklı iki madde arasında alınıp verilen enerji ısıdır."
+                    ],
+                    correct: 3,
+                    explanation: "Isı bir enerji türüdür ve sıcaklıkları farklı maddeler arasında alınıp verilir. Sıcaklık °C ile termometrede ölçülür."
+                },
+                {
+                    id: "5f-q16",
+                    unitId: 5,
+                    unitName: "5. Ünite: Madde ve Değişim",
+                    topic: "Hâl Değişimi",
+                    difficulty: "Yazılı",
+                    question: "Katı bir maddenin sıvı hâle geçmeden doğrudan gaz hâline geçmesine ne ad verilir?",
+                    options: [
+                        "Süblimleşme",
+                        "Kırağılaşma",
+                        "Yoğuşma",
+                        "Buharlaşma"
+                    ],
+                    correct: 0,
+                    explanation: "Süblimleşme: katı → gaz (sıvı olmadan). Kırağılaşma ters yön: gaz → katı."
+                },
+                {
+                    id: "5f-q17",
+                    unitId: 5,
+                    unitName: "5. Ünite: Madde ve Değişim",
+                    topic: "Tanecikli Yapı",
+                    difficulty: "Yazılı",
+                    question: "Maddenin katı, sıvı ve gaz hâllerindeki tanecik hareketleri düşünüldüğünde, sadece 'titreşim' hareketi yapabilen madde hâli aşağıdakilerden hangisidir?",
+                    options: [
+                        "Gaz",
+                        "Katı",
+                        "Sıvı",
+                        "Plazma"
+                    ],
+                    correct: 1,
+                    explanation: "Katı maddelerde tanecikler yalnızca titreşim hareketi yapar."
+                },
+                {
+                    id: "5f-q18",
+                    unitId: 6,
+                    unitName: "6. Ünite: Basit Elektrik Devreleri",
+                    topic: "Semboller",
+                    difficulty: "Yazılı Tuzak",
+                    question: "Basit bir elektrik devresinde yer alan aşağıdaki elemanlardan hangisinin belirli bir SEMBOLÜ YOKTUR?",
+                    options: [
+                        "Pil",
+                        "Ampul",
+                        "Duy",
+                        "Anahtar"
+                    ],
+                    correct: 2,
+                    explanation: "Duy ve pil yatağının belirli bir sembolü yoktur. Pil, ampul ve anahtarın sembolü vardır."
+                },
+                {
+                    id: "5f-q19",
+                    unitId: 6,
+                    unitName: "6. Ünite: Basit Elektrik Devreleri",
+                    topic: "Sembol Amacı",
+                    difficulty: "Yazılı",
+                    question: "Devre elemanlarının tüm dünyada sembollerle gösterilmesinin temel amacı aşağıdakilerden hangisidir?",
+                    options: [
+                        "Devre elemanlarının daha az enerji harcamasını sağlamak",
+                        "Ortak bir bilimsel dil oluşturarak iletişimi ve anlaşılırlığı kolaylaştırmak",
+                        "Ampullerin daha parlak ışık vermesini sağlamak",
+                        "Pillerin kullanım ömrünü uzatmak"
+                    ],
+                    correct: 1,
+                    explanation: "Sembol kullanımı ortak bilimsel dil oluşturur; herkes aynı şemayı anlayabilir."
+                },
+                {
+                    id: "5f-q20",
+                    unitId: 6,
+                    unitName: "6. Ünite: Basit Elektrik Devreleri",
+                    topic: "Değişkenler",
+                    difficulty: "Yazılı Klasik",
+                    question: "Bir öğrenci, ampul sayısını sabit tutup pil sayısını artırdığında ampul parlaklığının arttığını gözlemliyor. Bu deneyde 'Pil Sayısı' hangi değişken grubuna girer?",
+                    options: [
+                        "Bağımsız Değişken",
+                        "Bağımlı Değişken",
+                        "Kontrol Edilen Değişken",
+                        "Sabit Değişken"
+                    ],
+                    correct: 0,
+                    explanation: "Pil sayısı bilinçli değiştirilen değişkendir → bağımsız değişken. Parlaklık bağımlı değişkendir."
+                },
+                {
+                    id: "5f-q21",
+                    unitId: 7,
+                    unitName: "7. Ünite: Evsel Atıklar ve Sıfır Atık",
+                    topic: "İleri Dönüşüm",
+                    difficulty: "Yazılı Klasik",
+                    question: "Eski bir kot pantolondan şık bir çanta veya fırın eldiveni tasarlayarak kullanmaya başlamak aşağıdaki kavramlardan hangisine en uygun örnektir?",
+                    options: [
+                        "Geri Dönüşüm",
+                        "İleri Dönüşüm (Upcycling)",
+                        "Bertaraf Etme",
+                        "Geri Kazanım"
+                    ],
+                    correct: 1,
+                    explanation: "Atığın daha yüksek değerli/estetik ürüne dönüştürülmesi ileri dönüşümdür (upcycling)."
+                },
+                {
+                    id: "5f-q22",
+                    unitId: 7,
+                    unitName: "7. Ünite: Evsel Atıklar ve Sıfır Atık",
+                    topic: "Bitkisel Atık Yağ",
+                    difficulty: "Yazılı",
+                    question: "Kullanılmış kızartmalık atık yağların lavaboya dökülmeyip sızdırmaz kaplarda toplanarak atık yağ kumbaralarına atılmasının temel sebebi aşağıdakilerden hangisidir?",
+                    options: [
+                        "Yağların lavaboda donarak koku yapmasını engellemek",
+                        "İçme ve kullanma suyu kaynaklarının kirlenmesini önlemek",
+                        "Yağların tekrar yemeklerde kullanılmasını sağlamak",
+                        "Sabun yapımında kullanılan malzemeleri azaltmak"
+                    ],
+                    correct: 1,
+                    explanation: "Atık yağlar lavaboya dökülürse kanalizasyonu tıkar ve içme/kullanma suyu kaynaklarını kirletir."
+                },
+                {
+                    id: "5f-q23",
+                    unitId: 7,
+                    unitName: "7. Ünite: Evsel Atıklar ve Sıfır Atık",
+                    topic: "Sıfır Atık Hiyerarşisi",
+                    difficulty: "Yazılı Klasik",
+                    question: "Sıfır Atık hiyerarşisinde atık yönetimini sağlamak için atılması gereken EN ÖNCELİKLİ adım aşağıdakilerden hangisidir?",
+                    options: [
+                        "Atıkların yakılarak bertaraf edilmesi",
+                        "Atıkların geri dönüşüm kutularında toplanması",
+                        "Atık oluşumunun en baştan önlenmesi ve azaltılması",
+                        "Atıkların enerjiye dönüştürülmesi"
+                    ],
+                    correct: 2,
+                    explanation: "En öncelikli adım atık oluşumunu önlemek ve azaltmaktır. Bertaraf en son seçenektir."
+                }
+            ],
+            flashcards: [
+                { id: "5f-fc1", front: "Ay ışık kaynağı mıdır?", back: "Hayır. Güneş’ten aldığı ışığı yansıtır." },
+                { id: "5f-fc2", front: "Neden Ay’ın hep aynı yüzü görünür?", back: "Dönme süresi ≈ Dünya etrafında dolanma süresi (~27,3 gün)." },
+                { id: "5f-fc3", front: "Krater nedir?", back: "Ay yüzeyine gök taşı çarpmasıyla oluşan çukur." },
+                { id: "5f-fc4", front: "İlk Dördün nasıl görünür?", back: "Sağ yarı aydınlık, düz “D” şekli." },
+                { id: "5f-fc5", front: "Büyüklük modeli?", back: "Güneş=karpuz, Dünya=elma, Ay=erik." },
+                { id: "5f-fc6", front: "Güneş lekesi nedir?", back: "Güneş yüzeyinde daha soğuk ve koyu görünen alanlar." },
+                { id: "5f-fc7", front: "Kuvvet birimi nedir?", back: "Newton (N). Ölçüm aleti: dinamometre." },
+                { id: "5f-fc8", front: "Kütle ile ağırlık farkı?", back: "Kütle (kg) değişmez; ağırlık (N) konuma göre değişir." },
+                { id: "5f-fc9", front: "60 kg Dünya / Ay ağırlığı?", back: "Dünya 600 N, Ay ~100 N. Kütle her yerde 60 kg." },
+                { id: "5f-fc10", front: "Hassas dinamometre hangisi?", back: "İnce ve esnek yaylı dinamometre." },
+                { id: "5f-fc11", front: "Sürtünmeyi azaltan örnek?", back: "Yağlama, cilalama, tekerlek takmak." },
+                { id: "5f-fc12", front: "Sadece bitkide olan organel?", back: "Kloroplast (fotosentez). Ayrıca hücre çeperi vardır." },
+                { id: "5f-fc13", front: "Hücreden organizmaya sıra?", back: "Hücre → Doku → Organ → Sistem → Organizma" },
+                { id: "5f-fc14", front: "Düz kas özelliği?", back: "İstemsiz, yavaş, yorulmaz (mide, bağırsak)." },
+                { id: "5f-fc15", front: "Oynamaz eklem örneği?", back: "Kafatası eklemleri. Oynar: kol/bacak; yarı oynar: omurga." },
+                { id: "5f-fc16", front: "Saydam madde örneği?", back: "Cam, hava, temiz su — arkası net görünür." },
+                { id: "5f-fc17", front: "Yarı saydam ne gösterir?", back: "Bulanık (net değil). Örn: buzlu cam, yağlı kâğıt." },
+                { id: "5f-fc18", front: "Gölgeyi büyütmek için?", back: "Işık kaynağını cisme yaklaştır (veya cismi ışığa yaklaştır)." },
+                { id: "5f-fc19", front: "Gölge neyin kanıtı?", back: "Işığın doğrusal yayıldığının önemli kanıtıdır." },
+                { id: "5f-fc20", front: "Isı ile sıcaklık farkı?", back: "Isı = enerji (J); sıcaklık = °C, termometre ile ölçülür." },
+                { id: "5f-fc21", front: "Süblimleşme nedir?", back: "Katı → gaz (sıvı olmadan). Örn: naftalin, kuru buz." },
+                { id: "5f-fc22", front: "Katı tanecik hareketi?", back: "Sadece titreşim. Gazda boşluk en fazla." },
+                { id: "5f-fc23", front: "Hangi elemanın sembolü yok?", back: "Duy ve pil yatağı." },
+                { id: "5f-fc24", front: "Pil artarsa parlaklık?", back: "Ampul sabitken pil artarsa parlaklık artar (bağımsız: pil)." },
+                { id: "5f-fc25", front: "İleri dönüşüm örneği?", back: "Kot pantolondan çanta yapmak (upcycling)." },
+                { id: "5f-fc26", front: "Atık yağ lavaboya niye dökülmez?", back: "Kanalizasyon tıkanır; içme/kullanma suyu kirlenir." },
+                { id: "5f-fc27", front: "Sıfır Atık’ta ilk adım?", back: "Önleme / azaltma. Bertaraf en son seçenektir." },
+                { id: "5f-fc28", front: "Atık piller nereye?", back: "Kırmızı renkli atık pil toplama kutularına." }
             ]
         }
     }
