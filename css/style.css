@@ -2797,7 +2797,9 @@ body.mode-student .teacher-only {
     .notes-toolbar,
     .unit-filter-bar,
     .flash-actions,
-    .quiz-analysis-panel button {
+    .quiz-analysis-panel button,
+    .no-print,
+    .exam-toolbar {
         display: none !important;
     }
 
@@ -2811,6 +2813,7 @@ body.mode-student .teacher-only {
     body.print-notes-mode #tab-simulations,
     body.print-notes-mode #tab-flashcards,
     body.print-notes-mode #tab-quiz,
+    body.print-notes-mode #tab-exams,
     body.print-notes-mode #tab-curriculum {
         display: none !important;
     }
@@ -2818,6 +2821,32 @@ body.mode-student .teacher-only {
     body.print-notes-mode #view-course,
     body.print-notes-mode #tab-notes {
         display: block !important;
+    }
+
+    body.print-exam-mode #view-home,
+    body.print-exam-mode #tab-presentation,
+    body.print-exam-mode #tab-simulations,
+    body.print-exam-mode #tab-flashcards,
+    body.print-exam-mode #tab-quiz,
+    body.print-exam-mode #tab-notes,
+    body.print-exam-mode #tab-curriculum {
+        display: none !important;
+    }
+
+    body.print-exam-mode #view-course,
+    body.print-exam-mode #tab-exams {
+        display: block !important;
+    }
+
+    body.print-exam-mode .exam-sheet {
+        display: none !important;
+    }
+
+    body.print-exam-mode .exam-sheet.print-focus-exam {
+        display: block !important;
+        border: none;
+        box-shadow: none;
+        padding: 0;
     }
 
     body.print-single-note .note-card {
@@ -2831,11 +2860,135 @@ body.mode-student .teacher-only {
         box-shadow: none;
     }
 
-    .note-card {
+    .note-card,
+    .exam-question {
         break-inside: avoid;
         border: 1px solid #ccc;
         margin-bottom: 1rem;
         padding: 1rem;
     }
+
+    .exam-answer-lines .exam-line {
+        border-bottom-color: #999 !important;
+    }
+
+    .exam-ideal-answer {
+        background: #f3f4f6 !important;
+        color: #000 !important;
+        border-color: #ccc !important;
+    }
+}
+
+/* Yazılı prova */
+.exam-sheet {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.exam-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.exam-header-block h2 {
+    margin: 0 0 0.35rem;
+    font-size: 1.25rem;
+}
+
+.exam-meta {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    margin: 0 0 1rem;
+}
+
+.exam-student-fields {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.9rem;
+    padding: 0.85rem 1rem;
+    border: 1px dashed var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.exam-section-title {
+    font-size: 1.05rem;
+    margin: 1.5rem 0 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid rgba(56, 189, 248, 0.35);
+    color: var(--primary);
+}
+
+.exam-question {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 1rem 1.15rem;
+    margin-bottom: 1rem;
+}
+
+.exam-q-head {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    align-items: center;
+    margin-bottom: 0.55rem;
+}
+
+.exam-points {
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--accent);
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 0.15rem 0.5rem;
+    border-radius: 9999px;
+}
+
+.exam-topic {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+}
+
+.exam-scenario {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin: 0 0 0.65rem;
+}
+
+.exam-q-text {
+    font-weight: 700;
+    margin: 0 0 0.75rem;
+}
+
+.exam-answer-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.exam-line {
+    border-bottom: 1px solid var(--border-color);
+    height: 1.1rem;
+}
+
+.exam-ideal-answer {
+    margin-top: 0.85rem;
+    padding: 0.75rem 0.9rem;
+    border-radius: 8px;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.35);
+    font-size: 0.9rem;
+}
+
+.exam-ideal-answer p {
+    margin: 0.35rem 0 0;
 }
 

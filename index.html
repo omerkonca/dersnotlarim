@@ -26,7 +26,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css?v=5.1">
+    <link rel="stylesheet" href="css/style.css?v=5.2">
 </head>
 <body class="mode-teacher">
 
@@ -230,17 +230,17 @@
                 <div class="course-card">
                     <div class="course-card-top">
                         <span class="course-grade-badge">5. Sınıf</span>
-                        <span class="course-status-badge">Aktif &bull; 1–7. Ünite</span>
+                        <span class="course-status-badge">Aktif &bull; Şampiyon Paketi</span>
                     </div>
                     <div class="course-icon">🌞</div>
                     <h3 class="course-title">5. Sınıf Fen Bilimleri</h3>
                     <p class="course-desc">
-                        Güneş–Ay · Kuvvet · Hücre · Işık · Madde · Elektrik · Evsel atık ve Sıfır Atık.
+                        1–7. ünite + sınav tuzakları, karşılaştırma tabloları ve hap flaş kartlar.
                     </p>
                     <div class="course-features">
-                        <span>📖 23 Konu Notu</span>
+                        <span>⚡ Sınav Şampiyonu</span>
                         <span>❓ 23 Yazılı Sorusu</span>
-                        <span>🃏 28 Hafıza Kartı</span>
+                        <span>🃏 16 Hap Kart</span>
                     </div>
                     <div class="course-actions">
                         <button class="btn-course-primary" onclick="app.selectSubject('5', 'fen')">
@@ -288,6 +288,9 @@
                 </button>
                 <button class="inner-tab-btn" data-tab="tab-quiz" onclick="app.switchInnerTab('tab-quiz')">
                     ✍️ Soru Çözümü
+                </button>
+                <button class="inner-tab-btn" data-tab="tab-exams" onclick="app.switchInnerTab('tab-exams')">
+                    📄 Yazılı Prova
                 </button>
                 <button class="inner-tab-btn" data-tab="tab-curriculum" onclick="app.switchInnerTab('tab-curriculum')">
                     📅 Müfredat
@@ -658,6 +661,13 @@
                     </div>
                 </div>
 
+                <!-- SEKME: YAZILI PROVA -->
+                <div id="tab-exams" class="tab-pane">
+                    <div id="exams-container">
+                        <!-- JS ile dolacak -->
+                    </div>
+                </div>
+
                 <!-- SEKME 4: MÜFREDAT -->
                 <div id="tab-curriculum" class="tab-pane">
                     <!-- JS renderCurriculum() dinamik akordiyon ile render edilir -->
@@ -866,12 +876,12 @@ Selin</textarea>
     </footer>
 
     <!-- JS -->
-    <script src="js/sound-fx.js?v=5.1"></script>
-    <script src="js/qrcode.min.js?v=5.1"></script>
-    <script src="js/data.js?v=5.1"></script>
-    <script src="js/board-tools.js?v=5.1"></script>
-    <script src="js/interactive-lab.js?v=5.1"></script>
-    <script src="js/app.js?v=5.1"></script>
+    <script src="js/sound-fx.js?v=5.2"></script>
+    <script src="js/qrcode.min.js?v=5.2"></script>
+    <script src="js/data.js?v=5.2"></script>
+    <script src="js/board-tools.js?v=5.2"></script>
+    <script src="js/interactive-lab.js?v=5.2"></script>
+    <script src="js/app.js?v=5.2"></script>
     <script>
         function toggleWheelModal() {
             const modal = document.getElementById('lucky-wheel-modal');

@@ -1624,15 +1624,109 @@ const EDUCATION_DATA = {
         // ==========================================
         "5-fen": {
             title: "5. Sınıf Fen Bilimleri",
-            subtitle: "1–7. Ünite güncel MEB 5. sınıf Fen (Sıfır Atık dahil)",
+            subtitle: "1–7. Ünite + Sınav Şampiyonu hap bilgiler",
             presentation: {
-                title: "5. Sınıf Fen • 1–7. Ünite",
-                desc: "Güneş–Ay’dan elektrik ve sıfır atığa kadar güncel müfredat notları.",
+                title: "5. Sınıf Fen • 1–7. Ünite + Hap Bilgi",
+                desc: "Güncel MEB notları, sınav tuzakları, karşılaştırma tabloları ve şampiyon flaş kartlar.",
                 file: "#",
-                slidesCount: "Not + Test Odaklı",
-                badge: "5. Sınıf • 7 Ünite"
+                slidesCount: "Not + Test + Hap",
+                badge: "Şampiyon Paketi"
             },
             notes: [
+                {
+                    unitId: 0,
+                    unitName: "⚡ Sınav Şampiyonu",
+                    title: "En Çok Düşülen Sınav Tuzakları",
+                    important: "True / False & Traps",
+                    badge: "HAP",
+                    content: `
+                        <div class="note-alert">
+                            🚨 <strong>TUZAK:</strong> “Ay bir ışık kaynağıdır.”<br>
+                            <strong>CEVAP: YANLIŞ!</strong> Ay ışık kaynağı değildir; Güneş’ten aldığı ışığı yansıtır.
+                        </div>
+                        <div class="note-alert">
+                            🚨 <strong>TUZAK:</strong> “Kütle uzaya veya Ay’a gidildiğinde değişir.”<br>
+                            <strong>CEVAP: YANLIŞ!</strong> Kütle her yerde aynıdır. Değişen şey <strong>ağırlıktır</strong> (Ay’da ~1/6).
+                        </div>
+                        <div class="note-alert">
+                            🚨 <strong>TUZAK:</strong> “Buzlu cam saydam olmayan (opak) bir maddedir.”<br>
+                            <strong>CEVAP: YANLIŞ!</strong> Buzlu cam ve yağlı kâğıt <strong>yarı saydamdır</strong>; arkası bulanık görünür.
+                        </div>
+                        <div class="note-alert">
+                            🚨 <strong>TUZAK:</strong> “Sıcaklık bir enerjidir ve kalorimetre ile ölçülür.”<br>
+                            <strong>CEVAP: YANLIŞ!</strong> <strong>Isı</strong> enerjidir; sıcaklık enerji değildir, termometre ile °C ölçülür.
+                        </div>
+                        <div class="note-alert">
+                            🚨 <strong>TUZAK:</strong> “Duy ve pil yatağının sembolü vardır.”<br>
+                            <strong>CEVAP: YANLIŞ!</strong> Duy ve pil yatağının belirlenmiş sembolü <strong>yoktur</strong>.
+                        </div>
+                    `
+                },
+                {
+                    unitId: 0,
+                    unitName: "⚡ Sınav Şampiyonu",
+                    title: "Kafa Karıştıran İkililer",
+                    important: "Karşılaştırma tablosu",
+                    badge: "HAP",
+                    content: `
+                        <div class="comparison-grid">
+                            <div class="comp-card cold">
+                                <h4>⚖️ Kütle</h4>
+                                <ul>
+                                    <li>Madde miktarı</li>
+                                    <li>Eşit kollu terazi</li>
+                                    <li>g / kg</li>
+                                    <li>Konuma göre <strong>DEĞİŞMEZ</strong></li>
+                                </ul>
+                            </div>
+                            <div class="comp-card warm">
+                                <h4>🌍 Ağırlık</h4>
+                                <ul>
+                                    <li>Yer çekimi kuvveti</li>
+                                    <li>Dinamometre</li>
+                                    <li>Newton (N)</li>
+                                    <li>Konuma göre <strong>DEĞİŞİR</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="comparison-grid" style="margin-top:0.75rem;">
+                            <div class="comp-card warm">
+                                <h4>🔥 Isı</h4>
+                                <ul>
+                                    <li>Enerji türü</li>
+                                    <li>Joule / Kalori</li>
+                                    <li>Alınıp verilebilir</li>
+                                </ul>
+                            </div>
+                            <div class="comp-card cold">
+                                <h4>🌡️ Sıcaklık</h4>
+                                <ul>
+                                    <li>Enerji değildir</li>
+                                    <li>°C · termometre</li>
+                                    <li>Ortalama hareket enerjisi göstergesi</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="comparison-grid" style="margin-top:0.75rem;">
+                            <div class="comp-card cold">
+                                <h4>🌿 Bitki hücresi</h4>
+                                <ul>
+                                    <li>Köşeli şekil</li>
+                                    <li>Hücre duvarı + kloroplast var</li>
+                                    <li>Koful büyük / az</li>
+                                </ul>
+                            </div>
+                            <div class="comp-card warm">
+                                <h4>🐾 Hayvan hücresi</h4>
+                                <ul>
+                                    <li>Oval / yuvarlak</li>
+                                    <li>Duvar + kloroplast yok</li>
+                                    <li>Koful küçük / çok · sentrozom var</li>
+                                </ul>
+                            </div>
+                        </div>
+                    `
+                },
                 {
                     unitId: 1,
                     unitName: "1. Ünite: Güneş, Dünya ve Ay",
@@ -2669,34 +2763,258 @@ const EDUCATION_DATA = {
                     explanation: "En öncelikli adım atık oluşumunu önlemek ve azaltmaktır. Bertaraf en son seçenektir."
                 }
             ],
+            exams: [
+                {
+                    id: "5f-exam-1d1y",
+                    title: "5. Sınıf Fen Bilimleri — 1. Dönem 1. Yazılı Prova Sınavı",
+                    subtitle: "1. ve 2. Ünite · Senaryo soruları",
+                    questions: [
+                        {
+                            id: "exam-1-q1",
+                            section: "☀️ I. Bölüm: Gökyüzündeki Komşularımız (1. Ünite)",
+                            unit: "1. Ünite",
+                            topic: "Güneş'in Dönme Hareketi",
+                            questionNumber: 1,
+                            points: 10,
+                            scenario: "Ünlü bilim insanı Galileo Galilei, tasarladığı teleskopla Güneş'i gözlemlemiş ve yüzeyinde koyu renkli lekeler (Güneş lekeleri) tespit etmiştir. Galilei, zaman içinde bu lekelerin hep aynı yöne doğru kaydığını fark etmiştir.",
+                            question: "Buna göre Galileo Galilei, Güneş lekelerinin kaydığını gözlemleyerek Güneş'in hangi hareketi hakkında bilgi edinmiştir? Yazınız.",
+                            idealAnswer: "Güneş'in kendi ekseni etrafında dönme hareketi yaptığını kanıtlamıştır / ispatlamıştır."
+                        },
+                        {
+                            id: "exam-1-q2",
+                            section: "☀️ I. Bölüm: Gökyüzündeki Komşularımız (1. Ünite)",
+                            unit: "1. Ünite",
+                            topic: "Ay'ın Özellikleri",
+                            questionNumber: 2,
+                            points: 10,
+                            scenario: "Dünya'mızda yağmur, rüzgâr, kar gibi hava olayları yaşanırken Ay'a giden astronotlar orada hiçbir hava olayının gerçekleşmediğini ve diktikleri bayrakların dalgalanmadığını gözlemlemişlerdir.",
+                            question: "Ay'da rüzgâr ve yağmur gibi hava olaylarının görülmemesinin temel sebebi nedir? Açıklayınız.",
+                            idealAnswer: "Ay'ın atmosferinin yok denecek kadar ince olmasıdır."
+                        },
+                        {
+                            id: "exam-1-q3",
+                            section: "☀️ I. Bölüm: Gökyüzündeki Komşularımız (1. Ünite)",
+                            unit: "1. Ünite",
+                            topic: "Ay'ın Hareketleri",
+                            questionNumber: 3,
+                            points: 10,
+                            scenario: "Öğretmen, sınıfta Dünya ve Ay modelleriyle bir etkinlik yaptırmaktadır. Dünya'yı temsil eden öğrenci, etrafında dönen arkadaşının her zaman sadece yüzünü gördüğünü, sırtını hiç göremediğini fark etmiştir.",
+                            question: "Dünya'dan bakıldığında Ay'ın her zaman aynı yüzünün görünmesinin sebebini açıklayınız.",
+                            idealAnswer: "Ay'ın kendi ekseni etrafındaki dönme süresi ile Dünya etrafındaki dolanma süresinin birbirine eşit (yaklaşık 27,3 gün) olmasıdır."
+                        },
+                        {
+                            id: "exam-1-q4",
+                            section: "☀️ I. Bölüm: Gökyüzündeki Komşularımız (1. Ünite)",
+                            unit: "1. Ünite",
+                            topic: "Ay'ın Evreleri",
+                            questionNumber: 4,
+                            points: 10,
+                            scenario: "Ay'ın Dünya etrafındaki dolanımı sırasında 4 ana ve 2 ara evre gözlemlenir.",
+                            question: "Ay'ın \"Yeni Ay\" ana evresinden tam 2 hafta (14 gün) sonra hangi ana evre görülür? Bu evrede Ay'ın görünümü nasıldır? Yazınız.",
+                            idealAnswer: "Dolunay evresidir. Ay'ın Dünya'ya bakan yüzü tamamen aydınlık ve dairesel görünür."
+                        },
+                        {
+                            id: "exam-1-q5",
+                            section: "☀️ I. Bölüm: Gökyüzündeki Komşularımız (1. Ünite)",
+                            unit: "1. Ünite",
+                            topic: "Güneş, Dünya ve Ay Büyüklükleri",
+                            questionNumber: 5,
+                            points: 10,
+                            scenario: "Fen bilimleri dersinde Güneş, Dünya ve Ay'ın büyüklüklerini modellemek isteyen bir öğrenci grubuna karpuz, elma ve erik verilmiştir.",
+                            question: "Bu meyveleri Güneş, Dünya ve Ay ile doğru şekilde eşleştiriniz.",
+                            idealAnswer: "Güneş: Karpuz | Dünya: Elma | Ay: Erik."
+                        },
+                        {
+                            id: "exam-1-q6",
+                            section: "⚖️ II. Bölüm: Kuvvet ve Kuvvetin Ölçülmesi (2. Ünite)",
+                            unit: "2. Ünite",
+                            topic: "Dinamometreler",
+                            questionNumber: 6,
+                            points: 10,
+                            scenario: "Kuvvetin büyüklüğünü ölçmek için dinamometre adı verilen araçlar kullanılır. Dinamometrelerin içinde esnek sarmal yaylar bulunur.",
+                            question: "Hassas (küçük) kuvvetleri ölçmek isteyen bir öğrenci, dinamometre tercih ederken ince yaylı mı yoksa kalın yaylı mı bir dinamometre seçmelidir? Nedeniyle birlikte açıklayınız.",
+                            idealAnswer: "İnce yaylı dinamometre seçmelidir. İnce yaylar küçük kuvvetlerde daha kolay esneyeceği için ölçümü hassas yapar."
+                        },
+                        {
+                            id: "exam-1-q7",
+                            section: "⚖️ II. Bölüm: Kuvvet ve Kuvvetin Ölçülmesi (2. Ünite)",
+                            unit: "2. Ünite",
+                            topic: "Kütle ve Ağırlık",
+                            questionNumber: 7,
+                            points: 10,
+                            scenario: "Pazardan 3 kg elma alan bir öğrenci \"Elmaların ağırlığı 3 kg geldi.\" demiştir.",
+                            question: "Öğrencinin bu ifadesindeki bilimsel hatayı düzeltiniz. Kütle ve ağırlık kavramlarının ölçüm aletlerini ve birimlerini belirterek açıklayınız.",
+                            idealAnswer: "Kilogram (kg) kütle birimidir, ağırlık birimi değildir. Kütle eşit kollu terazi ile kg/g olarak ölçülür. Ağırlık dinamometre ile Newton (N) cinsinden ölçülen yer çekimi kuvvetidir."
+                        },
+                        {
+                            id: "exam-1-q8",
+                            section: "⚖️ II. Bölüm: Kuvvet ve Kuvvetin Ölçülmesi (2. Ünite)",
+                            unit: "2. Ünite",
+                            topic: "Yer Çekimi ve Konum",
+                            questionNumber: 8,
+                            points: 10,
+                            scenario: "Dünya üzerinde kütlesi 60 kg olan bir kolinin ağırlığı Dünya'da yaklaşık 600 N gelmektedir. Bu koli Ay'a götürülüyor. (Ay'ın çekim kuvveti Dünya'nın 1/6'sı kadardır.)",
+                            question: "Kutunun Ay'daki kütlesi ve ağırlığı kaç olur?",
+                            idealAnswer: "Ay'daki kütle: 60 kg (değişmez). Ay'daki ağırlık: 100 N (600 ÷ 6 = 100)."
+                        },
+                        {
+                            id: "exam-1-q9",
+                            section: "⚖️ II. Bölüm: Kuvvet ve Kuvvetin Ölçülmesi (2. Ünite)",
+                            unit: "2. Ünite",
+                            topic: "Sürtünme Kuvveti",
+                            questionNumber: 9,
+                            points: 10,
+                            scenario: "Bir oyuncak araba sırasıyla cam yüzey, halı yüzey ve tahta yüzeyde eşit kuvvetlerle itiliyor.",
+                            question: "Arabanın en kolay ve en zor ilerlediği yüzeyleri sürtünme kuvveti açısından karşılaştırarak yazınız.",
+                            idealAnswer: "En kolay cam yüzeyde ilerler (sürtünme en az). En zor halı yüzeyde ilerler (pürüzlü yüzeyde sürtünme en fazla)."
+                        },
+                        {
+                            id: "exam-1-q10",
+                            section: "⚖️ II. Bölüm: Kuvvet ve Kuvvetin Ölçülmesi (2. Ünite)",
+                            unit: "2. Ünite",
+                            topic: "Sürtünmeyi Artıran Durumlar",
+                            questionNumber: 10,
+                            points: 10,
+                            scenario: "Sürtünme kuvveti hayatımızı bazen kolaylaştırırken bazen de zorlaştırır.",
+                            question: "Sürtünmeyi ARTTIRMAK amacıyla günlük hayatta yapılan 2 farklı uygulamaya örnek veriniz.",
+                            idealAnswer: "Örnekler: Kışın araç lastiklerine zincir takılması; sporcuların krampon giymesi / tırtıklı taban; merdiven basamaklarına kaydırmaz bant yapıştırılması. (Her doğru örnek 5 puan)"
+                        }
+                    ]
+                },
+                {
+                    id: "5f-exam-2d1y",
+                    title: "5. Sınıf Fen Bilimleri — 2. Dönem 1. Yazılı Prova Sınavı",
+                    subtitle: "4., 5., 6. ve 7. Ünite · Senaryo soruları",
+                    questions: [
+                        {
+                            id: "exam-2-q1",
+                            section: "💡 I. Bölüm: Işığın Dünyası (4. Ünite)",
+                            unit: "4. Ünite",
+                            topic: "Işığın Yayılması",
+                            questionNumber: 1,
+                            points: 10,
+                            scenario: "Ahmet, düz bir plastik borunun bir ucundan yakılan mum ışığına baktığında mumu görebilmektedir. Ancak boruyu ortasından büktüğünde mum ışığını görememektedir.",
+                            question: "Bu durum ışığın hangi temel özelliği ile açıklanır? Yazınız.",
+                            idealAnswer: "Işığın doğrusal bir yolla yayıldığını gösterir / doğrusal yayılma özelliği ile açıklanır."
+                        },
+                        {
+                            id: "exam-2-q2",
+                            section: "💡 I. Bölüm: Işığın Dünyası (4. Ünite)",
+                            unit: "4. Ünite",
+                            topic: "Maddenin Işık Geçirgenliği",
+                            questionNumber: 2,
+                            points: 10,
+                            scenario: "Pencere camı, buzlu cam ve tahta kapı üzerine eşit miktarda ışık gönderiliyor.",
+                            question: "Bu maddeleri ışığı geçirme durumlarına göre (Saydam, Yarı Saydam, Opak) sınıflandırarak arkalarındaki cisimlerin nasıl göründüğünü yazınız.",
+                            idealAnswer: "Pencere camı: Saydam (arkası net). Buzlu cam: Yarı saydam (arkası bulanık). Tahta kapı: Opak (ışığı geçirmez, arkası görünmez)."
+                        },
+                        {
+                            id: "exam-2-q3",
+                            section: "💡 I. Bölüm: Işığın Dünyası (4. Ünite)",
+                            unit: "4. Ünite",
+                            topic: "Tam Gölge Oluşumu",
+                            questionNumber: 3,
+                            points: 10,
+                            scenario: "Bir öğrenci, karanlık bir odada el feneri (ışık kaynağı) ile duvarda bir topun tam gölgesini oluşturuyor. Öğrenci duvardaki gölgenin boyutunu büyütmek istiyor.",
+                            question: "Topun duvardaki gölgesini BÜYÜTMEK için ışık kaynağı veya top hangi yönde hareket ettirilmelidir? İki farklı yöntem yazınız.",
+                            idealAnswer: "1) Topu ışık kaynağına yaklaştırmak. 2) Işık kaynağını topa yaklaştırmak (veya duvarı toptan uzaklaştırmak)."
+                        },
+                        {
+                            id: "exam-2-q4",
+                            section: "🌡️ II. Bölüm: Maddenin Doğası (5. Ünite)",
+                            unit: "5. Ünite",
+                            topic: "Maddenin Tanecikli Yapısı",
+                            questionNumber: 4,
+                            points: 10,
+                            scenario: "Katı, sıvı ve gaz maddeleri oluşturan tanecikler titreşim, öteleme ve dönme hareketleri yaparlar.",
+                            question: "Sadece \"titreşim\" hareketi yapabilen madde hâlini ve bu hâldeki tanecikler arası boşluk miktarını yazınız.",
+                            idealAnswer: "Katı hâldedir. Katı maddelerde tanecikler arası boşluk en azdır."
+                        },
+                        {
+                            id: "exam-2-q5",
+                            section: "🌡️ II. Bölüm: Maddenin Doğası (5. Ünite)",
+                            unit: "5. Ünite",
+                            topic: "Isı Alışverişi",
+                            questionNumber: 5,
+                            points: 10,
+                            scenario: "Sıcaklıkları farklı 80°C ve 20°C olan iki sıvı birbirine temas ettiriliyor.",
+                            question: "Bu sıvılar arasında gerçekleşen ısı akışının yönünü ve ısı alışverişinin ne zamana kadar devam edeceğini açıklayınız.",
+                            idealAnswer: "Isı akışı 80°C olan sıvıdan 20°C olan sıvıya doğrudur. Isı alışverişi her iki sıvının son sıcaklıkları eşitleninceye kadar devam eder."
+                        },
+                        {
+                            id: "exam-2-q6",
+                            section: "🌡️ II. Bölüm: Maddenin Doğası (5. Ünite)",
+                            unit: "5. Ünite",
+                            topic: "Hâl Değişimleri",
+                            questionNumber: 6,
+                            points: 10,
+                            scenario: "Derin dondurucudan çıkarılan soğuk su şişesinin dış yüzeyinde bir süre sonra su damlacıkları oluşmaktadır.",
+                            question: "Şişenin dışında gerçekleşen bu hâl değişiminin adı nedir? Isı alma/verme durumunu belirterek açıklayınız.",
+                            idealAnswer: "Yoğuşma (yoğunlaşma) olayıdır. Havadaki su buharı soğuk şişeye çarparak ısı verir ve sıvı hâle geçer."
+                        },
+                        {
+                            id: "exam-2-q7",
+                            section: "🌡️ II. Bölüm: Maddenin Doğası (5. Ünite)",
+                            unit: "5. Ünite",
+                            topic: "Isı Yalıtımı",
+                            questionNumber: 7,
+                            points: 10,
+                            scenario: "Binaların dış cephelerinde köpük (strafor), cam yünü veya taş yünü gibi malzemeler kullanılır.",
+                            question: "Binalarda yapılan bu uygulamanın amacı nedir? Çevreye ve aile ekonomisine katkısını açıklayınız.",
+                            idealAnswer: "Amacı ısı yalıtımı sağlamaktır. Isı kaybını önleyerek yakıt tüketimini azaltır, aile ekonomisine tasarruf sağlar ve çevre kirliliğini önler."
+                        },
+                        {
+                            id: "exam-2-q8",
+                            section: "🔌 III. Bölüm: Yaşamımızdaki Elektrik (6. Ünite)",
+                            unit: "6. Ünite",
+                            topic: "Devre Elemanları ve Semboller",
+                            questionNumber: 8,
+                            points: 10,
+                            scenario: "Bir öğrenci elektrik devresi çizerken pil, ampul, anahtar ve kablonun resimlerini çizmek yerine sembollerini kullanmıştır. Ancak devrede kullandığı pil yatağı ve duy için sembol çizmemiştir.",
+                            question: "Devre elemanlarının sembollerle gösterilmesinin amacını ve pil yatağı/duy için neden sembol çizilmediğini açıklayınız.",
+                            idealAnswer: "Semboller ortak bilimsel dil oluşturur ve çizimi kolaylaştırır. Duy ve pil yatağının belirlenmiş standart bir sembolü yoktur."
+                        },
+                        {
+                            id: "exam-2-q9",
+                            section: "🔌 III. Bölüm: Yaşamımızdaki Elektrik (6. Ünite)",
+                            unit: "6. Ünite",
+                            topic: "Deneylerde Değişkenler",
+                            questionNumber: 9,
+                            points: 10,
+                            scenario: "Zeynep, basit bir elektrik devresinde pil sayısını sabit tutup ampul sayısını 1'den 3'e çıkarıyor ve ampul parlaklığının azaldığını gözlemliyor.",
+                            question: "Zeynep'in yaptığı bu deneydeki Bağımsız Değişken, Bağımlı Değişken ve Kontrol Edilen (Sabit Tutulan) Değişkeni yazınız.",
+                            idealAnswer: "Bağımsız: Ampul sayısı. Bağımlı: Ampul parlaklığı. Kontrol edilen: Pil sayısı ve kablo uzunluğu."
+                        },
+                        {
+                            id: "exam-2-q10",
+                            section: "🔌 III. Bölüm: Yaşamımızdaki Elektrik (6.–7. Ünite)",
+                            unit: "7. Ünite",
+                            topic: "Atık Yönetimi",
+                            questionNumber: 10,
+                            points: 10,
+                            scenario: "Evde kullanılan kızartmalık bitkisel atık yağlar lavaboya dökülmeyip cam bir kavanozda biriktirilerek belediyenin atık toplama merkezine teslim edilmektedir.",
+                            question: "Atık yağların lavaboya dökülmemesinin çevre ve su kaynakları açısından önemini açıklayınız.",
+                            idealAnswer: "Atık yağlar lavaboya döküldüğünde kanalizasyonu tıkar; içme/kullanma su kaynaklarını ve toprağı kirletir. Biriktirilip geri dönüştürülmesi çevre kirliliğini önler."
+                        }
+                    ]
+                }
+            ],
             flashcards: [
+                { id: "fc-1", front: "Dünya'dan bakıldığında Ay'ın her zaman aynı yüzünün görünmesinin sebebi nedir?", back: "Ay'ın kendi etrafında dönme süresi ile Dünya etrafında dolanma süresinin birbirine eşit (yaklaşık 27,3 gün) olmasıdır." },
+                { id: "fc-2", front: "Gök taşlarının Ay yüzeyinde oluşturduğu çukurlara ne ad verilir?", back: "Krater adı verilir." },
+                { id: "fc-3", front: "İnce yaylı bir dinamometre ile kalın yaylı bir dinamometre arasındaki fark nedir?", back: "İnce yaylı dinamometre küçük kuvvetleri daha HASSAS ölçer; kalın yaylı dinamometre ise daha BÜYÜK kuvvetleri ölçebilir." },
+                { id: "fc-4", front: "Canlılarda basitten karmaşığa doğru hiyerarşik sıralama nasıldır?", back: "Hücre → Doku → Organ → Sistem → Organizma" },
+                { id: "fc-5", front: "Mide ve bağırsak gibi iç organlarımızda hangi kas çeşidi bulunur ve nasıl çalışır?", back: "Düz kas bulunur. İsteğimiz dışında (istemsiz), yavaş ve yorulmadan çalışır." },
+                { id: "fc-6", front: "Bir cismin tam gölgesini BÜYÜTMEK için cisim veya ışık kaynağı nasıl hareket ettirilmelidir?", back: "Cisim ışık kaynağına YAKLAŞTIRILMALI (veya ışık kaynağı cisme yaklaştırılmalıdır)." },
+                { id: "fc-7", front: "Katı bir maddenin sıvılaşmadan doğrudan gaz hâline geçmesine ne ad verilir? Örnek veriniz.", back: "Süblimleşme denir. Örnek: Naftalin veya kuru buz." },
+                { id: "fc-8", front: "Bir deneyde sayısı/miktarı bilinçli olarak değiştirilen değişkene ne ad verilir?", back: "Bağımsız Değişken denir." },
+                { id: "fc-9", front: "Eski bir malzemeyi işleyip tasarlayarak daha yüksek değerli yeni bir ürüne dönüştürmeye ne ad verilir?", back: "İleri Dönüşüm (Upcycling) denir." },
                 { id: "5f-fc1", front: "Ay ışık kaynağı mıdır?", back: "Hayır. Güneş’ten aldığı ışığı yansıtır." },
-                { id: "5f-fc2", front: "Neden Ay’ın hep aynı yüzü görünür?", back: "Dönme süresi ≈ Dünya etrafında dolanma süresi (~27,3 gün)." },
-                { id: "5f-fc3", front: "Krater nedir?", back: "Ay yüzeyine gök taşı çarpmasıyla oluşan çukur." },
-                { id: "5f-fc4", front: "İlk Dördün nasıl görünür?", back: "Sağ yarı aydınlık, düz “D” şekli." },
-                { id: "5f-fc5", front: "Büyüklük modeli?", back: "Güneş=karpuz, Dünya=elma, Ay=erik." },
-                { id: "5f-fc6", front: "Güneş lekesi nedir?", back: "Güneş yüzeyinde daha soğuk ve koyu görünen alanlar." },
-                { id: "5f-fc7", front: "Kuvvet birimi nedir?", back: "Newton (N). Ölçüm aleti: dinamometre." },
                 { id: "5f-fc8", front: "Kütle ile ağırlık farkı?", back: "Kütle (kg) değişmez; ağırlık (N) konuma göre değişir." },
-                { id: "5f-fc9", front: "60 kg Dünya / Ay ağırlığı?", back: "Dünya 600 N, Ay ~100 N. Kütle her yerde 60 kg." },
-                { id: "5f-fc10", front: "Hassas dinamometre hangisi?", back: "İnce ve esnek yaylı dinamometre." },
-                { id: "5f-fc11", front: "Sürtünmeyi azaltan örnek?", back: "Yağlama, cilalama, tekerlek takmak." },
-                { id: "5f-fc12", front: "Sadece bitkide olan organel?", back: "Kloroplast (fotosentez). Ayrıca hücre çeperi vardır." },
-                { id: "5f-fc13", front: "Hücreden organizmaya sıra?", back: "Hücre → Doku → Organ → Sistem → Organizma" },
-                { id: "5f-fc14", front: "Düz kas özelliği?", back: "İstemsiz, yavaş, yorulmaz (mide, bağırsak)." },
-                { id: "5f-fc15", front: "Oynamaz eklem örneği?", back: "Kafatası eklemleri. Oynar: kol/bacak; yarı oynar: omurga." },
-                { id: "5f-fc16", front: "Saydam madde örneği?", back: "Cam, hava, temiz su — arkası net görünür." },
                 { id: "5f-fc17", front: "Yarı saydam ne gösterir?", back: "Bulanık (net değil). Örn: buzlu cam, yağlı kâğıt." },
-                { id: "5f-fc18", front: "Gölgeyi büyütmek için?", back: "Işık kaynağını cisme yaklaştır (veya cismi ışığa yaklaştır)." },
-                { id: "5f-fc19", front: "Gölge neyin kanıtı?", back: "Işığın doğrusal yayıldığının önemli kanıtıdır." },
                 { id: "5f-fc20", front: "Isı ile sıcaklık farkı?", back: "Isı = enerji (J); sıcaklık = °C, termometre ile ölçülür." },
-                { id: "5f-fc21", front: "Süblimleşme nedir?", back: "Katı → gaz (sıvı olmadan). Örn: naftalin, kuru buz." },
-                { id: "5f-fc22", front: "Katı tanecik hareketi?", back: "Sadece titreşim. Gazda boşluk en fazla." },
                 { id: "5f-fc23", front: "Hangi elemanın sembolü yok?", back: "Duy ve pil yatağı." },
-                { id: "5f-fc24", front: "Pil artarsa parlaklık?", back: "Ampul sabitken pil artarsa parlaklık artar (bağımsız: pil)." },
-                { id: "5f-fc25", front: "İleri dönüşüm örneği?", back: "Kot pantolondan çanta yapmak (upcycling)." },
-                { id: "5f-fc26", front: "Atık yağ lavaboya niye dökülmez?", back: "Kanalizasyon tıkanır; içme/kullanma suyu kirlenir." },
-                { id: "5f-fc27", front: "Sıfır Atık’ta ilk adım?", back: "Önleme / azaltma. Bertaraf en son seçenektir." },
+                { id: "5f-fc12", front: "Sadece bitkide olan organel?", back: "Kloroplast (fotosentez). Ayrıca hücre çeperi vardır." },
                 { id: "5f-fc28", front: "Atık piller nereye?", back: "Kırmızı renkli atık pil toplama kutularına." }
             ]
         }

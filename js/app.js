@@ -63,6 +63,7 @@ class App {
         this.renderNotes(data.notes);
         this.renderQuiz(data.quiz);
         this.renderFlashcards(data.flashcards);
+        this.renderExams(data.exams);
         this.renderCurriculum(data.curriculum);
     }
 
@@ -455,6 +456,103 @@ class App {
         localStorage.removeItem(this.getFlashProgressKey());
         const key = `${this.currentClass}-${this.currentSubject}`;
         this.renderFlashcards(EDUCATION_DATA.content[key]?.flashcards);
+    }
+
+    renderExams(exams) {
+        const container = document.getElementById('exams-container');
+        if (!container) return;
+
+        if (!exams || exams.length === 0) {
+            container.innerHTML = `
+                <div style="text-align:center; padding:3rem 1rem;">
+                    <div style="font-size:2.5rem;">📄</div>
+                    <h4>Bu ders için yazılı prova henüz eklenmedi</h4>
+                    <p style="color:var(--text-muted);">Klasik yazılı senaryo soruları burada yer alacak.</p>
+                </div>
+            `;
+            return;
+        }
+
+        if (!this.examShowAnswers) this.examShowAnswers = {};
+
+        container.innerHTML = exams.map((exam, ei) => {
+            const showKey = !!this.examShowAnswers[exam.id];
+            const totalPoints = (exam.questions || []).reduce((s, q) => s + (q.points || 0), 0);
+            const sections = {};
+            (exam.questions || []).forEach(q => {
+                const sec = q.section || q.unit || 'Sorular';
+                if (!sections[sec]) sections[sec] = [];
+                sections[sec].push(q);
+            });
+
+            return `
+                <article class="exam-sheet" id="exam-sheet-${exam.id}">
+                    <div class="exam-toolbar no-print">
+                        <button class="btn-print-all" onclick="app.printExam('${exam.id}')">🖨️ Yazdır / PDF</button>
+                        <button class="btn-reset-quiz" onclick="app.toggleExamAnswers('${exam.id}')">
+                            ${showKey ? '🙈 Cevap Anahtarını Gizle' : '🔑 Cevap Anahtarını Göster'}
+                        </button>
+                    </div>
+
+                    <header class="exam-header-block">
+                        <h2>${exam.title}</h2>
+                        <p class="exam-meta">${exam.subtitle || ''} · Toplam ${totalPoints} puan · ${(exam.questions || []).length} soru</p>
+                        <div class="exam-student-fields">
+                            <span>Adı Soyadı: _______________________________</span>
+                            <span>Sınıfı / No: _______________</span>
+                            <span>Puan: _______</span>
+                        </div>
+                    </header>
+
+                    ${Object.entries(sections).map(([secName, qs]) => `
+                        <section class="exam-section">
+                            <h3 class="exam-section-title">${secName}</h3>
+                            ${qs.map(q => `
+                                <div class="exam-question">
+                                    <div class="exam-q-head">
+                                        <strong>Soru ${q.questionNumber || ''}</strong>
+                                        <span class="exam-points">${q.points || 10} Puan</span>
+                                        ${q.topic ? `<span class="exam-topic">${q.topic}</span>` : ''}
+                                    </div>
+                                    ${q.scenario ? `<p class="exam-scenario">${q.scenario}</p>` : ''}
+                                    <p class="exam-q-text">👉 ${q.question}</p>
+                                    <div class="exam-answer-lines" aria-hidden="true">
+                                        <div class="exam-line"></div>
+                                        <div class="exam-line"></div>
+                                        <div class="exam-line"></div>
+                                    </div>
+                                    ${showKey ? `
+                                        <div class="exam-ideal-answer">
+                                            <strong>🔑 Ideal Cevap:</strong>
+                                            <p>${q.idealAnswer}</p>
+                                        </div>
+                                    ` : ''}
+                                </div>
+                            `).join('')}
+                        </section>
+                    `).join('')}
+                </article>
+            `;
+        }).join('');
+    }
+
+    toggleExamAnswers(examId) {
+        if (!this.examShowAnswers) this.examShowAnswers = {};
+        this.examShowAnswers[examId] = !this.examShowAnswers[examId];
+        const key = `${this.currentClass}-${this.currentSubject}`;
+        this.renderExams(EDUCATION_DATA.content[key]?.exams);
+    }
+
+    printExam(examId) {
+        document.querySelectorAll('.exam-sheet').forEach(el => el.classList.remove('print-focus-exam'));
+        const sheet = document.getElementById(`exam-sheet-${examId}`);
+        if (sheet) sheet.classList.add('print-focus-exam');
+        document.body.classList.add('print-exam-mode');
+        window.print();
+        setTimeout(() => {
+            document.body.classList.remove('print-exam-mode');
+            sheet?.classList.remove('print-focus-exam');
+        }, 400);
     }
 
     renderCurriculum(curriculum) {
