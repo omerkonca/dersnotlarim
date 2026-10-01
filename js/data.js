@@ -1624,15 +1624,52 @@ const EDUCATION_DATA = {
         // ==========================================
         "6-fen": {
             title: "6. Sınıf Fen Bilimleri",
-            subtitle: "1–2. Ünite: Güneş Sistemi + Kuvvet ve Hareket",
+            subtitle: "1–7. Ünite + Sınav Şampiyonu hap bilgiler",
             presentation: {
-                title: "6. Sınıf Fen • 1–2. Ünite",
-                desc: "Güneş sistemi, tutulmalar, bileşke kuvvet, dengelenmiş kuvvetler, sürat ve hız.",
+                title: "6. Sınıf Fen • 1–7. Ünite + Hap + Yazılı",
+                desc: "Tüm üniteler, sınav tuzakları, şampiyon flaş kartlar ve 1.–2. dönem yazılı prova.",
                 file: "#",
-                slidesCount: "Not + Test",
-                badge: "1–2. Ünite Aktif"
+                slidesCount: "Not + Test + Hap + Yazılı",
+                badge: "Şampiyon Paketi"
             },
             notes: [
+                {
+                    unitId: 0,
+                    unitName: "⚡ Sınav Şampiyonu",
+                    title: "En Çok Düşülen Sınav Tuzakları",
+                    important: "True / False & Traps",
+                    badge: "HAP",
+                    content: `
+                        <div class="note-alert">
+                            🚨 <strong>TUZAK:</strong> “Güneş tutulması gece vakti gerçekleşir ve Dolunay evresindedir.”<br>
+                            <strong>CEVAP: YANLIŞ!</strong> Güneş tutulması <strong>gündüz</strong> ve <strong>Yeni Ay</strong> evresindedir. Gece + Dolunay = Ay tutulması.
+                        </div>
+                        <div class="note-alert">
+                            🚨 <strong>TUZAK:</strong> “Uranüs ve Neptün karasal (kayalık) gezegenlerdir.”<br>
+                            <strong>CEVAP: YANLIŞ!</strong> Uranüs ve Neptün <strong>gazsal (dış)</strong>tır. Karasal: Merkür, Venüs, Dünya, Mars.
+                        </div>
+                        <div class="note-alert">
+                            🚨 <strong>TUZAK:</strong> “Bileşke kuvvet sıfır olan bir cisim kesinlikle duruyordur.”<br>
+                            <strong>CEVAP: YANLIŞ!</strong> R = 0 iken duruyorsa durur; hareketliyorsa <strong>sabit süratle</strong> devam eder.
+                        </div>
+                        <div class="note-alert">
+                            🚨 <strong>TUZAK:</strong> “Tohumun çimlenmesi için ışık ve toprak şarttır.”<br>
+                            <strong>CEVAP: YANLIŞ!</strong> Işık ve toprak gerekmez. <strong>SOS:</strong> Su, Oksijen, Sıcaklık.
+                        </div>
+                        <div class="note-alert">
+                            🚨 <strong>TUZAK:</strong> “Çukur ayna görüntüyü her zaman düz ve küçük gösterir.”<br>
+                            <strong>CEVAP: YANLIŞ!</strong> Her zaman düz ve küçük = <strong>tümsek</strong> ayna. Çukur mesafeye göre değişir.
+                        </div>
+                        <div class="note-alert">
+                            🚨 <strong>TUZAK:</strong> “Suyun donmasıyla hacmi azalır ve buz dibe çöker.”<br>
+                            <strong>CEVAP: YANLIŞ!</strong> Su donunca hacim <strong>artar</strong>, yoğunluk azalır; buz <strong>yüzeyde yüzer</strong>.
+                        </div>
+                        <div class="note-alert">
+                            🚨 <strong>TUZAK:</strong> “İletken telin uzunluğu artarsa ampul daha parlak yanar.”<br>
+                            <strong>CEVAP: YANLIŞ!</strong> Uzunluk ↑ → direnç ↑ → akım ↓ → ampul daha <strong>sönük</strong>.
+                        </div>
+                    `
+                },
                 {
                     unitId: 1,
                     unitName: "1. Ünite: Güneş Sistemi ve Tutulmalar",
@@ -1669,11 +1706,21 @@ const EDUCATION_DATA = {
                                 <h4>🌫️ Gazsal (Dış)</h4>
                                 <ul>
                                     <li><strong>Jüpiter, Satürn, Uranüs, Neptün</strong></li>
-                                    <li>Çeşitli gazlardan oluşur</li>
-                                    <li>Hacimce daha büyük</li>
-                                    <li>Hepsinin uydusu ve halkası var</li>
+                                    <li>Yüzey kayalık değil; temelde <strong>gaz</strong></li>
+                                    <li>Hacimce çok daha büyük (sistemin en büyük 4’ü)</li>
+                                    <li>Güneş’e daha uzak; <strong>asteroit kuşağının ötesinde</strong></li>
                                 </ul>
                             </div>
+                        </div>
+                        <div class="note-highlight" style="margin-top:0.75rem;">
+                            <strong>Gazsal gezegenlerin ortak özellikleri:</strong>
+                            <ul style="margin:0.4rem 0 0; padding-left:1.1rem;">
+                                <li>Gazsal yapıda olmaları</li>
+                                <li>Hepsinin <strong>halka</strong> sistemi vardır (en belirgin: <strong>Satürn</strong>)</li>
+                                <li>Hepsinin doğal <strong>uydusu</strong> vardır</li>
+                                <li>Hacim sırası: Jüpiter &gt; Satürn &gt; Uranüs &gt; Neptün</li>
+                                <li>Asteroit kuşağı (Mars–Jüpiter arası) <strong>ötesinde</strong> yer alırlar</li>
+                            </ul>
                         </div>
                     `
                 },
@@ -1884,6 +1931,494 @@ const EDUCATION_DATA = {
                             ⚠️ <strong>MEB Tuzağı:</strong> Sürat ile hız aynı kavram değildir; hız yönlüdür.
                         </div>
                     `
+                },
+                // 3. ÜNİTE
+                {
+                    unitId: 3,
+                    unitName: "3. Ünite: Üreme, Büyüme ve Gelişme",
+                    title: "Üreme Çeşitleri",
+                    important: "Eşeysiz / Eşeyli",
+                    badge: "F.6.3.1",
+                    content: `
+                        <p>Canlıların nesillerini devam ettirmek için yeni bireyler oluşturmasına <strong>üreme</strong> denir.</p>
+                        <div class="comparison-grid">
+                            <div class="comp-card cold">
+                                <h4>🧬 Eşeysiz üreme</h4>
+                                <ul>
+                                    <li>Üreme hücreleri yok; tek ata</li>
+                                    <li>Kalıtsal olarak birebir aynı yavrular</li>
+                                    <li><strong>Bölünme:</strong> amip, öglena, paramesyum, bakteri</li>
+                                    <li><strong>Tomurcuklanma:</strong> hidra, denizanası, maya</li>
+                                    <li><strong>Rejenerasyon:</strong> denizyıldızı, planarya</li>
+                                    <li><strong>Vejetatif:</strong> gül çeliği, patates gözü</li>
+                                </ul>
+                            </div>
+                            <div class="comp-card warm">
+                                <h4>🌸 Eşeyli üreme</h4>
+                                <ul>
+                                    <li>Dişi + erkek gamet birleşmesi</li>
+                                    <li>Kalıtsal <strong>çeşitlilik</strong> sağlar</li>
+                                    <li>Çiçekli bitkiler ve çoğu hayvan</li>
+                                </ul>
+                            </div>
+                        </div>
+                    `
+                },
+                {
+                    unitId: 3,
+                    unitName: "3. Ünite: Üreme, Büyüme ve Gelişme",
+                    title: "Çiçekli Bitkilerde Üreme ve Çimlenme",
+                    important: "SOS = Çimlenme",
+                    badge: "F.6.3.1",
+                    content: `
+                        <ul class="styled-list">
+                            <li><strong>Tozlaşma:</strong> Polenlerin tepeciğe taşınması (rüzgâr, su, böcek).</li>
+                            <li><strong>Döllenme:</strong> Polen çekirdeği ile yumurta hücresinin birleşmesi.</li>
+                            <li><strong>Tohum &amp; meyve:</strong> Döllenmiş yumurta → tohum; yumurtalık → meyve.</li>
+                            <li><strong>Çimlenme:</strong> Uygun şartlarda kök ve gövde çıkması.</li>
+                        </ul>
+                        <div class="note-highlight">
+                            <strong>Çimlenme şartları (SOS):</strong> Su/Nem + Oksijen + Sıcaklık<br>
+                            ❌ Işık ve toprak çimlenme için <strong>gerekli değildir</strong>.
+                        </div>
+                    `
+                },
+                {
+                    unitId: 3,
+                    unitName: "3. Ünite: Üreme, Büyüme ve Gelişme",
+                    title: "Hayvanlarda Üreme ve Başkalaşım",
+                    important: "Metamorfoz",
+                    badge: "F.6.3.1",
+                    content: `
+                        <ul class="styled-list">
+                            <li><strong>Doğurarak:</strong> memeliler (insan, balina, kedi…)</li>
+                            <li><strong>Yumurtlayarak:</strong> kuşlar, sürüngenler, balıklar, kurbağalar</li>
+                            <li><strong>Başkalaşım (metamorfoz):</strong> Yumurtadan çıkan yavru ana canlıya benzemez; evreler geçirerek benzer hâle gelir (kurbağa, kelebek).</li>
+                        </ul>
+                    `
+                },
+                {
+                    unitId: 3,
+                    unitName: "3. Ünite: Üreme, Büyüme ve Gelişme",
+                    title: "İnsanda Üreme Organları ve Gelişim",
+                    important: "Döllenme = yumurta kanalı",
+                    badge: "F.6.3.2",
+                    content: `
+                        <div class="comparison-grid">
+                            <div class="comp-card cold">
+                                <h4>♂️ Erkek</h4>
+                                <ul>
+                                    <li><strong>Testis:</strong> sperm üretimi</li>
+                                    <li><strong>Sperm kanalı:</strong> taşıma</li>
+                                    <li><strong>Salgı bezleri:</strong> hareketi kolaylaştıran sıvı</li>
+                                    <li><strong>Penis:</strong> sperm ve idrarın dışarı atılması</li>
+                                </ul>
+                            </div>
+                            <div class="comp-card warm">
+                                <h4>♀️ Dişi</h4>
+                                <ul>
+                                    <li><strong>Yumurtalık:</strong> yumurta üretimi</li>
+                                    <li><strong>Yumurta kanalı:</strong> <u>döllenme yeri</u></li>
+                                    <li><strong>Döl yatağı (rahim):</strong> zigotun tutunup gelişmesi</li>
+                                    <li><strong>Vajina:</strong> döl yatağını dışa bağlar</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="note-highlight" style="margin-top:0.75rem;">
+                            <strong>Gelişim:</strong> Sperm + Yumurta → <strong>Zigot</strong> → Embriyo (~8. haftaya) → Fetüs → Bebek
+                        </div>
+                        <p style="margin-top:0.6rem;"><strong>Âdet döngüsü (regl):</strong> Ergenlikle başlar; döllenmeyen yumurtanın bir miktar doku ve kan ile dışarı atılmasıdır.</p>
+                    `
+                },
+                {
+                    unitId: 3,
+                    unitName: "3. Ünite: Üreme, Büyüme ve Gelişme",
+                    title: "Sinir Sistemi",
+                    important: "Refleks = omurilik",
+                    badge: "F.6.3.3",
+                    content: `
+                        <p>Sinir hücresine <strong>nöron</strong> denir. Sinir sistemi iki bölümdür:</p>
+                        <ul class="styled-list">
+                            <li><strong>Beyin:</strong> öğrenme, hafıza, duyular, acıkma/susama, uyku, istemli hareketler</li>
+                            <li><strong>Beyincik:</strong> denge; kasların uyumlu çalışması</li>
+                            <li><strong>Omurilik soğanı:</strong> iç organlar (solunum, dolaşım…); yutma, öksürme, hapşırma</li>
+                            <li><strong>Omurilik:</strong> refleks merkezi — doğuştan (diz kapağı, emme) ve sonradan (bisiklet, araba)</li>
+                            <li><strong>Çevresel sinir sistemi:</strong> merkezî sistem ile organlar arası ileti ağı</li>
+                        </ul>
+                    `
+                },
+                {
+                    unitId: 3,
+                    unitName: "3. Ünite: Üreme, Büyüme ve Gelişme",
+                    title: "İç Salgı Bezleri ve Hormonlar",
+                    important: "Tablo Ezber",
+                    badge: "F.6.3.3",
+                    content: `
+                        <p>İç salgı bezleri hormonları doğrudan <strong>kana</strong> salgılar.</p>
+                        <ul class="styled-list">
+                            <li><strong>Hipofiz → büyüme hormonu:</strong> büyüme + diğer bezleri denetler</li>
+                            <li><strong>Tiroit → tiroksin:</strong> metabolizma hızı</li>
+                            <li><strong>Pankreas → insülin &amp; glukagon:</strong> kan şekeri (insülin ↓, glukagon ↑)</li>
+                            <li><strong>Böbrek üstü → adrenalin:</strong> korku/heyecan; kalp atışı ve kan basıncı ↑</li>
+                            <li><strong>Eşeylik bezleri → östrojen / testosteron:</strong> ergenlikte eşeysel özellikler</li>
+                        </ul>
+                    `
+                },
+                {
+                    unitId: 3,
+                    unitName: "3. Ünite: Üreme, Büyüme ve Gelişme",
+                    title: "Ergenlik Dönemi ve Sağlığı",
+                    important: "10–19 yaş",
+                    badge: "F.6.3.4",
+                    content: `
+                        <p><strong>Ergenlik:</strong> Çocukluktan yetişkinliğe geçiş (~10–19 yaş).</p>
+                        <ul class="styled-list">
+                            <li><strong>Bedensel:</strong> boy/kilo artışı, kas–kemik gelişimi, sivilce, ter artışı</li>
+                            <li><strong>Ruhsal:</strong> bağımsızlık isteği, duygu dalgalanmaları, kimlik arayışı, arkadaş grubu</li>
+                            <li><strong>Sağlık:</strong> dengeli beslenme, kişisel temizlik; alkol, sigara ve uyuşturucudan uzak durma</li>
+                        </ul>
+                    `
+                },
+                // 4. ÜNİTE
+                {
+                    unitId: 4,
+                    unitName: "4. Ünite: Işığın Yansıması ve Aynalar",
+                    title: "Yansıma ve Temel Kavramlar",
+                    important: "Normal = dik",
+                    badge: "F.6.4.1",
+                    content: `
+                        <p><strong>Yansıma:</strong> Işık ışınlarının yansıtıcı bir yüzeye çarpıp geldiği ortama geri dönmesidir.</p>
+                        <ul class="styled-list">
+                            <li><strong>Gelen ışın:</strong> Kaynaktan yüzeye ulaşan ışın</li>
+                            <li><strong>Yansıyan ışın:</strong> Yüzeyden geri dönen ışın</li>
+                            <li><strong>Yüzey normali (N):</strong> Temas noktasından çizilen hayalî <strong>dik (90°)</strong> çizgi</li>
+                            <li><strong>Gelme açısı:</strong> Gelen ışın ile normal arasındaki açı</li>
+                            <li><strong>Yansıma açısı:</strong> Yansıyan ışın ile normal arasındaki açı</li>
+                        </ul>
+                    `
+                },
+                {
+                    unitId: 4,
+                    unitName: "4. Ünite: Işığın Yansıması ve Aynalar",
+                    title: "Yansıma Kanunları",
+                    important: "i = i′",
+                    badge: "F.6.4.1",
+                    content: `
+                        <ul class="styled-list">
+                            <li>Gelme açısı = yansıma açısı (ör. 35° → 35°).</li>
+                            <li>Gelen ışın, yansıyan ışın ve normal <strong>aynı düzlemdedir</strong>.</li>
+                            <li>Yüzeye dik (normal üzerinden) gelen ışın <strong>kendi üzerinden geri yansır</strong>.</li>
+                        </ul>
+                        <div class="comparison-grid" style="margin-top:0.75rem;">
+                            <div class="comp-card warm">
+                                <h4>✨ Düzgün yansıma</h4>
+                                <ul>
+                                    <li>Pürüzsüz yüzey (düzlem ayna, durgun su)</li>
+                                    <li>Paralel gelen → paralel yansıyan</li>
+                                    <li><strong>Net görüntü</strong> oluşur</li>
+                                </ul>
+                            </div>
+                            <div class="comp-card cold">
+                                <h4>🌊 Dağınık yansıma</h4>
+                                <ul>
+                                    <li>Pürüzlü yüzey (halı, çim, buruşuk folyo)</li>
+                                    <li>Paralel gelen → farklı yönlere dağılır</li>
+                                    <li><strong>Net görüntü oluşmaz</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+                    `
+                },
+                {
+                    unitId: 4,
+                    unitName: "4. Ünite: Işığın Yansıması ve Aynalar",
+                    title: "Düzlem Ayna",
+                    important: "Simetri",
+                    badge: "F.6.4.2",
+                    content: `
+                        <p>Yansıtıcı yüzeyi düz olan aynadır.</p>
+                        <ul class="styled-list">
+                            <li>Görüntü cisimle <strong>aynı boyda</strong> ve <strong>düzdür</strong>.</li>
+                            <li>Cisme göre <strong>simetriktir</strong> (sol–sağ yer değiştirir).</li>
+                            <li>Cisim–ayna uzaklığı = görüntü–ayna uzaklığı.</li>
+                            <li><strong>Kullanım:</strong> ev, mağaza, periskop, ambulans/itfaiye yazıları.</li>
+                        </ul>
+                    `
+                },
+                {
+                    unitId: 4,
+                    unitName: "4. Ünite: Işığın Yansıması ve Aynalar",
+                    title: "Çukur ve Tümsek Ayna",
+                    important: "Toplar / Dağıtır",
+                    badge: "F.6.4.2",
+                    content: `
+                        <div class="comparison-grid">
+                            <div class="comp-card warm">
+                                <h4>⚽ Çukur (bükey)</h4>
+                                <ul>
+                                    <li>Kürenin <strong>iç</strong> yüzeyi; ışığı <strong>toplar</strong></li>
+                                    <li>Görüntü uzaklığa göre değişir (büyük–düz, büyük–ters, küçük–ters…)</li>
+                                    <li>Dişçi/makyaj aynası, far, güneş fırını, teleskop</li>
+                                </ul>
+                            </div>
+                            <div class="comp-card cold">
+                                <h4>🛡️ Tümsek (tümkey)</h4>
+                                <ul>
+                                    <li>Kürenin <strong>dış</strong> yüzeyi; ışığı <strong>dağıtır</strong></li>
+                                    <li>Görüntü <strong>her zaman düz ve küçük</strong></li>
+                                    <li>Dikiz aynası, kavşak/güvenlik aynası</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="note-alert" style="margin-top:0.75rem;">
+                            ⚠️ <strong>MEB Tuzağı:</strong> “İçbükey” = çukur ayna. Tümsek aynada görüntü asla ters değildir.
+                        </div>
+                    `
+                },
+                {
+                    unitId: 4,
+                    unitName: "4. Ünite: Işığın Yansıması ve Aynalar",
+                    title: "Işığın Soğurulması ve Renkler",
+                    important: "Yansıttığı renkte görünür",
+                    badge: "F.6.4.3",
+                    content: `
+                        <ul class="styled-list">
+                            <li><strong>Soğurma:</strong> Işığın madde tarafından tutulması; enerji ısıya dönüşür, sıcaklık artar.</li>
+                            <li>Koyu (siyah) cisimler daha çok soğurur; açık (beyaz) cisimler daha çok yansıtır.</li>
+                            <li>Beyaz ışık tüm renklerin bileşimidir (prizmada ayrışır).</li>
+                            <li>Cisimler <strong>yansıttığı ışığın renginde</strong> görünür.</li>
+                        </ul>
+                        <div class="note-highlight" style="margin-top:0.75rem;">
+                            <strong>Örnekler:</strong><br>
+                            Beyaz cisim + beyaz ışık → beyaz · Siyah cisim → tümünü soğurur → siyah<br>
+                            Kırmızı elma + beyaz → kırmızı yansıtır<br>
+                            Yeşil şapka + <u>mavi</u> ışık → soğurur → <strong>siyah</strong><br>
+                            Mavi cisim + kırmızı ışık → soğurur → <strong>siyah</strong>
+                        </div>
+                        <p style="margin-top:0.6rem;"><strong>Güneş panelleri:</strong> ışık → elektrik veya ısı (sıcak su, sokak lambası, uydu, hesap makinesi).</p>
+                    `
+                },
+                // 5. ÜNİTE
+                {
+                    unitId: 5,
+                    unitName: "5. Ünite: Madde ve Isı",
+                    title: "Genleşme ve Büzülme",
+                    important: "Isı al / ver",
+                    badge: "F.6.5.1",
+                    content: `
+                        <ul class="styled-list">
+                            <li><strong>Genleşme:</strong> Isı alma → hacim artar.</li>
+                            <li><strong>Büzülme:</strong> Isı verme → hacim azalır.</li>
+                            <li>Birbirinin <strong>tersi</strong> olaylardır.</li>
+                        </ul>
+                        <div class="note-highlight">
+                            <strong>Ayırt edici özellik:</strong> Eşit boy/kalınlıktaki farklı katılar aynı ısıtıcıyla ısıtılınca genleşme miktarları farklıdır → genleşme/büzülme saf maddeler için ayırt edicidir.
+                        </div>
+                        <ul class="styled-list" style="margin-top:0.75rem;">
+                            <li><strong>Termostat:</strong> ütü, fırın, şofben — genleşme ile sıcaklık ayarı</li>
+                            <li><strong>Tren rayı / köprü:</strong> yazın genleşmeye boşluk bırakılır</li>
+                            <li><strong>Elektrik teli:</strong> yazın sarkar, kışın büzülüp gerginleşir</li>
+                            <li><strong>Gözlük:</strong> metal çerçeve genleşince cam düşebilir</li>
+                        </ul>
+                    `
+                },
+                {
+                    unitId: 5,
+                    unitName: "5. Ünite: Madde ve Isı",
+                    title: "Erime, Donma ve Kaynama Noktası",
+                    important: "Erime = Donma",
+                    badge: "F.6.5.2",
+                    content: `
+                        <ul class="styled-list">
+                            <li><strong>Erime noktası:</strong> Saf katının ısı alıp sıvılaşmaya başladığı sıcaklık; erime boyunca sıcaklık <strong>sabit</strong>.</li>
+                            <li><strong>Donma noktası:</strong> Saf sıvının ısı verip katılaşmaya başladığı sıcaklık.</li>
+                            <li><strong>Eşitlik:</strong> Aynı saf maddede erime noktası = donma noktası (su/buz: 0 °C).</li>
+                            <li><strong>Kaynama noktası:</strong> Saf sıvının kabarcıklarla hızlı gaz hâline geçtiği sabit sıcaklık; kaynama boyunca sıcaklık değişmez.</li>
+                        </ul>
+                        <div class="note-highlight">
+                            <strong>Örnekler:</strong> Su 100 °C · etil alkol 78 °C · aseton 56 °C · cıva 357 °C kaynar.<br>
+                            Bakır 1085 °C · kalay 232 °C · alüminyum 660 °C erir.
+                        </div>
+                        <div class="note-alert">
+                            ⚠️ <strong>MEB Tuzağı:</strong> Madde miktarı (kütle) artınca kaynama/erime noktası değişmez; bunlar ayırt edici özelliktir.
+                        </div>
+                    `
+                },
+                {
+                    unitId: 5,
+                    unitName: "5. Ünite: Madde ve Isı",
+                    title: "Yoğunluk",
+                    important: "d = m / V",
+                    badge: "F.6.5.3",
+                    content: `
+                        <div class="note-highlight">
+                            <strong>Yoğunluk (d) = Kütle (m) / Hacim (V)</strong><br>
+                            Birim: g/cm³ · Saf maddeler için ayırt edicidir.
+                        </div>
+                        <ul class="styled-list" style="margin-top:0.75rem;">
+                            <li>Kütle artınca hacim aynı oranda artar → yoğunluk <strong>sabit</strong> kalır.</li>
+                            <li>Çözünmeyen sıvılar: yoğunluğu büyük olan <strong>dibe</strong>, küçük olan <strong>üste</strong> çıkar.</li>
+                        </ul>
+                        <div class="note-alert">
+                            🧊 <strong>Su–buz özel durum:</strong> Su donunca hacim <strong>artar</strong>, yoğunluk <strong>azalır</strong> (~0,9 g/cm³ &lt; 1 g/cm³). Bu yüzden buz yüzeyde yüzer; altta sıvı su kalır, canlılar yaşar.
+                        </div>
+                        <p style="margin-top:0.6rem; font-size:0.9rem; color:var(--text-muted);">Örnek: m = 120 g, V = 40 cm³ → d = 120/40 = <strong>3 g/cm³</strong></p>
+                    `
+                },
+                // 6. ÜNİTE
+                {
+                    unitId: 6,
+                    unitName: "6. Ünite: Elektriğin İletimi",
+                    title: "İletken ve Yalıtkan Maddeler",
+                    important: "Tuzlu su ≠ Saf su",
+                    badge: "F.6.6.1",
+                    content: `
+                        <div class="comparison-grid">
+                            <div class="comp-card warm">
+                                <h4>⚡ İletken</h4>
+                                <ul>
+                                    <li>Elektriğin geçişine izin verir</li>
+                                    <li><strong>Katı:</strong> bakır, Al, Ag, Au, demir, çivi…</li>
+                                    <li><strong>Sıvı:</strong> tuzlu/sirkeli/limon/çeşme suyu</li>
+                                </ul>
+                            </div>
+                            <div class="comp-card cold">
+                                <h4>🛡️ Yalıtkan</h4>
+                                <ul>
+                                    <li>Elektriğin geçişini engeller</li>
+                                    <li><strong>Katı:</strong> plastik, cam, porselen, kauçuk, tahta, silgi, yün…</li>
+                                    <li><strong>Sıvı:</strong> saf su, şekerli su, alkollü su, zeytinyağı</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="note-alert" style="margin-top:0.75rem;">
+                            ⚠️ <strong>MEB Tuzağı:</strong> Saf su yalıtkandır; tuzlu su iletkendir. Şekerli su yalıtkandır.
+                        </div>
+                        <ul class="styled-list" style="margin-top:0.75rem;">
+                            <li>Priz, anahtar, kablo örtüsü: plastik/mika (çarpmayı önler).</li>
+                            <li>Teknisyen: yalıtkan eldiven, ayakkabı, izole halı.</li>
+                            <li>Hava normalde yalıtkan; nemli hava / şimşek–yıldırımda iletkenleşebilir.</li>
+                        </ul>
+                    `
+                },
+                {
+                    unitId: 6,
+                    unitName: "6. Ünite: Elektriğin İletimi",
+                    title: "Elektriksel Direnç ve Faktörleri",
+                    important: "R ↑ → parlaklık ↓",
+                    badge: "F.6.6.2",
+                    content: `
+                        <p><strong>Direnç:</strong> Maddenin elektriğin geçişine gösterdiği zorluk. Birim: <strong>Ohm (Ω)</strong>.</p>
+                        <ul class="styled-list">
+                            <li><strong>Uzunluk (ℓ) ↑ → direnç ↑</strong> → ampul daha sönük. Kısa tel → daha parlak.</li>
+                            <li><strong>Kesit / kalınlık (S) ↑ → direnç ↓</strong> → kalın telde ampul daha parlak; ince telde direnç fazla.</li>
+                            <li><strong>Cins:</strong> Aynı boy/kalınlıkta demir &gt; bakır direnç. Bakırda ampul daha parlak. Gümüş bakırdan daha iyi iletir ama pahalıdır → kablolarda bakır tercih edilir.</li>
+                        </ul>
+                        <div class="note-highlight">
+                            <strong>Ampul filamanı:</strong> İnce, yüksek dirençli tungsten/volfram teli. Akım geçerken ısınır → akkor → ışık.
+                        </div>
+                    `
+                },
+                {
+                    unitId: 6,
+                    unitName: "6. Ünite: Elektriğin İletimi",
+                    title: "Reosta (Değişken Direnç)",
+                    important: "Sürgü = uzunluk",
+                    badge: "F.6.6.2",
+                    content: `
+                        <p><strong>Reosta:</strong> Devrede direnç büyüklüğünü değiştiren elemandır.</p>
+                        <ul class="styled-list">
+                            <li>Sürgü hareket ettirilerek iletken uzunluğu değişir → direnç artar/azalır → ampul parlaklığı ayarlanır.</li>
+                            <li><strong>Kullanım:</strong> ütü, elektrikli fırın, saç kurutma makinesi, radyo ses/sıcaklık ayarı.</li>
+                        </ul>
+                    `
+                },
+                // 7. ÜNİTE
+                {
+                    unitId: 7,
+                    unitName: "7. Ünite: Biyoçeşitlilik ve Çevre",
+                    title: "Tür, Habitat, Ekosistem, Biyoçeşitlilik",
+                    important: "Kavram Ayrımı",
+                    badge: "F.6.7.1",
+                    content: `
+                        <ul class="styled-list">
+                            <li><strong>Tür:</strong> Kendi aralarında çiftleşip verimli döl veren benzer bireyler topluluğu.</li>
+                            <li><strong>Habitat:</strong> Canlının doğal yaşam alanı (ör. hamsi → Karadeniz).</li>
+                            <li><strong>Ekosistem:</strong> Canlı + cansız varlıkların etkileşim sistemi (orman, göl).</li>
+                            <li><strong>Biyoçeşitlilik:</strong> Bölgedeki tür ve popülasyon zenginliği; orman &gt; şehir parkı.</li>
+                        </ul>
+                    `
+                },
+                {
+                    unitId: 7,
+                    unitName: "7. Ünite: Biyoçeşitlilik ve Çevre",
+                    title: "Endemik Canlılar ve Önemi",
+                    important: "Sadece belirli bölge",
+                    badge: "F.6.7.1",
+                    content: `
+                        <p><strong>Endemik:</strong> Yalnızca belirli bir bölgede yaşayan tür. Türkiye endemik türlerce zengindir.</p>
+                        <ul class="styled-list">
+                            <li><strong>Hayvan:</strong> Van kedisi, Ankara keçisi, Kangal, Denizli horozu, Türk tazısı, çizgili sırtlan, inci kefali, turna</li>
+                            <li><strong>Bitki:</strong> kardelen, ters lale, sığla, Datça hurması, günlük ağacı, Kazdağı göknarı</li>
+                        </ul>
+                        <div class="note-highlight">
+                            <strong>Önem:</strong> Tarım, hayvancılık, eczacılık, turizm kaynağıdır. Arı azalırsa tozlaşma ve meyve verimi düşer. Ormanlar heyelan/sel önler, havayı temizler.<br>
+                            📜 Kanuni (1539, Edirne): dünyanın ilk çevre koruma kanunlarından biri.
+                        </div>
+                    `
+                },
+                {
+                    unitId: 7,
+                    unitName: "7. Ünite: Biyoçeşitlilik ve Çevre",
+                    title: "Tehditler ve Nesli Tükenen / Tehlikedeki Canlılar",
+                    important: "Tükenmiş ≠ Tehlikede",
+                    badge: "F.6.7.1",
+                    content: `
+                        <p><strong>Tehditler:</strong> kaçak av, yangın, ormansızlaşma, sanayi, nüfus artışı, anız yakma, bilinçsiz ilaç/gübre, mera tahribi, kirlilik.</p>
+                        <div class="comparison-grid" style="margin-top:0.75rem;">
+                            <div class="comp-card cold">
+                                <h4>💀 Nesli tükenmiş</h4>
+                                <ul>
+                                    <li><strong>TR:</strong> Asya fili, çita, kunduz, Asya kaplanı, Kafkas bizonu, yılanboyun</li>
+                                    <li><strong>Dünya:</strong> dinozor, dodo, moa, mamut</li>
+                                </ul>
+                            </div>
+                            <div class="comp-card warm">
+                                <h4>⚠️ Tehlike altında</h4>
+                                <ul>
+                                    <li><strong>TR:</strong> Caretta, Akdeniz foku, kelaynak, flamingo, alageyik, sülün, kardelen, ters lale…</li>
+                                    <li><strong>Dünya:</strong> gergedan, orangutan, Afrika fili, kutup ayısı…</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="note-alert" style="margin-top:0.75rem;">
+                            ⚠️ <strong>MEB Tuzağı:</strong> Akdeniz foku / kelaynak / Caretta = tehlike altında. Asya fili = ülkemizde nesli tükenmiş.
+                        </div>
+                    `
+                },
+                {
+                    unitId: 7,
+                    unitName: "7. Ünite: Biyoçeşitlilik ve Çevre",
+                    title: "Yakıtlar, Kirlilik ve Çevre Günleri",
+                    important: "187 / 112",
+                    badge: "F.6.7.2",
+                    content: `
+                        <ul class="styled-list">
+                            <li><strong>Katı yakıt:</strong> kömür, odun · <strong>Sıvı:</strong> benzin, mazot, gaz yağı, fuel-oil · <strong>Gaz:</strong> doğal gaz, LPG</li>
+                            <li>Soba/doğal gaz zehirlenmesi: baca temizliği, TSE cihaz; acil <strong>187</strong> / <strong>112</strong></li>
+                        </ul>
+                        <ul class="styled-list" style="margin-top:0.5rem;">
+                            <li><strong>Hava kirliliği:</strong> fosil yakıt, baca, egzoz → astım, bronşit; iklim değişikliği</li>
+                            <li><strong>Su kirliliği:</strong> atık, petrol, tarım ilacı → tifo, kolera, sarılık, dizanteri</li>
+                            <li><strong>Toprak kirliliği:</strong> çöp, plastik, pil, aşırı gübre → besin zinciri → böbrek/sinir hasarı</li>
+                        </ul>
+                        <div class="note-highlight">
+                            <strong>22 Mayıs:</strong> Dünya Biyolojik Çeşitlilik Günü · <strong>5 Haziran:</strong> Dünya Çevre Günü
+                        </div>
+                        <div class="note-alert">
+                            ⚠️ Hava kirliliğini azaltmak için özel araç teşvik edilip toplu taşıma azaltmak <strong>uygun değildir</strong>.
+                        </div>
+                    `
                 }
             ],
             curriculum: [
@@ -1913,6 +2448,75 @@ const EDUCATION_DATA = {
                         { code: "F.6.2.1", title: "Bileşke kuvvet", summary: "Uygulama noktası, doğrultu, yön, büyüklük; aynı/zıt yönlü kuvvetler; R." },
                         { code: "F.6.2.2", title: "Dengelenmiş / dengelenmemiş", summary: "R = 0 ve R ≠ 0 durumları; dengeleyici kuvvet." },
                         { code: "F.6.2.3", title: "Sürat ve hız", summary: "Alınan yol, yer değiştirme; sürat–hız farkı; sabit süratli hareket." }
+                    ]
+                },
+                {
+                    unitId: 3,
+                    unit: "3. Ünite",
+                    name: "Üreme, Büyüme ve Gelişme",
+                    hours: "1.–2. Dönem",
+                    period: "1.–2. Dönem",
+                    status: "Aktif",
+                    examTip: "Çimlenmede ışık gerekmez (SOS). Döllenme = yumurta kanalı. Refleks = omurilik. Adrenalin = böbrek üstü.",
+                    topics: [
+                        { code: "F.6.3.1", title: "Bitki ve hayvanlarda üreme", summary: "Eşeysiz/eşeyli; tozlaşma–döllenme–çimlenme; başkalaşım." },
+                        { code: "F.6.3.2", title: "İnsanda üreme", summary: "Organlar; zigot–embriyo–fetüs; âdet döngüsü." },
+                        { code: "F.6.3.3", title: "Denetleyici sistemler", summary: "Sinir sistemi organları; iç salgı bezleri ve hormonlar." },
+                        { code: "F.6.3.4", title: "Ergenlik", summary: "Bedensel/ruhsal değişimler ve sağlık." }
+                    ]
+                },
+                {
+                    unitId: 4,
+                    unit: "4. Ünite",
+                    name: "Işığın Yansıması ve Renkler",
+                    hours: "2. Dönem",
+                    period: "2. Dönem",
+                    status: "Aktif",
+                    examTip: "Gelme = yansıma. Tümsek = her zaman düz ve küçük. Yeşil cisim + mavi ışık = siyah.",
+                    topics: [
+                        { code: "F.6.4.1", title: "Yansıma kanunları", summary: "Normal, gelme/yansıma açısı; düzgün ve dağınık yansıma." },
+                        { code: "F.6.4.2", title: "Aynalar", summary: "Düzlem, çukur ve tümsek ayna; kullanım alanları." },
+                        { code: "F.6.4.3", title: "Soğurma ve renkler", summary: "Cisimlerin görünme rengi; güneş enerjisi kullanımları." }
+                    ]
+                },
+                {
+                    unitId: 5,
+                    unit: "5. Ünite",
+                    name: "Madde ve Isı",
+                    hours: "2. Dönem",
+                    period: "2. Dönem",
+                    status: "Aktif",
+                    examTip: "Kışın tel gerginleşmesi = büzülme. Erime = donma. Kütle artınca kaynama noktası değişmez. Su donunca hacim ↑ yoğunluk ↓.",
+                    topics: [
+                        { code: "F.6.5.1", title: "Genleşme ve büzülme", summary: "Tanım, ayırt edici özellik, günlük hayat örnekleri." },
+                        { code: "F.6.5.2", title: "Hâl değişimi noktaları", summary: "Erime, donma, kaynama; sıcaklık sabitliği." },
+                        { code: "F.6.5.3", title: "Yoğunluk", summary: "d = m/V; su–buz özel durumu; sıvı sıralaması." }
+                    ]
+                },
+                {
+                    unitId: 6,
+                    unit: "6. Ünite",
+                    name: "Elektriğin İletimi",
+                    hours: "2. Dönem",
+                    period: "2. Dönem",
+                    status: "Aktif",
+                    examTip: "Tuzlu su iletken, saf/şekerli su yalıtkan. Uzunluk ↑ → R ↑ → parlaklık ↓. Kalınlık ↑ → R ↓. Reosta = değişken direnç.",
+                    topics: [
+                        { code: "F.6.6.1", title: "İletken ve yalıtkan", summary: "Katı/sıvı örnekler; yalıtım ve iş güvenliği." },
+                        { code: "F.6.6.2", title: "Direnç ve reosta", summary: "Uzunluk, kesit, cins; filaman; reosta kullanımı." }
+                    ]
+                },
+                {
+                    unitId: 7,
+                    unit: "7. Ünite",
+                    name: "Biyoçeşitlilik ve Çevre",
+                    hours: "2. Dönem",
+                    period: "2. Dönem",
+                    status: "Aktif",
+                    examTip: "Habitat ≠ ekosistem. Asya fili = TR’de tükenmiş; Caretta/foku/kelaynak = tehlike. Toplu taşıma azaltmak hava kirliliğine iyi gelmez.",
+                    topics: [
+                        { code: "F.6.7.1", title: "Biyoçeşitlilik", summary: "Tür, habitat, ekosistem; endemik türler; tehditler ve nesil durumu." },
+                        { code: "F.6.7.2", title: "İnsan ve çevre", summary: "Yakıtlar, kirlilik türleri, çevre günleri, güvenlik." }
                     ]
                 }
             ],
@@ -2012,12 +2616,529 @@ const EDUCATION_DATA = {
                     ],
                     correct: 3,
                     explanation: "Sürat yönsüz, hız yönlüdür; aynı kavram değildir. Bu yüzden D yanlıştır."
+                },
+                {
+                    id: "6th-unit3-q1",
+                    unitId: 3,
+                    unitName: "3. Ünite: Üreme, Büyüme ve Gelişme",
+                    topic: "Çimlenme",
+                    difficulty: "Tuzak",
+                    question: "Çiçekli bir bitkinin tohumunun ÇİMLENMESİ sürecinde aşağıdakilerden hangisine ihtiyaç duyulmaz?",
+                    options: [
+                        "Su (Nem)",
+                        "Işık",
+                        "Oksijen",
+                        "Uygun Sıcaklık"
+                    ],
+                    correct: 1,
+                    explanation: "Çimlenme için Su, Oksijen ve Sıcaklık (SOS) gerekir. Işık ve toprak gerekli değildir."
+                },
+                {
+                    id: "6th-unit3-q2",
+                    unitId: 3,
+                    unitName: "3. Ünite: Üreme, Büyüme ve Gelişme",
+                    topic: "Döllenme",
+                    difficulty: "Yazılı",
+                    question: "İnsanda döllenme olayı dişi üreme sisteminin hangi bölümünde gerçekleşir?",
+                    options: [
+                        "Yumurtalık",
+                        "Döl Yatağı (Rahim)",
+                        "Yumurta Kanalı",
+                        "Vajina"
+                    ],
+                    correct: 2,
+                    explanation: "Döllenme yumurta kanalında gerçekleşir. Zigot döl yatağına tutunup gelişir."
+                },
+                {
+                    id: "6th-unit3-q3",
+                    unitId: 3,
+                    unitName: "3. Ünite: Üreme, Büyüme ve Gelişme",
+                    topic: "Refleks",
+                    difficulty: "Yazılı",
+                    question: "Bisiklete binmek, dans etmek veya gözümüze ışık tutulduğunda göz bebeğinin küçülmesi gibi olayları kontrol eden merkezî sinir sistemi organı aşağıdakilerden hangisidir?",
+                    options: [
+                        "Beyin",
+                        "Omurilik",
+                        "Beyincik",
+                        "Omurilik Soğanı"
+                    ],
+                    correct: 1,
+                    explanation: "Omurilik refleks merkezidir; doğuştan ve sonradan kazanılan refleksleri kontrol eder."
+                },
+                {
+                    id: "6th-unit3-q4",
+                    unitId: 3,
+                    unitName: "3. Ünite: Üreme, Büyüme ve Gelişme",
+                    topic: "Adrenalin",
+                    difficulty: "Temel",
+                    question: "Korku, heyecan ve öfke anında salgılanarak kalp atış hızını ve kan basıncını artıran hormon ve salgılandığı bez eşleştirmesi hangisidir?",
+                    options: [
+                        "İnsülin - Pankreas",
+                        "Tiroksin - Tiroit Bezi",
+                        "Adrenalin - Böbrek Üstü Bezleri",
+                        "Büyüme Hormonu - Hipofiz Bezi"
+                    ],
+                    correct: 2,
+                    explanation: "Adrenalin böbrek üstü bezlerinden salgılanır; korku/heyecan anında kalp atışı ve kan basıncını artırır."
+                },
+                {
+                    id: "6th-unit4-q1",
+                    unitId: 4,
+                    unitName: "4. Ünite: Işığın Yansıması ve Aynalar",
+                    topic: "Yansıma Kanunu",
+                    difficulty: "Temel",
+                    question: "Pürüzsüz bir düzlem aynaya gelen bir ışık ışınının yüzey normali ile yaptığı açı (gelme açısı) 35° olarak ölçülmüştür. Buna göre ışının yansıma açısı kaç derecedir?",
+                    options: [
+                        "35°",
+                        "55°",
+                        "70°",
+                        "90°"
+                    ],
+                    correct: 0,
+                    explanation: "Yansıma kanununa göre gelme açısı = yansıma açısıdır. 35° → 35°."
+                },
+                {
+                    id: "6th-unit4-q2",
+                    unitId: 4,
+                    unitName: "4. Ünite: Işığın Yansıması ve Aynalar",
+                    topic: "Tümsek Ayna",
+                    difficulty: "Yazılı",
+                    question: "Görüntünün her zaman DÜZ ve CİSİMDEN KÜÇÜK olduğu, araçların yan dikiz aynalarında ve keskin virajlarda geniş alanları görmek amacıyla kullanılan ayna türü aşağıdakilerden hangisidir?",
+                    options: [
+                        "Düzlem Ayna",
+                        "Çukur Ayna",
+                        "Tümsek Ayna",
+                        "İçbükey Ayna"
+                    ],
+                    correct: 2,
+                    explanation: "Tümsek ayna ışığı dağıtır; görüntü her zaman düz ve küçüktür. Dikiz ve kavşak aynalarında kullanılır. İçbükey = çukur aynadır."
+                },
+                {
+                    id: "6th-unit4-q3",
+                    unitId: 4,
+                    unitName: "4. Ünite: Işığın Yansıması ve Aynalar",
+                    topic: "Renkler",
+                    difficulty: "Tuzak",
+                    question: "Karanlık bir odada yeşil renkli bir şapkaya MAVİ IŞIK altında bakıldığında şapka hangi renkte görünür?",
+                    options: [
+                        "Yeşil",
+                        "Mavi",
+                        "Siyah",
+                        "Beyaz"
+                    ],
+                    correct: 2,
+                    explanation: "Yeşil cisim yalnızca yeşil ışığı yansıtır. Mavi ışığı soğurduğu için şapka siyah görünür."
+                },
+                {
+                    id: "6th-unit5-q1",
+                    unitId: 5,
+                    unitName: "5. Ünite: Madde ve Isı",
+                    topic: "Büzülme",
+                    difficulty: "Temel",
+                    question: "Maddelerin ısı alması sonucu hacimlerinin artmasına genleşme, ısı vermesi sonucu hacimlerinin azalmasına büzülme denir. Aşağıdaki olaylardan hangisi BÜZÜLME olayına örnektir?",
+                    options: [
+                        "Sıcak ortama konulan balonun şişmesi",
+                        "Kış aylarında sokaktaki elektrik tellerinin gerginleşmesi",
+                        "Termometredeki cıva seviyesinin sıcak ortamda yükselmesi",
+                        "Kaynamaya başlayan sütün tencereden taşması"
+                    ],
+                    correct: 1,
+                    explanation: "Kışın teller soğuyup büzülerek gerginleşir. Diğerleri genleşme veya hacim artışı örnekleridir."
+                },
+                {
+                    id: "6th-unit5-q2",
+                    unitId: 5,
+                    unitName: "5. Ünite: Madde ve Isı",
+                    topic: "Hâl Değişimi",
+                    difficulty: "Tuzak",
+                    question: "Saf bir maddenin erime, donma ve kaynama noktaları ile ilgili aşağıda verilen ifadelerden hangisi YANLIŞTIR?",
+                    options: [
+                        "Saf bir maddenin erime noktası ile donma noktası birbirine eşittir.",
+                        "Saf sıvılar kaynarken ısı almalarına rağmen sıcaklıkları sabit kalır.",
+                        "Erime ve kaynama noktaları saf maddeler için ayırt edici bir özelliktir.",
+                        "Bir maddenin kütlesi artırılırsa kaynama sıcaklığı da artar."
+                    ],
+                    correct: 3,
+                    explanation: "Kaynama noktası ayırt edici özelliktir; madde miktarı (kütle) artınca değişmez."
+                },
+                {
+                    id: "6th-unit5-q3",
+                    unitId: 5,
+                    unitName: "5. Ünite: Madde ve Isı",
+                    topic: "Yoğunluk",
+                    difficulty: "Yazılı",
+                    question: "Kütlesi 120 gram, hacmi ise 40 cm³ olarak ölçülen düzgün yapılı saf bir katı maddenin yoğunluğu kaç g/cm³'tür?",
+                    options: [
+                        "2 g/cm³",
+                        "3 g/cm³",
+                        "4 g/cm³",
+                        "80 g/cm³"
+                    ],
+                    correct: 1,
+                    explanation: "d = m/V = 120/40 = 3 g/cm³."
+                },
+                {
+                    id: "6th-unit5-q4",
+                    unitId: 5,
+                    unitName: "5. Ünite: Madde ve Isı",
+                    topic: "Su–Buz",
+                    difficulty: "Yazılı",
+                    question: "Suyun donarak buza dönüşmesi esnasında gerçekleşen durumla ilgili aşağıdakilerden hangisi DOĞRUDUR?",
+                    options: [
+                        "Hacmi azalır ve yoğunluğu artar.",
+                        "Kütlesi artar ve dibe çöker.",
+                        "Hacmi artar ve yoğunluğu azalarak su yüzeyinde yüzer.",
+                        "Yoğunluğu değişmez."
+                    ],
+                    correct: 2,
+                    explanation: "Su donunca hacim artar, yoğunluk azalır (~0,9 g/cm³); buz yüzeyde yüzer. Kütle değişmez."
+                },
+                {
+                    id: "6th-unit6-q1",
+                    unitId: 6,
+                    unitName: "6. Ünite: Elektriğin İletimi",
+                    topic: "İletken / Yalıtkan",
+                    difficulty: "Tuzak",
+                    question: "Aşağıdaki maddelerden hangisi katı veya sıvı yalıtkan maddelere bir örnek DEĞİLDİR?",
+                    options: [
+                        "Şekerli Su",
+                        "Plastik Çubuk",
+                        "Porselen Fincan",
+                        "Tuzlu Su"
+                    ],
+                    correct: 3,
+                    explanation: "Tuzlu su iletkendir. Şekerli su, plastik ve porselen yalıtkandır."
+                },
+                {
+                    id: "6th-unit6-q2",
+                    unitId: 6,
+                    unitName: "6. Ünite: Elektriğin İletimi",
+                    topic: "Direnç",
+                    difficulty: "Yazılı",
+                    question: "Bir elektrik devresinde kullanılan iletken telin uzunluğu artırılırsa devredeki elektriksel direnç ve ampul parlaklığı nasıl değişir?",
+                    options: [
+                        "Direnç artar, ampul parlaklığı azalır.",
+                        "Direnç azalır, ampul parlaklığı artar.",
+                        "Hem direnç hem ampul parlaklığı artar.",
+                        "Direnç ve ampul parlaklığı değişmez."
+                    ],
+                    correct: 0,
+                    explanation: "Uzunluk artınca direnç artar; ampul daha sönük yanar."
+                },
+                {
+                    id: "6th-unit6-q3",
+                    unitId: 6,
+                    unitName: "6. Ünite: Elektriğin İletimi",
+                    topic: "Reosta",
+                    difficulty: "Temel",
+                    question: "Elektrikli fırın, ütü veya radyolarda akımı ve direnç büyüklüğünü ayarlayarak sıcaklık ya da ses seviyesini değiştirmemizi sağlayan devre elemanı aşağıdakilerden hangisidir?",
+                    options: [
+                        "Ampermetre",
+                        "Voltmetre",
+                        "Reosta (Değişken Direnç)",
+                        "Sigorta"
+                    ],
+                    correct: 2,
+                    explanation: "Reosta (değişken direnç) sürgü ile direnci değiştirir; ütü, fırın, radyo ayarlarında kullanılır."
+                },
+                {
+                    id: "6th-unit7-q1",
+                    unitId: 7,
+                    unitName: "7. Ünite: Biyoçeşitlilik ve Çevre",
+                    topic: "Nesli Tükenen",
+                    difficulty: "Tuzak",
+                    question: "Aşağıdaki canlılardan hangisi geçmişte ülkemizde yaşamış ancak günümüzde ülkemizde NESLİ TAMAMEN TÜKENMİŞ canlılar arasında yer alır?",
+                    options: [
+                        "Akdeniz Foku",
+                        "Asya Fili",
+                        "Kelaynak Kuşu",
+                        "Caretta Caretta"
+                    ],
+                    correct: 1,
+                    explanation: "Asya fili ülkemizde nesli tükenmiş canlılardandır. Akdeniz foku, kelaynak ve Caretta tehlike altındadır."
+                },
+                {
+                    id: "6th-unit7-q2",
+                    unitId: 7,
+                    unitName: "7. Ünite: Biyoçeşitlilik ve Çevre",
+                    topic: "Habitat",
+                    difficulty: "Temel",
+                    question: "Bir canlı türünün yaşam faaliyetlerini doğal olarak sürdürdüğü ve uyum sağladığı yaşam alanına ne ad verilir?",
+                    options: [
+                        "Ekosistem",
+                        "Biyoçeşitlilik",
+                        "Habitat",
+                        "Popülasyon"
+                    ],
+                    correct: 2,
+                    explanation: "Habitat, canlının doğal yaşam alanıdır. Ekosistem canlı+cansız etkileşim sistemidir."
+                },
+                {
+                    id: "6th-unit7-q3",
+                    unitId: 7,
+                    unitName: "7. Ünite: Biyoçeşitlilik ve Çevre",
+                    topic: "Hava Kirliliği",
+                    difficulty: "Yazılı",
+                    question: "Hava kirliliğini önlemek ve solunum yolu hastalıklarının önüne geçmek isteyen bir yerleşim yerinde aşağıdaki uygulamalardan hangisinin yapılması UYGUN DEĞİLDİR?",
+                    options: [
+                        "Fabrika ve ev bacalarına filtre takılması",
+                        "Isınmada kömür yerine doğal gaz ve yenilenebilir enerjiye geçilmesi",
+                        "Özel araç kullanımının teşvik edilip toplu taşımanın azaltılması",
+                        "Ağaçlandırma çalışmalarının artırılması"
+                    ],
+                    correct: 2,
+                    explanation: "Özel araç artıp toplu taşıma azalırsa egzoz kirliliği artar. Filtre, temiz yakıt ve ağaçlandırma uygundur."
+                }
+            ],
+            exams: [
+                {
+                    id: "6f-exam-1d1y",
+                    title: "6. Sınıf Fen Bilimleri — 1. Dönem 1. Yazılı Prova Sınavı",
+                    subtitle: "1.–3. Ünite · Senaryo soruları",
+                    questions: [
+                        {
+                            id: "6f-e1-q1",
+                            section: "🪐 I. Bölüm: Güneş Sistemi ve Tutulmalar (1. Ünite)",
+                            unit: "1. Ünite",
+                            topic: "Karasal / Gazsal",
+                            questionNumber: 1,
+                            points: 10,
+                            scenario: "Fen bilimleri öğretmeniniz derse Merkür, Venüs, Dünya, Mars, Jüpiter, Satürn, Uranüs ve Neptün isimlerinin yazılı olduğu kartlarla gelmiştir.",
+                            question: "Bu gezegenleri Karasal (İç) ve Gazsal (Dış) gezegenler olarak iki gruba ayırıp yazınız.",
+                            idealAnswer: "Karasal: Merkür, Venüs, Dünya, Mars. Gazsal: Jüpiter, Satürn, Uranüs, Neptün."
+                        },
+                        {
+                            id: "6f-e1-q2",
+                            section: "🪐 I. Bölüm: Güneş Sistemi ve Tutulmalar (1. Ünite)",
+                            unit: "1. Ünite",
+                            topic: "Gök Taşları",
+                            questionNumber: 2,
+                            points: 10,
+                            scenario: "Dünya atmosferine hızlı giren bir kaya parçası sürtünmeyle ısınıp ışık yaymıştır; halk arasında buna “yıldız kayması” denir.",
+                            question: "Atmosfere giren bu gök taşına ne ad verilir? Tamamen yanmayıp yeryüzüne düşerse oluşan çukura ne ad verilir?",
+                            idealAnswer: "Atmosferdeki adı: Meteor. Yere düşen taş: meteorit. Oluşan çukur: meteor çukuru."
+                        },
+                        {
+                            id: "6f-e1-q3",
+                            section: "🪐 I. Bölüm: Güneş Sistemi ve Tutulmalar (1. Ünite)",
+                            unit: "1. Ünite",
+                            topic: "Güneş Tutulması",
+                            questionNumber: 3,
+                            points: 10,
+                            scenario: "Öğrenci Güneş tutulmasını modellemek için el feneri (Güneş), tenis topu (Ay) ve basketbol topunu (Dünya) aynı doğrultuda dizer.",
+                            question: "Güneş tutulması için ortadaki gök cisminde Ay hangi evrede olmalıdır? Tutulma gece mi gündüz mü gözlemlenir?",
+                            idealAnswer: "Yeni Ay evresi. Gündüz vakti gözlemlenir."
+                        },
+                        {
+                            id: "6f-e1-q4",
+                            section: "🚗 II. Bölüm: Kuvvetin Etkisinde Hareket (2. Ünite)",
+                            unit: "2. Ünite",
+                            topic: "Bileşke Kuvvet",
+                            questionNumber: 4,
+                            points: 10,
+                            scenario: "Bir masaya Doğu yönünde 12 N ve Batı yönünde 5 N kuvvet etki etmektedir.",
+                            question: "Bileşke (net) kuvvetin büyüklüğünü ve yönünü hesaplayınız.",
+                            idealAnswer: "R = 12 − 5 = 7 N, yön Doğu."
+                        },
+                        {
+                            id: "6f-e1-q5",
+                            section: "🚗 II. Bölüm: Kuvvetin Etkisinde Hareket (2. Ünite)",
+                            unit: "2. Ünite",
+                            topic: "Dengeleyici Kuvvet",
+                            questionNumber: 5,
+                            points: 10,
+                            scenario: "Doğu yönünde 15 N bileşke kuvvet etkisinde hareket eden bir araba vardır.",
+                            question: "Arabayı dengelenmiş kuvvetler etkisine sokmak için dengeleyici kuvvetin yönü ve büyüklüğü ne olmalıdır?",
+                            idealAnswer: "Batı yönünde 15 N."
+                        },
+                        {
+                            id: "6f-e1-q6",
+                            section: "🚗 II. Bölüm: Kuvvetin Etkisinde Hareket (2. Ünite)",
+                            unit: "2. Ünite",
+                            topic: "Dengelenmiş Kuvvet",
+                            questionNumber: 6,
+                            points: 10,
+                            scenario: "Otobüs durağında bekleyen bir yolcu ile düz yolda sabit süratle ilerleyen bir araç gözlemlenmektedir.",
+                            question: "Bu iki durumdan hangileri dengelenmiş, hangileri dengelenmemiş kuvvet etkisindedir?",
+                            idealAnswer: "Her iki durum da dengelenmiş kuvvetler etkisindedir (R = 0)."
+                        },
+                        {
+                            id: "6f-e1-q7",
+                            section: "🧠 III. Bölüm: Canlılarda Sistemler (3. Ünite)",
+                            unit: "3. Ünite",
+                            topic: "Çimlenme",
+                            questionNumber: 7,
+                            points: 10,
+                            scenario: "1. kap: ıslak pamuk, karanlık ve ılık. 2. kap: kuru pamuk, ışıklı ortam. Her ikisinde fasulye tohumu vardır.",
+                            question: "Hangi kaptaki tohumlar çimlenir? Çimlenme için ışık gerekli midir?",
+                            idealAnswer: "1. kaptakiler çimlenir. Işık gerekli değildir; Su, Oksijen ve Sıcaklık (SOS) yeterlidir."
+                        },
+                        {
+                            id: "6f-e1-q8",
+                            section: "🧠 III. Bölüm: Canlılarda Sistemler (3. Ünite)",
+                            unit: "3. Ünite",
+                            topic: "Sinir Sistemi",
+                            questionNumber: 8,
+                            points: 10,
+                            scenario: "İp üstünde yürüyen cambazın dengesi ile sıcak çaydanlığa dokununca elini çekme refleksi gözlemlenir.",
+                            question: "Bu iki olayı kontrol eden merkezî sinir sistemi organlarını sırasıyla yazınız.",
+                            idealAnswer: "Denge: Beyincik. Refleks: Omurilik."
+                        },
+                        {
+                            id: "6f-e1-q9",
+                            section: "🧠 III. Bölüm: Canlılarda Sistemler (3. Ünite)",
+                            unit: "3. Ünite",
+                            topic: "Hormonlar",
+                            questionNumber: 9,
+                            points: 10,
+                            scenario: "Aniden köpek gören birinin kalbi hızlanır, solunumu artar.",
+                            question: "Kandaki miktarı artan hormon nedir ve hangi bez üretir?",
+                            idealAnswer: "Adrenalin; böbrek üstü bezleri."
+                        },
+                        {
+                            id: "6f-e1-q10",
+                            section: "🧠 III. Bölüm: Canlılarda Sistemler (3. Ünite)",
+                            unit: "3. Ünite",
+                            topic: "Ergenlik",
+                            questionNumber: 10,
+                            points: 10,
+                            scenario: "Ergenlikte bedensel ve ruhsal değişimler yaşanır.",
+                            question: "Ergenlikte görülen ruhsal (duygusal) değişimlere 2 örnek veriniz.",
+                            idealAnswer: "Örn: bağımsızlık arayışı, duygu durum dalgalanmaları, yalnız kalma isteği, arkadaş grubunun önem kazanması."
+                        }
+                    ]
+                },
+                {
+                    id: "6f-exam-2d1y",
+                    title: "6. Sınıf Fen Bilimleri — 2. Dönem 1. Yazılı Prova Sınavı",
+                    subtitle: "4.–7. Ünite · Senaryo soruları",
+                    questions: [
+                        {
+                            id: "6f-e2-q1",
+                            section: "🔦 I. Bölüm: Işığın Yansıması ve Renkler (4. Ünite)",
+                            unit: "4. Ünite",
+                            topic: "Yansıma Kanunları",
+                            questionNumber: 1,
+                            points: 10,
+                            scenario: "Düzlem aynaya gönderilen gelen ışının ayna yüzeyiyle yaptığı açı 30° olarak verilmiştir.",
+                            question: "Yansıma açısı kaç derecedir? Gelme açısını bularak açıklayınız.",
+                            idealAnswer: "Yüzey normali diktir (90°). Gelme açısı = 90° − 30° = 60°. Yansıma açısı = gelme açısı = 60°."
+                        },
+                        {
+                            id: "6f-e2-q2",
+                            section: "🔦 I. Bölüm: Işığın Yansıması ve Renkler (4. Ünite)",
+                            unit: "4. Ünite",
+                            topic: "Aynalar",
+                            questionNumber: 2,
+                            points: 10,
+                            scenario: "Diş hekimi ayna ile araç yan dikiz aynası farklı türlerdedir.",
+                            question: "Bu aynaların türlerini (çukur/tümsek) belirleyip kullanım amaçlarını eşleştiriniz.",
+                            idealAnswer: "Dişçi aynası: çukur (görüntüyü büyütmek). Dikiz aynası: tümsek (geniş alan göstermek)."
+                        },
+                        {
+                            id: "6f-e2-q3",
+                            section: "🔦 I. Bölüm: Işığın Yansıması ve Renkler (4. Ünite)",
+                            unit: "4. Ünite",
+                            topic: "Renkler",
+                            questionNumber: 3,
+                            points: 10,
+                            scenario: "Karanlık odada yeşil yaprağa kırmızı ışık altında bakılmaktadır.",
+                            question: "Yaprak hangi renkte görünür? Nedenini yansıma/soğurma ile açıklayınız.",
+                            idealAnswer: "Siyah görünür. Yeşil yaprak kırmızı ışığı yansıtmaz, soğurur."
+                        },
+                        {
+                            id: "6f-e2-q4",
+                            section: "🧊 II. Bölüm: Maddenin Ayırt Edici Özellikleri (5. Ünite)",
+                            unit: "5. Ünite",
+                            topic: "Genleşme",
+                            questionNumber: 4,
+                            points: 10,
+                            scenario: "Yazın tren raylarında şekil bozukluğu olmasın diye ray aralarına boşluk bırakılır.",
+                            question: "Bu uygulama hangi ısısal olayla açıklanır? Kışın raylarda nasıl bir değişim olur?",
+                            idealAnswer: "Genleşme. Kışın raylar soğuyup büzülür (hacim azalır)."
+                        },
+                        {
+                            id: "6f-e2-q5",
+                            section: "🧊 II. Bölüm: Maddenin Ayırt Edici Özellikleri (5. Ünite)",
+                            unit: "5. Ünite",
+                            topic: "Yoğunluk",
+                            questionNumber: 5,
+                            points: 10,
+                            scenario: "K cisminin kütlesi 150 g. 100 mL suya atılınca seviye 150 mL’ye yükselir.",
+                            question: "K cisminin hacmini ve yoğunluğunu (g/cm³) hesaplayınız.",
+                            idealAnswer: "Hacim = 150 − 100 = 50 cm³. Yoğunluk = 150/50 = 3 g/cm³."
+                        },
+                        {
+                            id: "6f-e2-q6",
+                            section: "🧊 II. Bölüm: Maddenin Ayırt Edici Özellikleri (5. Ünite)",
+                            unit: "5. Ünite",
+                            topic: "Su–Buz",
+                            questionNumber: 6,
+                            points: 10,
+                            scenario: "Kışın göllerin yüzeyi buz tutarken altta su kalır ve balıklar yaşar.",
+                            question: "Suyun donmasındaki bu yoğunluk özelliği olmasaydı sucul yaşam nasıl etkilenirdi?",
+                            idealAnswer: "Buz dibe çökseydi göller dip kısımdan donar, sucul canlıların yaşamı tehlikeye girer / sona ererdi."
+                        },
+                        {
+                            id: "6f-e2-q7",
+                            section: "🔌 III. Bölüm: Elektriğin İletimi ve Direnç (6. Ünite)",
+                            unit: "6. Ünite",
+                            topic: "İletken / Yalıtkan",
+                            questionNumber: 7,
+                            points: 10,
+                            scenario: "Kontrol kaleminin metal ucu prize sokulunca ışık yanar; plastik sap elektriği iletmez.",
+                            question: "Metaller ve plastikler iletme durumuna göre nasıl adlandırılır? Sıvı iletkenlere 2 örnek veriniz.",
+                            idealAnswer: "Metaller iletken, plastikler yalıtkandır. Sıvı iletken: tuzlu su, sirkeli su, çeşme suyu vb."
+                        },
+                        {
+                            id: "6f-e2-q8",
+                            section: "🔌 III. Bölüm: Elektriğin İletimi ve Direnç (6. Ünite)",
+                            unit: "6. Ünite",
+                            topic: "Direnç",
+                            questionNumber: 8,
+                            points: 10,
+                            scenario: "Aynı maddeden, eşit kalınlıkta iki tel: 1. tel 10 cm, 2. tel 30 cm.",
+                            question: "Hangisinin direnci daha büyüktür? Özdeş devrelerde hangi ampul daha parlak yanar?",
+                            idealAnswer: "2. telin (30 cm) direnci daha büyük. 1. telin (10 cm) bulunduğu devrede ampul daha parlak yanar."
+                        },
+                        {
+                            id: "6f-e2-q9",
+                            section: "🌿 IV. Bölüm: Sürdürülebilir Yaşam (7. Ünite)",
+                            unit: "7. Ünite",
+                            topic: "Endemik",
+                            questionNumber: 9,
+                            points: 10,
+                            scenario: "Ülkemiz endemik canlılar açısından zengindir.",
+                            question: "Ülkemize özgü endemik hayvan ve endemik bitkiye 1’er örnek veriniz.",
+                            idealAnswer: "Hayvan: Van kedisi / Ankara keçisi / Kangal vb. Bitki: ters lale / kardelen / sığla ağacı vb."
+                        },
+                        {
+                            id: "6f-e2-q10",
+                            section: "🌿 IV. Bölüm: Sürdürülebilir Yaşam (7. Ünite)",
+                            unit: "7. Ünite",
+                            topic: "Hava Kirliliği",
+                            questionNumber: 10,
+                            points: 10,
+                            scenario: "Fabrika bacalarına filtre, fosil yakıt yerine doğal gaz ve güneş enerjisi önerilmektedir.",
+                            question: "Bu önlemler öncelikle hangi kirlilik türünü engeller? İnsan sağlığına olumsuz etkisi nedir?",
+                            idealAnswer: "Hava kirliliği. Astım, bronşit ve solunum yolu hastalıklarına yol açabilir."
+                        }
+                    ]
                 }
             ],
             flashcards: [
+                { id: "6fc-1", front: "Asteroit Kuşağı Güneş sisteminde hangi iki gezegen arasında yer alır?", back: "Mars ile Jüpiter gezegenleri arasında yer alır." },
+                { id: "6fc-2", front: "Güneş ve Ay tutulmalarında sıralama nasıldır?", back: "Güneş Tutulması: Güneş — Ay — Dünya | Ay Tutulması: Güneş — Dünya — Ay" },
+                { id: "6fc-3", front: "Dengelenmiş kuvvetler etkisindeki bir cismin hareket durumu nasıl olur?", back: "Duruyorsa durmaya devam eder; hareket hâlindeyse sabit süratle yoluna devam eder." },
+                { id: "6fc-4", front: "Vücudun dengesini sağlayan merkezî sinir sistemi organı hangisidir?", back: "Beyincik vücut dengesini sağlar." },
+                { id: "6fc-5", front: "Korku ve heyecanda kalbi hızlandıran hormon ve bezi?", back: "Adrenalin — Böbrek üstü bezleri." },
+                { id: "6fc-6", front: "Gelme açısı ile yansıma açısı ilişkisi?", back: "Gelme açısı yansıma açısına HER ZAMAN eşittir." },
+                { id: "6fc-7", front: "Saf maddenin kütlesi iki katına çıkarsa yoğunluk nasıl değişir?", back: "Değişmez. Kütle artarken hacim aynı oranda artar." },
+                { id: "6fc-8", front: "İletken telin direncini azaltmak için ne yapılmalı?", back: "Tel kısaltılmalı veya kalınlaştırılmalı (kesit artırılmalı)." },
+                { id: "6fc-9", front: "Yalnızca belirli bölgede yaşayan canlı türüne ne denir?", back: "Endemik canlı." },
                 { id: "6f-fc1", front: "Güneş’e yakınlığa göre gezegen sırası?", back: "Merkür, Venüs, Dünya, Mars, Jüpiter, Satürn, Uranüs, Neptün." },
                 { id: "6f-fc2", front: "Karasal (iç) gezegenler hangileri?", back: "Merkür, Venüs, Dünya, Mars." },
-                { id: "6f-fc3", front: "Gazsal (dış) gezegenler hangileri?", back: "Jüpiter, Satürn, Uranüs, Neptün. Hepsinin uydusu ve halkası vardır." },
+                { id: "6f-fc3", front: "Gazsal (dış) gezegenlerin ortak özellikleri?", back: "Gaz yapı; hepsinin halkası ve uydusu var; hacimce en büyük 4’ü; asteroit kuşağının ötesinde (Jüpiter, Satürn, Uranüs, Neptün)." },
                 { id: "6f-fc4", front: "Güneş sisteminin en sıcak gezegeni hangisi? Neden?", back: "Venüs. Atmosferindeki yoğun gazlar (sera etkisi) nedeniyle." },
                 { id: "6f-fc5", front: "Asteroit kuşağı nerede?", back: "Mars ile Jüpiter arasında." },
                 { id: "6f-fc6", front: "Meteor ile meteorit farkı?", back: "Meteor: atmosferde yanan ve ışık saçan gök taşı (yıldız kayması). Meteorit: yeryüzüne ulaşan gök taşı." },
@@ -2028,7 +3149,33 @@ const EDUCATION_DATA = {
                 { id: "6f-fc11", front: "R = 0 ise cisim nasıl hareket eder?", back: "Dengelenmiş kuvvet: duruyorsa durur; hareketliyorsa sabit süratle devam eder." },
                 { id: "6f-fc12", front: "Dengeleyici kuvvet nedir?", back: "R’yi sıfırlayan kuvvettir; bileşke ile aynı büyüklük ve doğrultuda, zıt yöndedir." },
                 { id: "6f-fc13", front: "Sürat ile hız farkı?", back: "Sürat: birim zamanda alınan yol (yönsüz). Hız: birim zamandaki yer değiştirme (yönlü)." },
-                { id: "6f-fc14", front: "Sabit süratli hareket nedir?", back: "Eşit zaman aralıklarında eşit yollar alınmasıdır." }
+                { id: "6f-fc14", front: "Sabit süratli hareket nedir?", back: "Eşit zaman aralıklarında eşit yollar alınmasıdır." },
+                { id: "6f-fc15", front: "Çimlenme için gerekli şartlar (SOS)?", back: "Su/Nem, Oksijen, Sıcaklık. Işık ve toprak gerekli değildir." },
+                { id: "6f-fc16", front: "İnsanda döllenme nerede olur?", back: "Yumurta kanalında. Zigot döl yatağına tutunur." },
+                { id: "6f-fc17", front: "Gelişim sırası nedir?", back: "Zigot → Embriyo → Fetüs → Bebek." },
+                { id: "6f-fc18", front: "Refleks merkezi hangi organdır?", back: "Omurilik (doğuştan ve sonradan kazanılan refleksler)." },
+                { id: "6f-fc19", front: "Adrenalin nereden salgılanır? Etkisi?", back: "Böbrek üstü bezleri; korku/heyecanda kalp atışı ve kan basıncını artırır." },
+                { id: "6f-fc20", front: "İnsülin ve glukagon ne yapar?", back: "Pankreastan salgılanır: insülin kan şekerini düşürür, glukagon yükseltir." },
+                { id: "6f-fc21", front: "Yansıma kanununda gelme ve yansıma açısı ilişkisi?", back: "Gelme açısı = yansıma açısıdır. Normal yüzeye diktir." },
+                { id: "6f-fc22", front: "Düzgün ve dağınık yansıma farkı?", back: "Düzgün: pürüzsüz yüzey, net görüntü. Dağınık: pürüzlü yüzey, net görüntü yok." },
+                { id: "6f-fc23", front: "Tümsek ayna görüntüsü nasıldır?", back: "Her zaman düz ve cisimden küçüktür; geniş alan gösterir (dikiz aynası)." },
+                { id: "6f-fc24", front: "Çukur ayna ne yapar? Kullanım?", back: "Işığı toplar. Dişçi/makyaj aynası, far, güneş fırını, teleskop." },
+                { id: "6f-fc25", front: "Yeşil cisim mavi ışıkta ne renk görünür?", back: "Siyah. Yeşil cisim mavi ışığı soğurur, yansıtmaz." },
+                { id: "6f-fc26", front: "Genleşme ve büzülme nedir?", back: "Genleşme: ısı alınca hacim artar. Büzülme: ısı verince hacim azalır." },
+                { id: "6f-fc27", front: "Erime ve donma noktası ilişkisi?", back: "Aynı saf maddede erime noktası = donma noktasıdır (su: 0 °C)." },
+                { id: "6f-fc28", front: "Yoğunluk formülü ve birimi?", back: "d = m/V; birim g/cm³. Saf madde için ayırt edicidir." },
+                { id: "6f-fc29", front: "Su donunca hacim ve yoğunluk ne olur?", back: "Hacim artar, yoğunluk azalır; buz yüzeyde yüzer." },
+                { id: "6f-fc30", front: "Kütle artınca kaynama noktası değişir mi?", back: "Hayır. Kaynama noktası ayırt edici özelliktir; madde miktarına bağlı değildir." },
+                { id: "6f-fc31", front: "Tuzlu su ile saf su elektrik açısından farkı?", back: "Tuzlu su iletken; saf su (ve şekerli su) yalıtkandır." },
+                { id: "6f-fc32", front: "Tel uzunluğu artınca direnç ve parlaklık?", back: "Direnç artar, ampul parlaklığı azalır." },
+                { id: "6f-fc33", front: "Tel kalınlaşınca direnç ne olur?", back: "Kesit artınca direnç azalır; ampul daha parlak yanar." },
+                { id: "6f-fc34", front: "Reosta nedir? Ne işe yarar?", back: "Değişken dirençtir; sürgü ile direnci değiştirip parlaklık/sıcaklık/ses ayarlar." },
+                { id: "6f-fc35", front: "Ampul filamanı neden ışık verir?", back: "İnce, yüksek dirençli tungsten teli ısınır; akkor hâle gelip ışık yayar." },
+                { id: "6f-fc36", front: "Habitat nedir?", back: "Canlı türünün doğal yaşam alanıdır (ör. hamsi → Karadeniz)." },
+                { id: "6f-fc37", front: "Endemik canlı ne demektir?", back: "Yalnızca belirli bir bölgede yaşayan türdür (Van kedisi, ters lale vb.)." },
+                { id: "6f-fc38", front: "Ülkemizde nesli tükenmiş örnek?", back: "Asya fili, çita, kunduz, Asya kaplanı, Kafkas bizonu, yılanboyun kuşu." },
+                { id: "6f-fc39", front: "22 Mayıs ve 5 Haziran ne günüdür?", back: "22 Mayıs: Dünya Biyolojik Çeşitlilik Günü. 5 Haziran: Dünya Çevre Günü." },
+                { id: "6f-fc40", front: "Hava kirliliği insan sağlığını nasıl etkiler?", back: "Astım ve bronşit gibi solunum yolu hastalıklarına yol açabilir." }
             ]
         },
 
