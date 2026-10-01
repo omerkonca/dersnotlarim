@@ -151,7 +151,82 @@ body {
 .nav-actions {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.5rem;
+}
+
+.nav-dropdown {
+    position: relative;
+}
+
+.nav-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 0.4rem);
+    left: 0;
+    min-width: 12.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 0.35rem;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+    z-index: 1200;
+}
+
+.nav-dropdown.tools-menu .nav-dropdown-menu,
+.nav-dropdown .tools-menu,
+.nav-dropdown#tools-dropdown .nav-dropdown-menu {
+    left: auto;
+    right: 0;
+}
+
+.nav-dropdown.open .nav-dropdown-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.nav-dropdown-menu button {
+    background: transparent;
+    border: none;
+    color: var(--text-main);
+    text-align: left;
+    padding: 0.55rem 0.75rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+}
+
+.nav-dropdown-menu button:hover {
+    background: rgba(56, 189, 248, 0.12);
+    color: var(--primary);
+}
+
+.btn-tools-toggle {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 0.45rem 0.85rem;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+}
+
+.btn-tools-toggle:hover {
+    border-color: rgba(56, 189, 248, 0.35);
+    color: var(--primary);
+}
+
+.mobile-nav-label {
+    margin: 0.75rem 0 0.25rem;
+    padding: 0 0.25rem;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
 }
 
 .btn-wheel-toggle {
@@ -395,11 +470,17 @@ body {
    2. DERS DETAY GÖRÜNÜMÜ (COURSE VIEW)
    =================================================== */
 .course-header-bar {
-    padding: 1.75rem 0 1.25rem;
+    padding: 1rem 0 0.75rem;
     display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    border-bottom: 1px solid var(--border-color);
+    align-items: flex-start;
+    gap: 1rem;
+    border-bottom: none;
+}
+
+.detail-desc {
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    margin: 0.2rem 0 0;
 }
 
 .btn-back-home {
@@ -433,51 +514,50 @@ body {
 }
 
 .detail-title {
-    font-size: 1.75rem;
+    font-size: 1.45rem;
     font-family: var(--font-heading);
-}
-
-.detail-desc {
-    color: var(--text-muted);
-    font-size: 0.9rem;
+    margin: 0;
 }
 
 /* DERS İÇİ SEKMELER — 4 ANA MOD + ALT PILL */
 .mode-tabs {
     display: flex;
-    gap: 0.45rem;
-    margin: 1.25rem 0 0.65rem;
+    gap: 0.35rem;
+    margin: 0.85rem 0 0.4rem;
     flex-wrap: wrap;
-    background: var(--bg-surface);
-    padding: 0.45rem;
-    border-radius: var(--radius-md);
-    border: 1px solid var(--border-color);
+    background: transparent;
+    padding: 0;
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    border-radius: 0;
 }
 
 .mode-tab-btn {
-    flex: 1 1 120px;
+    flex: 0 1 auto;
     background: transparent;
-    border: 1px solid transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
     color: var(--text-muted);
-    padding: 0.7rem 1rem;
-    border-radius: var(--radius-sm);
-    font-size: 0.95rem;
+    padding: 0.65rem 0.9rem;
+    border-radius: 0;
+    font-size: 0.92rem;
     font-weight: 700;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: color 0.15s, border-color 0.15s;
     text-align: center;
+    margin-bottom: -1px;
 }
 
 .mode-tab-btn:hover {
     color: var(--text-main);
-    background: rgba(255, 255, 255, 0.04);
+    background: transparent;
 }
 
 .mode-tab-btn.active {
-    background: var(--bg-card);
+    background: transparent;
     color: var(--primary);
-    border-color: rgba(56, 189, 248, 0.35);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
+    border-bottom-color: var(--primary);
+    box-shadow: none;
 }
 
 .mode-tab-btn[hidden] {
@@ -486,10 +566,10 @@ body {
 
 .sub-tabs {
     display: flex;
-    gap: 0.35rem;
-    margin: 0 0 1.25rem;
+    gap: 0.25rem;
+    margin: 0.55rem 0 0.85rem;
     flex-wrap: wrap;
-    padding: 0 0.15rem;
+    padding: 0;
 }
 
 .sub-tabs[hidden] {
@@ -497,25 +577,26 @@ body {
 }
 
 .sub-tab-btn {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid var(--border-color);
+    background: transparent;
+    border: none;
     color: var(--text-muted);
-    padding: 0.35rem 0.85rem;
-    border-radius: 9999px;
-    font-size: 0.8rem;
-    font-weight: 650;
+    padding: 0.25rem 0.55rem;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: all 0.15s;
+    transition: color 0.15s, background 0.15s;
 }
 
 .sub-tab-btn:hover {
     color: var(--text-main);
+    background: rgba(255, 255, 255, 0.04);
 }
 
 .sub-tab-btn.active {
-    background: rgba(56, 189, 248, 0.15);
+    background: rgba(56, 189, 248, 0.12);
     color: var(--primary);
-    border-color: rgba(56, 189, 248, 0.4);
+    border: none;
 }
 
 .sub-tab-btn[hidden] {
@@ -701,73 +782,168 @@ body {
 }
 
 .unit-pill {
-    background: rgba(255, 255, 255, 0.06);
+    background: transparent;
     border: 1px solid var(--border-color);
     color: var(--text-muted);
-    padding: 0.45rem 1rem;
-    border-radius: var(--radius-full);
-    font-size: 0.85rem;
+    padding: 0.35rem 0.7rem;
+    border-radius: 9999px;
+    font-size: 0.78rem;
     font-weight: 600;
     cursor: pointer;
     white-space: nowrap;
-    transition: all 0.2s;
+    transition: all 0.15s;
 }
 
 .unit-pill:hover {
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.06);
     color: var(--text-main);
 }
 
 .unit-pill.active {
-    background: var(--primary);
-    color: #0f172a;
-    border-color: var(--primary);
+    background: rgba(56, 189, 248, 0.16);
+    color: var(--primary);
+    border-color: rgba(56, 189, 248, 0.4);
     font-weight: 700;
 }
 
 /* NOTLAR */
+.notes-panel {
+    margin-bottom: 2.5rem;
+}
+
+.notes-toolbar {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.85rem;
+    flex-wrap: wrap;
+}
+
+.notes-toolbar-left {
+    flex: 1 1 220px;
+    min-width: 0;
+}
+
+.notes-toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+.btn-linkish {
+    background: none;
+    border: none;
+    color: var(--primary);
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0.35rem 0.25rem;
+}
+
+.btn-linkish:hover {
+    text-decoration: underline;
+}
+
 .notes-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-    gap: 1.25rem;
-    margin-bottom: 3rem;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1rem;
+    margin-bottom: 0;
 }
 
 .note-card {
     background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    padding: 1.5rem;
+    border: 1px solid rgba(148, 163, 184, 0.12);
+    border-radius: 12px;
+    padding: 1.1rem 1.15rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 0.65rem;
 }
 
 .note-top {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0;
+    gap: 0.5rem;
 }
 
 .note-top h4 {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
     font-family: var(--font-heading);
+    margin: 0.15rem 0 0;
+    line-height: 1.3;
 }
 
 .note-tag {
-    font-size: 0.7rem;
-    background: rgba(56, 189, 248, 0.15);
+    font-size: 0.65rem;
+    background: rgba(56, 189, 248, 0.12);
     color: var(--primary);
-    padding: 0.15rem 0.5rem;
-    border-radius: var(--radius-full);
+    padding: 0.12rem 0.45rem;
+    border-radius: 6px;
     font-weight: 700;
+    flex-shrink: 0;
 }
 
 .note-body {
     color: var(--text-muted);
-    font-size: 0.9rem;
-    line-height: 1.6;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    max-height: 9.5rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.note-card.is-expanded .note-body {
+    max-height: none;
+}
+
+.note-card:not(.is-expanded) .note-body::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2.5rem;
+    background: linear-gradient(transparent, var(--bg-card));
+    pointer-events: none;
+}
+
+.note-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: auto;
+    padding-top: 0.55rem;
+    border-top: 1px solid rgba(148, 163, 184, 0.1);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+.note-bottom-actions {
+    display: flex;
+    gap: 0.35rem;
+    align-items: center;
+}
+
+.btn-note-expand {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.28rem 0.55rem;
+    border-radius: 9999px;
+    cursor: pointer;
+}
+
+.btn-note-expand:hover {
+    border-color: var(--primary);
+    color: var(--primary);
 }
 
 .note-highlight {
@@ -825,17 +1001,6 @@ body {
 
 .comp-card.warm {
     background: rgba(245, 158, 11, 0.08);
-}
-
-.note-bottom {
-    margin-top: 1rem;
-    padding-top: 0.75rem;
-    border-top: 1px solid var(--border-color);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.78rem;
-    color: var(--text-dim);
 }
 
 .btn-print {
@@ -2900,8 +3065,11 @@ body.mode-student .teacher-only {
 
 .notes-toolbar {
     display: flex;
-    justify-content: flex-end;
-    margin-bottom: 0.5rem;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.85rem;
+    flex-wrap: wrap;
 }
 
 @media (max-width: 900px) {
@@ -2915,10 +3083,7 @@ body.mode-student .teacher-only {
         justify-content: center;
     }
 
-    .nav-actions .btn-speedrun-toggle,
-    .nav-actions .btn-qr-toggle,
-    .nav-actions .btn-wheel-toggle,
-    .nav-actions .btn-board-toggle {
+    .nav-actions .btn-tools-toggle {
         display: none;
     }
 
@@ -2928,6 +3093,15 @@ body.mode-student .teacher-only {
 }
 
 @media print {
+    .note-card .note-body {
+        max-height: none !important;
+        overflow: visible !important;
+    }
+    .note-card .note-body::after,
+    .btn-note-expand {
+        display: none !important;
+    }
+
     .navbar,
     .footer,
     .inner-tabs,

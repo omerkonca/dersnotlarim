@@ -25,6 +25,7 @@ class App {
         this.setupThemeToggle();
         this.setupModeToggle();
         this.setupMobileNav();
+        this.setupNavDropdowns();
         this.applyMode();
         this.renderCourseContent();
         this.showHome();
@@ -37,6 +38,7 @@ class App {
         document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
         document.getElementById('nav-btn-home')?.classList.add('active');
         this.closeMobileNav();
+        this.closeNavDropdowns();
 
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -50,7 +52,9 @@ class App {
         document.getElementById('view-course').style.display = 'block';
 
         document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById('courses-toggle')?.classList.add('active');
         this.closeMobileNav();
+        this.closeNavDropdowns();
 
         this.renderCourseContent();
         this.updateModeVisibility();
@@ -58,6 +62,54 @@ class App {
         this.switchMode('ogren');
 
         window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    shortUnitLabel(unitName = '') {
+        const raw = String(unitName).trim();
+        if (!raw) return '';
+        const m = raw.match(/^(\d+)\.\s*Ünite\s*[:·-]?\s*(.*)$/i);
+        if (m) {
+            let title = (m[2] || '').replace(/^:\s*/, '').trim();
+            title = title.replace(/\s+ve\s+/gi, ' & ');
+            if (title.length > 22) title = title.slice(0, 20).trim() + '…';
+            return title ? `Ü${m[1]} · ${title}` : `Ü${m[1]}`;
+        }
+        if (raw.length > 28) return raw.slice(0, 26).trim() + '…';
+        return raw;
+    }
+
+    toggleNavDropdown(id) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        const willOpen = !el.classList.contains('open');
+        this.closeNavDropdowns();
+        if (willOpen) {
+            el.classList.add('open');
+            el.querySelector('.nav-dropdown-toggle, .btn-tools-toggle')?.setAttribute('aria-expanded', 'true');
+        }
+    }
+
+    closeNavDropdowns() {
+        document.querySelectorAll('.nav-dropdown.open').forEach(el => {
+            el.classList.remove('open');
+            el.querySelector('.nav-dropdown-toggle, .btn-tools-toggle')?.setAttribute('aria-expanded', 'false');
+        });
+    }
+
+    setupNavDropdowns() {
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav-dropdown')) this.closeNavDropdowns();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') this.closeNavDropdowns();
+        });
+    }
+
+    toggleNoteExpand(btn) {
+        const card = btn?.closest('.note-card');
+        if (!card) return;
+        const open = card.classList.toggle('is-expanded');
+        btn.textContent = open ? 'Daralt' : 'Devamını oku';
     }
 
     isChampionNote(note) {
@@ -219,39 +271,49 @@ class App {
             });
 
         container.innerHTML = `
-            <div class="notes-toolbar" style="grid-column: 1 / -1;">
-                <button class="btn-print-all" onclick="app.printNotes()">🖨️ Tüm Notları Yazdır / PDF</button>
-            </div>
-            ${units.length > 1 ? `
-                <div class="unit-filter-bar" style="grid-column: 1 / -1;">
-                    <button class="unit-pill ${selectedUnit === 'all' ? 'active' : ''}" onclick="app.filterNotesByUnit('all')">
-                        📚 Tüm Üniteler (${lessonNotes.length})
-                    </button>
-                    ${units.map(u => `
-                        <button class="unit-pill ${selectedUnit === u ? 'active' : ''}" onclick="app.filterNotesByUnit('${u.replace(/'/g, "\\'")}')">
-                            ${u}
-                        </button>
-                    `).join('')}
+            <div class="notes-toolbar">
+                <div class="notes-toolbar-left">
+                    ${units.length > 1 ? `
+                        <div class="unit-filter-bar">
+                            <button class="unit-pill ${selectedUnit === 'all' ? 'active' : ''}" onclick="app.filterNotesByUnit('all')">
+                                Tümü (${lessonNotes.length})
+                            </button>
+                            ${units.map(u => `
+                                <button class="unit-pill ${selectedUnit === u ? 'active' : ''}" title="${u.replace(/"/g, '&quot;')}" onclick="app.filterNotesByUnit('${u.replace(/'/g, "\\'")}')">
+                                    ${this.shortUnitLabel(u)}
+                                </button>
+                            `).join('')}
+                        </div>
+                    ` : ''}
                 </div>
-            ` : ''}
+                <div class="notes-toolbar-right">
+                    <button type="button" class="btn-linkish" onclick="app.switchInnerTab('tab-curriculum')">Müfredat →</button>
+                    <button class="btn-print-all" onclick="app.printNotes()">Yazdır</button>
+                </div>
+            </div>
+            <div class="notes-grid">
             ${filteredNotes.map((note, idx) => `
-                <div class="note-card printable-note" data-note-idx="${idx}">
+                <article class="note-card printable-note" data-note-idx="${idx}">
                     <div class="note-top">
                         <div>
-                            ${note.unitName ? `<span class="note-unit-label">${note.unitName}</span>` : ''}
-                            <h4 style="margin:0;">${note.title}</h4>
+                            ${note.unitName ? `<span class="note-unit-label">${this.shortUnitLabel(note.unitName)}</span>` : ''}
+                            <h4>${note.title}</h4>
                         </div>
-                        <span class="note-tag">${note.badge}</span>
+                        ${note.badge ? `<span class="note-tag">${note.badge}</span>` : ''}
                     </div>
                     <div class="note-body">
                         ${note.content}
                     </div>
                     <div class="note-bottom">
-                        <span>💡 ${note.important}</span>
-                        <button class="btn-print" onclick="app.printSingleNote(this)">🖨️ Yazdır</button>
+                        <span>${note.important || ''}</span>
+                        <div class="note-bottom-actions">
+                            <button type="button" class="btn-note-expand" onclick="app.toggleNoteExpand(this)">Devamını oku</button>
+                            <button class="btn-print" onclick="app.printSingleNote(this)">Yazdır</button>
+                        </div>
                     </div>
-                </div>
+                </article>
             `).join('')}
+            </div>
         `;
     }
 
@@ -361,15 +423,15 @@ class App {
 
         container.innerHTML = `
             ${units.length > 1 ? `
-                <div class="unit-filter-bar" style="display:flex; gap:0.4rem; overflow-x:auto; padding-bottom:0.75rem; margin-bottom:1.25rem; scrollbar-width:none;">
+                <div class="unit-filter-bar">
                     <button class="unit-pill ${selectedUnit === 'all' ? 'active' : ''}" onclick="app.filterQuizByUnit('all')">
-                        🎯 Tüm Üniteler Karma Deneme (${quiz.length} Soru)
+                        Tümü (${quiz.length})
                     </button>
                     ${units.map(u => {
                         const count = quiz.filter(q => q.unitName === u).length;
                         return `
-                            <button class="unit-pill ${selectedUnit === u ? 'active' : ''}" onclick="app.filterQuizByUnit('${u}')">
-                                📖 ${u} (${count})
+                            <button class="unit-pill ${selectedUnit === u ? 'active' : ''}" title="${u.replace(/"/g, '&quot;')}" onclick="app.filterQuizByUnit('${u}')">
+                                ${this.shortUnitLabel(u)} (${count})
                             </button>
                         `;
                     }).join('')}

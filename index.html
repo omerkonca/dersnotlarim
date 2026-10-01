@@ -26,7 +26,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css?v=6.2">
+    <link rel="stylesheet" href="css/style.css?v=6.3">
 </head>
 <body class="mode-teacher">
 
@@ -43,28 +43,35 @@
 
             <!-- Navigasyon (masaüstü) -->
             <nav class="nav-links desktop-nav">
-                <button class="nav-btn active" id="nav-btn-home" onclick="app.showHome()">🏠 Ana Sayfa</button>
-                <button class="nav-btn" onclick="app.selectSubject('8', 'fen')">🧪 8. Sınıf Fen</button>
-                <button class="nav-btn" onclick="app.selectSubject('7', 'fen')">🚀 7. Sınıf Fen</button>
-                <button class="nav-btn" onclick="app.selectSubject('8', 'turkce')">📖 8. Türkçe</button>
-                <button class="nav-btn" onclick="app.selectSubject('6', 'fen')">🪐 6. Fen</button>
-                <button class="nav-btn" onclick="app.selectSubject('5', 'fen')">🌞 5. Fen</button>
+                <button class="nav-btn active" id="nav-btn-home" onclick="app.showHome()">Ana Sayfa</button>
+                <div class="nav-dropdown" id="courses-dropdown">
+                    <button type="button" class="nav-btn nav-dropdown-toggle" id="courses-toggle" aria-expanded="false" onclick="app.toggleNavDropdown('courses-dropdown')">
+                        Dersler ▾
+                    </button>
+                    <div class="nav-dropdown-menu" role="menu">
+                        <button type="button" role="menuitem" onclick="app.selectSubject('8', 'fen')">8. Sınıf Fen (LGS)</button>
+                        <button type="button" role="menuitem" onclick="app.selectSubject('7', 'fen')">7. Sınıf Fen</button>
+                        <button type="button" role="menuitem" onclick="app.selectSubject('6', 'fen')">6. Sınıf Fen</button>
+                        <button type="button" role="menuitem" onclick="app.selectSubject('5', 'fen')">5. Sınıf Fen</button>
+                        <button type="button" role="menuitem" onclick="app.selectSubject('8', 'turkce')">8. Sınıf Türkçe</button>
+                        <button type="button" role="menuitem" onclick="app.selectSubject('7', 'turkce')">7. Sınıf Türkçe</button>
+                    </div>
+                </div>
             </nav>
 
             <div class="nav-actions">
                 <button class="btn-mode-toggle" id="mode-toggle-btn" title="Öğretmen / Öğrenci modu">👨‍🏫 Öğretmen</button>
-                <button class="btn-speedrun-toggle" onclick="interactiveLab.startSpeedRun()" title="60 Saniye Hızlı Ateş LGS Yarışması">
-                    ⚡ 60sn
-                </button>
-                <button class="btn-qr-toggle teacher-only" onclick="interactiveLab.toggleQRModal()" title="Tahtadan Telefona QR Kod Paylaşımı">
-                    📱 QR
-                </button>
-                <button class="btn-wheel-toggle teacher-only" onclick="toggleWheelModal()" title="Rastgele Öğrenci / Soru Seçici Çark">
-                    🎲 Çark
-                </button>
-                <button class="btn-board-toggle teacher-only" id="btn-toggle-smartboard-ui" onclick="toggleSmartBoardToolbar()">
-                    ✏️ Tahta
-                </button>
+                <div class="nav-dropdown" id="tools-dropdown">
+                    <button type="button" class="btn-tools-toggle" id="tools-toggle" aria-expanded="false" onclick="app.toggleNavDropdown('tools-dropdown')">
+                        Araçlar ▾
+                    </button>
+                    <div class="nav-dropdown-menu tools-menu" role="menu">
+                        <button type="button" role="menuitem" onclick="interactiveLab.startSpeedRun(); app.closeNavDropdowns()">⚡ 60sn Hızlı Ateş</button>
+                        <button type="button" role="menuitem" class="teacher-only" onclick="interactiveLab.toggleQRModal(); app.closeNavDropdowns()">📱 QR Paylaş</button>
+                        <button type="button" role="menuitem" class="teacher-only" onclick="toggleWheelModal(); app.closeNavDropdowns()">🎲 Çark</button>
+                        <button type="button" role="menuitem" class="teacher-only" id="btn-toggle-smartboard-ui" onclick="toggleSmartBoardToolbar(); app.closeNavDropdowns()">✏️ Tahta</button>
+                    </div>
+                </div>
                 <button class="theme-toggle-btn" id="theme-toggle-btn" title="Karanlık/Aydınlık Tema">
                     ☀️
                 </button>
@@ -74,17 +81,19 @@
 
         <!-- Mobil menü paneli -->
         <div class="mobile-nav-panel" id="mobile-nav-panel">
-            <button class="nav-btn" onclick="app.showHome()">🏠 Ana Sayfa</button>
-            <button class="nav-btn" onclick="app.selectSubject('8', 'fen')">🧪 8. Sınıf Fen (LGS)</button>
-            <button class="nav-btn" onclick="app.selectSubject('7', 'fen')">🚀 7. Sınıf Fen</button>
-            <button class="nav-btn" onclick="app.selectSubject('8', 'turkce')">📖 8. Sınıf Türkçe</button>
-            <button class="nav-btn" onclick="app.selectSubject('7', 'turkce')">✍️ 7. Sınıf Türkçe</button>
-            <button class="nav-btn" onclick="app.selectSubject('6', 'fen')">🪐 6. Sınıf Fen</button>
-            <button class="nav-btn" onclick="app.selectSubject('5', 'fen')">🌞 5. Sınıf Fen</button>
+            <button class="nav-btn" onclick="app.showHome()">Ana Sayfa</button>
+            <p class="mobile-nav-label">Dersler</p>
+            <button class="nav-btn" onclick="app.selectSubject('8', 'fen')">8. Sınıf Fen (LGS)</button>
+            <button class="nav-btn" onclick="app.selectSubject('7', 'fen')">7. Sınıf Fen</button>
+            <button class="nav-btn" onclick="app.selectSubject('6', 'fen')">6. Sınıf Fen</button>
+            <button class="nav-btn" onclick="app.selectSubject('5', 'fen')">5. Sınıf Fen</button>
+            <button class="nav-btn" onclick="app.selectSubject('8', 'turkce')">8. Sınıf Türkçe</button>
+            <button class="nav-btn" onclick="app.selectSubject('7', 'turkce')">7. Sınıf Türkçe</button>
+            <p class="mobile-nav-label">Araçlar</p>
             <button class="nav-btn" onclick="interactiveLab.startSpeedRun()">⚡ 60sn Hızlı Ateş</button>
             <button class="nav-btn teacher-only" onclick="interactiveLab.toggleQRModal()">📱 QR Paylaş</button>
-            <button class="nav-btn teacher-only" onclick="toggleWheelModal()">🎲 Çarkıfelek</button>
-            <button class="nav-btn teacher-only" onclick="toggleSmartBoardToolbar()">✏️ Tahta Kalemi</button>
+            <button class="nav-btn teacher-only" onclick="toggleWheelModal()">🎲 Çark</button>
+            <button class="nav-btn teacher-only" onclick="toggleSmartBoardToolbar()">✏️ Tahta</button>
         </div>
     </header>
 
@@ -281,27 +290,27 @@
 
             <!-- ANA MODLAR (4) -->
             <div class="mode-tabs" id="mode-tabs">
-                <button class="mode-tab-btn active" data-mode="ogren" onclick="app.switchMode('ogren')">📖 Öğren</button>
-                <button class="mode-tab-btn" data-mode="alistirma" id="mode-btn-alistirma" onclick="app.switchMode('alistirma')">✍️ Alıştır</button>
-                <button class="mode-tab-btn" data-mode="sinav" id="mode-btn-sinav" onclick="app.switchMode('sinav')">📄 Sınav</button>
-                <button class="mode-tab-btn" data-mode="lab" id="mode-btn-lab" onclick="app.switchMode('lab')">🔬 Laboratuvar</button>
+                <button class="mode-tab-btn active" data-mode="ogren" onclick="app.switchMode('ogren')">Öğren</button>
+                <button class="mode-tab-btn" data-mode="alistirma" id="mode-btn-alistirma" onclick="app.switchMode('alistirma')">Alıştır</button>
+                <button class="mode-tab-btn" data-mode="sinav" id="mode-btn-sinav" onclick="app.switchMode('sinav')">Sınav</button>
+                <button class="mode-tab-btn" data-mode="lab" id="mode-btn-lab" onclick="app.switchMode('lab')">Laboratuvar</button>
             </div>
 
             <!-- ALT SEKMELER -->
             <div class="sub-tabs" id="sub-tabs-ogren">
-                <button class="sub-tab-btn active" data-tab="tab-notes" onclick="app.switchInnerTab('tab-notes')">Konu Notları</button>
+                <button class="sub-tab-btn active" data-tab="tab-notes" onclick="app.switchInnerTab('tab-notes')">Notlar</button>
                 <button class="sub-tab-btn" data-tab="tab-curriculum" onclick="app.switchInnerTab('tab-curriculum')">Müfredat</button>
             </div>
             <div class="sub-tabs" id="sub-tabs-alistirma" hidden>
-                <button class="sub-tab-btn active" data-tab="tab-flashcards" onclick="app.switchInnerTab('tab-flashcards')">Hafıza Kartları</button>
-                <button class="sub-tab-btn" data-tab="tab-quiz" onclick="app.switchInnerTab('tab-quiz')">Soru Çözümü</button>
+                <button class="sub-tab-btn active" data-tab="tab-flashcards" onclick="app.switchInnerTab('tab-flashcards')">Kartlar</button>
+                <button class="sub-tab-btn" data-tab="tab-quiz" onclick="app.switchInnerTab('tab-quiz')">Test</button>
             </div>
             <div class="sub-tabs" id="sub-tabs-sinav" hidden>
-                <button class="sub-tab-btn active" data-tab="tab-exams" onclick="app.switchInnerTab('tab-exams')">Yazılı Prova</button>
-                <button class="sub-tab-btn" data-tab="tab-champion" onclick="app.switchInnerTab('tab-champion')">Hap Bilgiler</button>
+                <button class="sub-tab-btn active" data-tab="tab-exams" onclick="app.switchInnerTab('tab-exams')">Yazılı</button>
+                <button class="sub-tab-btn" data-tab="tab-champion" onclick="app.switchInnerTab('tab-champion')">Hap</button>
             </div>
             <div class="sub-tabs" id="sub-tabs-lab" hidden>
-                <button class="sub-tab-btn active" data-tab="tab-presentation" onclick="app.switchInnerTab('tab-presentation')">Akıllı Tahta</button>
+                <button class="sub-tab-btn active" data-tab="tab-presentation" onclick="app.switchInnerTab('tab-presentation')">Sunum</button>
                 <button class="sub-tab-btn" data-tab="tab-simulations" onclick="app.switchInnerTab('tab-simulations')">Simülatör</button>
             </div>
 
@@ -657,7 +666,7 @@
 
                 <!-- SEKME 2: NOTLAR -->
                 <div id="tab-notes" class="tab-pane active">
-                    <div class="notes-grid" id="notes-container">
+                    <div class="notes-panel" id="notes-container">
                         <!-- JS ile dolacak -->
                     </div>
                 </div>
@@ -891,12 +900,12 @@ Selin</textarea>
     </footer>
 
     <!-- JS -->
-    <script src="js/sound-fx.js?v=6.2"></script>
-    <script src="js/qrcode.min.js?v=6.2"></script>
-    <script src="js/data.js?v=6.2"></script>
-    <script src="js/board-tools.js?v=6.2"></script>
-    <script src="js/interactive-lab.js?v=6.2"></script>
-    <script src="js/app.js?v=6.2"></script>
+    <script src="js/sound-fx.js?v=6.3"></script>
+    <script src="js/qrcode.min.js?v=6.3"></script>
+    <script src="js/data.js?v=6.3"></script>
+    <script src="js/board-tools.js?v=6.3"></script>
+    <script src="js/interactive-lab.js?v=6.3"></script>
+    <script src="js/app.js?v=6.3"></script>
     <script>
         function toggleWheelModal() {
             const modal = document.getElementById('lucky-wheel-modal');
