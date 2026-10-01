@@ -728,7 +728,49 @@ const EDUCATION_DATA = {
                     ],
                     correct: 1,
                     explanation: "Plastik (ebonit) çubuk yün kumaşa sürtülünce elektron alarak EKSİ (-) yüklenir. Eksi yüklü çubuk nötr elektroskoba dokundurulunca elektroskop da eksi yüklenir ve yaprakları aynı yüklerin birbirini itmesiyle açılır."
+                },
+
+                // 2. ÜNİTE EK SORULAR
+                {
+                    id: "8-q11",
+                    unitId: 2,
+                    unitName: "2. Ünite: DNA ve Genetik Kod",
+                    topic: "Mutasyon vs Modifikasyon",
+                    difficulty: "LGS Ayırt Etme",
+                    question: "Aşağıdakilerden hangisi MUTASYON örneğidir?",
+                    options: [
+                        "Spor yapan kişinin kaslarının gelişmesi",
+                        "Güneş altında tenin bronzlaşması",
+                        "Down sendromunda 21. kromozomun üç kopya olması",
+                        "Ç belgelerinin soğukta kısalması"
+                    ],
+                    correct: 2,
+                    explanation: "Mutasyon gen/kromozom yapısındaki kalıtsal değişimdir. Kas gelişimi ve bronzlaşma modifikasyondur."
+                },
+                {
+                    id: "8-q12",
+                    unitId: 2,
+                    unitName: "2. Ünite: DNA ve Genetik Kod",
+                    topic: "DNA Eşlenmesi",
+                    difficulty: "Yeni Nesil",
+                    question: "DNA eşlenmesi sırasında A-T ve G-C eşleşmesi bozulursa ne olur?",
+                    options: [
+                        "Hücre daha hızlı bölünür",
+                        "Genetik bilgi bozulabilir (mutasyon riski)",
+                        "Fosfat sayısı otomatik artar",
+                        "Şeker molekülü yok olur"
+                    ],
+                    correct: 1,
+                    explanation: "Yanlış baz eşleşmesi genetik bilginin bozulmasına yani mutasyona yol açabilir."
                 }
+            ],
+
+            flashcards: [
+                { id: "8f-fc1", front: "Mevsimleri ne oluşturur?", back: "Eksen eğikliği (23°27') + Dünya'nın Güneş etrafında dolanması. Mesafe değil!" },
+                { id: "8f-fc2", front: "Rüzgar hangi yönde eser?", back: "Yüksek basıçtan (soğuk) → alçak basınca (sıcak)." },
+                { id: "8f-fc3", front: "A daima ne ile eşleşir?", back: "Timin (T) ile; G ise Sitozin (C) ile." },
+                { id: "8f-fc4", front: "Katı basıncı formülü?", back: "P = G / S → yüzey küçüldükçe basınç artar." },
+                { id: "8f-fc5", front: "Aa x Aa yeşil (aa) olasılığı?", back: "%25 (1/4). Fenotip 3:1 baskın:çekinik." }
             ]
         },
 
@@ -1299,6 +1341,281 @@ const EDUCATION_DATA = {
                     correct: 1,
                     explanation: "Paralel bağlı devrelerde her ampul kendi bağımsız elektrik koluna sahiptir. Bir ampul patlasa veya sökülse bile diğer kollar etkilenmez ve aynı parlaklıkta yanmaya devam eder. Evlerimizdeki priz ve lambalar da bu yüzden paralel bağlıdır."
                 }
+            ],
+
+            flashcards: [
+                { id: "7f-fc1", front: "Işık yılı zaman birimi midir?", back: "Hayır. Işığın 1 yılda aldığı MESAFE / UZAKLIK birimidir (~9.5 trilyon km)." },
+                { id: "7f-fc2", front: "Çimlenme için ışık gerekir mi?", back: "Hayır. Çimlenme için uygun sıcaklık + oksijen + su yeterlidir (SOS)." },
+                { id: "7f-fc3", front: "Mayozda genetik çeşitlilik nasıl artar?", back: "Homolog kromozomlar arasında parça değişimi (crossing-over) ile." },
+                { id: "7f-fc4", front: "Ev tesisatı seri mi paralel mi?", back: "Paralel. Bir lamba sönse diğerleri yanmaya devam eder." }
+            ]
+        },
+
+        // ==========================================
+        // 8. SINIF TÜRKÇE (LGS)
+        // ==========================================
+        "8-turkce": {
+            title: "8. Sınıf Türkçe (LGS)",
+            subtitle: "Fiilimsiler, paragraf, cümle türleri ve sözel mantık taktikleri",
+            presentation: {
+                title: "Fiilimsiler & Paragraf Taktikleri",
+                desc: "LGS sözel bölümünde en çok karıştırılan fiilimsi şifreleri, paragraf ana fikir ve cümle türleri.",
+                file: "#",
+                slidesCount: "Not + Test Odaklı",
+                badge: "LGS Sözel Hazırlık"
+            },
+            notes: [
+                {
+                    unitId: 1,
+                    unitName: "1. Ünite: Fiilimsiler",
+                    title: "Fiilimsi Şifreleri (İsim-Sıfat-Zarf Fiil)",
+                    important: "LGS'de Garanti Konu",
+                    badge: "T.8.1",
+                    content: `
+                        <div class="note-highlight">
+                            <strong>Üçlü Şifre:</strong> İsim-fiil (-ma, -ış, -mak) / Sıfat-fiil (-an, -ası, -mez, -ar, -dik, -ecek, -miş) / Zarf-fiil (-ınca, -arak, -ıp, -ken, -madan, -alı, -dıkça...).
+                        </div>
+                        <ul class="styled-list">
+                            <li><strong>İsim-fiil:</strong> Eylemi isimleştirir. Örn: <em>okumak</em>, <em>gülüş</em>, <em>yazma</em>.</li>
+                            <li><strong>Sıfat-fiil:</strong> İsmi niteleyen fiilimsidir. Örn: <em>gülən çocuk</em>, <em>yazılacak ödev</em>.</li>
+                            <li><strong>Zarf-fiil:</strong> Fiili durum/zaman yönünden açıklar. Örn: <em>koşarak geldi</em>, <em>gelince anladı</em>.</li>
+                        </ul>
+                        <div class="note-alert">⚠️ <strong>Tuzak:</strong> "mayışmak" gibi ekler fiilimsi değildir; kök+ek ayrımını iyi yap.</div>
+                    `
+                },
+                {
+                    unitId: 2,
+                    unitName: "2. Ünite: Paragrafta Anlam",
+                    title: "Ana Fikir & Yardımcı Düşünce",
+                    important: "Zaman Kazandıran Taktik",
+                    badge: "T.8.2",
+                    content: `
+                        <p><strong>Ana fikir:</strong> Paragrafın tamamını kapsayan tek cümledir. Çoğu zaman paragrafın ilk veya son cümlesinde gizlenir.</p>
+                        <ul class="styled-list">
+                            <li>Önce seçenekleri oku, sonra paragrafı tara (ters okuma).</li>
+                            <li>Aşırı genelleme yapan seçenekleri ele.</li>
+                            <li>"Yalnızca, asla, her zaman" gibi mutlak ifadeler genelde yanlıştır.</li>
+                        </ul>
+                    `
+                },
+                {
+                    unitId: 3,
+                    unitName: "3. Ünite: Cümle Türleri",
+                    title: "Yüklemine ve Anlamına Göre Cümle",
+                    important: "Yazılı + LGS",
+                    badge: "T.8.3",
+                    content: `
+                        <div class="comparison-grid">
+                            <div class="comp-card cold">
+                                <h4>Yüklemine Göre</h4>
+                                <ul>
+                                    <li>İsim cümlesi (ek-fiil)</li>
+                                    <li>Fiil cümlesi</li>
+                                </ul>
+                            </div>
+                            <div class="comp-card warm">
+                                <h4>Anlamına Göre</h4>
+                                <ul>
+                                    <li>Olumlu / olumsuz</li>
+                                    <li>Soru / ünlem</li>
+                                </ul>
+                            </div>
+                        </div>
+                    `
+                }
+            ],
+            curriculum: [
+                { unitId: 1, unit: "1. Ünite", name: "Fiilimsiler", hours: "12 Saat", period: "1. Dönem", status: "Aktif", lgsWeight: "Yüksek", examTip: "Fiilimsi eklerini ezberlemeden örnek cümleyle ayırt et.", topics: [
+                    { code: "T.8.1.1", title: "İsim-fiil", summary: "-mak, -ma, -ış ekleri ile eylem isimleşir." },
+                    { code: "T.8.1.2", title: "Sıfat-fiil", summary: "İsmi niteleyen fiilimsi ekleri (-an, -ası, -mez...)." },
+                    { code: "T.8.1.3", title: "Zarf-fiil", summary: "Fiili zaman/durum yönünden tamamlayan ekler." }
+                ]},
+                { unitId: 2, unit: "2. Ünite", name: "Paragrafta Anlam", hours: "14 Saat", period: "1. Dönem", status: "Aktif", lgsWeight: "Çok Yüksek", examTip: "Önce seçenek, sonra metin; zaman kazanırsın.", topics: [
+                    { code: "T.8.2.1", title: "Ana fikir", summary: "Paragrafın tamamını kapsayan düşünce." },
+                    { code: "T.8.2.2", title: "Yardımcı düşünce", summary: "Ana fikri destekleyen ayrıntılar." }
+                ]},
+                { unitId: 3, unit: "3. Ünite", name: "Cümle Türleri", hours: "10 Saat", period: "2. Dönem", status: "Aktif", topics: [
+                    { code: "T.8.3.1", title: "Yüklemine göre", summary: "İsim / fiil cümlesi ayrımı." },
+                    { code: "T.8.3.2", title: "Anlamına göre", summary: "Olumlu, olumsuz, soru, ünlem." }
+                ]}
+            ],
+            quiz: [
+                {
+                    id: "8t-q1",
+                    unitId: 1,
+                    unitName: "1. Ünite: Fiilimsiler",
+                    topic: "Fiilimsi Ayırt Etme",
+                    difficulty: "LGS Klasik",
+                    question: "Aşağıdaki cümlelerin hangisinde sıfat-fiil vardır?",
+                    options: [
+                        "Koşarak eve geldi.",
+                        "Gülmek sağlığa yararlıdır.",
+                        "Okuyan öğrenci başarılı olur.",
+                        "Gelince haber ver."
+                    ],
+                    correct: 2,
+                    explanation: "'Okuyan' sözcüğü 'öğrenci' ismini nitelediği için sıfat-fiildir. Koşarak/gelince zarf-fiil, gülmek isim-fiildir."
+                },
+                {
+                    id: "8t-q2",
+                    unitId: 1,
+                    unitName: "1. Ünite: Fiilimsiler",
+                    topic: "Zarf-fiil",
+                    difficulty: "Yeni Nesil",
+                    question: "'Kapıyı çalmadan içeri girdi.' cümlesindeki fiilimsi türü nedir?",
+                    options: ["İsim-fiil", "Sıfat-fiil", "Zarf-fiil", "Fiilimsi yoktur"],
+                    correct: 2,
+                    explanation: "'-madan' eki zarf-fiil ekidir; eylemin nasıl/ne zaman yapıldığını belirtir."
+                },
+                {
+                    id: "8t-q3",
+                    unitId: 2,
+                    unitName: "2. Ünite: Paragrafta Anlam",
+                    topic: "Ana Fikir",
+                    difficulty: "LGS Taktik",
+                    question: "Paragrafta ana fikir bulunuraken en doğru yaklaşım hangisidir?",
+                    options: [
+                        "Sadece ilk cümleye bakmak yeterlidir.",
+                        "Tüm paragrafı kapsayan düşünceyi bulmak gerekir.",
+                        "En uzun cümleyi ana fikir kabul etmek.",
+                        "Yazarın duygusunu ana fikir saymak."
+                    ],
+                    correct: 1,
+                    explanation: "Ana fikir paragrafın tamamını kuşatan tek düşüncedir; tek cümleye kilitlenmek yanılgıya açıkır."
+                },
+                {
+                    id: "8t-q4",
+                    unitId: 3,
+                    unitName: "3. Ünite: Cümle Türleri",
+                    topic: "Yüklemine Göre",
+                    difficulty: "Yazılı",
+                    question: "'Bu kitap çok ilginç.' cümlesi yüklemine göre hangi türdedir?",
+                    options: ["Fiil cümlesi", "İsim cümlesi", "Soru cümlesi", "Ünlem cümlesi"],
+                    correct: 1,
+                    explanation: "Yüklem 'ilginç' isim soylu bir sözcüktür (ek-fiil gizlidir); bu nedenle isim cümlesidir."
+                }
+            ],
+            flashcards: [
+                { id: "8t-fc1", front: "Sıfat-fiil ne işe yarar?", back: "İsmi niteler: gülən çocuk, yazılacak ödev." },
+                { id: "8t-fc2", front: "Zarf-fiil örnekleri?", back: "koşarak, gelince, bakıp, gülmeden, çalışırken..." },
+                { id: "8t-fc3", front: "Ana fikir nedir?", back: "Paragrafın tamamını kapsayan tek düşüncedir." },
+                { id: "8t-fc4", front: "İsim cümlesi nasıl anlaşılır?", back: "Yüklem isim soyludur / ek-fiil taşır: 'Hava güzel.'" }
+            ]
+        },
+
+        // ==========================================
+        // 7. SINIF TÜRKÇE
+        // ==========================================
+        "7-turkce": {
+            title: "7. Sınıf Türkçe",
+            subtitle: "Fiillerde anlam, kipler ve yazım kuralları",
+            presentation: {
+                title: "Fiillerde Anlam & Kipler",
+                desc: "İş-oluş-durum fiilleri, haber/dilek kipleri ve yazılıya hazırlık notları.",
+                file: "#",
+                slidesCount: "Not + Test Odaklı",
+                badge: "Yazılı Hazırlık"
+            },
+            notes: [
+                {
+                    unitId: 1,
+                    unitName: "1. Ünite: Fiillerde Anlam",
+                    title: "İş - Oluş - Durum Fiilleri",
+                    important: "Yazılıda Sık Çıkar",
+                    badge: "T.7.1",
+                    content: `
+                        <ul class="styled-list">
+                            <li><strong>İş fiili:</strong> İradi ve nesneye yönelir (yazmak, kırmak).</li>
+                            <li><strong>Oluş fiili:</strong> Doğal değişim (büyümek, sararmak).</li>
+                            <li><strong>Durum fiili:</strong> Durumu bildirir, nesne almaz (uyumak, oturmak).</li>
+                        </ul>
+                    `
+                },
+                {
+                    unitId: 2,
+                    unitName: "2. Ünite: Fiil Kipleri",
+                    title: "Haber ve Dilek Kipleri",
+                    important: "Tablo Ezberi",
+                    badge: "T.7.2",
+                    content: `
+                        <div class="note-highlight">
+                            <strong>Haber:</strong> görülen geçmiş (-di), öğrenilen geçmiş (-miş), şimdiki (-yor), gelecek (-ecek), geniş (-r).<br>
+                            <strong>Dilek:</strong> gerekli (-meli), istek (-e), dilek-şart (-se), emir.
+                        </div>
+                    `
+                },
+                {
+                    unitId: 3,
+                    unitName: "3. Ünite: Yazım Kuralları",
+                    title: "Sık Karıştırılan Yazımlar",
+                    important: "Puan Kaçırmamak İçin",
+                    badge: "T.7.3",
+                    content: `
+                        <ul class="styled-list">
+                            <li><em>de / da</em> bağlacı ayrı yazılır; hâl eki bitişik.</li>
+                            <li><em>ki</em> bağlacı ayrı; ilgi zamiri ve ek bitişik.</li>
+                            <li>Birleşik fiillerde anlam kayması varsa bitişik yazım olabilir.</li>
+                        </ul>
+                    `
+                }
+            ],
+            curriculum: [
+                { unitId: 1, unit: "1. Ünite", name: "Fiillerde Anlam", hours: "10 Saat", period: "1. Dönem", status: "Aktif", topics: [
+                    { code: "T.7.1.1", title: "İş-Oluş-Durum", summary: "Fiilleri anlamına göre ayırt etme." }
+                ]},
+                { unitId: 2, unit: "2. Ünite", name: "Fiil Kipleri", hours: "12 Saat", period: "1. Dönem", status: "Aktif", topics: [
+                    { code: "T.7.2.1", title: "Haber kipleri", summary: "-di, -miş, -yor, -ecek, -r." },
+                    { code: "T.7.2.2", title: "Dilek kipleri", summary: "-meli, -e, -se, emir." }
+                ]},
+                { unitId: 3, unit: "3. Ünite", name: "Yazım Kuralları", hours: "8 Saat", period: "2. Dönem", status: "Aktif", topics: [
+                    { code: "T.7.3.1", title: "de/da ve ki", summary: "Bağlaç / ek ayrımı." }
+                ]}
+            ],
+            quiz: [
+                {
+                    id: "7t-q1",
+                    unitId: 1,
+                    unitName: "1. Ünite: Fiillerde Anlam",
+                    topic: "İş-Oluş-Durum",
+                    difficulty: "Yazılı",
+                    question: "'Yapraklar sonbaharda sarardı.' cümlesindeki fiil türü nedir?",
+                    options: ["İş fiili", "Oluş fiili", "Durum fiili", "Yardıcı fiil"],
+                    correct: 1,
+                    explanation: "'Sararmak' doğal bir değişimi bildirdiği için oluş fiilidir."
+                },
+                {
+                    id: "7t-q2",
+                    unitId: 2,
+                    unitName: "2. Ünite: Fiil Kipleri",
+                    topic: "Haber Kipleri",
+                    difficulty: "Yazılı",
+                    question: "'Yarın sinemaya gideceğiz.' cümlesindeki kip hangisidir?",
+                    options: ["Şimdiki zaman", "Geniş zaman", "Görülen geçmiş", "Gelecek zaman"],
+                    correct: 3,
+                    explanation: "'-ecek' eki gelecek zaman (haber kipi) bildirir."
+                },
+                {
+                    id: "7t-q3",
+                    unitId: 3,
+                    unitName: "3. Ünite: Yazım Kuralları",
+                    topic: "de/da",
+                    difficulty: "Kritik",
+                    question: "Aşağıdakilerin hangisinde 'de' bağlacı doğru yazılmıştır?",
+                    options: [
+                        "Beninde geleceğim.",
+                        "Ben de geleceğim.",
+                        "Evde ki kitapları getir.",
+                        "Okuldada vardı."
+                    ],
+                    correct: 1,
+                    explanation: "Bağlaç olan 'de/da' her zaman ayrı yazılır: 'Ben de geleceğim.'"
+                }
+            ],
+            flashcards: [
+                { id: "7t-fc1", front: "Oluş fiili örneği?", back: "büyümek, sararmak, yaşlanmak..." },
+                { id: "7t-fc2", front: "Dilek kipleri nelerdir?", back: "gereklik (-meli), istek (-e), dilek-şart (-se), emir." },
+                { id: "7t-fc3", front: "de bağlacı nasıl yazılır?", back: "Her zaman ayrı: 'Sen de gel.'" },
+                { id: "7t-fc4", front: "Durum fiili nesne alır mı?", back: "Genelde almaz: uyumak, oturmak, gülmek..." }
             ]
         }
     }

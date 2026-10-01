@@ -4,7 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ders Notlarım | Akıllı Tahta & Öğrenci Portalı</title>
-    <meta name="description" content="7. ve 8. Sınıf Fen Bilimleri, Türkçe, LGS konu anlatımları, interaktif slaytlar ve soru çözümleri.">
+    <meta name="description" content="7. ve 8. Sınıf Fen Bilimleri, Türkçe, LGS konu anlatımları, interaktif slaytlar, simülasyonlar ve soru çözümleri.">
+    <meta name="theme-color" content="#0f172a">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="icons/icon.svg">
+
+    <!-- Open Graph / paylaşım -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Ders Notlarım | Akıllı Tahta & Öğrenci Portalı">
+    <meta property="og:description" content="7-8. sınıf Fen ve Türkçe: konu notları, LGS soruları, canlı simülasyonlar ve akıllı tahta araçları.">
+    <meta property="og:url" content="https://dersnotlarim.vercel.app">
+    <meta property="og:site_name" content="Ders Notlarım">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ders Notlarım">
+    <meta name="twitter:description" content="LGS ve yazılıya hazırlık: notlar, testler, simülasyonlar.">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,9 +26,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css?v=4.3">
+    <link rel="stylesheet" href="css/style.css?v=5.0">
 </head>
-<body>
+<body class="mode-teacher">
 
     <!-- ÜST MENÜ (NAVBAR) -->
     <header class="navbar">
@@ -27,30 +41,46 @@
                 </div>
             </div>
 
-            <!-- Navigasyon -->
-            <nav class="nav-links">
+            <!-- Navigasyon (masaüstü) -->
+            <nav class="nav-links desktop-nav">
                 <button class="nav-btn active" id="nav-btn-home" onclick="app.showHome()">🏠 Ana Sayfa</button>
-                <button class="nav-btn" onclick="app.selectSubject('8', 'fen')">🧪 8. Sınıf Fen (LGS)</button>
+                <button class="nav-btn" onclick="app.selectSubject('8', 'fen')">🧪 8. Sınıf Fen</button>
                 <button class="nav-btn" onclick="app.selectSubject('7', 'fen')">🚀 7. Sınıf Fen</button>
+                <button class="nav-btn" onclick="app.selectSubject('8', 'turkce')">📖 8. Türkçe</button>
             </nav>
 
             <div class="nav-actions">
+                <button class="btn-mode-toggle" id="mode-toggle-btn" title="Öğretmen / Öğrenci modu">👨‍🏫 Öğretmen</button>
                 <button class="btn-speedrun-toggle" onclick="interactiveLab.startSpeedRun()" title="60 Saniye Hızlı Ateş LGS Yarışması">
-                    ⚡ 60sn Hızlı Ateş
+                    ⚡ 60sn
                 </button>
-                <button class="btn-qr-toggle" onclick="interactiveLab.toggleQRModal()" title="Tahtadan Telefona QR Kod Paylaşımı">
-                    📱 QR Paylaş
+                <button class="btn-qr-toggle teacher-only" onclick="interactiveLab.toggleQRModal()" title="Tahtadan Telefona QR Kod Paylaşımı">
+                    📱 QR
                 </button>
-                <button class="btn-wheel-toggle" onclick="toggleWheelModal()" title="Rastgele Öğrenci / Soru Seçici Çark">
-                    🎲 Çarkıfelek
+                <button class="btn-wheel-toggle teacher-only" onclick="toggleWheelModal()" title="Rastgele Öğrenci / Soru Seçici Çark">
+                    🎲 Çark
                 </button>
-                <button class="btn-board-toggle" id="btn-toggle-smartboard-ui" onclick="toggleSmartBoardToolbar()">
-                    ✏️ Tahta Kalemi
+                <button class="btn-board-toggle teacher-only" id="btn-toggle-smartboard-ui" onclick="toggleSmartBoardToolbar()">
+                    ✏️ Tahta
                 </button>
                 <button class="theme-toggle-btn" id="theme-toggle-btn" title="Karanlık/Aydınlık Tema">
                     ☀️
                 </button>
+                <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Menü" aria-expanded="false">☰</button>
             </div>
+        </div>
+
+        <!-- Mobil menü paneli -->
+        <div class="mobile-nav-panel" id="mobile-nav-panel">
+            <button class="nav-btn" onclick="app.showHome()">🏠 Ana Sayfa</button>
+            <button class="nav-btn" onclick="app.selectSubject('8', 'fen')">🧪 8. Sınıf Fen (LGS)</button>
+            <button class="nav-btn" onclick="app.selectSubject('7', 'fen')">🚀 7. Sınıf Fen</button>
+            <button class="nav-btn" onclick="app.selectSubject('8', 'turkce')">📖 8. Sınıf Türkçe</button>
+            <button class="nav-btn" onclick="app.selectSubject('7', 'turkce')">✍️ 7. Sınıf Türkçe</button>
+            <button class="nav-btn" onclick="interactiveLab.startSpeedRun()">⚡ 60sn Hızlı Ateş</button>
+            <button class="nav-btn teacher-only" onclick="interactiveLab.toggleQRModal()">📱 QR Paylaş</button>
+            <button class="nav-btn teacher-only" onclick="toggleWheelModal()">🎲 Çarkıfelek</button>
+            <button class="nav-btn teacher-only" onclick="toggleSmartBoardToolbar()">✏️ Tahta Kalemi</button>
         </div>
     </header>
 
@@ -134,7 +164,7 @@
                 <div class="course-card">
                     <div class="course-card-top">
                         <span class="course-grade-badge lgs">LGS &bull; 8. Sınıf</span>
-                        <span class="course-status-badge pending">Hazırlanıyor</span>
+                        <span class="course-status-badge">Aktif &bull; Fiilimsiler</span>
                     </div>
                     <div class="course-icon">📖</div>
                     <h3 class="course-title">8. Sınıf Türkçe</h3>
@@ -142,12 +172,13 @@
                         Fiilimsiler, Paragrafta Anlam, Cümle Türleri ve LGS Sözel Mantık Taktikleri.
                     </p>
                     <div class="course-features">
-                        <span>📝 "Mayışmak" ve Fiilimsi Şifreleri</span>
-                        <span>❓ Paragraf Çözüm Taktikleri</span>
+                        <span>📝 Fiilimsi Şifreleri</span>
+                        <span>❓ Paragraf + Cümle Testleri</span>
+                        <span>🃏 Hafıza Kartları</span>
                     </div>
                     <div class="course-actions">
                         <button class="btn-course-primary" onclick="app.selectSubject('8', 'turkce')">
-                            İncele &rarr;
+                            Ders Alanına Git &rarr;
                         </button>
                     </div>
                 </div>
@@ -156,7 +187,7 @@
                 <div class="course-card">
                     <div class="course-card-top">
                         <span class="course-grade-badge">7. Sınıf</span>
-                        <span class="course-status-badge pending">Hazırlanıyor</span>
+                        <span class="course-status-badge">Aktif &bull; Fiiller</span>
                     </div>
                     <div class="course-icon">✍️</div>
                     <h3 class="course-title">7. Sınıf Türkçe</h3>
@@ -164,12 +195,13 @@
                         Fiillerde Anlam (İş, Oluş, Durum), Haber ve Dilek Kipleri, Yazım Kuralları.
                     </p>
                     <div class="course-features">
-                        <span>📝 Fiil Çekimi Tabloları</span>
+                        <span>📝 Kip Tabloları</span>
                         <span>❓ Yazılıya Hazırlık Soruları</span>
+                        <span>🃏 Hafıza Kartları</span>
                     </div>
                     <div class="course-actions">
                         <button class="btn-course-primary" onclick="app.selectSubject('7', 'turkce')">
-                            İncele &rarr;
+                            Ders Alanına Git &rarr;
                         </button>
                     </div>
                 </div>
@@ -315,6 +347,46 @@
                                 <div class="sim-stat">
                                     <span class="stat-lbl">Gündüz / Gece</span>
                                     <strong id="sim-day-length">Gündüz: ~15 Saat | Gece: ~9 Saat (En Uzun Gündüz)</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Simülasyon: Gölge Boyu (Eksen Eğikliği) -->
+                        <div class="sim-card" style="margin-top:1.5rem;">
+                            <div class="sim-header">
+                                <h4>🧍 Gölge Boyu Simülatörü (Işın Açısı)</h4>
+                                <span class="sim-badge">Eksen Eğikliği</span>
+                            </div>
+                            <p style="color:var(--text-muted); font-size:0.88rem; margin-bottom:1rem;">
+                                Güneş ışınlarının geliş açısını değiştir; gölge boyunun nasıl değiştiğini canlı gör. <strong>Işın dik → gölge kısa; ışın eğik → gölge uzun.</strong>
+                            </p>
+                            <div style="display:grid; grid-template-columns:1fr 1.1fr; gap:1rem; align-items:center;">
+                                <div>
+                                    <label style="font-weight:700; font-size:0.85rem; display:flex; justify-content:space-between;">
+                                        <span>☀️ Işın açısı (ufka göre):</span>
+                                        <span id="shadow-angle-text" style="color:var(--accent);">60°</span>
+                                    </label>
+                                    <input type="range" min="10" max="90" value="60" id="shadow-angle-slider" style="width:100%; margin:0.6rem 0;" oninput="interactiveLab.updateShadowSim(this.value)">
+                                    <div class="sim-status-grid" style="margin-top:0.5rem;">
+                                        <div class="sim-stat">
+                                            <span class="stat-lbl">Gölge Boyu</span>
+                                            <strong id="shadow-length-text" style="color:var(--primary);">~0.6 birim</strong>
+                                        </div>
+                                        <div class="sim-stat">
+                                            <span class="stat-lbl">Sınav İpucu</span>
+                                            <strong id="shadow-tip-text">Yaza yakın: kısa gölge</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sim-canvas-box">
+                                    <svg viewBox="0 0 320 180" width="100%" height="170">
+                                        <line x1="20" y1="150" x2="300" y2="150" stroke="#475569" stroke-width="3"/>
+                                        <line id="shadow-ray" x1="60" y1="20" x2="120" y2="150" stroke="#fef08a" stroke-width="3"/>
+                                        <rect x="112" y="90" width="16" height="60" fill="#38bdf8" rx="3"/>
+                                        <circle cx="120" cy="78" r="12" fill="#7dd3fc"/>
+                                        <line id="shadow-cast" x1="128" y1="150" x2="200" y2="150" stroke="#94a3b8" stroke-width="10" stroke-linecap="round" opacity="0.7"/>
+                                        <text x="160" y="172" fill="#94a3b8" font-size="11" text-anchor="middle">Zemin</text>
+                                    </svg>
                                 </div>
                             </div>
                         </div>
@@ -560,71 +632,8 @@
 
                 <!-- SEKME: HAFIZA KARTLARI (FLASHCARDS) -->
                 <div id="tab-flashcards" class="tab-pane">
-                    <div style="margin-bottom:1.5rem; text-align:center;">
-                        <h3>🃏 Sınav Öncesi 60 Saniye Hafıza Kartları</h3>
-                        <p style="color:var(--text-muted); font-size:0.88rem;">Kartın üzerine tıklayarak cevabı arkasında görün. Sınavda en çok karıştırılan yerler!</p>
-                    </div>
-
-                    <div class="flashcards-grid">
-                        <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                            <div class="card-inner">
-                                <div class="card-front">
-                                    <span class="card-hint">❓ Soru / Kavram</span>
-                                    <h4>Işık Yılı bir zaman birimi midir?</h4>
-                                    <p class="click-hint">Cevabı görmek için tıkla &rarr;</p>
-                                </div>
-                                <div class="card-back">
-                                    <span class="card-hint">💡 Kesin Bilgi</span>
-                                    <h4>HAYIR! Kesinlikle Değildir!</h4>
-                                    <p>Işık yılı, ışığın 1 yılda aldığı <strong>MESAFE / UZAKLIK</strong> ölçüsüdür (~9.5 trilyon km).</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                            <div class="card-inner">
-                                <div class="card-front">
-                                    <span class="card-hint">❓ Soru / Kavram</span>
-                                    <h4>Dünya Güneş'e yaklaştığında yaz mı olur?</h4>
-                                    <p class="click-hint">Cevabı görmek için tıkla &rarr;</p>
-                                </div>
-                                <div class="card-back">
-                                    <span class="card-hint">💡 Sınav Tuzağı</span>
-                                    <h4>HAYIR! Alakası Yoktur!</h4>
-                                    <p>Ocak ayında Güneş'e en yakınız ama bizde kış yaşanır. Mevsimleri mesafe değil, <strong>Eksen Eğikliği ve Geliş Açısı</strong> belirler.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                            <div class="card-inner">
-                                <div class="card-front">
-                                    <span class="card-hint">❓ Soru / Kavram</span>
-                                    <h4>Rüzgar hangi basınçtan hangisine eser?</h4>
-                                    <p class="click-hint">Cevabı görmek için tıkla &rarr;</p>
-                                </div>
-                                <div class="card-back">
-                                    <span class="card-hint">💡 Altın Kural</span>
-                                    <h4>Yüksek Basınç &rarr; Alçak Basınç</h4>
-                                    <p>Her zaman <strong>SOĞUKTAN &rarr; SICAĞA</strong> doğru yatay hava akımıdır.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                            <div class="card-inner">
-                                <div class="card-front">
-                                    <span class="card-hint">❓ Soru / Kavram</span>
-                                    <h4>Basit makinelerde İŞ'ten kazanç sağlanır mı?</h4>
-                                    <p class="click-hint">Cevabı görmek için tıkla &rarr;</p>
-                                </div>
-                                <div class="card-back">
-                                    <span class="card-hint">💡 LGS Kuralı</span>
-                                    <h4>ASLA! İş ve Enerjiden Kazanç Olmaz!</h4>
-                                    <p>Sadece iş kolaylığı sağlanır. Kuvvetten kazanırsan yoldan aynı oranda kaybedersin.</p>
-                                </div>
-                            </div>
-                        </div>
+                    <div id="flashcards-container">
+                        <!-- JS ile dolacak -->
                     </div>
                 </div>
 
@@ -850,12 +859,12 @@ Selin</textarea>
     </footer>
 
     <!-- JS -->
-    <script src="js/sound-fx.js?v=4.2"></script>
-    <script src="js/qrcode.min.js?v=4.2"></script>
-    <script src="js/data.js?v=4.2"></script>
-    <script src="js/board-tools.js?v=4.2"></script>
-    <script src="js/interactive-lab.js?v=4.2"></script>
-    <script src="js/app.js?v=4.2"></script>
+    <script src="js/sound-fx.js?v=5.0"></script>
+    <script src="js/qrcode.min.js?v=5.0"></script>
+    <script src="js/data.js?v=5.0"></script>
+    <script src="js/board-tools.js?v=5.0"></script>
+    <script src="js/interactive-lab.js?v=5.0"></script>
+    <script src="js/app.js?v=5.0"></script>
     <script>
         function toggleWheelModal() {
             const modal = document.getElementById('lucky-wheel-modal');
@@ -875,6 +884,7 @@ Selin</textarea>
             if (window.interactiveLab) {
                 interactiveLab.updateSolidPressure();
                 interactiveLab.updateLiquidPressure();
+                interactiveLab.updateShadowSim(60);
                 interactiveLab.initDNAGame();
                 interactiveLab.initMitosisGame();
             }

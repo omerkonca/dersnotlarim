@@ -679,6 +679,47 @@ class InteractiveLab {
         }
     }
 
+    // Gölge boyu simülatörü (ışın açısı)
+    updateShadowSim(angleDeg) {
+        const angle = Math.max(10, Math.min(90, parseInt(angleDeg, 10) || 60));
+        const rad = (angle * Math.PI) / 180;
+        const personH = 60;
+        const shadowLen = angle >= 89 ? 2 : Math.round((personH / Math.tan(rad)) * 10) / 10;
+
+        const ray = document.getElementById('shadow-ray');
+        const cast = document.getElementById('shadow-cast');
+        const angleText = document.getElementById('shadow-angle-text');
+        const lengthText = document.getElementById('shadow-length-text');
+        const tipText = document.getElementById('shadow-tip-text');
+
+        if (angleText) angleText.textContent = `${angle}°`;
+        if (lengthText) lengthText.textContent = `~${shadowLen} birim`;
+        if (tipText) {
+            tipText.textContent = angle >= 70
+                ? 'Yaza yakın: kısa gölge'
+                : (angle <= 30 ? 'Kışa yakın: uzun gölge' : 'İlkbahar / sonbahar');
+        }
+
+        const headX = 120, headY = 78, groundY = 150;
+        const rayLen = 120;
+        const x1 = headX - Math.cos(rad) * rayLen;
+        const y1 = headY - Math.sin(rad) * rayLen;
+        if (ray) {
+            ray.setAttribute('x1', x1);
+            ray.setAttribute('y1', y1);
+            ray.setAttribute('x2', headX);
+            ray.setAttribute('y2', groundY - 12);
+        }
+
+        const shadowPx = Math.min(140, Math.max(8, shadowLen * 2.2));
+        if (cast) {
+            cast.setAttribute('x1', '128');
+            cast.setAttribute('y1', '150');
+            cast.setAttribute('x2', String(128 + shadowPx));
+            cast.setAttribute('y2', '150');
+        }
+    }
+
     // 9. QR KOD PAYLAŞIM MODALI (GERÇEK TARANABİLİR DİNAMİK QR)
     toggleQRModal(targetUrl) {
         const modal = document.getElementById('qr-modal');

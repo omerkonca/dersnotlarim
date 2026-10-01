@@ -2541,4 +2541,301 @@ body {
     line-height: 1.45;
 }
 
+/* ===================================================
+   v5: MOD, MOBİL MENÜ, QUIZ ANALİZ, FLASH, PRINT, PWA
+   =================================================== */
+.btn-mode-toggle,
+.mobile-nav-toggle {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 0.4rem 0.75rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.mobile-nav-toggle {
+    display: none;
+    font-size: 1.15rem;
+    padding: 0.35rem 0.65rem;
+}
+
+.mobile-nav-panel {
+    display: none;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 0.75rem 1.25rem 1rem;
+    border-top: 1px solid var(--border-color);
+    background: var(--bg-surface);
+}
+
+.mobile-nav-panel.open {
+    display: flex;
+}
+
+.mobile-nav-panel .nav-btn {
+    width: 100%;
+    text-align: left;
+    border: 1px solid var(--border-color);
+}
+
+body.mode-student .teacher-only {
+    display: none !important;
+}
+
+.quiz-score-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.2rem;
+}
+
+.quiz-percent {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.quiz-analysis-panel {
+    background: rgba(56, 189, 248, 0.08);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    border-radius: var(--radius-md);
+    padding: 1rem 1.15rem;
+    margin-bottom: 1.25rem;
+}
+
+.quiz-analysis-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.btn-reset-quiz,
+.btn-reset-flash,
+.btn-print-all {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--radius-full);
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.quiz-analysis-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+}
+
+.qa-stat {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 0.55rem 0.7rem;
+    text-align: center;
+}
+
+.qa-stat span {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+}
+
+.qa-stat strong {
+    font-size: 1.2rem;
+}
+
+.qa-stat.ok strong { color: #10b981; }
+.qa-stat.bad strong { color: #ef4444; }
+.qa-stat.muted strong { color: var(--text-muted); }
+
+.quiz-weak-topics {
+    margin-top: 0.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    align-items: center;
+}
+
+.weak-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.weak-chip {
+    background: rgba(239, 68, 68, 0.15);
+    color: #fca5a5;
+    border: 1px solid rgba(239, 68, 68, 0.35);
+    padding: 0.2rem 0.55rem;
+    border-radius: 9999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+.quiz-perfect {
+    margin-top: 0.65rem;
+    color: #10b981;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.flash-progress-bar {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+    align-items: flex-end;
+}
+
+.flash-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    align-items: center;
+}
+
+.flash-stat {
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 0.25rem 0.55rem;
+    border-radius: 9999px;
+    border: 1px solid var(--border-color);
+}
+
+.flash-stat.known { color: #10b981; border-color: rgba(16, 185, 129, 0.4); }
+.flash-stat.learning { color: #f59e0b; border-color: rgba(245, 158, 11, 0.4); }
+
+.flashcard-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.flashcard-wrap.known .flashcard {
+    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.45);
+}
+
+.flashcard-wrap.learning .flashcard {
+    box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.45);
+}
+
+.flash-actions {
+    display: flex;
+    gap: 0.35rem;
+}
+
+.btn-flash {
+    flex: 1;
+    border: 1px solid var(--border-color);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text-muted);
+    padding: 0.4rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn-flash.known.active {
+    color: #10b981;
+    border-color: rgba(16, 185, 129, 0.5);
+    background: rgba(16, 185, 129, 0.12);
+}
+
+.btn-flash.learning.active {
+    color: #f59e0b;
+    border-color: rgba(245, 158, 11, 0.5);
+    background: rgba(245, 158, 11, 0.12);
+}
+
+.notes-toolbar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 900px) {
+    .desktop-nav {
+        display: none;
+    }
+
+    .mobile-nav-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav-actions .btn-speedrun-toggle,
+    .nav-actions .btn-qr-toggle,
+    .nav-actions .btn-wheel-toggle,
+    .nav-actions .btn-board-toggle {
+        display: none;
+    }
+
+    body.mode-teacher .nav-actions .btn-mode-toggle {
+        display: inline-flex;
+    }
+}
+
+@media print {
+    .navbar,
+    .footer,
+    .inner-tabs,
+    .course-header-bar,
+    .nav-actions,
+    .mobile-nav-panel,
+    .presentation-modal,
+    .btn-print,
+    .btn-print-all,
+    .notes-toolbar,
+    .unit-filter-bar,
+    .flash-actions,
+    .quiz-analysis-panel button {
+        display: none !important;
+    }
+
+    body {
+        background: #fff !important;
+        color: #000 !important;
+    }
+
+    body.print-notes-mode #view-home,
+    body.print-notes-mode #tab-presentation,
+    body.print-notes-mode #tab-simulations,
+    body.print-notes-mode #tab-flashcards,
+    body.print-notes-mode #tab-quiz,
+    body.print-notes-mode #tab-curriculum {
+        display: none !important;
+    }
+
+    body.print-notes-mode #view-course,
+    body.print-notes-mode #tab-notes {
+        display: block !important;
+    }
+
+    body.print-single-note .note-card {
+        display: none !important;
+    }
+
+    body.print-single-note .note-card.print-focus {
+        display: block !important;
+        break-inside: avoid;
+        border: none;
+        box-shadow: none;
+    }
+
+    .note-card {
+        break-inside: avoid;
+        border: 1px solid #ccc;
+        margin-bottom: 1rem;
+        padding: 1rem;
+    }
+}
 

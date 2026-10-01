@@ -8,40 +8,42 @@ class App {
         this.currentSubject = 'fen';
         this.currentTab = 'tab-presentation';
         this.userAnswers = {};
+        this.currentQuizUnit = 'all';
+        this.mode = localStorage.getItem('portalMode') || 'teacher';
 
         this.init();
     }
 
     init() {
         this.setupThemeToggle();
-        // İçerikleri baştan hazırla
+        this.setupModeToggle();
+        this.setupMobileNav();
+        this.applyMode();
         this.renderCourseContent();
-        // Varsayılan olarak ana sayfayı göster
         this.showHome();
     }
 
-    // Ana Sayfayı Göster
     showHome() {
         document.getElementById('view-home').style.display = 'block';
         document.getElementById('view-course').style.display = 'none';
 
-        // Navigasyon aktifliği
         document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
         document.getElementById('nav-btn-home')?.classList.add('active');
+        this.closeMobileNav();
 
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Belirli bir Dersi Seç ve Ders Alanına Git
     selectSubject(grade, subject) {
         this.currentClass = grade;
         this.currentSubject = subject;
+        this.userAnswers = {};
 
         document.getElementById('view-home').style.display = 'none';
         document.getElementById('view-course').style.display = 'block';
 
-        // Navigasyon aktifliği
         document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+        this.closeMobileNav();
 
         this.renderCourseContent();
         this.switchInnerTab('tab-presentation');
@@ -49,45 +51,33 @@ class App {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Ders İçeriğini Doldur
     renderCourseContent() {
         const key = `${this.currentClass}-${this.currentSubject}`;
         const data = EDUCATION_DATA.content[key] || this.getFallbackData();
 
-        // Başlıklar
         document.getElementById('detail-title').textContent = data.title;
         document.getElementById('detail-desc').textContent = data.subtitle;
         document.getElementById('detail-grade-badge').textContent = `${this.currentClass}. Sınıf`;
 
-        // 1. Sunum Bölümü
         this.renderPresentation(data.presentation);
-
-        // 2. Notlar Bölümü
         this.renderNotes(data.notes);
-
-        // 3. Quiz Bölümü
         this.renderQuiz(data.quiz);
-
-        // 4. Müfredat Bölümü
+        this.renderFlashcards(data.flashcards);
         this.renderCurriculum(data.curriculum);
     }
 
-    // Ders İçi Sekme Değiştir (Sunum / Notlar / Quiz / Müfredat)
     switchInnerTab(tabId) {
         this.currentTab = tabId;
 
-        // Butonları güncelle
         document.querySelectorAll('.inner-tab-btn').forEach(btn => {
             btn.classList.toggle('active', btn.getAttribute('data-tab') === tabId);
         });
 
-        // Tab içeriklerini güncelle
         document.querySelectorAll('.tab-pane').forEach(pane => {
             pane.classList.toggle('active', pane.id === tabId);
         });
     }
 
-    // Sunum Render
     renderPresentation(pres) {
         const box = document.getElementById('presentation-box-content');
         if (!box) return;
@@ -122,7 +112,6 @@ class App {
         `;
     }
 
-    // Notlar Render (Ünite Filtresi ile Birlikte)
     renderNotes(notes, selectedUnit = 'all') {
         const container = document.getElementById('notes-container');
         if (!container) return;
@@ -132,11 +121,10 @@ class App {
             return;
         }
 
-        // Mevcut üniteleri topla
         const units = Array.from(new Set(notes.map(n => n.unitName || n.badge))).filter(Boolean);
 
-        const filteredNotes = selectedUnit === 'all' 
-            ? notes 
+        const filteredNotes = selectedUnit === 'all'
+            ? notes
             : notes.filter(n => {
                 const u = (n.unitName || n.badge || '').toLowerCase();
                 const s = selectedUnit.toLowerCase();
@@ -144,6 +132,9 @@ class App {
             });
 
         container.innerHTML = `
+            <div class="notes-toolbar" style="grid-column: 1 / -1;">
+                <button class="btn-print-all" onclick="app.printNotes()">🖨️ Tüm Notları Yazdır / PDF</button>
+            </div>
             ${units.length > 1 ? `
                 <div class="unit-filter-bar" style="grid-column: 1 / -1; display:flex; gap:0.4rem; overflow-x:auto; padding-bottom:0.5rem; margin-bottom:0.5rem; scrollbar-width:none;">
                     <button class="unit-pill ${selectedUnit === 'all' ? 'active' : ''}" onclick="app.filterNotesByUnit('all')">
@@ -156,8 +147,8 @@ class App {
                     `).join('')}
                 </div>
             ` : ''}
-            ${filteredNotes.map(note => `
-                <div class="note-card">
+            ${filteredNotes.map((note, idx) => `
+                <div class="note-card printable-note" data-note-idx="${idx}">
                     <div class="note-top">
                         <div>
                             ${note.unitName ? `<span style="font-size:0.75rem; color:var(--primary); font-weight:700; display:block; margin-bottom:0.2rem;">${note.unitName}</span>` : ''}
@@ -170,7 +161,7 @@ class App {
                     </div>
                     <div class="note-bottom">
                         <span>💡 ${note.important}</span>
-                        <button class="btn-print" onclick="window.print()">🖨️ Yazdır</button>
+                        <button class="btn-print" onclick="app.printSingleNote(this)">🖨️ Yazdır</button>
                     </div>
                 </div>
             `).join('')}
@@ -183,7 +174,25 @@ class App {
         this.renderNotes(notes, unitName);
     }
 
-    // Quiz Render (Ünite Bazlı Kategorize ve Filtreli)
+    printNotes() {
+        document.body.classList.add('print-notes-mode');
+        window.print();
+        setTimeout(() => document.body.classList.remove('print-notes-mode'), 300);
+    }
+
+    printSingleNote(btn) {
+        const card = btn.closest('.note-card');
+        if (!card) return;
+        document.querySelectorAll('.note-card').forEach(c => c.classList.remove('print-focus'));
+        card.classList.add('print-focus');
+        document.body.classList.add('print-single-note');
+        window.print();
+        setTimeout(() => {
+            document.body.classList.remove('print-single-note');
+            card.classList.remove('print-focus');
+        }, 300);
+    }
+
     renderQuiz(quiz, selectedUnit = 'all') {
         const container = document.getElementById('quiz-container');
         if (!container) return;
@@ -203,17 +212,30 @@ class App {
         }
 
         const units = Array.from(new Set(quiz.map(q => q.unitName))).filter(Boolean);
-        const filteredQuiz = selectedUnit === 'all' 
-            ? quiz 
+        const filteredQuiz = selectedUnit === 'all'
+            ? quiz
             : quiz.filter(q => {
                 const u = (q.unitName || '').toLowerCase();
                 const s = selectedUnit.toLowerCase();
                 return u === s || u.includes(s) || s.includes(u);
             });
 
-        const currentScore = filteredQuiz.filter(q => this.userAnswers[q.id || q.question] === q.correct).length;
+        const answeredCount = filteredQuiz.filter(q => this.userAnswers[q.id || q.question] !== undefined).length;
+        const correctCount = filteredQuiz.filter(q => this.userAnswers[q.id || q.question] === q.correct).length;
+        const wrongItems = filteredQuiz.filter(q => {
+            const key = q.id || q.question;
+            return this.userAnswers[key] !== undefined && this.userAnswers[key] !== q.correct;
+        });
         const totalPoints = filteredQuiz.length * 10;
-        const earnedPoints = currentScore * 10;
+        const earnedPoints = correctCount * 10;
+        const percent = answeredCount ? Math.round((correctCount / answeredCount) * 100) : 0;
+
+        const weakTopics = {};
+        wrongItems.forEach(q => {
+            const t = q.topic || q.unitName || 'Genel';
+            weakTopics[t] = (weakTopics[t] || 0) + 1;
+        });
+        const weakList = Object.entries(weakTopics).sort((a, b) => b[1] - a[1]);
 
         container.innerHTML = `
             ${units.length > 1 ? `
@@ -238,23 +260,49 @@ class App {
                         📂 ${selectedUnit === 'all' ? 'Tüm Üniteler Karma Deneme Testi' : selectedUnit}
                     </span>
                     <span style="display:block; font-size:0.8rem; color:var(--text-muted); font-weight:500;">
-                        Toplam ${filteredQuiz.length} Yeni Nesil & Yazılı Sorusu
+                        Cevaplanan ${answeredCount} / ${filteredQuiz.length} soru
                     </span>
                 </div>
-                <span class="quiz-score" id="quiz-score-val">Puan: ${earnedPoints} / ${totalPoints}</span>
+                <div class="quiz-score-wrap">
+                    <span class="quiz-score" id="quiz-score-val">Puan: ${earnedPoints} / ${totalPoints}</span>
+                    ${answeredCount > 0 ? `<span class="quiz-percent">${percent}% doğru</span>` : ''}
+                </div>
             </div>
+
+            ${answeredCount > 0 ? `
+                <div class="quiz-analysis-panel">
+                    <div class="quiz-analysis-head">
+                        <strong>📊 Skor Analizi</strong>
+                        <button class="btn-reset-quiz" onclick="app.resetQuiz()">↺ Yeniden Başla</button>
+                    </div>
+                    <div class="quiz-analysis-stats">
+                        <div class="qa-stat ok"><span>Doğru</span><strong>${correctCount}</strong></div>
+                        <div class="qa-stat bad"><span>Yanlış</span><strong>${wrongItems.length}</strong></div>
+                        <div class="qa-stat muted"><span>Boş</span><strong>${filteredQuiz.length - answeredCount}</strong></div>
+                    </div>
+                    ${weakList.length ? `
+                        <div class="quiz-weak-topics">
+                            <span class="weak-label">Zayıf konular:</span>
+                            ${weakList.map(([topic, n]) => `<span class="weak-chip">${topic} (${n})</span>`).join('')}
+                        </div>
+                    ` : answeredCount === filteredQuiz.length ? `
+                        <div class="quiz-perfect">🎉 Harika! Bu sette yanlışın yok.</div>
+                    ` : ''}
+                </div>
+            ` : ''}
 
             <div class="quiz-questions">
                 ${filteredQuiz.map((q, idx) => {
                     const qKey = q.id || q.question;
                     const answered = this.userAnswers[qKey] !== undefined;
                     const userChoice = this.userAnswers[qKey];
+                    const safeKey = String(qKey).replace(/'/g, "\\'");
 
                     return `
                         <div class="question-block" id="qb-${idx}">
                             <div class="q-meta-header" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem; flex-wrap:wrap; gap:0.5rem;">
                                 <span class="q-unit-badge" style="background:rgba(56, 189, 248, 0.15); color:var(--primary); padding:0.2rem 0.6rem; border-radius:9999px; font-size:0.75rem; font-weight:700;">
-                                    ${q.unitName || 'Fen Bilimleri'}
+                                    ${q.unitName || 'Ders'}
                                 </span>
                                 <div style="display:flex; gap:0.4rem; align-items:center;">
                                     ${q.difficulty ? `<span style="background:rgba(245, 158, 11, 0.15); color:var(--accent); padding:0.2rem 0.5rem; border-radius:4px; font-size:0.7rem; font-weight:700;">${q.difficulty}</span>` : ''}
@@ -272,7 +320,7 @@ class App {
                                         else if (optIndex === userChoice) btnClass += ' wrong';
                                     }
                                     return `
-                                        <button class="${btnClass}" onclick="app.checkAnswer('${qKey}', ${optIndex})">
+                                        <button class="${btnClass}" onclick="app.checkAnswer('${safeKey}', ${optIndex})">
                                             <span class="opt-letter">${['A', 'B', 'C', 'D'][optIndex]}</span>
                                             <span>${opt}</span>
                                         </button>
@@ -296,7 +344,6 @@ class App {
         this.renderQuiz(quiz, unitName);
     }
 
-    // Soru Cevaplama (Kalıcı ve Hatasız)
     checkAnswer(qKey, selectedOptIndex) {
         const key = `${this.currentClass}-${this.currentSubject}`;
         const quiz = EDUCATION_DATA.content[key]?.quiz || [];
@@ -306,10 +353,110 @@ class App {
         if (this.userAnswers[qKey] !== undefined) return;
         this.userAnswers[qKey] = selectedOptIndex;
 
+        if (window.soundFX) {
+            if (selectedOptIndex === question.correct) window.soundFX.playCorrect?.() || window.soundFX.playVictory?.();
+            else window.soundFX.playWrong?.();
+        }
+
         this.renderQuiz(quiz, this.currentQuizUnit || 'all');
     }
 
-    // Müfredat & Ünite Detayları Render (Genişletilebilir Akordiyon Tasarımı)
+    resetQuiz() {
+        this.userAnswers = {};
+        const key = `${this.currentClass}-${this.currentSubject}`;
+        const quiz = EDUCATION_DATA.content[key]?.quiz || [];
+        this.renderQuiz(quiz, this.currentQuizUnit || 'all');
+    }
+
+    getFlashProgressKey() {
+        return `flashProgress:${this.currentClass}-${this.currentSubject}`;
+    }
+
+    loadFlashProgress() {
+        try {
+            return JSON.parse(localStorage.getItem(this.getFlashProgressKey()) || '{}');
+        } catch {
+            return {};
+        }
+    }
+
+    saveFlashProgress(progress) {
+        localStorage.setItem(this.getFlashProgressKey(), JSON.stringify(progress));
+    }
+
+    renderFlashcards(cards) {
+        const container = document.getElementById('flashcards-container');
+        if (!container) return;
+
+        const defaults = [
+            { id: 'def1', front: 'Işık Yılı bir zaman birimi midir?', back: 'HAYIR! Işık yılı MESAFE / UZAKLIK ölçüsüdür (~9.5 trilyon km).' },
+            { id: 'def2', front: 'Rüzgar hangi basınçtan hangisine eser?', back: 'Yüksek Basınç → Alçak Basınç (Soğuktan → Sıcağa).' }
+        ];
+
+        const list = (cards && cards.length) ? cards : defaults;
+        const progress = this.loadFlashProgress();
+        const knownCount = list.filter(c => progress[c.id] === 'known').length;
+        const learningCount = list.filter(c => progress[c.id] === 'learning').length;
+
+        container.innerHTML = `
+            <div class="flash-progress-bar">
+                <div>
+                    <h3>🃏 Sınav Öncesi Hafıza Kartları</h3>
+                    <p style="color:var(--text-muted); font-size:0.88rem; margin:0.25rem 0 0;">Kartı çevir, sonra durumunu kaydet — ilerlemen bu cihazda saklanır.</p>
+                </div>
+                <div class="flash-stats">
+                    <span class="flash-stat known">✓ Bildiğim: ${knownCount}</span>
+                    <span class="flash-stat learning">↻ Çalışıyorum: ${learningCount}</span>
+                    <span class="flash-stat total">${knownCount}/${list.length}</span>
+                    <button class="btn-reset-flash" onclick="app.resetFlashProgress()">Sıfırla</button>
+                </div>
+            </div>
+            <div class="flashcards-grid">
+                ${list.map(card => {
+                    const status = progress[card.id] || '';
+                    return `
+                        <div class="flashcard-wrap ${status}">
+                            <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                                <div class="card-inner">
+                                    <div class="card-front">
+                                        <span class="card-hint">❓ Soru / Kavram</span>
+                                        <h4>${card.front}</h4>
+                                        <p class="click-hint">Cevabı görmek için tıkla →</p>
+                                    </div>
+                                    <div class="card-back">
+                                        <span class="card-hint">💡 Kesin Bilgi</span>
+                                        <p>${card.back}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flash-actions">
+                                <button class="btn-flash learning ${status === 'learning' ? 'active' : ''}" onclick="event.stopPropagation(); app.markFlashcard('${card.id}', 'learning')">↻ Çalışıyorum</button>
+                                <button class="btn-flash known ${status === 'known' ? 'active' : ''}" onclick="event.stopPropagation(); app.markFlashcard('${card.id}', 'known')">✓ Biliyorum</button>
+                            </div>
+                        </div>
+                    `;
+                }).join('')}
+            </div>
+        `;
+    }
+
+    markFlashcard(id, status) {
+        const progress = this.loadFlashProgress();
+        if (progress[id] === status) delete progress[id];
+        else progress[id] = status;
+        this.saveFlashProgress(progress);
+
+        const key = `${this.currentClass}-${this.currentSubject}`;
+        const cards = EDUCATION_DATA.content[key]?.flashcards;
+        this.renderFlashcards(cards);
+    }
+
+    resetFlashProgress() {
+        localStorage.removeItem(this.getFlashProgressKey());
+        const key = `${this.currentClass}-${this.currentSubject}`;
+        this.renderFlashcards(EDUCATION_DATA.content[key]?.flashcards);
+    }
+
     renderCurriculum(curriculum) {
         const container = document.getElementById('tab-curriculum');
         if (!container) return;
@@ -332,7 +479,6 @@ class App {
                         ⚡ Tüm Detayları Aç / Kapat
                     </button>
                 </div>
-
                 <div class="curriculum-accordion-list">
         `;
 
@@ -342,7 +488,6 @@ class App {
 
             html += `
                 <div class="curriculum-unit-card ${isFirst ? 'expanded' : ''}" id="curr-unit-${item.unitId || idx}">
-                    <!-- Kart Başlık Çubuğu -->
                     <div class="curr-card-header" onclick="app.toggleCurriculumCard(${item.unitId || idx})">
                         <div class="curr-header-left">
                             <span class="curr-unit-badge">${item.unit}</span>
@@ -360,8 +505,6 @@ class App {
                             <span class="curr-arrow-icon">▼</span>
                         </div>
                     </div>
-
-                    <!-- Açılır Detay Gövdesi -->
                     <div class="curr-card-body">
                         ${item.examTip ? `
                             <div class="curr-exam-tip-box">
@@ -369,7 +512,6 @@ class App {
                                 <p>${item.examTip}</p>
                             </div>
                         ` : ''}
-
                         ${hasTopics ? `
                             <div class="curr-topics-title">🎯 Alt Konular & MEB Resmi Kazanımları:</div>
                             <div class="curr-topics-grid">
@@ -384,18 +526,16 @@ class App {
                                 `).join('')}
                             </div>
                         ` : '<p style="color:var(--text-muted); font-size:0.85rem;">Bu ünitenin alt konuları hazırlanıyor.</p>'}
-
-                        <!-- Hızlı Eylem Butonları -->
                         <div class="curr-card-actions">
                             <button class="btn-curr-act" onclick="app.switchInnerTab('tab-notes'); app.filterNotesByUnit('${item.unit}')">
-                                📖 Bu Ünitenin Notlarını Oku &rarr;
+                                📖 Bu Ünitenin Notlarını Oku →
                             </button>
                             <button class="btn-curr-act quiz" onclick="app.switchInnerTab('tab-quiz'); app.filterQuizByUnit('${item.unit}')">
-                                ✍️ Bu Ünitenin Sorularını Çöz &rarr;
+                                ✍️ Bu Ünitenin Sorularını Çöz →
                             </button>
-                            ${(item.unitId === 1 || item.unitId === 2 || item.unitId === 3) ? `
+                            ${(item.unitId === 1 || item.unitId === 2 || item.unitId === 3) && this.currentSubject === 'fen' ? `
                                 <button class="btn-curr-act lab" onclick="app.switchInnerTab('tab-simulations')">
-                                    🎮 Canlı Simülatör & Deney &rarr;
+                                    🎮 Canlı Simülatör & Deney →
                                 </button>
                             ` : ''}
                         </div>
@@ -404,11 +544,7 @@ class App {
             `;
         });
 
-        html += `
-                </div>
-            </div>
-        `;
-
+        html += `</div></div>`;
         container.innerHTML = html;
     }
 
@@ -427,7 +563,6 @@ class App {
         });
     }
 
-    // Gömülü Sunum Modalı
     openPresentationModal(url, title) {
         const modal = document.getElementById('presentation-modal');
         const iframe = document.getElementById('modal-presentation-iframe');
@@ -475,7 +610,8 @@ class App {
             curriculum: [
                 { unit: "1. Ünite", name: "Genel Konu Girişi", hours: "16 Saat", period: "1. Dönem", status: "Hazırlanıyor" }
             ],
-            quiz: []
+            quiz: [],
+            flashcards: []
         };
     }
 
@@ -494,8 +630,54 @@ class App {
             btn.textContent = next === 'light' ? '🌙' : '☀️';
         });
     }
+
+    setupModeToggle() {
+        const btn = document.getElementById('mode-toggle-btn');
+        if (!btn) return;
+        btn.addEventListener('click', () => {
+            this.mode = this.mode === 'teacher' ? 'student' : 'teacher';
+            localStorage.setItem('portalMode', this.mode);
+            this.applyMode();
+        });
+    }
+
+    applyMode() {
+        document.body.classList.toggle('mode-student', this.mode === 'student');
+        document.body.classList.toggle('mode-teacher', this.mode === 'teacher');
+        const btn = document.getElementById('mode-toggle-btn');
+        if (btn) {
+            btn.textContent = this.mode === 'teacher' ? '👨‍🏫 Öğretmen' : '🧑‍🎓 Öğrenci';
+            btn.title = this.mode === 'teacher'
+                ? 'Öğretmen modu: Çark, QR, tahta araçları açık'
+                : 'Öğrenci modu: Sınıf araçları gizli';
+        }
+    }
+
+    setupMobileNav() {
+        const toggle = document.getElementById('mobile-nav-toggle');
+        const panel = document.getElementById('mobile-nav-panel');
+        if (!toggle || !panel) return;
+
+        toggle.addEventListener('click', () => {
+            const open = panel.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            document.body.classList.toggle('nav-open', open);
+        });
+    }
+
+    closeMobileNav() {
+        const panel = document.getElementById('mobile-nav-panel');
+        const toggle = document.getElementById('mobile-nav-toggle');
+        panel?.classList.remove('open');
+        document.body.classList.remove('nav-open');
+        toggle?.setAttribute('aria-expanded', 'false');
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     window.app = new App();
+
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+    }
 });

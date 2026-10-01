@@ -1,0 +1,18 @@
+{
+  "name": "Ders Notlarım",
+  "short_name": "DersNotlarım",
+  "description": "7-8. sınıf Fen ve Türkçe: notlar, testler, simülasyonlar ve akıllı tahta araçları.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "lang": "tr",
+  "icons": [
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
