@@ -9,7 +9,7 @@ const EDUCATION_DATA = {
     classes: [
         { id: "8", name: "8. Sınıf (LGS)", badge: "LGS Hazırlık", active: true },
         { id: "7", name: "7. Sınıf", badge: "Kritik Kademe", active: true },
-        { id: "6", name: "6. Sınıf", badge: "Temel Güçlendirme", active: false },
+        { id: "6", name: "6. Sınıf", badge: "Temel Güçlendirme", active: true },
         { id: "5", name: "5. Sınıf", badge: "Ortaokula İlk Adım", active: true }
     ],
 
@@ -1616,6 +1616,419 @@ const EDUCATION_DATA = {
                 { id: "7t-fc2", front: "Dilek kipleri nelerdir?", back: "gereklik (-meli), istek (-e), dilek-şart (-se), emir." },
                 { id: "7t-fc3", front: "de bağlacı nasıl yazılır?", back: "Her zaman ayrı: 'Sen de gel.'" },
                 { id: "7t-fc4", front: "Durum fiili nesne alır mı?", back: "Genelde almaz: uyumak, oturmak, gülmek..." }
+            ]
+        },
+
+        // ==========================================
+        // 6. SINIF FEN BİLİMLERİ - 1. ÜNİTE (GÜNCEL MEB)
+        // ==========================================
+        "6-fen": {
+            title: "6. Sınıf Fen Bilimleri",
+            subtitle: "1–2. Ünite: Güneş Sistemi + Kuvvet ve Hareket",
+            presentation: {
+                title: "6. Sınıf Fen • 1–2. Ünite",
+                desc: "Güneş sistemi, tutulmalar, bileşke kuvvet, dengelenmiş kuvvetler, sürat ve hız.",
+                file: "#",
+                slidesCount: "Not + Test",
+                badge: "1–2. Ünite Aktif"
+            },
+            notes: [
+                {
+                    unitId: 1,
+                    unitName: "1. Ünite: Güneş Sistemi ve Tutulmalar",
+                    title: "Güneş Sistemi ve Gezegenlerin Sıralaması",
+                    important: "Ezber + Sıra",
+                    badge: "F.6.1.1",
+                    content: `
+                        <p>Güneş etrafında dolanan gezegenler, uydular, asteroitler ve gök taşlarının oluşturduğu sisteme <strong>Güneş sistemi</strong> denir.</p>
+                        <div class="note-highlight">
+                            <strong>Güneş’e yakınlığa göre sıra:</strong><br>
+                            1. Merkür → 2. Venüs → 3. Dünya → 4. Mars → 5. Jüpiter → 6. Satürn → 7. Uranüs → 8. Neptün
+                        </div>
+                        <p style="margin-top:0.6rem; font-size:0.9rem; color:var(--text-muted);">Kısaltma ipucu: <em>MerVenDüMar · JüpSatUraNep</em></p>
+                    `
+                },
+                {
+                    unitId: 1,
+                    unitName: "1. Ünite: Güneş Sistemi ve Tutulmalar",
+                    title: "Karasal (İç) ve Gazsal (Dış) Gezegenler",
+                    important: "Yazılıda Kesin",
+                    badge: "F.6.1.1",
+                    content: `
+                        <div class="comparison-grid">
+                            <div class="comp-card cold">
+                                <h4>🪨 Karasal (İç)</h4>
+                                <ul>
+                                    <li><strong>Merkür, Venüs, Dünya, Mars</strong></li>
+                                    <li>Yüzeyleri kayalık ve katı</li>
+                                    <li>Hacimce daha küçük</li>
+                                    <li>Güneş’e daha yakın</li>
+                                </ul>
+                            </div>
+                            <div class="comp-card warm">
+                                <h4>🌫️ Gazsal (Dış)</h4>
+                                <ul>
+                                    <li><strong>Jüpiter, Satürn, Uranüs, Neptün</strong></li>
+                                    <li>Çeşitli gazlardan oluşur</li>
+                                    <li>Hacimce daha büyük</li>
+                                    <li>Hepsinin uydusu ve halkası var</li>
+                                </ul>
+                            </div>
+                        </div>
+                    `
+                },
+                {
+                    unitId: 1,
+                    unitName: "1. Ünite: Güneş Sistemi ve Tutulmalar",
+                    title: "Gezegenlerin Ayırt Edici Özellikleri",
+                    important: "Tuzak Noktaları",
+                    badge: "F.6.1.1",
+                    content: `
+                        <ul class="styled-list">
+                            <li><strong>Merkür:</strong> Güneş’e en yakın; hacimce <strong>en küçük</strong>; uydu/halka yok; karasal.</li>
+                            <li><strong>Venüs:</strong> 2. sırada; yoğun atmosfer nedeniyle <strong>en sıcak</strong>; uydu/halka yok; karasal.</li>
+                            <li><strong>Dünya:</strong> 3. sırada; <strong>canlı yaşamının olduğu bilinen tek gezegen</strong>; tek uydu (Ay), halka yok; karasal.</li>
+                            <li><strong>Mars:</strong> “Kızıl Gezegen”; uydusu var, halkası yok; karasal.</li>
+                            <li><strong>Jüpiter:</strong> Hacimce <strong>en büyük</strong>; uydu + halka var; gazsal.</li>
+                            <li><strong>Satürn:</strong> <strong>Halkaları en belirgin</strong>; hacimce 2. büyük; uydu + halka; gazsal.</li>
+                            <li><strong>Uranüs:</strong> Hacimce 3. büyük; dönme ekseni eğik (yan yatmış varil gibi); uydu + halka; gazsal.</li>
+                            <li><strong>Neptün:</strong> Güneş’e <strong>en uzak</strong>; gazsalların en küçüğü (sistemde 4. büyük); uydu + halka; gazsal.</li>
+                        </ul>
+                        <div class="note-alert">
+                            ⚠️ <strong>MEB Tuzağı:</strong> “En sıcak = Güneş’e en yakın (Merkür)” YANLIŞ! En sıcak <strong>Venüs</strong>’tür (sera etkisi).
+                        </div>
+                    `
+                },
+                {
+                    unitId: 1,
+                    unitName: "1. Ünite: Güneş Sistemi ve Tutulmalar",
+                    title: "Asteroit, Gök Taşı, Meteor ve Meteorit",
+                    important: "Kavram Karıştırmayın",
+                    badge: "F.6.1.2",
+                    content: `
+                        <ul class="styled-list">
+                            <li><strong>Asteroit Kuşağı:</strong> <u>Mars ile Jüpiter arasında</u>; kaya ve metal parçalarından oluşan bölge.</li>
+                            <li><strong>Gök Taşı:</strong> Asteroitlerden kopmuş küçük kaya/metal parçaları.</li>
+                            <li><strong>Meteor:</strong> Atmosfere giren gök taşının sürtünmeyle ısınıp ışık saçması; halk arasında “yıldız kayması”.</li>
+                            <li><strong>Meteorit:</strong> Atmosferde tamamen yanmayıp <strong>yeryüzüne ulaşan</strong> gök taşı.</li>
+                            <li><strong>Meteor Çukuru:</strong> Meteoritlerin yeryüzünde oluşturduğu çukur.</li>
+                        </ul>
+                        <div class="note-highlight">
+                            <strong>Zincir:</strong> Asteroit → Gök taşı → (atmosfer) Meteor → (yere düşerse) Meteorit → Meteor çukuru
+                        </div>
+                    `
+                },
+                {
+                    unitId: 1,
+                    unitName: "1. Ünite: Güneş Sistemi ve Tutulmalar",
+                    title: "Güneş Tutulması",
+                    important: "Sıra + Evre",
+                    badge: "F.6.1.3",
+                    content: `
+                        <p>Güneş, Dünya ve Ay’ın aynı hizada sıralanmasıyla tutulmalar oluşur; bu, ışığın doğrusal yayıldığının göstergesidir.</p>
+                        <ul class="styled-list">
+                            <li><strong>Sıralama:</strong> Güneş — Ay — Dünya (Ay, Güneş ile Dünya arasındadır).</li>
+                            <li><strong>Ay’ın evresi:</strong> <strong>Yeni Ay</strong></li>
+                            <li><strong>Gözlem:</strong> <strong>Gündüz</strong>; gölgenin düştüğü <strong>dar bir alanda</strong></li>
+                            <li><strong>Süre:</strong> Kısa sürelidir.</li>
+                        </ul>
+                        <div class="note-alert">
+                            ☀️ <strong>Uyarı:</strong> Güneş tutulmasına doğrudan bakmak tehlikelidir; filtreli gözlükle izlenmelidir.
+                        </div>
+                    `
+                },
+                {
+                    unitId: 1,
+                    unitName: "1. Ünite: Güneş Sistemi ve Tutulmalar",
+                    title: "Ay Tutulması",
+                    important: "Karşılaştır",
+                    badge: "F.6.1.3",
+                    content: `
+                        <ul class="styled-list">
+                            <li><strong>Sıralama:</strong> Güneş — Dünya — Ay (Dünya, Güneş ile Ay arasındadır; Ay Dünya’nın gölgesinde kalır).</li>
+                            <li><strong>Ay’ın evresi:</strong> <strong>Dolunay</strong></li>
+                            <li><strong>Gözlem:</strong> <strong>Gece</strong>; daha <strong>geniş bir alanda</strong></li>
+                            <li><strong>Süre:</strong> Güneş tutulmasına göre daha <strong>uzun</strong> sürer.</li>
+                        </ul>
+                        <div class="comparison-grid" style="margin-top:0.75rem;">
+                            <div class="comp-card warm">
+                                <h4>☀️ Güneş Tutulması</h4>
+                                <ul>
+                                    <li>Güneş — Ay — Dünya</li>
+                                    <li>Yeni Ay</li>
+                                    <li>Gündüz · dar alan · kısa</li>
+                                </ul>
+                            </div>
+                            <div class="comp-card cold">
+                                <h4>🌙 Ay Tutulması</h4>
+                                <ul>
+                                    <li>Güneş — Dünya — Ay</li>
+                                    <li>Dolunay</li>
+                                    <li>Gece · geniş alan · daha uzun</li>
+                                </ul>
+                            </div>
+                        </div>
+                    `
+                },
+                // 2. ÜNİTE
+                {
+                    unitId: 2,
+                    unitName: "2. Ünite: Kuvvet ve Hareket",
+                    title: "Kuvvetin Temel Özellikleri",
+                    important: "4 Özellik",
+                    badge: "F.6.2.1",
+                    content: `
+                        <p>Bir cisme uygulanan kuvvet tanımlanırken ve gösterilirken 4 temel özellik kullanılır:</p>
+                        <ul class="styled-list">
+                            <li><strong>Uygulama noktası:</strong> Kuvvetin cisme etki ettiği nokta.</li>
+                            <li><strong>Doğrultu:</strong> Birbirine zıt iki yönü kapsayan hat (ör. Doğu–Batı).</li>
+                            <li><strong>Yön:</strong> Kuvvetin uygulandığı taraf (Doğu, Batı, Kuzey, Güney).</li>
+                            <li><strong>Büyüklük (şiddet):</strong> Dinamometre ile ölçülen kuvvet miktarı; birimi <strong>Newton (N)</strong>; simgesi <strong>F</strong>.</li>
+                        </ul>
+                    `
+                },
+                {
+                    unitId: 2,
+                    unitName: "2. Ünite: Kuvvet ve Hareket",
+                    title: "Bileşke Kuvvet (Net Kuvvet)",
+                    important: "R = …",
+                    badge: "F.6.2.1",
+                    content: `
+                        <p><strong>Tanım:</strong> Bir cisme etki eden birden fazla kuvvetin yaptığı etkiyi tek başına yapabilen kuvvete <strong>bileşke kuvvet (net kuvvet)</strong> denir; simgesi <strong>R</strong>.</p>
+                        <div class="comparison-grid">
+                            <div class="comp-card warm">
+                                <h4>➡️ Aynı doğrultu, aynı yön</h4>
+                                <ul>
+                                    <li>Kuvvetler <strong>toplanır</strong></li>
+                                    <li>Yön ve doğrultu aynı kalır</li>
+                                    <li><strong>R = F₁ + F₂</strong></li>
+                                </ul>
+                            </div>
+                            <div class="comp-card cold">
+                                <h4>↔️ Aynı doğrultu, zıt yön</h4>
+                                <ul>
+                                    <li>Büyükten küçük <strong>çıkarılır</strong></li>
+                                    <li>Yön = büyük kuvvetin yönü</li>
+                                    <li><strong>R = F_büyük − F_küçük</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="note-highlight" style="margin-top:0.75rem;">
+                            <strong>Örnek:</strong> Doğu 8 N + Batı 3 N → R = 5 N, yön <strong>doğu</strong>.
+                        </div>
+                    `
+                },
+                {
+                    unitId: 2,
+                    unitName: "2. Ünite: Kuvvet ve Hareket",
+                    title: "Dengelenmiş ve Dengelenmemiş Kuvvetler",
+                    important: "R = 0 mı?",
+                    badge: "F.6.2.2",
+                    content: `
+                        <div class="comparison-grid">
+                            <div class="comp-card cold">
+                                <h4>⚖️ Dengelenmiş (R = 0)</h4>
+                                <ul>
+                                    <li>Duran cisim <strong>durmaya devam eder</strong></li>
+                                    <li>Hareketli cisim <strong>sabit süratle</strong> devam eder</li>
+                                    <li>Örn: masada kitap, sabit süratle araç, duvarda tablo</li>
+                                </ul>
+                            </div>
+                            <div class="comp-card warm">
+                                <h4>🚗 Dengelenmemiş (R ≠ 0)</h4>
+                                <ul>
+                                    <li>Cisim hızlanabilir, yavaşlayabilir, durabilir veya yön değiştirebilir</li>
+                                    <li>Duruyorsa bileşke kuvvet yönünde harekete geçer</li>
+                                    <li>Örn: düşen elma, hızlanan araba, fırlatılan top</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="note-alert" style="margin-top:0.75rem;">
+                            🛡️ <strong>Dengeleyici kuvvet:</strong> Dengelenmemiş kuvvet etkisindeki cismi dengeye getirmek için R’yi sıfırlayan kuvvettir. Bileşke ile <strong>aynı büyüklük, aynı doğrultu, zıt yön</strong>.
+                        </div>
+                    `
+                },
+                {
+                    unitId: 2,
+                    unitName: "2. Ünite: Kuvvet ve Hareket",
+                    title: "Alınan Yol, Yer Değiştirme, Sürat ve Hız",
+                    important: "Kavram Farkı",
+                    badge: "F.6.2.3",
+                    content: `
+                        <ul class="styled-list">
+                            <li><strong>Alınan yol:</strong> İzlenen yörüngenin toplam uzunluğu (yön gözetilmez).</li>
+                            <li><strong>Yer değiştirme:</strong> İlk konum ile son konum arasındaki en kısa doğrusal ve <strong>yönlü</strong> mesafe.</li>
+                        </ul>
+                        <div class="comparison-grid" style="margin-top:0.75rem;">
+                            <div class="comp-card cold">
+                                <h4>🏃 Sürat</h4>
+                                <ul>
+                                    <li>Birim zamanda alınan yol</li>
+                                    <li>Yönlü değildir</li>
+                                    <li>Birim: m/s veya km/h</li>
+                                </ul>
+                            </div>
+                            <div class="comp-card warm">
+                                <h4>➡️ Hız</h4>
+                                <ul>
+                                    <li>Birim zamandaki yer değiştirme</li>
+                                    <li>Yönlü bir büyüklüktür</li>
+                                    <li>Birim: m/s veya km/h</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="note-highlight" style="margin-top:0.75rem;">
+                            <strong>Sabit süratli hareket:</strong> Eşit zaman aralıklarında eşit yollar alınmasıdır. Sabit süratle giden araç dengelenmiş kuvvet etkisindedir (R = 0).
+                        </div>
+                        <div class="note-alert">
+                            ⚠️ <strong>MEB Tuzağı:</strong> Sürat ile hız aynı kavram değildir; hız yönlüdür.
+                        </div>
+                    `
+                }
+            ],
+            curriculum: [
+                {
+                    unitId: 1,
+                    unit: "1. Ünite",
+                    name: "Güneş Sistemi ve Tutulmalar",
+                    hours: "1. Dönem",
+                    period: "1. Dönem",
+                    status: "Aktif",
+                    examTip: "En sıcak = Venüs (Merkür değil). Asteroit kuşağı = Mars–Jüpiter arası. Güneş tutulması = Yeni Ay; Ay tutulması = Dolunay.",
+                    topics: [
+                        { code: "F.6.1.1", title: "Güneş sistemi ve gezegenler", summary: "Sıralama; karasal (iç) / gazsal (dış); ayırt edici özellikler." },
+                        { code: "F.6.1.2", title: "Asteroit ve gök taşları", summary: "Asteroit kuşağı, gök taşı, meteor, meteorit, meteor çukuru." },
+                        { code: "F.6.1.3", title: "Tutulmalar", summary: "Güneş ve Ay tutulması sıralaması, evre, gözlem alanı ve süre." }
+                    ]
+                },
+                {
+                    unitId: 2,
+                    unit: "2. Ünite",
+                    name: "Kuvvet ve Hareket",
+                    hours: "1. Dönem",
+                    period: "1. Dönem",
+                    status: "Aktif",
+                    examTip: "Zıt yönlü kuvvetlerde R = büyük − küçük; yön büyükte. R = 0 → dengelenmiş (sabit sürat veya durma). Sürat ≠ hız.",
+                    topics: [
+                        { code: "F.6.2.1", title: "Bileşke kuvvet", summary: "Uygulama noktası, doğrultu, yön, büyüklük; aynı/zıt yönlü kuvvetler; R." },
+                        { code: "F.6.2.2", title: "Dengelenmiş / dengelenmemiş", summary: "R = 0 ve R ≠ 0 durumları; dengeleyici kuvvet." },
+                        { code: "F.6.2.3", title: "Sürat ve hız", summary: "Alınan yol, yer değiştirme; sürat–hız farkı; sabit süratli hareket." }
+                    ]
+                }
+            ],
+            quiz: [
+                {
+                    id: "6th-unit1-q1",
+                    unitId: 1,
+                    unitName: "1. Ünite: Güneş Sistemi ve Tutulmalar",
+                    topic: "Karasal / Gazsal",
+                    difficulty: "Temel",
+                    question: "Güneş sistemindeki gezegenler karasal ve gazsal olarak iki gruba ayrılır. Aşağıdaki gezegenlerden hangisi karasal (iç) gezegenler sınıfında yer almaz?",
+                    options: [
+                        "Merkür",
+                        "Venüs",
+                        "Mars",
+                        "Jüpiter"
+                    ],
+                    correct: 3,
+                    explanation: "Karasal (iç) gezegenler Merkür, Venüs, Dünya ve Mars’tır. Jüpiter gazsal (dış) gezegendir."
+                },
+                {
+                    id: "6th-unit1-q2",
+                    unitId: 1,
+                    unitName: "1. Ünite: Güneş Sistemi ve Tutulmalar",
+                    topic: "Asteroit Kuşağı",
+                    difficulty: "Yazılı",
+                    question: "Güneş sisteminde Mars ile Jüpiter gezegenleri arasında bulunan ve içerisinde kaya ile metal parçalarının yer aldığı yapıya ne ad verilir?",
+                    options: [
+                        "Asteroit Kuşağı",
+                        "Meteorit Çukuru",
+                        "Kuiper Kuşağı",
+                        "Samanyolu Halka Bölgesi"
+                    ],
+                    correct: 0,
+                    explanation: "Mars ile Jüpiter arasında yer alan kaya ve metal parçaları bölgesine Asteroit Kuşağı denir."
+                },
+                {
+                    id: "6th-unit1-q3",
+                    unitId: 1,
+                    unitName: "1. Ünite: Güneş Sistemi ve Tutulmalar",
+                    topic: "Güneş Tutulması",
+                    difficulty: "Tuzak",
+                    question: "Güneş tutulması olayı ile ilgili aşağıda verilen ifadelerden hangisi DOĞRUDUR?",
+                    options: [
+                        "Dünya, Güneş ile Ay’ın arasında yer alır.",
+                        "Ay’ın Dolunay evresinde gerçekleşir.",
+                        "Ay, Güneş ile Dünya’nın arasındadır ve Yeni Ay evresinde gerçekleşir.",
+                        "Gece saatlerinde geniş bir alandan çıplak gözle rahatça izlenebilir."
+                    ],
+                    correct: 2,
+                    explanation: "Güneş tutulmasında sıralama Güneş — Ay — Dünya’dır ve Yeni Ay evresinde gerçekleşir. Dolunay Ay tutulmasındadır; doğrudan bakmak tehlikelidir."
+                },
+                {
+                    id: "6th-unit2-q1",
+                    unitId: 2,
+                    unitName: "2. Ünite: Kuvvet ve Hareket",
+                    topic: "Bileşke Kuvvet",
+                    difficulty: "Yazılı",
+                    question: "Bir kutuya doğu yönünde 8 N ve batı yönünde 3 N büyüklüğünde iki kuvvet uygulanmaktadır. Buna göre kutuya etki eden bileşke kuvvetin yönü ve büyüklüğü aşağıdakilerden hangisidir?",
+                    options: [
+                        "Doğu yönünde 11 N",
+                        "Batı yönünde 5 N",
+                        "Doğu yönünde 5 N",
+                        "Batı yönünde 11 N"
+                    ],
+                    correct: 2,
+                    explanation: "Zıt yönlü kuvvetlerde R = 8 − 3 = 5 N; yön büyük kuvvetin yönü olan doğudur."
+                },
+                {
+                    id: "6th-unit2-q2",
+                    unitId: 2,
+                    unitName: "2. Ünite: Kuvvet ve Hareket",
+                    topic: "Dengelenmiş Kuvvet",
+                    difficulty: "Temel",
+                    question: "Aşağıda verilen günlük yaşam durumlarından hangisinde cisim DENGELENMİŞ KUVVETLERİN etkisi altındadır?",
+                    options: [
+                        "Kırmızı ışıkta yavaşlayan otobüs",
+                        "Düz yolda sabit süratle ilerleyen bisiklet",
+                        "Daldan kopup yere doğru hızlanan elma",
+                        "Kalkışa geçen yolcu uçağı"
+                    ],
+                    correct: 1,
+                    explanation: "Sabit süratle ilerleyen bisiklette R = 0’dır; hareket dengelenmiş kuvvetler etkisindedir. Diğerlerinde hız değişimi vardır (R ≠ 0)."
+                },
+                {
+                    id: "6th-unit2-q3",
+                    unitId: 2,
+                    unitName: "2. Ünite: Kuvvet ve Hareket",
+                    topic: "Sürat ve Hız",
+                    difficulty: "Tuzak",
+                    question: "Sürat ve hız kavramları ile ilgili aşağıda verilen ifadelerden hangisi YANLIŞTIR?",
+                    options: [
+                        "Sürat birim zamanda alınan yoldur ve yönlü bir büyüklük değildir.",
+                        "Hız birim zamandaki yer değiştirmedir ve yönlü bir büyüklüktür.",
+                        "Hem süratin hem de hızın birimi m/s veya km/h olabilir.",
+                        "Sürat ile hız birebir aynı kavramlardır, aralarında hiçbir fark yoktur."
+                    ],
+                    correct: 3,
+                    explanation: "Sürat yönsüz, hız yönlüdür; aynı kavram değildir. Bu yüzden D yanlıştır."
+                }
+            ],
+            flashcards: [
+                { id: "6f-fc1", front: "Güneş’e yakınlığa göre gezegen sırası?", back: "Merkür, Venüs, Dünya, Mars, Jüpiter, Satürn, Uranüs, Neptün." },
+                { id: "6f-fc2", front: "Karasal (iç) gezegenler hangileri?", back: "Merkür, Venüs, Dünya, Mars." },
+                { id: "6f-fc3", front: "Gazsal (dış) gezegenler hangileri?", back: "Jüpiter, Satürn, Uranüs, Neptün. Hepsinin uydusu ve halkası vardır." },
+                { id: "6f-fc4", front: "Güneş sisteminin en sıcak gezegeni hangisi? Neden?", back: "Venüs. Atmosferindeki yoğun gazlar (sera etkisi) nedeniyle." },
+                { id: "6f-fc5", front: "Asteroit kuşağı nerede?", back: "Mars ile Jüpiter arasında." },
+                { id: "6f-fc6", front: "Meteor ile meteorit farkı?", back: "Meteor: atmosferde yanan ve ışık saçan gök taşı (yıldız kayması). Meteorit: yeryüzüne ulaşan gök taşı." },
+                { id: "6f-fc7", front: "Güneş tutulması sıralaması ve evresi?", back: "Güneş — Ay — Dünya; Yeni Ay evresinde; gündüz, dar alanda, kısa süreli." },
+                { id: "6f-fc8", front: "Ay tutulması sıralaması ve evresi?", back: "Güneş — Dünya — Ay; Dolunay evresinde; gece, geniş alanda, daha uzun sürer." },
+                { id: "6f-fc9", front: "Kuvvetin 4 temel özelliği nedir?", back: "Uygulama noktası, doğrultu, yön, büyüklük (şiddet). Birim: Newton (N), simge: F." },
+                { id: "6f-fc10", front: "Aynı doğrultulu zıt yönlü kuvvetlerde R nasıl bulunur?", back: "R = F_büyük − F_küçük; yön büyük kuvvetin yönündedir." },
+                { id: "6f-fc11", front: "R = 0 ise cisim nasıl hareket eder?", back: "Dengelenmiş kuvvet: duruyorsa durur; hareketliyorsa sabit süratle devam eder." },
+                { id: "6f-fc12", front: "Dengeleyici kuvvet nedir?", back: "R’yi sıfırlayan kuvvettir; bileşke ile aynı büyüklük ve doğrultuda, zıt yöndedir." },
+                { id: "6f-fc13", front: "Sürat ile hız farkı?", back: "Sürat: birim zamanda alınan yol (yönsüz). Hız: birim zamandaki yer değiştirme (yönlü)." },
+                { id: "6f-fc14", front: "Sabit süratli hareket nedir?", back: "Eşit zaman aralıklarında eşit yollar alınmasıdır." }
             ]
         },
 

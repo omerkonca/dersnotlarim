@@ -6,10 +6,17 @@ class App {
     constructor() {
         this.currentClass = '8';
         this.currentSubject = 'fen';
-        this.currentTab = 'tab-presentation';
+        this.currentMode = 'ogren';
+        this.currentTab = 'tab-notes';
         this.userAnswers = {};
         this.currentQuizUnit = 'all';
         this.mode = localStorage.getItem('portalMode') || 'teacher';
+        this.modeDefaultTabs = {
+            ogren: 'tab-notes',
+            alistirma: 'tab-flashcards',
+            sinav: 'tab-exams',
+            lab: 'tab-presentation'
+        };
 
         this.init();
     }
@@ -46,9 +53,83 @@ class App {
         this.closeMobileNav();
 
         this.renderCourseContent();
-        this.switchInnerTab('tab-presentation');
+        this.updateModeVisibility();
+        this.filterSimulationsForGrade();
+        this.switchMode('ogren');
 
         window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    isChampionNote(note) {
+        if (!note) return false;
+        if (note.unitId === 0) return true;
+        const name = (note.unitName || '').toLowerCase();
+        return name.includes('şampiyon') || name.includes('sampiyon');
+    }
+
+    getLessonNotes(allNotes = []) {
+        return allNotes.filter(n => !this.isChampionNote(n));
+    }
+
+    getChampionNotes(allNotes = []) {
+        return allNotes.filter(n => this.isChampionNote(n));
+    }
+
+    updateModeVisibility() {
+        const key = `${this.currentClass}-${this.currentSubject}`;
+        const data = EDUCATION_DATA.content[key] || {};
+        const isFen = this.currentSubject === 'fen';
+        const hasExams = Array.isArray(data.exams) && data.exams.length > 0;
+        const hasChampion = this.getChampionNotes(data.notes || []).length > 0;
+        const showSinav = hasExams || hasChampion;
+
+        const labBtn = document.getElementById('mode-btn-lab');
+        const sinavBtn = document.getElementById('mode-btn-sinav');
+        if (labBtn) labBtn.hidden = !isFen;
+        if (sinavBtn) sinavBtn.hidden = !showSinav;
+
+        // Sınav alt sekmeleri
+        const examSub = document.querySelector('#sub-tabs-sinav [data-tab="tab-exams"]');
+        const champSub = document.querySelector('#sub-tabs-sinav [data-tab="tab-champion"]');
+        if (examSub) examSub.hidden = !hasExams;
+        if (champSub) champSub.hidden = !hasChampion;
+
+        if (hasExams) this.modeDefaultTabs.sinav = 'tab-exams';
+        else if (hasChampion) this.modeDefaultTabs.sinav = 'tab-champion';
+    }
+
+    filterSimulationsForGrade() {
+        const grade = String(this.currentClass);
+        document.querySelectorAll('#tab-simulations .sim-card').forEach(card => {
+            const grades = (card.getAttribute('data-grades') || '').split(',').map(s => s.trim()).filter(Boolean);
+            const show = !grades.length || grades.includes(grade);
+            card.style.display = show ? '' : 'none';
+        });
+    }
+
+    switchMode(modeId) {
+        const labBtn = document.getElementById('mode-btn-lab');
+        const sinavBtn = document.getElementById('mode-btn-sinav');
+        if (modeId === 'lab' && labBtn?.hidden) modeId = 'ogren';
+        if (modeId === 'sinav' && sinavBtn?.hidden) modeId = 'ogren';
+
+        this.currentMode = modeId;
+
+        document.querySelectorAll('.mode-tab-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.getAttribute('data-mode') === modeId);
+        });
+
+        document.querySelectorAll('.sub-tabs').forEach(row => {
+            row.hidden = row.id !== `sub-tabs-${modeId}`;
+        });
+
+        const defaultTab = this.modeDefaultTabs[modeId] || 'tab-notes';
+        // görünür ilk alt sekmeyi seç
+        const subRow = document.getElementById(`sub-tabs-${modeId}`);
+        const firstVisible = subRow
+            ? Array.from(subRow.querySelectorAll('.sub-tab-btn')).find(b => !b.hidden)
+            : null;
+        this.switchInnerTab(firstVisible?.getAttribute('data-tab') || defaultTab);
     }
 
     renderCourseContent() {
@@ -61,16 +142,19 @@ class App {
 
         this.renderPresentation(data.presentation);
         this.renderNotes(data.notes);
+        this.renderChampion(data.notes);
         this.renderQuiz(data.quiz);
         this.renderFlashcards(data.flashcards);
         this.renderExams(data.exams);
         this.renderCurriculum(data.curriculum);
+        this.updateModeVisibility();
+        this.filterSimulationsForGrade();
     }
 
     switchInnerTab(tabId) {
         this.currentTab = tabId;
 
-        document.querySelectorAll('.inner-tab-btn').forEach(btn => {
+        document.querySelectorAll('.sub-tab-btn').forEach(btn => {
             btn.classList.toggle('active', btn.getAttribute('data-tab') === tabId);
         });
 
@@ -117,16 +201,18 @@ class App {
         const container = document.getElementById('notes-container');
         if (!container) return;
 
-        if (!notes || notes.length === 0) {
+        const lessonNotes = this.getLessonNotes(notes || []);
+
+        if (!lessonNotes.length) {
             container.innerHTML = '<p style="color:var(--text-muted); padding:2rem;">Bu ders için henüz ders notu eklenmedi.</p>';
             return;
         }
 
-        const units = Array.from(new Set(notes.map(n => n.unitName || n.badge))).filter(Boolean);
+        const units = Array.from(new Set(lessonNotes.map(n => n.unitName || n.badge))).filter(Boolean);
 
         const filteredNotes = selectedUnit === 'all'
-            ? notes
-            : notes.filter(n => {
+            ? lessonNotes
+            : lessonNotes.filter(n => {
                 const u = (n.unitName || n.badge || '').toLowerCase();
                 const s = selectedUnit.toLowerCase();
                 return u === s || u.includes(s) || s.includes(u);
@@ -137,12 +223,12 @@ class App {
                 <button class="btn-print-all" onclick="app.printNotes()">🖨️ Tüm Notları Yazdır / PDF</button>
             </div>
             ${units.length > 1 ? `
-                <div class="unit-filter-bar" style="grid-column: 1 / -1; display:flex; gap:0.4rem; overflow-x:auto; padding-bottom:0.5rem; margin-bottom:0.5rem; scrollbar-width:none;">
+                <div class="unit-filter-bar" style="grid-column: 1 / -1;">
                     <button class="unit-pill ${selectedUnit === 'all' ? 'active' : ''}" onclick="app.filterNotesByUnit('all')">
-                        📚 Tüm Üniteler (${notes.length})
+                        📚 Tüm Üniteler (${lessonNotes.length})
                     </button>
                     ${units.map(u => `
-                        <button class="unit-pill ${selectedUnit === u ? 'active' : ''}" onclick="app.filterNotesByUnit('${u}')">
+                        <button class="unit-pill ${selectedUnit === u ? 'active' : ''}" onclick="app.filterNotesByUnit('${u.replace(/'/g, "\\'")}')">
                             ${u}
                         </button>
                     `).join('')}
@@ -152,7 +238,42 @@ class App {
                 <div class="note-card printable-note" data-note-idx="${idx}">
                     <div class="note-top">
                         <div>
-                            ${note.unitName ? `<span style="font-size:0.75rem; color:var(--primary); font-weight:700; display:block; margin-bottom:0.2rem;">${note.unitName}</span>` : ''}
+                            ${note.unitName ? `<span class="note-unit-label">${note.unitName}</span>` : ''}
+                            <h4 style="margin:0;">${note.title}</h4>
+                        </div>
+                        <span class="note-tag">${note.badge}</span>
+                    </div>
+                    <div class="note-body">
+                        ${note.content}
+                    </div>
+                    <div class="note-bottom">
+                        <span>💡 ${note.important}</span>
+                        <button class="btn-print" onclick="app.printSingleNote(this)">🖨️ Yazdır</button>
+                    </div>
+                </div>
+            `).join('')}
+        `;
+    }
+
+    renderChampion(notes) {
+        const container = document.getElementById('champion-container');
+        if (!container) return;
+
+        const champNotes = this.getChampionNotes(notes || []);
+        if (!champNotes.length) {
+            container.innerHTML = '<p style="color:var(--text-muted); padding:2rem; grid-column:1/-1;">Bu ders için henüz hap bilgi eklenmedi.</p>';
+            return;
+        }
+
+        container.innerHTML = `
+            <div class="champion-intro" style="grid-column:1/-1;">
+                <h3>⚡ Sınav Şampiyonu Hap Bilgiler</h3>
+                <p>En çok düşülen tuzaklar ve kafa karıştıran ikililer — yazılı öncesi hızlı tekrar.</p>
+            </div>
+            ${champNotes.map((note, idx) => `
+                <div class="note-card printable-note champion-card" data-note-idx="${idx}">
+                    <div class="note-top">
+                        <div>
                             <h4 style="margin:0;">${note.title}</h4>
                         </div>
                         <span class="note-tag">${note.badge}</span>
@@ -625,14 +746,14 @@ class App {
                             </div>
                         ` : '<p style="color:var(--text-muted); font-size:0.85rem;">Bu ünitenin alt konuları hazırlanıyor.</p>'}
                         <div class="curr-card-actions">
-                            <button class="btn-curr-act" onclick="app.switchInnerTab('tab-notes'); app.filterNotesByUnit('${item.unit}')">
+                            <button class="btn-curr-act" onclick="app.switchMode('ogren'); app.filterNotesByUnit('${item.unit}')">
                                 📖 Bu Ünitenin Notlarını Oku →
                             </button>
-                            <button class="btn-curr-act quiz" onclick="app.switchInnerTab('tab-quiz'); app.filterQuizByUnit('${item.unit}')">
+                            <button class="btn-curr-act quiz" onclick="app.switchMode('alistirma'); app.switchInnerTab('tab-quiz'); app.filterQuizByUnit('${item.unit}')">
                                 ✍️ Bu Ünitenin Sorularını Çöz →
                             </button>
                             ${(item.unitId === 1 || item.unitId === 2 || item.unitId === 3) && this.currentSubject === 'fen' ? `
-                                <button class="btn-curr-act lab" onclick="app.switchInnerTab('tab-simulations')">
+                                <button class="btn-curr-act lab" onclick="app.switchMode('lab'); app.switchInnerTab('tab-simulations')">
                                     🎮 Canlı Simülatör & Deney →
                                 </button>
                             ` : ''}

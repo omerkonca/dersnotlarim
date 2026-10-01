@@ -26,7 +26,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css?v=5.2">
+    <link rel="stylesheet" href="css/style.css?v=5.5">
 </head>
 <body class="mode-teacher">
 
@@ -47,6 +47,7 @@
                 <button class="nav-btn" onclick="app.selectSubject('8', 'fen')">🧪 8. Sınıf Fen</button>
                 <button class="nav-btn" onclick="app.selectSubject('7', 'fen')">🚀 7. Sınıf Fen</button>
                 <button class="nav-btn" onclick="app.selectSubject('8', 'turkce')">📖 8. Türkçe</button>
+                <button class="nav-btn" onclick="app.selectSubject('6', 'fen')">🪐 6. Fen</button>
                 <button class="nav-btn" onclick="app.selectSubject('5', 'fen')">🌞 5. Fen</button>
             </nav>
 
@@ -78,6 +79,7 @@
             <button class="nav-btn" onclick="app.selectSubject('7', 'fen')">🚀 7. Sınıf Fen</button>
             <button class="nav-btn" onclick="app.selectSubject('8', 'turkce')">📖 8. Sınıf Türkçe</button>
             <button class="nav-btn" onclick="app.selectSubject('7', 'turkce')">✍️ 7. Sınıf Türkçe</button>
+            <button class="nav-btn" onclick="app.selectSubject('6', 'fen')">🪐 6. Sınıf Fen</button>
             <button class="nav-btn" onclick="app.selectSubject('5', 'fen')">🌞 5. Sınıf Fen</button>
             <button class="nav-btn" onclick="interactiveLab.startSpeedRun()">⚡ 60sn Hızlı Ateş</button>
             <button class="nav-btn teacher-only" onclick="interactiveLab.toggleQRModal()">📱 QR Paylaş</button>
@@ -209,19 +211,24 @@
                 </div>
 
                 <!-- KART 5: 6. SINIF FEN -->
-                <div class="course-card upcoming">
+                <div class="course-card">
                     <div class="course-card-top">
                         <span class="course-grade-badge">6. Sınıf</span>
-                        <span class="course-status-badge pending">Gelecek Dönem</span>
+                        <span class="course-status-badge">Aktif &bull; 1–2. Ünite</span>
                     </div>
-                    <div class="course-icon">🔬</div>
+                    <div class="course-icon">🪐</div>
                     <h3 class="course-title">6. Sınıf Fen Bilimleri</h3>
                     <p class="course-desc">
-                        Güneş Sistemi, Tutulmalar ve Vücudumuzdaki Sistemler.
+                        Güneş Sistemi, tutulmalar, bileşke kuvvet, dengelenmiş kuvvetler, sürat ve hız.
                     </p>
+                    <div class="course-features">
+                        <span>🪐 1–2. Ünite Notları</span>
+                        <span>❓ 6 Yazılı Sorusu</span>
+                        <span>🃏 14 Hafıza Kartı</span>
+                    </div>
                     <div class="course-actions">
                         <button class="btn-course-primary" onclick="app.selectSubject('6', 'fen')">
-                            İncele &rarr;
+                            Ders Alanına Git &rarr;
                         </button>
                     </div>
                 </div>
@@ -272,36 +279,37 @@
                 </div>
             </div>
 
-            <!-- DERS İÇİ KATEGORİ SEKMELERİ -->
-            <div class="inner-tabs">
-                <button class="inner-tab-btn active" data-tab="tab-presentation" onclick="app.switchInnerTab('tab-presentation')">
-                    🖥️ Akıllı Tahta Sunumu
-                </button>
-                <button class="inner-tab-btn" data-tab="tab-simulations" onclick="app.switchInnerTab('tab-simulations')">
-                    🎮 Canlı Fen Simülatörü
-                </button>
-                <button class="inner-tab-btn" data-tab="tab-flashcards" onclick="app.switchInnerTab('tab-flashcards')">
-                    🃏 Sınav Hafıza Kartları
-                </button>
-                <button class="inner-tab-btn" data-tab="tab-notes" onclick="app.switchInnerTab('tab-notes')">
-                    📖 Konu Notları
-                </button>
-                <button class="inner-tab-btn" data-tab="tab-quiz" onclick="app.switchInnerTab('tab-quiz')">
-                    ✍️ Soru Çözümü
-                </button>
-                <button class="inner-tab-btn" data-tab="tab-exams" onclick="app.switchInnerTab('tab-exams')">
-                    📄 Yazılı Prova
-                </button>
-                <button class="inner-tab-btn" data-tab="tab-curriculum" onclick="app.switchInnerTab('tab-curriculum')">
-                    📅 Müfredat
-                </button>
+            <!-- ANA MODLAR (4) -->
+            <div class="mode-tabs" id="mode-tabs">
+                <button class="mode-tab-btn active" data-mode="ogren" onclick="app.switchMode('ogren')">📖 Öğren</button>
+                <button class="mode-tab-btn" data-mode="alistirma" id="mode-btn-alistirma" onclick="app.switchMode('alistirma')">✍️ Alıştır</button>
+                <button class="mode-tab-btn" data-mode="sinav" id="mode-btn-sinav" onclick="app.switchMode('sinav')">📄 Sınav</button>
+                <button class="mode-tab-btn" data-mode="lab" id="mode-btn-lab" onclick="app.switchMode('lab')">🔬 Laboratuvar</button>
+            </div>
+
+            <!-- ALT SEKMELER -->
+            <div class="sub-tabs" id="sub-tabs-ogren">
+                <button class="sub-tab-btn active" data-tab="tab-notes" onclick="app.switchInnerTab('tab-notes')">Konu Notları</button>
+                <button class="sub-tab-btn" data-tab="tab-curriculum" onclick="app.switchInnerTab('tab-curriculum')">Müfredat</button>
+            </div>
+            <div class="sub-tabs" id="sub-tabs-alistirma" hidden>
+                <button class="sub-tab-btn active" data-tab="tab-flashcards" onclick="app.switchInnerTab('tab-flashcards')">Hafıza Kartları</button>
+                <button class="sub-tab-btn" data-tab="tab-quiz" onclick="app.switchInnerTab('tab-quiz')">Soru Çözümü</button>
+            </div>
+            <div class="sub-tabs" id="sub-tabs-sinav" hidden>
+                <button class="sub-tab-btn active" data-tab="tab-exams" onclick="app.switchInnerTab('tab-exams')">Yazılı Prova</button>
+                <button class="sub-tab-btn" data-tab="tab-champion" onclick="app.switchInnerTab('tab-champion')">Hap Bilgiler</button>
+            </div>
+            <div class="sub-tabs" id="sub-tabs-lab" hidden>
+                <button class="sub-tab-btn active" data-tab="tab-presentation" onclick="app.switchInnerTab('tab-presentation')">Akıllı Tahta</button>
+                <button class="sub-tab-btn" data-tab="tab-simulations" onclick="app.switchInnerTab('tab-simulations')">Simülatör</button>
             </div>
 
             <!-- SEKMELERİN İÇERİĞİ -->
             <div class="tab-contents">
                 
                 <!-- SEKME 1: SUNUM -->
-                <div id="tab-presentation" class="tab-pane active">
+                <div id="tab-presentation" class="tab-pane">
                     <div class="presentation-box" id="presentation-box-content">
                         <!-- JS ile dolacak -->
                     </div>
@@ -312,7 +320,7 @@
                     <div class="sim-wrapper">
                         
                         <!-- Simülasyon 1: 8. Sınıf Mevsim ve Dünya Simülatörü -->
-                        <div class="sim-card">
+                        <div class="sim-card" data-grades="5,7,8">
                             <div class="sim-header">
                                 <h4>🌍 İnteraktif Mevsim & Yörünge Simülatörü</h4>
                                 <span class="sim-badge">Canlı Deney</span>
@@ -362,7 +370,7 @@
                         </div>
 
                         <!-- Simülasyon: Gölge Boyu (Eksen Eğikliği) -->
-                        <div class="sim-card" style="margin-top:1.5rem;">
+                        <div class="sim-card" data-grades="5,8" style="margin-top:1.5rem;">
                             <div class="sim-header">
                                 <h4>🧍 Gölge Boyu Simülatörü (Işın Açısı)</h4>
                                 <span class="sim-badge">Eksen Eğikliği</span>
@@ -402,7 +410,7 @@
                         </div>
 
                         <!-- Simülasyon 2: Rüzgar ve Basınç Simülatörü -->
-                        <div class="sim-card" style="margin-top:1.5rem;">
+                        <div class="sim-card" data-grades="5,8" style="margin-top:1.5rem;">
                             <div class="sim-header">
                                 <h4>🌪️ İnteraktif Rüzgar & Basınç Deneyi</h4>
                                 <span class="sim-badge">Hava Hareketleri</span>
@@ -432,7 +440,7 @@
                         </div>
 
                         <!-- Simülasyon 3: Katı Basıncı Laboratuvarı (Tuğla & Sünger Deneyi) -->
-                        <div class="sim-card" style="margin-top:1.5rem;">
+                        <div class="sim-card" data-grades="8" style="margin-top:1.5rem;">
                             <div class="sim-header">
                                 <h4>🧱 Katı Basıncı Laboratuvarı (Tuğla & Sünger Çökme Deneyi)</h4>
                                 <span class="sim-badge" style="background:rgba(245,158,11,0.2); color:#f59e0b; border:1px solid rgba(245,158,11,0.4);">8. Sınıf LGS</span>
@@ -498,7 +506,7 @@
                         </div>
 
                         <!-- Simülasyon 4: Sıvı Basıncı Laboratuvarı (Derinlik, Sıvı Yoğunluğu & Manometre) -->
-                        <div class="sim-card" style="margin-top:1.5rem;">
+                        <div class="sim-card" data-grades="8" style="margin-top:1.5rem;">
                             <div class="sim-header">
                                 <h4>🧪 Sıvı Basıncı Laboratuvarı (Manometre & Sıvı Yoğunluğu)</h4>
                                 <span class="sim-badge" style="background:rgba(56,189,248,0.2); color:var(--primary); border:1px solid rgba(56,189,248,0.4);">8. Sınıf LGS</span>
@@ -564,7 +572,7 @@
                         </div>
 
                         <!-- Simülasyon 5: DNA Eşleme & Onarım Mini Oyunu (8. Sınıf) -->
-                        <div class="sim-card" style="margin-top:1.5rem;">
+                        <div class="sim-card" data-grades="8" style="margin-top:1.5rem;">
                             <div class="sim-header">
                                 <h4>🧬 DNA Eşleme & Onarım Mini Oyunu</h4>
                                 <span class="sim-badge" style="background:rgba(236,72,153,0.2); color:#ec4899; border:1px solid rgba(236,72,153,0.4);">Oyunlaştırma</span>
@@ -605,7 +613,7 @@
                         </div>
 
                         <!-- Simülasyon 6: Mitoz & Mayoz Evre Sıralama Laboratuvarı (7. Sınıf) -->
-                        <div class="sim-card" style="margin-top:1.5rem;">
+                        <div class="sim-card" data-grades="7" style="margin-top:1.5rem;">
                             <div class="sim-header">
                                 <h4>🔬 Mitoz Bölünme Evre Sıralama Laboratuvarı</h4>
                                 <span class="sim-badge" style="background:rgba(16,185,129,0.2); color:#10b981; border:1px solid rgba(16,185,129,0.4);">7. Sınıf Hücre</span>
@@ -648,7 +656,7 @@
                 </div>
 
                 <!-- SEKME 2: NOTLAR -->
-                <div id="tab-notes" class="tab-pane">
+                <div id="tab-notes" class="tab-pane active">
                     <div class="notes-grid" id="notes-container">
                         <!-- JS ile dolacak -->
                     </div>
@@ -664,6 +672,13 @@
                 <!-- SEKME: YAZILI PROVA -->
                 <div id="tab-exams" class="tab-pane">
                     <div id="exams-container">
+                        <!-- JS ile dolacak -->
+                    </div>
+                </div>
+
+                <!-- SEKME: SINAV ŞAMPİYONU HAP -->
+                <div id="tab-champion" class="tab-pane">
+                    <div id="champion-container" class="notes-grid">
                         <!-- JS ile dolacak -->
                     </div>
                 </div>
@@ -876,12 +891,12 @@ Selin</textarea>
     </footer>
 
     <!-- JS -->
-    <script src="js/sound-fx.js?v=5.2"></script>
-    <script src="js/qrcode.min.js?v=5.2"></script>
-    <script src="js/data.js?v=5.2"></script>
-    <script src="js/board-tools.js?v=5.2"></script>
-    <script src="js/interactive-lab.js?v=5.2"></script>
-    <script src="js/app.js?v=5.2"></script>
+    <script src="js/sound-fx.js?v=5.5"></script>
+    <script src="js/qrcode.min.js?v=5.5"></script>
+    <script src="js/data.js?v=5.5"></script>
+    <script src="js/board-tools.js?v=5.5"></script>
+    <script src="js/interactive-lab.js?v=5.5"></script>
+    <script src="js/app.js?v=5.5"></script>
     <script>
         function toggleWheelModal() {
             const modal = document.getElementById('lucky-wheel-modal');
