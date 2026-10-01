@@ -3934,7 +3934,7 @@ const EDUCATION_DATA = {
                         {
                             id: "6f-e1-q7",
                             section: "🧠 III. Bölüm: Canlılarda Sistemler (3. Ünite)",
-                            unit: "3. Ünite",
+                    unit: "3. Ünite",
                             topic: "Çimlenme",
                             questionNumber: 7,
                             points: 10,
@@ -3985,7 +3985,7 @@ const EDUCATION_DATA = {
                         {
                             id: "6f-e2-q1",
                             section: "🔦 I. Bölüm: Işığın Yansıması ve Renkler (4. Ünite)",
-                            unit: "4. Ünite",
+                    unit: "4. Ünite",
                             topic: "Yansıma Kanunları",
                             questionNumber: 1,
                             points: 10,
@@ -4029,7 +4029,7 @@ const EDUCATION_DATA = {
                         {
                             id: "6f-e2-q5",
                             section: "🧊 II. Bölüm: Maddenin Ayırt Edici Özellikleri (5. Ünite)",
-                            unit: "5. Ünite",
+                    unit: "5. Ünite",
                             topic: "Yoğunluk",
                             questionNumber: 5,
                             points: 10,

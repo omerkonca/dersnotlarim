@@ -26,7 +26,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css?v=7.3">
+    <link rel="stylesheet" href="css/style.css?v=7.4">
 </head>
 <body class="mode-teacher">
 
@@ -103,17 +103,33 @@
     <div id="view-home" class="page-view">
         <section class="home-hero-plane">
             <div class="home-hero-glow" aria-hidden="true"></div>
+            <div class="home-hero-orb home-hero-orb--a" aria-hidden="true"></div>
+            <div class="home-hero-orb home-hero-orb--b" aria-hidden="true"></div>
             <div class="container home-hero">
-                <p class="home-brand">DersNotlarım</p>
-                <h1 class="home-title">Ortaokul Fen &amp; Türkçe çalışma alanı</h1>
-                <p class="home-desc">
-                    MEB müfredatına uygun notlar, testler ve yazılı provası — sınıfını seç, çalışmaya başla.
-                </p>
-                <div class="home-cta-row">
-                    <a class="btn-home-cta" href="#ders-katalogu">Dersleri gör</a>
-                    <span class="home-year">2026–2027</span>
+                <div class="home-hero-copy">
+                    <p class="home-brand"><span>Ders</span>Notlarım</p>
+                    <h1 class="home-title">Sınıfını seç. Çalışmaya başla.</h1>
+                    <p class="home-desc">
+                        MEB’e uygun Fen &amp; Türkçe notları, testler ve yazılı prova — tek yerde.
+                    </p>
+                    <div class="home-cta-row">
+                        <a class="btn-home-cta" href="#ders-katalogu">Dersleri gör</a>
+                        <span class="home-year">2026–2027</span>
+                    </div>
                 </div>
+                <aside class="home-hero-stage" aria-hidden="true">
+                    <div class="hero-stage-board">
+                        <div class="hero-stage-scan"></div>
+                        <div class="hero-stage-lines">
+                            <span></span><span></span><span></span><span></span>
+                        </div>
+                        <div class="hero-stage-mark"></div>
+                    </div>
+                </aside>
             </div>
+            <a class="home-scroll-cue" href="#ders-katalogu" aria-label="Derslere in">
+                <span></span>
+            </a>
         </section>
 
         <div class="container home-catalog" id="ders-katalogu">
@@ -843,12 +859,12 @@ Selin</textarea>
     </footer>
 
     <!-- JS -->
-    <script src="js/sound-fx.js?v=7.3"></script>
-    <script src="js/qrcode.min.js?v=7.3"></script>
-    <script src="js/data.js?v=7.3"></script>
-    <script src="js/board-tools.js?v=7.3"></script>
-    <script src="js/interactive-lab.js?v=7.3"></script>
-    <script src="js/app.js?v=7.3"></script>
+    <script src="js/sound-fx.js?v=7.4"></script>
+    <script src="js/qrcode.min.js?v=7.4"></script>
+    <script src="js/data.js?v=7.4"></script>
+    <script src="js/board-tools.js?v=7.4"></script>
+    <script src="js/interactive-lab.js?v=7.4"></script>
+    <script src="js/app.js?v=7.4"></script>
     <script>
         function toggleWheelModal() {
             const modal = document.getElementById('lucky-wheel-modal');
