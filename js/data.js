@@ -8,7 +8,7 @@ const EDUCATION_DATA = {
 
     classes: [
         { id: "8", name: "8. Sınıf (LGS)", badge: "LGS Hazırlık", active: true },
-        { id: "7", name: "7. Sınıf", badge: "4 Ünite Aktif", active: true },
+        { id: "7", name: "7. Sınıf", badge: "Şampiyon Paketi", active: true },
         { id: "6", name: "6. Sınıf", badge: "Temel Güçlendirme", active: true },
         { id: "5", name: "5. Sınıf", badge: "Ortaokula İlk Adım", active: true }
     ],
@@ -779,15 +779,52 @@ const EDUCATION_DATA = {
         // ==========================================
         "7-fen": {
             title: "7. Sınıf Fen Bilimleri",
-            subtitle: "1–4. Ünite — MEB 2026–2027",
+            subtitle: "1–7. Ünite + Sınav Şampiyonu hap + yazılı prova",
             presentation: {
-                title: "1–4. Ünite: Uzay · Enerji · Sistemler · Optik",
-                desc: "Uzay, kuvvet–enerji, vücut sistemleri, ışığın kırılması ve mercekler.",
+                title: "7. Sınıf Fen · Tüm Üniteler",
+                desc: "1–7. ünite: Uzaydan sürdürülebilir yaşama tam MEB paketi.",
                 file: "7-sinif.html",
-                slidesCount: "Not + Test",
-                badge: "4 Ünite Aktif"
+                slidesCount: "Not + Test + Hap + Yazılı",
+                badge: "Şampiyon Paketi"
             },
             notes: [
+                {
+                    unitId: 0,
+                    unitName: "⚡ Sınav Şampiyonu",
+                    title: "En Çok Düşülen Sınav Tuzakları",
+                    important: "True / False & Traps",
+                    badge: "HAP",
+                    content: `
+                        <div class="note-alert">
+                            🚨 <strong>TUZAK:</strong> “Işık yılı zaman dilimini belirten bir birimdir.”<br>
+                            <strong>CEVAP: YANLIŞ!</strong> Işık yılı zaman birimi değil; ışığın boşlukta 1 yılda katettiği <strong>mesafe / uzaklık</strong> birimidir.
+                        </div>
+                        <div class="note-alert">
+                            🚨 <strong>TUZAK:</strong> “Sırtındaki ağır çantayla düz yolda yatay yürüyen öğrenci fiziksel anlamda iş yapar.”<br>
+                            <strong>CEVAP: YANLIŞ!</strong> İş için kuvvet ile hareket aynı doğrultuda olmalı. Kuvvet yukarı, hareket yatay → iş yok.
+                        </div>
+                        <div class="note-alert">
+                            🚨 <strong>TUZAK:</strong> “Tüm yıldızlar aynı sıcaklıktadır; kırmızı yıldızlar en sıcaktır.”<br>
+                            <strong>CEVAP: YANLIŞ!</strong> En sıcak: <strong>mavi / beyaz</strong> · Orta: <strong>sarı</strong> (Güneş) · En soğuk: <strong>kırmızı</strong>.
+                        </div>
+                        <div class="note-alert">
+                            🚨 <strong>TUZAK:</strong> “Işık az yoğundan çok yoğuna geçerken normalden uzaklaşarak kırılır.”<br>
+                            <strong>CEVAP: YANLIŞ!</strong> Az → çok: <strong>normale yaklaşır</strong>, hız azalır. Normalden uzaklaşma = çok → az.
+                        </div>
+                        <div class="note-alert">
+                            🚨 <strong>TUZAK:</strong> “Hipermetrop için kalın kenarlı mercek kullanılır.”<br>
+                            <strong>CEVAP: YANLIŞ!</strong> Hipermetrop → <strong>ince kenarlı (yakınsak)</strong>. Miyop → kalın kenarlı (ıraksak).
+                        </div>
+                        <div class="note-alert">
+                            🚨 <strong>TUZAK:</strong> “Elementler formüllerle, bileşikler sembollerle gösterilir.”<br>
+                            <strong>CEVAP: YANLIŞ!</strong> Element = <strong>sembol</strong> (Fe, O) · Bileşik = <strong>formül</strong> (H₂O, CO₂).
+                        </div>
+                        <div class="note-alert">
+                            🚨 <strong>TUZAK:</strong> “Ekoloji piramidinde yukarı çıkıldıkça aktarılan enerji artar.”<br>
+                            <strong>CEVAP: YANLIŞ!</strong> Yukarı: enerji ve canlı kütlesi <strong>azalır</strong>; biyolojik birikim <strong>artar</strong>.
+                        </div>
+                    `
+                },
                 {
                     unitId: 1,
                     unitName: "1. Ünite: Uzay Çağı",
@@ -1246,6 +1283,310 @@ const EDUCATION_DATA = {
                             <li><strong>Kullanım:</strong> Dış kapı dürbünü, araç feneri; <strong>miyop</strong> (uzağı görememe) gözlükleri</li>
                         </ul>
                     `
+                },
+                {
+                    unitId: 5,
+                    unitName: "5. Ünite: Maddenin Doğasına Yolculuk",
+                    title: "Atomun Yapısı ve Temel Parçacıklar",
+                    important: "Kütle = Proton + Nötron",
+                    badge: "F.7.5.1",
+                    content: `
+                        <p>Maddeler gözle görülemeyecek kadar küçük taneciklerden oluşur; bu taneciklere <strong>atom</strong> denir. Atom: <strong>çekirdek</strong> + <strong>katmanlar</strong> (elektron bulutu).</p>
+                        <ul class="styled-list">
+                            <li><strong>Çekirdek:</strong> Merkez; kütlenin neredeyse tamamı burada. İçinde proton ve nötron vardır.</li>
+                            <li><strong>Proton (p⁺):</strong> Pozitif yüklü. Atomun kimliğini belirler; farklı maddelerin proton sayıları farklıdır.</li>
+                            <li><strong>Nötron (n⁰):</strong> Yüksüz (nötr) parçacık.</li>
+                            <li><strong>Elektron (e⁻):</strong> Katmanlarda çok hızlı hareket eden negatif yüklü parçacık.</li>
+                        </ul>
+                        <div class="note-highlight">
+                            Proton ≈ nötron kütlesi. Elektron kütlesi yaklaşık <strong>1/2000</strong> kadar — atom kütlesi hesabında sadece proton + nötron alınır.
+                        </div>
+                    `
+                },
+                {
+                    unitId: 5,
+                    unitName: "5. Ünite: Maddenin Doğasına Yolculuk",
+                    title: "Geçmişten Günümüze Atom",
+                    important: "Elektron Bulutu",
+                    badge: "F.7.5.1",
+                    content: `
+                        <ul class="styled-list">
+                            <li><strong>Democritus (MÖ 400):</strong> “Atom” ifadesini ilk kullanan; maddelerin taneciklerden oluştuğunu savundu.</li>
+                            <li><strong>Dalton, Thomson, Rutherford, Bohr:</strong> Deneylerle yükler ve çekirdek kavramı keşfedildi.</li>
+                            <li><strong>Modern atom teorisi:</strong> Elektronlar sabit yörüngede değil; bulunma ihtimalinin yüksek olduğu <strong>elektron bulutunda</strong> çok hızlı hareket eder.</li>
+                        </ul>
+                    `
+                },
+                {
+                    unitId: 5,
+                    unitName: "5. Ünite: Maddenin Doğasına Yolculuk",
+                    title: "Saf Madde: Elementler",
+                    important: "Tek Cins Atom",
+                    badge: "F.7.5.2",
+                    content: `
+                        <p><strong>Saf madde:</strong> Tek çeşit atom veya molekül; kendine özgü erime/kaynama noktası ve yoğunluk.</p>
+                        <p><strong>Element:</strong> Aynı cins atomlardan oluşur; fiziksel/kimyasal yollarla daha basit maddelere ayrılamaz. Dünyada ortak dil için <strong>sembollerle</strong> gösterilir (Latince adın ilk harfi / iki harfi).</p>
+                        <ul class="styled-list">
+                            <li><strong>Atomik:</strong> örn. bakır (Cu), demir (Fe)</li>
+                            <li><strong>Moleküler:</strong> örn. oksijen (O₂), hidrojen (H₂)</li>
+                        </ul>
+                    `
+                },
+                {
+                    unitId: 5,
+                    unitName: "5. Ünite: Maddenin Doğasına Yolculuk",
+                    title: "Saf Madde: Bileşikler",
+                    important: "Kimyasal Ayrılma",
+                    badge: "F.7.5.2",
+                    content: `
+                        <p><strong>Bileşik:</strong> Farklı cins atomlar belirli oranlarda birleşir; kendi özelliklerini kaybeder. Yalnızca <strong>kimyasal</strong> yollarla bileşenlerine ayrılır. <strong>Formüllerle</strong> gösterilir.</p>
+                        <ul class="styled-list">
+                            <li><strong>Su (H₂O):</strong> 2 H + 1 O</li>
+                            <li><strong>Karbondioksit (CO₂):</strong> 1 C + 2 O</li>
+                            <li><strong>Tuz / NaCl:</strong> sodyum + klor</li>
+                            <li><strong>Glikoz (C₆H₁₂O₆):</strong> 6 C + 12 H + 6 O</li>
+                        </ul>
+                        <div class="note-alert">
+                            ⚠️ Element ve bileşik <strong>fiziksel yöntemlerle</strong> daha basit maddelere ayrılamaz. (Karışımlar ayrılabilir.)
+                        </div>
+                    `
+                },
+                {
+                    unitId: 5,
+                    unitName: "5. Ünite: Maddenin Doğasına Yolculuk",
+                    title: "Karışımlar ve Çözünme Hızı",
+                    important: "Homojen vs Heterojen",
+                    badge: "F.7.5.3",
+                    content: `
+                        <p><strong>Karışım:</strong> En az iki farklı madde kendi kimyasal özelliklerini kaybetmeden bir araya gelir. Sembol/formül yok; belirli erime/kaynama noktası yok; <strong>fiziksel</strong> yöntemlerle ayrılır.</p>
+                        <div class="comparison-grid">
+                            <div class="comp-card cold">
+                                <h4>Homojen (çözelti)</h4>
+                                <ul>
+                                    <li>Her yerinde aynı özellik; tek madde gibi görünür</li>
+                                    <li>Çözücü + çözünen</li>
+                                    <li>Örn: tuzlu/şekerli su, hava, gazoz, kolonya</li>
+                                    <li>Tuz çözeltisi elektriği iletir; şeker çözeltisi iletmez</li>
+                                </ul>
+                            </div>
+                            <div class="comp-card warm">
+                                <h4>Heterojen</h4>
+                                <ul>
+                                    <li>Her yerinde aynı özellik göstermez</li>
+                                    <li>Bileşenler gözle / mercekle ayırt edilebilir</li>
+                                    <li>Örn: zeytinyağı–su, çorba, salata, ayran, sis</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="note-highlight" style="margin-top:0.75rem;">
+                            <strong>Çözünme hızını artıranlar:</strong> sıcaklık ↑ · tanecik boyutu ↓ (temas yüzeyi ↑) · karıştırma / çalkalama
+                        </div>
+                    `
+                },
+                {
+                    unitId: 5,
+                    unitName: "5. Ünite: Maddenin Doğasına Yolculuk",
+                    title: "Karışımların Ayrılması",
+                    important: "Ayırma Hunisi · Damıtma",
+                    badge: "F.7.5.4",
+                    content: `
+                        <p>Tanecik boyutu, yoğunluk, çözünürlük, kaynama noktası farkından yararlanılır.</p>
+                        <ul class="styled-list">
+                            <li><strong>Buharlaştırma:</strong> Katı–sıvı homojen (çözelti) → sıvıyı buharlaştırıp katıyı elde et (deniz suyundan tuz)</li>
+                            <li><strong>Ayırma hunisi:</strong> Birbiri içinde çözünmeyen, yoğunluğu farklı sıvı–sıvı (zeytinyağı–su)</li>
+                            <li><strong>Yüzdürme:</strong> Yoğunluğu sıvıdan farklı katılar (kum–talaş + su)</li>
+                            <li><strong>Damıtma / ayrımsal damıtma:</strong> Kaynama noktaları farklı sıvı–sıvı homojen (alkol–su)</li>
+                            <li><strong>Mıknatısla ayırma:</strong> Demir, nikel, kobalt içeren karışımlar</li>
+                        </ul>
+                    `
+                },
+                {
+                    unitId: 6,
+                    unitName: "6. Ünite: Elektriklenme",
+                    title: "Elektriklenme ve Yük Durumları",
+                    important: "Elektron Kazanma / Kaybetme",
+                    badge: "F.7.6.1",
+                    content: `
+                        <p><strong>Elektriklenme:</strong> Atomların elektron kazanması veya kaybetmesiyle yük yer değiştirmesidir.</p>
+                        <ul class="styled-list">
+                            <li><strong>Proton (+):</strong> Pozitif · <strong>Elektron (−):</strong> Negatif · <strong>Nötron:</strong> Yüksüz</li>
+                            <li><strong>Pozitif cisim:</strong> + yük miktarı − yükten fazla</li>
+                            <li><strong>Negatif cisim:</strong> − yük miktarı + yükten fazla</li>
+                            <li><strong>Nötr cisim:</strong> + ve − yük miktarları eşit</li>
+                        </ul>
+                    `
+                },
+                {
+                    unitId: 6,
+                    unitName: "6. Ünite: Elektriklenme",
+                    title: "Yüklü Cisimlerin Birbirine Etkisi",
+                    important: "Aynı İter · Zıt Çeker",
+                    badge: "F.7.6.1",
+                    content: `
+                        <div class="comparison-grid">
+                            <div class="comp-card cold">
+                                <h4>Aynı yükler</h4>
+                                <ul>
+                                    <li>+ / + veya − / −</li>
+                                    <li>Birbirini <strong>iter</strong></li>
+                                </ul>
+                            </div>
+                            <div class="comp-card warm">
+                                <h4>Zıt yükler</h4>
+                                <ul>
+                                    <li>+ / −</li>
+                                    <li>Birbirini <strong>çeker</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="note-alert" style="margin-top:0.75rem;">
+                            💡 Nötr–nötr: itme/çekme yok. <strong>Yüklü + nötr</strong> yaklaşınca aralarında <strong>çekme</strong> oluşur.
+                        </div>
+                    `
+                },
+                {
+                    unitId: 6,
+                    unitName: "6. Ünite: Elektriklenme",
+                    title: "Temaslı Elektriklenme: Sürtünme ve Dokunma",
+                    important: "Sürtünme = Zıt · Dokunma = Aynı",
+                    badge: "F.7.6.2",
+                    content: `
+                        <p>Elektriklenme <strong>temaslı</strong> veya <strong>temassız</strong> olur.</p>
+                        <p><strong>Sürtünme:</strong> Nötr iki cisim sürtülünce elektron transferi olur; biri (−), diğeri (+) yüklenir → <strong>zıt yük</strong>.</p>
+                        <ul class="styled-list">
+                            <li><strong>Plastik (ebonit) + yün:</strong> elektronde yün → plastik · plastik (−), yün (+)</li>
+                            <li><strong>Cam + ipek:</strong> elektron cam → ipek · cam (+), ipek (−)</li>
+                        </ul>
+                        <div class="note-highlight">
+                            <strong>Dokunma:</strong> Yüklü cisim iletken cisme dokununca yük paylaşılır → son durumda <strong>aynı tür</strong> yük.
+                        </div>
+                    `
+                },
+                {
+                    unitId: 6,
+                    unitName: "6. Ünite: Elektriklenme",
+                    title: "Temassız (Etki / Tesir) Elektriklenme",
+                    important: "Temas Yok · Yaklaştırma",
+                    badge: "F.7.6.2",
+                    content: `
+                        <p>Temas olmadan, yüklü cismin iletken nötr cisme <strong>yaklaştırılmasıyla</strong> gerçekleşir. Yüklü cisim zıt yükleri yakın tarafa çeker, aynı tür yükleri uzak tarafa iter.</p>
+                    `
+                },
+                {
+                    unitId: 6,
+                    unitName: "6. Ünite: Elektriklenme",
+                    title: "Elektroskop",
+                    important: "Yük Var mı? Türü Ne?",
+                    badge: "F.7.6.3",
+                    content: `
+                        <p><strong>Elektroskop:</strong> Cismin elektrikle yüklü olup olmadığını ve yüklüyse <strong>+ veya −</strong> türünü tespit eden alettir. Dokunma ve etki ile elektriklenme ilkeleriyle çalışır.</p>
+                    `
+                },
+                {
+                    unitId: 6,
+                    unitName: "6. Ünite: Elektriklenme",
+                    title: "Teknoloji, Şimşek ve Yıldırım",
+                    important: "Şimşek ≠ Yıldırım",
+                    badge: "F.7.6.3",
+                    content: `
+                        <ul class="styled-list">
+                            <li><strong>Otomobil / beyaz eşya boyama:</strong> Sprey ve yüzey zıt yük → boya eşit dağılır</li>
+                            <li><strong>Lazer yazıcı:</strong> Toner tozları elektrostatik çekimle kâğıda yapışır</li>
+                            <li><strong>Elektrostatik baca filtresi:</strong> Duman, is, yağ partiküllerini tutar</li>
+                            <li><strong>Klima / süpürge:</strong> Toz ve duman tutulması</li>
+                            <li><strong>Parmak izi:</strong> Tozlama ile iz üzerine yapışma</li>
+                        </ul>
+                        <div class="note-alert">
+                            ⚡ <strong>Şimşek:</strong> Bulutlar arası yük aktarımı · <strong>Yıldırım:</strong> Bulut–yeryüzü arası şiddetli yük aktarımı
+                        </div>
+                    `
+                },
+                {
+                    unitId: 7,
+                    unitName: "7. Ünite: Sürdürülebilir Yaşam ve Enerji",
+                    title: "Besin Zinciri: Üretici, Tüketici, Ayrıştırıcı",
+                    important: "Ayrıştırıcı Her Basamakta",
+                    badge: "F.7.7.1",
+                    content: `
+                        <p><strong>Besin zinciri:</strong> Ekosistemde madde ve enerjinin organizmadan organizmaya besin biçiminde aktarılmasıdır.</p>
+                        <ul class="styled-list">
+                            <li><strong>Üreticiler:</strong> Güneş ışığıyla kendi besinini üretir (yeşil bitkiler, bazı algler/bakteriler). Piramidin en alt–en geniş basamağı.</li>
+                            <li><strong>Tüketiciler:</strong> Besini dışarıdan alır. Birincil = otçul (üreticiyle beslenir); ikincil/üçüncül = etçil veya hepsiçil.</li>
+                            <li><strong>Ayrıştırıcılar (çürükçüller):</strong> Mantarlar ve bazı bakteriler; atık ve ölü organizmaları çürüterek maddeyi ekosisteme döndürür. <strong>Her basamakta bulunabilir.</strong></li>
+                        </ul>
+                    `
+                },
+                {
+                    unitId: 7,
+                    unitName: "7. Ünite: Sürdürülebilir Yaşam ve Enerji",
+                    title: "Besin Ağı",
+                    important: "Zincirler Birleşir",
+                    badge: "F.7.7.1",
+                    content: `
+                        <p>Canlılar tek zincirle sınırlı değildir; bir canlı birden fazla canlıyla beslenebilir. Birden çok besin zincirinin bir arada oluşturduğu yapıya <strong>besin ağı</strong> denir.</p>
+                    `
+                },
+                {
+                    unitId: 7,
+                    unitName: "7. Ünite: Sürdürülebilir Yaşam ve Enerji",
+                    title: "Ekoloji Piramidi ve Enerji Akışı",
+                    important: "Yukarı: Enerji ↓ · Birikim ↑",
+                    badge: "F.7.7.1",
+                    content: `
+                        <p><strong>Ekoloji piramidi:</strong> Canlı sayısı, enerji akışı ve toplam canlı kütlesini gösteren model. Her alan = beslenme basamağı. En altta üreticiler, üstte tüketiciler.</p>
+                        <div class="note-highlight">
+                            <strong>Aşağıdan yukarı çıkıldıkça:</strong>
+                            <ul class="styled-list">
+                                <li>Aktarılan <strong>enerji azalır</strong> (büyük kısım yaşamsal faaliyetlerde harcanır)</li>
+                                <li>Toplam canlı <strong>kütlesi ve birey sayısı azalır</strong></li>
+                                <li>Bireysel <strong>vücut büyüklüğü genellikle artar</strong></li>
+                                <li><strong>Biyolojik birikim artar</strong> (atılamayan zehirli maddelerin dokularda birikmesi)</li>
+                            </ul>
+                        </div>
+                    `
+                },
+                {
+                    unitId: 7,
+                    unitName: "7. Ünite: Sürdürülebilir Yaşam ve Enerji",
+                    title: "Su Kaynakları ve Atık Su",
+                    important: "Atık Yağı Lavaboya Dökme",
+                    badge: "F.7.7.2",
+                    content: `
+                        <ul class="styled-list">
+                            <li><strong>Tatlı su:</strong> Kullanılabilir miktar kısıtlıdır; en büyük kısmı buzullardadır. Kullanım: nehir, göl, yer altı suları.</li>
+                            <li><strong>Atık su:</strong> Evsel, endüstriyel veya tarımsal kullanımla kirlenmiş / özellikleri değişmiş su.</li>
+                            <li><strong>Su arıtma tesisleri:</strong> Atık suyu arındırıp çevreye kazandırır; su döngüsünü korur.</li>
+                        </ul>
+                        <div class="note-alert">
+                            ⚠️ Atık yağları lavaboya dökmemek kanalizasyon ve su kaynaklarının korunması için kritiktir.
+                        </div>
+                    `
+                },
+                {
+                    unitId: 7,
+                    unitName: "7. Ünite: Sürdürülebilir Yaşam ve Enerji",
+                    title: "Su Ayak İzi",
+                    important: "Doğrudan + Dolaylı Su",
+                    badge: "F.7.7.2",
+                    content: `
+                        <p><strong>Su ayak izi:</strong> Mal/hizmet üretimi ve günlük tüketimde harcanan <strong>doğrudan ve dolaylı (görünmez)</strong> toplam su miktarını gösteren ölçüttür.</p>
+                        <p>Örn: Bir tişört veya akıllı telefonun ham maddeden mağazaya yolculuğunda binlerce litre görünmez su harcanır. İhtiyaçtan fazla ürün almak su israfıdır.</p>
+                    `
+                },
+                {
+                    unitId: 7,
+                    unitName: "7. Ünite: Sürdürülebilir Yaşam ve Enerji",
+                    title: "Sürdürülebilir Yaşam ve Tasarruf",
+                    important: "Geri Dönüşüm · Atık Yağ",
+                    badge: "F.7.7.2",
+                    content: `
+                        <p><strong>Sürdürülebilir yaşam:</strong> Gelecek nesillerin ihtiyaçlarını tehlikeye atmadan bugünün gereksinimlerini karşılamaktır.</p>
+                        <ul class="styled-list">
+                            <li><strong>Su:</strong> Musluğu boşuna akıtmamak, damlayan bataryayı tamir etmek</li>
+                            <li><strong>Gıda / enerji:</strong> İhtiyaç kadar almak, boşa yanan lambayı söndürmek</li>
+                            <li><strong>Dönüşüm:</strong> Kâğıt, plastik, cam, metal geri dönüşümü; atık yağların toplanması</li>
+                        </ul>
+                    `
                 }
             ],
             curriculum: [
@@ -1301,6 +1642,48 @@ const EDUCATION_DATA = {
                     topics: [
                         { code: "F.7.4.1", title: "Işığın kırılması", summary: "Tanım; normale yaklaşma/uzaklaşma; dik geliş; görünür derinlik." },
                         { code: "F.7.4.2", title: "Mercekler", summary: "Optik merkez; ince/kalın kenarlı; odak; kullanım; yangın uyarısı." }
+                    ]
+                },
+                {
+                    unitId: 5,
+                    unit: "5. Ünite",
+                    name: "Maddenin Doğasına Yolculuk",
+                    hours: "2. Dönem",
+                    period: "2. Dönem",
+                    status: "Aktif",
+                    examTip: "Atom kütlesi ≈ p + n. Safra değil — saf madde: element/bileşik. Bileşik fiziksel yolla ayrılmaz. Zeytinyağı–su = ayırma hunisi. Çözünme hızı: sıcaklık + toz + karıştırma.",
+                    topics: [
+                        { code: "F.7.5.1", title: "Maddenin tanecikli yapısı", summary: "Atom; p⁺ n⁰ e⁻; modeller; modern elektron bulutu." },
+                        { code: "F.7.5.2", title: "Saf maddeler", summary: "Element ve bileşik; sembol/formül; örnekler." },
+                        { code: "F.7.5.3", title: "Karışımlar", summary: "Homojen/heterojen; çözünme hızı faktörleri." },
+                        { code: "F.7.5.4", title: "Karışımların ayrılması", summary: "Buharlaştırma, ayırma hunisi, yüzdürme, damıtma, mıknatıs." }
+                    ]
+                },
+                {
+                    unitId: 6,
+                    unit: "6. Ünite",
+                    name: "Elektriklenme",
+                    hours: "2. Dönem",
+                    period: "2. Dönem",
+                    status: "Aktif",
+                    examTip: "Cam+ipek: cam +, ipek −. Sürtünme→zıt yük; dokunma→aynı yük. Elektroskop = yük varlığı/türü. Şimşek=bulutlar arası; yıldırım=bulut–yer.",
+                    topics: [
+                        { code: "F.7.6.1", title: "Elektrik yükleri", summary: "Elektriklenme; +, −, nötr; itme–çekme." },
+                        { code: "F.7.6.2", title: "Elektriklenme çeşitleri", summary: "Sürtünme, dokunma, etki (tesir)." },
+                        { code: "F.7.6.3", title: "Elektroskop ve uygulamalar", summary: "Elektroskop; teknoloji; şimşek–yıldırım." }
+                    ]
+                },
+                {
+                    unitId: 7,
+                    unit: "7. Ünite",
+                    name: "Sürdürülebilir Yaşam ve Enerji",
+                    hours: "2. Dönem",
+                    period: "2. Dönem",
+                    status: "Aktif",
+                    examTip: "Piramitte yukarı: enerji ↓, biyolojik birikim ↑. Ayrıştırıcı her basamakta. Su ayak izi = doğrudan + dolaylı su. Fazla kıyafet almak tasarruf değildir.",
+                    topics: [
+                        { code: "F.7.7.1", title: "Besin zinciri ve enerji akışı", summary: "Üretici–tüketici–ayrıştırıcı; besin ağı; ekoloji piramidi; biyolojik birikim." },
+                        { code: "F.7.7.2", title: "Sürdürülebilir yaşam", summary: "Su kaynakları; atık su; su ayak izi; tasarruf ve geri dönüşüm." }
                     ]
                 }
             ],
@@ -1560,9 +1943,210 @@ const EDUCATION_DATA = {
                     ],
                     correct: 1,
                     explanation: "Su dolu pet şişe ince kenarlı mercek gibi davranır; güneş ışığını bir noktada toplayarak tutuşmaya yol açabilir."
+                },
+                {
+                    id: "7-q17",
+                    unitId: 5,
+                    unitName: "5. Ünite: Maddenin Doğasına Yolculuk",
+                    topic: "Atomun Yapısı",
+                    difficulty: "Klasik",
+                    question: "Atomun yapısındaki temel parçacıklar ile ilgili hangisi DOĞRUDUR?",
+                    options: [
+                        "Elektronlar pozitif yüklüdür ve atomun çekirdeğinde yer alır.",
+                        "Atomun kütlesinin neredeyse tamamını çekirdekteki proton ve nötronlar oluşturur.",
+                        "Nötronlar katmanlarda çok hızlı hareket eden negatif yüklü parçacıklardır.",
+                        "Farklı maddelerin atomlarındaki proton sayıları her zaman eşittir."
+                    ],
+                    correct: 1,
+                    explanation: "Kütlenin neredeyse tamamı çekirdekteki proton ve nötronlardadır. Elektron negatif ve katmanlardadır; proton sayısı maddeye özgüdür."
+                },
+                {
+                    id: "7-q18",
+                    unitId: 5,
+                    unitName: "5. Ünite: Maddenin Doğasına Yolculuk",
+                    topic: "Element ve Bileşik",
+                    difficulty: "Tuzak Soru",
+                    question: "Bileşikler ve elementler ile ilgili karşılaştırmalardan hangisi YANLIŞTIR?",
+                    options: [
+                        "Elementler tek cins atomdan, bileşikler farklı cins atomlardan oluşur.",
+                        "Elementler sembollerle, bileşikler formüllerle gösterilir.",
+                        "Bileşiği oluşturan elementler kendi kimyasal özelliklerini kaybederler.",
+                        "Hem elementler hem bileşikler fiziksel yöntemlerle daha basit maddelere ayrıştırılabilir."
+                    ],
+                    correct: 3,
+                    explanation: "Element ve bileşik fiziksel yöntemlerle ayrılmaz. Bileşikler yalnızca kimyasal yollarla bileşenlerine ayrılabilir."
+                },
+                {
+                    id: "7-q19",
+                    unitId: 5,
+                    unitName: "5. Ünite: Maddenin Doğasına Yolculuk",
+                    topic: "Çözünme Hızı",
+                    difficulty: "Klasik",
+                    question: "Çay bardağına atılan şekerin daha HIZLI çözünmesi için öğrenci ne yapmalıdır?",
+                    options: [
+                        "Çayın sıcaklığını düşürüp küp şeker atmak",
+                        "Çayın sıcaklığını artırıp toz şeker atmak ve çayı karıştırmak",
+                        "Çayı buzdolabında soğutarak karıştırmak",
+                        "Şekeri tek parça hâlinde atıp karıştırmadan beklemek"
+                    ],
+                    correct: 1,
+                    explanation: "Sıcaklık ↑, tanecik boyutu ↓ (toz şeker) ve karıştırma çözünme hızını artırır."
+                },
+                {
+                    id: "7-q20",
+                    unitId: 5,
+                    unitName: "5. Ünite: Maddenin Doğasına Yolculuk",
+                    topic: "Ayırma Hunisi",
+                    difficulty: "Yazılı Seviyesi",
+                    question: "Birbiri içinde çözünmeyen, yoğunlukları farklı zeytinyağı–su karışımını ayırmak için en uygun malzeme ve yöntem hangisidir?",
+                    options: [
+                        "Buharlaştırma kabı — buharlaştırma",
+                        "Ayırma hunisi — yoğunluk farkı ile ayırma",
+                        "Liebig soğutucusu — ayrımsal damıtma",
+                        "Elek — tanecik boyutu farkı"
+                    ],
+                    correct: 1,
+                    explanation: "Zeytinyağı–su heterojen sıvı–sıvı karışımdır; ayırma hunisi ile yoğunluk farkından yararlanılarak ayrılır."
+                },
+                {
+                    id: "7-q21",
+                    unitId: 6,
+                    unitName: "6. Ünite: Elektriklenme",
+                    topic: "Sürtünme ile Elektriklenme",
+                    difficulty: "Klasik",
+                    question: "Nötr cam çubuk ipek kumaşa sürtüldüğünde yük değişimi ve son yük durumları için hangisi DOĞRUDUR?",
+                    options: [
+                        "Cam çubuk elektron kazanarak (−), ipek elektron kaybederek (+) yüklenir.",
+                        "Cam çubuk elektron kaybederek (+), ipek elektron kazanarak (−) yüklenir.",
+                        "Her iki cisim de pozitif (+) yük ile yüklenir.",
+                        "Cisimler arasında proton alışverişi gerçekleşir."
+                    ],
+                    correct: 1,
+                    explanation: "Camdan ipeğe elektron geçer: cam pozitif (+), ipek negatif (−) olur. Proton transferi olmaz."
+                },
+                {
+                    id: "7-q22",
+                    unitId: 6,
+                    unitName: "6. Ünite: Elektriklenme",
+                    topic: "Teknoloji ve Doğa",
+                    difficulty: "Tuzak Soru",
+                    question: "Elektriklenmenin teknolojideki kullanım alanları ile ilgili hangisi YANLIŞTIR?",
+                    options: [
+                        "Araç boyamada sprey ve yüzey zıt yüklerle yüklenerek boyanın eşit dağılması sağlanır.",
+                        "Lazer yazıcılarda toner tozlarının kâğıda yapışmasında elektrostatik çekimden yararlanılır.",
+                        "Bacadaki duman ve is partiküllerini tutmak için elektrostatik baca filtreleri kullanılır.",
+                        "Elektriklenme sadece laboratuvarda suni olarak oluşur; doğa olaylarında görülmez."
+                    ],
+                    correct: 3,
+                    explanation: "Elektriklenme doğada da görülür: şimşek (bulutlar arası) ve yıldırım (bulut–yeryüzü)."
+                },
+                {
+                    id: "7-q23",
+                    unitId: 6,
+                    unitName: "6. Ünite: Elektriklenme",
+                    topic: "Elektroskop",
+                    difficulty: "Klasik",
+                    question: "Bir cismin elektrikle yüklü olup olmadığını ve yüklüyse yükünün cinsini tespit etmeye yarayan araç hangisidir?",
+                    options: [
+                        "Dinamometre",
+                        "Elektroskop",
+                        "Ampermetre",
+                        "Termometre"
+                    ],
+                    correct: 1,
+                    explanation: "Elektroskop yük varlığını ve türünü (+ / −) tespit eder."
+                },
+                {
+                    id: "7-q24",
+                    unitId: 6,
+                    unitName: "6. Ünite: Elektriklenme",
+                    topic: "Dokunma ile Elektriklenme",
+                    difficulty: "Yazılı Seviyesi",
+                    question: "Dokunma ile elektriklenme sonucunda etkileşen iki iletken cismin son yük durumları için hangisi söylenebilir?",
+                    options: [
+                        "Her zaman zıt yükle yüklenirler.",
+                        "Her zaman aynı tür elektrik yükü ile yüklenirler.",
+                        "Biri mutlaka nötr kalır.",
+                        "Yük transferi gerçekleşmez."
+                    ],
+                    correct: 1,
+                    explanation: "Dokunmada yük paylaşılır; cisimler son durumda aynı tür yükle yüklenir. Zıt yük sürtünme sonucudur."
+                },
+                {
+                    id: "7-q25",
+                    unitId: 7,
+                    unitName: "7. Ünite: Sürdürülebilir Yaşam ve Enerji",
+                    topic: "Ekoloji Piramidi",
+                    difficulty: "Yazılı Seviyesi",
+                    question: "Ekoloji piramidinde üreticilerden tüketicilere (aşağıdan yukarıya) çıkıldıkça hangisi DOĞRUDUR?",
+                    options: [
+                        "Aktarılan enerji miktarı ve biyolojik birikim artar.",
+                        "Toplam canlı kütlesi artar, zehirli madde birikimi azalır.",
+                        "Aktarılan enerji miktarı azalırken dokulardaki biyolojik birikim artar.",
+                        "Birey sayısı artar, vücut büyüklüğü azalır."
+                    ],
+                    correct: 2,
+                    explanation: "Yukarı çıkıldıkça aktarılan enerji azalır; biyolojik birikim artar. Kütle ve birey sayısı genellikle azalır."
+                },
+                {
+                    id: "7-q26",
+                    unitId: 7,
+                    unitName: "7. Ünite: Sürdürülebilir Yaşam ve Enerji",
+                    topic: "Ayrıştırıcılar",
+                    difficulty: "Klasik",
+                    question: "Besin zincirindeki ayrıştırıcı (çürükçül) canlılar ile ilgili hangisi DOĞRUDUR?",
+                    options: [
+                        "Sadece ekoloji piramidinin en üst basamağında yer alırlar.",
+                        "Güneş ışığını kullanarak kendi besinlerini üretirler.",
+                        "Canlı atıklarını ve ölü organizmaları parçalayarak besin zincirinin her basamağında görev yaparlar.",
+                        "Yalnızca birincil tüketicilerle beslenirler."
+                    ],
+                    correct: 2,
+                    explanation: "Ayrıştırıcılar (mantar, bazı bakteriler) her basamakta bulunabilir; atık ve ölü organizmaları parçalar."
+                },
+                {
+                    id: "7-q27",
+                    unitId: 7,
+                    unitName: "7. Ünite: Sürdürülebilir Yaşam ve Enerji",
+                    topic: "Su Ayak İzi",
+                    difficulty: "Klasik",
+                    question: "Bir ürünün ham maddeden tüketiciye kadar tüm süreçte tüketilen doğrudan ve dolaylı su miktarını gösteren ölçüte ne ad verilir?",
+                    options: [
+                        "Su ayak izi",
+                        "Biyolojik birikim",
+                        "Atık su arıtımı",
+                        "Karbon yükü"
+                    ],
+                    correct: 0,
+                    explanation: "Su ayak izi, doğrudan ve dolaylı (görünmez) toplam su tüketimini gösteren ölçüttür."
+                },
+                {
+                    id: "7-q28",
+                    unitId: 7,
+                    unitName: "7. Ünite: Sürdürülebilir Yaşam ve Enerji",
+                    topic: "Sürdürülebilir Yaşam",
+                    difficulty: "Tuzak Soru",
+                    question: "Hangisi kaynakların tasarruflu kullanımına ve sürdürülebilir yaşama katkı sağlayan davranışlar arasında YER ALMAZ?",
+                    options: [
+                        "Kızartmalık atık yağların biriktirilip geri dönüşüm merkezlerine teslim edilmesi",
+                        "Kullanılmış kâğıt, cam ve plastik atıkların geri dönüşüm kutularına atılması",
+                        "İhtiyaçtan fazla tekstil ürünü ve kıyafet satın alınması",
+                        "Evsel atık suların arıtma tesislerinde işlenerek doğaya kazandırılması"
+                    ],
+                    correct: 2,
+                    explanation: "İhtiyaçtan fazla ürün almak su ve kaynak israfına yol açar; sürdürülebilir yaşama katkı sağlamaz."
                 }
             ],
             flashcards: [
+                { id: "7fc-1", unitId: 1, front: "Türkiye'nin ilk yerli ve millî haberleşme uydusunun adı nedir?", back: "Türksat 6A uydusudur." },
+                { id: "7fc-2", unitId: 1, front: "Alper Gezeravcı ISS'de kaç bilimsel deney yapmıştır?", back: "Uluslararası Uzay İstasyonu'nda (ISS) 13 farklı bilimsel deney gerçekleştirmiştir." },
+                { id: "7fc-3", unitId: 2, front: "Fiziksel anlamda iş birimi nedir ve hangi simgeyle gösterilir?", back: "İş birimi Joule'dur ve 'J' harfi ile gösterilir." },
+                { id: "7fc-4", unitId: 2, front: "Kinetik enerji hangi iki temel değişkene bağlıdır?", back: "Cismin kütlesine ve hızına bağlıdır (her ikisiyle de doğru orantılıdır)." },
+                { id: "7fc-5", unitId: 3, front: "Karaciğerin ürettiği safra sıvısının sindirimdeki görevi nedir?", back: "Yağların fiziksel (mekanik) sindirimini gerçekleştirmektir." },
+                { id: "7fc-6", unitId: 4, front: "Sudan havaya bakan dalgıç dışarıdaki insanları nasıl görür?", back: "Çok yoğundan az yoğuna bakıldığı için olduklarından DAHA UZAKTA görür." },
+                { id: "7fc-7", unitId: 5, front: "Atomun çekirdeğindeki pozitif yüklü parçacığa ne ad verilir?", back: "Proton (p⁺) adı verilir." },
+                { id: "7fc-8", unitId: 6, front: "Ebonit (plastik) çubuk yün kumaşa sürtülünce yük durumları?", back: "Plastik çubuk negatif (−), yün kumaş pozitif (+) yüklenir." },
+                { id: "7fc-9", unitId: 7, front: "Ürünün hammaddesinden tüketimine kadar harcanan görünmez su ölçütü?", back: "Su Ayak İzi olarak adlandırılır." },
                 { id: "7f-fc1", unitId: 1, front: "Türksat 6A ne zaman fırlatıldı? Özelliği?", back: "9 Temmuz 2024 — Türkiye'nin ilk yerli ve millî haberleşme uydusu." },
                 { id: "7f-fc2", unitId: 1, front: "İMECE ne işe yarar?", back: "Yerli ve millî gözlem uydusu; hedef tespit, doğal afet, tarım (15 Nisan 2023)." },
                 { id: "7f-fc3", unitId: 1, front: "Alper Gezeravcı'nın ISS'te yaptığı deney sayısı?", back: "13 bilimsel deney. İlk mesaj: “İstikbal göklerdedir.”" },
@@ -1582,9 +2166,256 @@ const EDUCATION_DATA = {
                 { id: "7f-fc17", unitId: 4, front: "Az → çok yoğun kırılma?", back: "Normale yaklaşır; kırılma açısı küçülür; hız azalır." },
                 { id: "7f-fc18", unitId: 4, front: "İnce kenarlı mercek ne yapar?", back: "Yakınsak — ışığı toplar; hipermetrop; büyüteç." },
                 { id: "7f-fc19", unitId: 4, front: "Kalın kenarlı mercek ne yapar?", back: "Iraksak — ışığı dağıtır; miyop; cisimleri küçük gösterir." },
-                { id: "7f-fc20", unitId: 4, front: "Pet şişe neden yangın riski?", back: "İnce kenarlı mercek gibi güneş ışığını bir noktada toplar." }
+                { id: "7f-fc20", unitId: 4, front: "Pet şişe neden yangın riski?", back: "İnce kenarlı mercek gibi güneş ışığını bir noktada toplar." },
+                { id: "7f-fc21", unitId: 5, front: "Atom kütlesini ne belirler?", back: "Çekirdekteki proton + nötron. Elektron kütlesi ihmal edilir." },
+                { id: "7f-fc22", unitId: 5, front: "Element vs bileşik ayrılma?", back: "Element ayrılamaz. Bileşik yalnızca kimyasal yolla ayrılır (fiziksel değil)." },
+                { id: "7f-fc23", unitId: 5, front: "Çözünme hızını artıranlar?", back: "Sıcaklık ↑ · tanecik küçültme · karıştırma." },
+                { id: "7f-fc24", unitId: 5, front: "Zeytinyağı–su nasıl ayrılır?", back: "Ayırma hunisi — yoğunluk farkı." },
+                { id: "7f-fc25", unitId: 6, front: "Cam + ipek sürtünme sonucu?", back: "Cam (+), ipek (−). Elektron camdan ipeğe geçer." },
+                { id: "7f-fc26", unitId: 6, front: "Sürtünme vs dokunma yükü?", back: "Sürtünme → zıt yük. Dokunma → aynı tür yük." },
+                { id: "7f-fc27", unitId: 6, front: "Elektroskop ne işe yarar?", back: "Cismin yüklü olup olmadığını ve yük türünü (+/−) tespit eder." },
+                { id: "7f-fc28", unitId: 6, front: "Şimşek ile yıldırım farkı?", back: "Şimşek: bulutlar arası. Yıldırım: bulut–yeryüzü." },
+                { id: "7f-fc29", unitId: 7, front: "Piramitte yukarı çıkınca ne olur?", back: "Enerji ↓ · kütle/birey sayısı ↓ · biyolojik birikim ↑" },
+                { id: "7f-fc30", unitId: 7, front: "Ayrıştırıcılar nerede bulunur?", back: "Besin zincirinin her basamağında (mantar, bazı bakteriler)." },
+                { id: "7f-fc31", unitId: 7, front: "Su ayak izi nedir?", back: "Doğrudan + dolaylı (görünmez) toplam su tüketimi ölçütü." },
+                { id: "7f-fc32", unitId: 7, front: "Sürdürülebilir yaşam nedir?", back: "Gelecek nesilleri tehlikeye atmadan bugünün ihtiyaçlarını karşılamak." }
             ],
-            exams: []
+            exams: [
+                {
+                    id: "7f-exam-1d1y",
+                    title: "7. Sınıf Fen Bilimleri — 1. Dönem 1. Yazılı Prova Sınavı",
+                    subtitle: "1.–3. Ünite · Senaryo soruları",
+                    questions: [
+                        {
+                            id: "7f-e1-q1",
+                            section: "🚀 I. Bölüm: Uzay Çağı (1. Ünite)",
+                            unit: "1. Ünite",
+                            topic: "Uydu Teknolojileri",
+                            questionNumber: 1,
+                            points: 10,
+                            scenario: "Ülkemiz uzay araştırmalarında aktif rol alarak yörüngeye haberleşme ve gözlem uyduları fırlatmaktadır.",
+                            question: "9 Temmuz 2024'te fırlatılan ilk yerli ve millî haberleşme uydumuzun adı ile ilk yerli ve millî gözlem uydumuzun (2023) adını yazınız.",
+                            idealAnswer: "Yerli haberleşme: Türksat 6A. Yerli gözlem: İMECE."
+                        },
+                        {
+                            id: "7f-e1-q2",
+                            section: "🚀 I. Bölüm: Uzay Çağı (1. Ünite)",
+                            unit: "1. Ünite",
+                            topic: "Yıldız Yaşam Döngüsü",
+                            questionNumber: 2,
+                            points: 10,
+                            scenario: "Öğretmen tahtaya Güneş büyüklüğündeki küçük kütleli bir yıldız ile Güneş'ten çok daha büyük kütleli bir dev yıldızın yaşam sonlarını şematize etmiştir.",
+                            question: "Büyük kütleli yıldızların süpernova patlaması sonrasında dönüşebileceği 2 farklı son yapıyı yazınız.",
+                            idealAnswer: "Kara delik veya nötron yıldızı (pulsar)."
+                        },
+                        {
+                            id: "7f-e1-q3",
+                            section: "🚀 I. Bölüm: Uzay Çağı (1. Ünite)",
+                            unit: "1. Ünite",
+                            topic: "Rasathaneler",
+                            questionNumber: 3,
+                            points: 10,
+                            scenario: "Bir üniversite heyeti yeni bir astronomik gözlemevi (rasathane) kurmak için arazi arayışına girmiştir.",
+                            question: "Gözlemevi kurulacak bölgenin seçiminde dikkat edilmesi gereken 2 temel coğrafi/çevresel özelliği yazınız.",
+                            idealAnswer: "Şehir ışıklarından uzak (ışık kirliliği az); bulutsuz gece sayısı fazla; yüksek / nemi az bölgeler tercih edilir. (Herhangi ikisi)"
+                        },
+                        {
+                            id: "7f-e1-q4",
+                            section: "🏋️ II. Bölüm: Kuvvet ve Enerji (2. Ünite)",
+                            unit: "2. Ünite",
+                            topic: "Fiziksel İş",
+                            questionNumber: 4,
+                            points: 10,
+                            scenario: "Ahmet odasındaki ağır kütüphaneyi iterek 3 metre ileri taşımıştır. Mehmet duvarı 10 dakika itmiş fakat kıpırdatamamıştır.",
+                            question: "Hangi öğrenci fiziksel anlamda iş yapmıştır? Nedenini işin şartlarını belirterek açıklayınız.",
+                            idealAnswer: "Ahmet iş yapmıştır: kuvvet uygulamış ve cisim kuvvet doğrultusunda yer değiştirmiştir. Mehmet yer değiştirme sağlayamadığı için iş yapmamıştır."
+                        },
+                        {
+                            id: "7f-e1-q5",
+                            section: "🏋️ II. Bölüm: Kuvvet ve Enerji (2. Ünite)",
+                            unit: "2. Ünite",
+                            topic: "Kinetik ve Potansiyel Enerji",
+                            questionNumber: 5,
+                            points: 10,
+                            scenario: "Sürtünmesiz ortamda bir basketbol topu yüksekten serbest bırakılıyor.",
+                            question: "Top aşağı doğru düşerken çekim potansiyel enerjisi ve kinetik enerjisindeki değişim nasıl olur? Açıklayınız.",
+                            idealAnswer: "Yükseklik azaldığı için çekim potansiyel enerjisi azalır; hız arttığı için kinetik enerji artar."
+                        },
+                        {
+                            id: "7f-e1-q6",
+                            section: "🏋️ II. Bölüm: Kuvvet ve Enerji (2. Ünite)",
+                            unit: "2. Ünite",
+                            topic: "Enerjinin Korunumu",
+                            questionNumber: 6,
+                            points: 10,
+                            scenario: "Sallanan salıncakta çocuk en üst noktada bir anlık duraklar; en alt noktada en yüksek hıza ulaşır.",
+                            question: "Salıncağın en alt ve en üst noktasındaki enerji türlerinin büyüklüklerini karşılaştırınız.",
+                            idealAnswer: "En üstte çekim potansiyel enerjisi en büyük (kinetik ≈ 0). En altta kinetik enerji en büyüktür."
+                        },
+                        {
+                            id: "7f-e1-q7",
+                            section: "🫀 III. Bölüm: Vücudumuzdaki Sistemler (3. Ünite)",
+                            unit: "3. Ünite",
+                            topic: "Sindirim Öz Suları",
+                            questionNumber: 7,
+                            points: 10,
+                            scenario: "İnce bağırsağa dökülen karaciğerin safra sıvısı ile pankreasın pankreas öz suyu besinlerin sindiriminde görev alır.",
+                            question: "Safra sıvısı ile pankreas öz suyunun gerçekleştirdiği sindirim çeşitlerini (fiziksel / kimyasal) yazınız.",
+                            idealAnswer: "Safra: fiziksel (mekanik) sindirim. Pankreas öz suyu: kimyasal sindirim."
+                        },
+                        {
+                            id: "7f-e1-q8",
+                            section: "🫀 III. Bölüm: Vücudumuzdaki Sistemler (3. Ünite)",
+                            unit: "3. Ünite",
+                            topic: "Dolaşım Sistemi",
+                            questionNumber: 8,
+                            points: 10,
+                            scenario: "Kalpten çıkan kirli kan akciğerlere gidip temizlendikten sonra tekrar kalbe geri döner.",
+                            question: "Bu dolaşım çeşidinin adı nedir? Kanı kalpten akciğere taşıyan damarın adını yazınız.",
+                            idealAnswer: "Küçük kan dolaşımı. Damar: akciğer atardamarı."
+                        },
+                        {
+                            id: "7f-e1-q9",
+                            section: "🫀 III. Bölüm: Vücudumuzdaki Sistemler (3. Ünite)",
+                            unit: "3. Ünite",
+                            topic: "Solunum ve Gaz Alışverişi",
+                            questionNumber: 9,
+                            points: 10,
+                            scenario: "Akciğerlerde etrafı kılcal damarlarla sarılı milyonlarca küçük hava keseciği bulunur.",
+                            question: "Bu hava keseciklerinin adı nedir ve burada hangi hayati olay gerçekleşir?",
+                            idealAnswer: "Alveol. Oksijen ve karbon dioksit gaz alışverişi gerçekleşir."
+                        },
+                        {
+                            id: "7f-e1-q10",
+                            section: "🫀 III. Bölüm: Vücudumuzdaki Sistemler (3. Ünite)",
+                            unit: "3. Ünite",
+                            topic: "Boşaltım Sistemi",
+                            questionNumber: 10,
+                            points: 10,
+                            scenario: "Kandaki zararlı süzüntü maddeler böbreklerde idrara dönüştürülür.",
+                            question: "Böbreklerde oluşan idrarın mesaneye (idrar kesesine) taşınmasını sağlayan yapının adını yazınız.",
+                            idealAnswer: "Üreter (idrar borusu)."
+                        }
+                    ]
+                },
+                {
+                    id: "7f-exam-2d1y",
+                    title: "7. Sınıf Fen Bilimleri — 2. Dönem 1. Yazılı Prova Sınavı",
+                    subtitle: "4.–7. Ünite · Senaryo soruları",
+                    questions: [
+                        {
+                            id: "7f-e2-q1",
+                            section: "🔍 I. Bölüm: Işığın Kırılması ve Mercekler (4. Ünite)",
+                            unit: "4. Ünite",
+                            topic: "Işığın Kırılması",
+                            questionNumber: 1,
+                            points: 10,
+                            scenario: "Işık ışını hava ortamından su ortamına (az yoğun → çok yoğun) geçmektedir.",
+                            question: "Işık ışınının doğrultusundaki ve hızındaki değişimi normale yaklaşma/uzaklaşma durumunu belirterek yazınız.",
+                            idealAnswer: "Normale yaklaşarak kırılır; yoğun ortama geçtiği için hızı azalır."
+                        },
+                        {
+                            id: "7f-e2-q2",
+                            section: "🔍 I. Bölüm: Işığın Kırılması ve Mercekler (4. Ünite)",
+                            unit: "4. Ünite",
+                            topic: "Mercek Çeşitleri",
+                            questionNumber: 2,
+                            points: 10,
+                            scenario: "Işığı toplayan merceklere ince kenarlı, dağıtanlara kalın kenarlı mercek denir.",
+                            question: "Miyop (uzağı görememe) göz kusurunu düzeltmek için hangi mercek türü kullanılır?",
+                            idealAnswer: "Kalın kenarlı (ıraksak) mercek."
+                        },
+                        {
+                            id: "7f-e2-q3",
+                            section: "⚛️ II. Bölüm: Maddenin Doğasına Yolculuk (5. Ünite)",
+                            unit: "5. Ünite",
+                            topic: "Atom Parçacıkları",
+                            questionNumber: 3,
+                            points: 10,
+                            scenario: "Atomun çekirdeğinde iki temel parçacık, katmanlarda ise elektron bulunur.",
+                            question: "Çekirdekte bulunan pozitif (+) ve yüksüz parçacıkların adlarını yazınız.",
+                            idealAnswer: "Pozitif: proton (p⁺). Yüksüz: nötron (n⁰)."
+                        },
+                        {
+                            id: "7f-e2-q4",
+                            section: "⚛️ II. Bölüm: Maddenin Doğasına Yolculuk (5. Ünite)",
+                            unit: "5. Ünite",
+                            topic: "Saf Maddeler",
+                            questionNumber: 4,
+                            points: 10,
+                            scenario: "Sodyum simgesi Na ile, su formülü H₂O ile gösterilir.",
+                            question: "Sodyum ve su maddelerini 'element' ve 'bileşik' olarak sınıflandırınız.",
+                            idealAnswer: "Sodyum (Na): element. Su (H₂O): bileşik."
+                        },
+                        {
+                            id: "7f-e2-q5",
+                            section: "⚛️ II. Bölüm: Maddenin Doğasına Yolculuk (5. Ünite)",
+                            unit: "5. Ünite",
+                            topic: "Çözünme Hızı",
+                            questionNumber: 5,
+                            points: 10,
+                            scenario: "Eşit miktarda sıcak su bulunan iki bardağın 1.sine küp şeker, 2.sine toz şeker atılıp karıştırılıyor.",
+                            question: "Hangi bardaktaki şeker daha hızlı çözünür? Nedenini temas yüzeyi açısından açıklayınız.",
+                            idealAnswer: "2. bardaktaki toz şeker daha hızlı çözünür; tanecik boyutu küçüldükçe temas yüzeyi artar."
+                        },
+                        {
+                            id: "7f-e2-q6",
+                            section: "⚡ III. Bölüm: Elektriklenme (6. Ünite)",
+                            unit: "6. Ünite",
+                            topic: "Sürtünme ile Elektriklenme",
+                            questionNumber: 6,
+                            points: 10,
+                            scenario: "Plastik (ebonit) bir çubuk yün kumaşa sürtülüyor.",
+                            question: "Sürtünme sonrasında plastik çubuğun ve yün kumaşın elektrik yük türleri (+ veya −) nasıl olur?",
+                            idealAnswer: "Plastik çubuk: negatif (−). Yün kumaş: pozitif (+)."
+                        },
+                        {
+                            id: "7f-e2-q7",
+                            section: "⚡ III. Bölüm: Elektriklenme (6. Ünite)",
+                            unit: "6. Ünite",
+                            topic: "Elektroskop",
+                            questionNumber: 7,
+                            points: 10,
+                            scenario: "Nötr bir elektroskobun topuzuna negatif (−) yüklü bir çubuk dokunduruluyor.",
+                            question: "Elektroskobun yapraklarında nasıl bir hareket gözlemlenir? Nedenini açıklayınız.",
+                            idealAnswer: "Yapraklar açılır / birbirinden uzaklaşır. Elektroskop negatif yüklenir; aynı yükler birbirini iter."
+                        },
+                        {
+                            id: "7f-e2-q8",
+                            section: "🌿 IV. Bölüm: Sürdürülebilir Yaşam ve Enerji (7. Ünite)",
+                            unit: "7. Ünite",
+                            topic: "Besin Zinciri",
+                            questionNumber: 8,
+                            points: 10,
+                            scenario: "Otlak ekosisteminde: Ot → Çekirge → Kurbağa → Yılan → Kartal besin zinciri yer almaktadır.",
+                            question: "Bu besin zincirindeki üretici canlı ile birincil tüketici canlıyı yazınız.",
+                            idealAnswer: "Üretici: Ot. Birincil tüketici: Çekirge."
+                        },
+                        {
+                            id: "7f-e2-q9",
+                            section: "🌿 IV. Bölüm: Sürdürülebilir Yaşam ve Enerji (7. Ünite)",
+                            unit: "7. Ünite",
+                            topic: "Ekoloji Piramidi",
+                            questionNumber: 9,
+                            points: 10,
+                            scenario: "Ekoloji piramidinde üreticilerden tüketicilere doğru (aşağıdan yukarıya) çıkılmaktadır.",
+                            question: "Piramitte yukarı çıkıldıkça canlıların dokularındaki biyolojik birikim ve aktarılan enerji nasıl değişir?",
+                            idealAnswer: "Biyolojik birikim artar. Aktarılan enerji azalır."
+                        },
+                        {
+                            id: "7f-e2-q10",
+                            section: "🌿 IV. Bölüm: Sürdürülebilir Yaşam ve Enerji (7. Ünite)",
+                            unit: "7. Ünite",
+                            topic: "Su Ayak İzi",
+                            questionNumber: 10,
+                            points: 10,
+                            scenario: "Gereksiz kıyafet ve teknolojik ürün alımı gizli su tüketimini artırmaktadır.",
+                            question: "Bir ürünün hammaddesinden üretimine kadar harcanan toplam gizli su miktarını gösteren kavrama ne ad verilir?",
+                            idealAnswer: "Su ayak izi."
+                        }
+                    ]
+                }
+            ]
         },
         // ==========================================
         // 8. SINIF TÜRKÇE (LGS)
