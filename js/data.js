@@ -8,7 +8,7 @@ const EDUCATION_DATA = {
 
     classes: [
         { id: "8", name: "8. Sınıf (LGS)", badge: "LGS Hazırlık", active: true },
-        { id: "7", name: "7. Sınıf", badge: "Kritik Kademe", active: true },
+        { id: "7", name: "7. Sınıf", badge: "4 Ünite Aktif", active: true },
         { id: "6", name: "6. Sınıf", badge: "Temel Güçlendirme", active: true },
         { id: "5", name: "5. Sınıf", badge: "Ortaokula İlk Adım", active: true }
     ],
@@ -779,578 +779,813 @@ const EDUCATION_DATA = {
         // ==========================================
         "7-fen": {
             title: "7. Sınıf Fen Bilimleri",
-            subtitle: "2026 - 2027 MEB Resmi Öğretim Programı & Yazılı Hazırlık",
-            
+            subtitle: "1–4. Ünite — MEB 2026–2027",
             presentation: {
-                title: "1. Ünite: Güneş Sistemi ve Ötesi",
-                desc: "Uzay araştırmaları, Türkiye'nin uyduları, uzay kirliliği, teleskoplar, ışık yılı, bulutsular ve yıldız döngüsü.",
+                title: "1–4. Ünite: Uzay · Enerji · Sistemler · Optik",
+                desc: "Uzay, kuvvet–enerji, vücut sistemleri, ışığın kırılması ve mercekler.",
                 file: "7-sinif.html",
-                slidesCount: "7 Kapsamlı Bölüm",
-                badge: "Yazılıda Çıkacak Konular"
+                slidesCount: "Not + Test",
+                badge: "4 Ünite Aktif"
             },
-
             notes: [
-                // 1. ÜNİTE
                 {
                     unitId: 1,
-                    unitName: "1. Ünite: Güneş Sistemi ve Ötesi",
-                    title: "Uzay Araçları & Ayırt Edici Özellikler",
-                    important: "Sınavda Kesin Sorulur!",
-                    badge: "F.7.1.1.1",
+                    unitName: "1. Ünite: Uzay Çağı",
+                    title: "Uzay Teknolojileri ve Uzay Araçları",
+                    important: "Tanımlar Yazılıda Çıkar",
+                    badge: "F.7.1.1",
                     content: `
+                        <p><strong>Uzay:</strong> Dünya'nın atmosferi dışında; Güneş, Ay, yıldızlar, gezegenler ve diğer gök cisimlerinin bulunduğu çok geniş ortamdır. Tamamen boş değildir.</p>
                         <ul class="styled-list">
-                            <li><span class="hl">Uzay İstasyonu:</span> Astronotların uzun süre kalıp deney yaptığı dev uzay laboratuvarları (Örn: ISS).</li>
-                            <li><span class="hl">Uzay Mekiği:</span> Dünya ile uzay arasında insan ve malzeme taşıyan, <strong>tekrar tekrar kullanılabilen</strong> uçak benzeri araçlar.</li>
-                            <li><span class="hl">Uzay Sondası:</span> Gezegenleri incelemek için uzaya gönderilen <strong>insansız</strong> robotik araçlar.</li>
-                            <li><span class="hl">Yapay Uydu:</span> Dünya yörüngesinde haberleşme, gözlem ve haritalama yapan araçlar.</li>
+                            <li><strong>Uzay Sondası:</strong> Gök cismini veya uzay olaylarını incelemek için gönderilen, Dünya'dan kontrol edilen <em>insansız ve robotik</em> araçtır. Enerjisini çoğunlukla güneş panelleriyle sağlar.</li>
+                            <li><strong>Uzay Roketi:</strong> Uzay araçlarını / uyduları yeryüzünden yörüngeye taşıyan sivri burunlu silindir araçlardır. Günümüzde yeniden kullanılabilir roketler de üretilmektedir.</li>
+                            <li><strong>Yapay Uydular:</strong> Dünya veya başka gök cisimleri çevresinde belirli yörüngede dolanan; iletişim, haberleşme, gözlem ve keşif amaçlı araçlardır.</li>
+                            <li><strong>Uzay Mekiği:</strong> Yeniden kullanılabilen; astronotları, büyük uyduları ve malzemeleri uzay istasyonuna taşıyan araçtır.</li>
+                            <li><strong>Uzay İstasyonu:</strong> Astronotların uzayda kalıp düşük yerçekimli ortamda bilimsel araştırma ve deney yapabildiği büyük uzay üssüdür.</li>
+                            <li><strong>Uzay Teleskobu:</strong> Atmosferin ışığı engellemesinden etkilenmeden uzayı net incelemek için yörüngeye yerleştirilen teleskoplardır. Örn: <em>Hubble</em>, <em>James Webb</em> (günümüzün en gelişmişi).</li>
                         </ul>
                     `
                 },
                 {
                     unitId: 1,
-                    unitName: "1. Ünite: Güneş Sistemi ve Ötesi",
-                    title: "Türkiye'nin Yapay Uyduları & Işık Yılı",
-                    important: "Kritik Bilgi",
-                    badge: "F.7.1.1.2",
+                    unitName: "1. Ünite: Uzay Çağı",
+                    title: "Türkiye'nin Yapay Uyduları",
+                    important: "Türksat 6A & İMECE",
+                    badge: "F.7.1.1",
                     content: `
-                        <p><strong>Aktif Haberleşme:</strong> Türksat 3A, 4A, 4B, 5A, 5B ve ilk yerli haberleşme uydumuz <strong>Türksat 6A</strong>.</p>
-                        <p><strong>Aktif Gözlem:</strong> Göktürk-1, Göktürk-2 ve yerli gözlem uydumuz <strong>İMECE</strong>.</p>
-                        <div class="note-alert">
-                            🚫 <strong>BÜYÜK TUZAK:</strong> 'Işık Yılı' kesinlikle ZAMAN BİRİMİ DEĞİLDİR! Işığın boşlukta 1 yılda aldığı <strong>MESAFE / UZAKLIK</strong> birimidir.
-                        </div>
-                    `
-                },
-
-                // 2. ÜNİTE
-                {
-                    unitId: 2,
-                    unitName: "2. Ünite: Hücre ve Bölünmeler",
-                    title: "Hücrenin Temel Kısımları & Organeller",
-                    important: "Bitki vs Hayvan Hücresi",
-                    badge: "F.7.2.1.1",
-                    content: `
-                        <p>Hücre 3 temel kısımdan oluşur: <strong>Hücre Zarı, Sitoplazma ve Çekirdek</strong>.</p>
-                        <div class="comparison-grid">
-                            <div class="comp-card cold">
-                                <h4>🌿 Bitki Hücresi</h4>
-                                <ul>
-                                    <li>Hücre duvarı (çeperi) VARDIR.</li>
-                                    <li>Kloroplast VARDIR (Fotosentez yapar).</li>
-                                    <li>Koful BÜYÜK ve AZ sayıdadır.</li>
-                                    <li>Hücre şekli KÖŞELİDİR.</li>
-                                </ul>
-                            </div>
-                            <div class="comp-card warm">
-                                <h4>🐾 Hayvan Hücresi</h4>
-                                <ul>
-                                    <li>Hücre duvarı YOKTUR.</li>
-                                    <li>Sentrozom (Sentriyoller) VARDIR.</li>
-                                    <li>Koful KÜÇÜK ve ÇOK sayıdadır.</li>
-                                    <li>Hücre şekli YUVARLAKTIR.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    `
-                },
-                {
-                    unitId: 2,
-                    unitName: "2. Ünite: Hücre ve Bölünmeler",
-                    title: "Mitoz vs Mayoz Bölünme Farkları",
-                    important: "Yazılı Klasik Soru Tipi",
-                    badge: "F.7.2.2.1",
-                    content: `
-                        <div class="comparison-grid">
-                            <div class="comp-card cold">
-                                <h4>🔬 Mitoz Bölünme</h4>
-                                <ul>
-                                    <li>Vücut hücrelerinde görülür.</li>
-                                    <li>Büyüme, gelişme ve onarımı sağlar.</li>
-                                    <li><strong>2 yeni hücre</strong> oluşur.</li>
-                                    <li>Kromozom sayısı <strong>SABİT KALIR (2n &rarr; 2n)</strong>.</li>
-                                    <li>Kalıtsal çeşitlilik YOKTUR (Fotokopi).</li>
-                                </ul>
-                            </div>
-                            <div class="comp-card warm">
-                                <h4>🧬 Mayoz Bölünme</h4>
-                                <ul>
-                                    <li>Üreme ana hücrelerinde (2n) görülür.</li>
-                                    <li>Üreme hücrelerini (Sperm/Yumurta, n) üretir.</li>
-                                    <li><strong>4 yeni hücre</strong> oluşur.</li>
-                                    <li>Kromozom sayısı <strong>YARIYA İNER (2n &rarr; n)</strong>.</li>
-                                    <li>Parça Değişimi (Crossing-Over) ile kalıtsal çeşitlilik SAĞLANIR.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    `
-                },
-
-                // 3. ÜNİTE
-                {
-                    unitId: 3,
-                    unitName: "3. Ünite: Kuvvet ve Enerji",
-                    title: "Kütle vs Ağırlık & Fiziksel İş",
-                    important: "İş = Kuvvet x Yol",
-                    badge: "F.7.3.1.1",
-                    content: `
-                        <p><strong>Kütle (m):</strong> Değişmeyen madde miktarıdır. Birimi kg/g, eşit kollu terazi ile ölçülür. Evrenin her yerinde AYNIDIR.</p>
-                        <p><strong>Ağırlık (G):</strong> Kütleye etki eden yerçekimi kuvvetidir. Birimi Newton (N), dinamometre ile ölçülür. Bulunulan gök cismine göre DEĞİŞİR (Ay'daki ağırlık Dünya'dakinin 1/6'sıdır!).</p>
                         <div class="note-highlight">
-                            💪 <strong>Fiziksel Anlamda İş:</strong> İş = Kuvvet x Alınan Yol (W = F . x). Bir kuvvetin iş yapabilmesi için cismin <strong>kuvvet doğrultusunda hareket etmesi ŞARTTIR!</strong> (Çantayı sırtında sallamadan düz yolda yürüyen öğrenci veya duvarı iten adam fiziksel olarak İŞ YAPMAZ!).
+                            <strong>Aktif uydu sayısı:</strong> 6 haberleşme + 3 yer gözlem/keşif = <strong>toplam 9 aktif uydu</strong>.
+                        </div>
+                        <p><strong>Aktif haberleşme:</strong> Türksat 3A, 4A, 4B, 5A, 5B (iletişim, TV/veri). <strong>Türksat 6A (9 Temmuz 2024):</strong> Türkiye'nin ilk <em>yerli ve millî</em> haberleşme uydusu.</p>
+                        <p><strong>Aktif gözlem / keşif:</strong></p>
+                        <ul class="styled-list">
+                            <li><strong>Göktürk-2:</strong> İlk yüksek çözünürlüklü keşif uydumuz</li>
+                            <li><strong>Göktürk-1:</strong> Yüksek çözünürlüklü görüntü</li>
+                            <li><strong>İMECE (15 Nisan 2023):</strong> Yerli ve millî gözlem; hedef tespit, doğal afet, tarım</li>
+                        </ul>
+                        <p><strong>Görevini tamamlamış (pasif):</strong> Haberleşme — Türksat 1B, 1C, 2A · Gözlem — Bilsat, Rasat.</p>
+                        <div class="note-alert">
+                            ⚠️ <strong>Not:</strong> Türksat 1A (1994) fırlatılırken roket arızası nedeniyle okyanusa düşmüştür.
+                        </div>
+                    `
+                },
+                {
+                    unitId: 1,
+                    unitName: "1. Ünite: Uzay Çağı",
+                    title: "TUA, TÜBİTAK UZAY ve Alper Gezeravcı",
+                    important: "İlk İnsanlı Misyon",
+                    badge: "F.7.1.1",
+                    content: `
+                        <ul class="styled-list">
+                            <li><strong>TÜBİTAK UZAY:</strong> Yerli ve millî uydular, uydu alt sistemleri ve uzay teknolojileri geliştiren lider araştırma merkezi.</li>
+                            <li><strong>TUA (Türkiye Uzay Ajansı):</strong> 2018'de uzay ve havacılık bilimi amaçlarını gerçekleştirmek üzere kuruldu.</li>
+                            <li><strong>Alper Gezeravcı:</strong> Türkiye'nin ilk uzay yolcusu. ISS'te biyoloji, malzeme bilimi ve genetik alanlarında <strong>13 bilimsel deney</strong> yaptı. Uzaydan ilk mesajı: <em>“İstikbal göklerdedir.”</em></li>
+                        </ul>
+                    `
+                },
+                {
+                    unitId: 1,
+                    unitName: "1. Ünite: Uzay Çağı",
+                    title: "Uzay Kirliliği, Rasathane ve Teleskoplar",
+                    important: "Gözlemevi Şartları",
+                    badge: "F.7.1.1",
+                    content: `
+                        <p><strong>Uzay kirliliği:</strong> İşlevini yitirmiş uydular, roket parçaları ve yakıt tankları “uzay çöpü” oluşturur; aktif araçlar için tehlike yaratır.</p>
+                        <div class="note-highlight">
+                            <strong>Gözlemevi (rasathane) kurma şartları:</strong> şehir ışıklarından uzak (ışık kirliliği az), yüksek / yayla, bulutsuz gece sayısı fazla, hava temiz ve nemsiz.
+                        </div>
+                        <p><strong>Teleskop türleri:</strong> Aynalı (yansıtmalı), mercekli (kırılmalı), radyo teleskopları.</p>
+                        <p><strong>Katki sağlayanlar:</strong> Ali Kuşçu (müderris / gök bilimci); Prof. Dr. Nüzhet Gökdoğan (ilk Türk kadın astronom doçenti / profesörü).</p>
+                    `
+                },
+                {
+                    unitId: 1,
+                    unitName: "1. Ünite: Uzay Çağı",
+                    title: "Yıldız Oluşumu ve Yaşam Döngüsü",
+                    important: "Küçük vs Büyük Kütle",
+                    badge: "F.7.1.2",
+                    content: `
+                        <p>Yıldızlar <strong>bulutsu (nebula)</strong> adı verilen hidrojen gazı ve toz bulutlarının kütle çekimiyle sıkışmasıyla oluşur. Örn: Atbaşı, Orion, Tarantula bulutsuları.</p>
+                        <p>Yıldızın ömrünü ve sonunu <strong>başlangıç kütlesi</strong> belirler.</p>
+                        <div class="comparison-grid">
+                            <div class="comp-card cold">
+                                <h4>Küçük kütleli (&lt; 8 Güneş)</h4>
+                                <ul>
+                                    <li>Bulutsu → Ön yıldız → Küçük kütleli yıldız</li>
+                                    <li>→ Kırmızı dev → Gezegenimsi bulutsu</li>
+                                    <li>→ <strong>Beyaz cüce</strong></li>
+                                </ul>
+                            </div>
+                            <div class="comp-card warm">
+                                <h4>Büyük kütleli (&gt; 8 Güneş)</h4>
+                                <ul>
+                                    <li>Bulutsu → Ön yıldız → Büyük kütleli yıldız</li>
+                                    <li>→ Kırmızı süperdev → <strong>Süpernova</strong></li>
+                                    <li>→ <strong>Nötron yıldızı (pulsar)</strong> veya <strong>kara delik</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+                    `
+                },
+                {
+                    unitId: 1,
+                    unitName: "1. Ünite: Uzay Çağı",
+                    title: "Yıldızların Sıcaklığı ve Renkleri",
+                    important: "Mavi = En Sıcak",
+                    badge: "F.7.1.2",
+                    content: `
+                        <ul class="styled-list">
+                            <li><strong>En sıcak:</strong> Mavi veya beyaz</li>
+                            <li><strong>Orta sıcaklık:</strong> Sarı (Güneş orta sıcaklıkta sarı bir yıldızdır)</li>
+                            <li><strong>Soğuk:</strong> Kırmızı veya turuncu</li>
+                        </ul>
+                        <div class="note-alert">
+                            💡 <strong>Şifre:</strong> Renk sıcaklığı gösterir — mavi/beyaz sıcak, kırmızı soğuk.
+                        </div>
+                    `
+                },
+                {
+                    unitId: 1,
+                    unitName: "1. Ünite: Uzay Çağı",
+                    title: "Takımyıldızlar, Galaksiler ve Evren",
+                    important: "Işık Yılı = Mesafe",
+                    badge: "F.7.1.2",
+                    content: `
+                        <p><strong>Takımyıldız:</strong> Gökyüzünde bir aradaymış gibi görünen yıldız gruplarıdır (Büyükayı, Küçükayı, Kraliçe, Avcı/Orion, Başak, Ejderha, Çoban).</p>
+                        <div class="note-highlight">
+                            <strong>Kutup Yıldızı (Polaris):</strong> Küçükayı'dadır; her zaman <strong>Kuzey</strong> yönünü gösterir.
+                        </div>
+                        <p><strong>Işık yılı:</strong> Zaman birimi değildir; <strong>mesafe (uzunluk)</strong> birimidir — ışığın uzayda 1 yılda aldığı yol.</p>
+                        <p><strong>Galaksi (gök ada):</strong> Yıldızlar, gaz, toz ve sistemlerin oluşturduğu dev yapıdır. Güneş sistemimiz sarmal <strong>Samanyolu</strong>'nun <strong>Avcı (Orion) kolunda</strong>dır. En yakın büyük galaksi: sarmal <strong>Andromeda</strong>.</p>
+                        <div class="note-alert">
+                            📐 <strong>Sıra:</strong> Evren &gt; Galaksi (Samanyolu) &gt; Güneş Sistemi &gt; Dünya
+                        </div>
+                    `
+                },
+                {
+                    unitId: 2,
+                    unitName: "2. Ünite: Kuvvet ve Enerjiyi Keşfedelim",
+                    title: "Fiziksel Anlamda İş",
+                    important: "İki Şart + Joule",
+                    badge: "F.7.2.1",
+                    content: `
+                        <p>Günlük hayattaki “iş” ile <strong>fiziksel anlamda iş</strong> farklıdır. Fiziksel iş için <strong>iki şart</strong> gerekir:</p>
+                        <ol class="styled-list">
+                            <li>Cisme <strong>net bir kuvvet</strong> uygulanmalı</li>
+                            <li>Cisim, bu net kuvvet <strong>doğrultusunda yer değiştirmeli</strong></li>
+                        </ol>
+                        <div class="note-highlight">
+                            <strong>Birim:</strong> Kuvvet Newton (N), yol metre (m) → yapılan iş <strong>Joule (J)</strong>.
+                        </div>
+                        <div class="note-alert">
+                            🛑 <strong>İş YOK:</strong> Duvarı itip kıpırdatamamak (yer değiştirme yok) · Sırtında çantayla düz yolda yatay yürümek (kuvvet yukarı, hareket yatay) · Halteri baş üstünde sabit tutmak (yer değiştirme yok).
+                        </div>
+                    `
+                },
+                {
+                    unitId: 2,
+                    unitName: "2. Ünite: Kuvvet ve Enerjiyi Keşfedelim",
+                    title: "Enerji ve Enerji Çeşitleri",
+                    important: "Kinetik & Potansiyel",
+                    badge: "F.7.2.1",
+                    content: `
+                        <p><strong>Enerji:</strong> İş yapabilme yeteneğidir. İş ve enerjinin birimi aynıdır: <strong>Joule (J)</strong>.</p>
+                        <p><strong>Kinetik enerji (hareket):</strong> Cismin hareketinden dolayı sahip olduğu enerjidir. <strong>Kütle</strong> ve <strong>hız</strong> ile doğru orantılıdır. Aynı kütlede hızı fazla olanın kinetik enerjisi ve durma mesafesi daha büyüktür.</p>
+                        <p><strong>Potansiyel enerji (durum):</strong> Cismin durumundan dolayı depoladığı kabul edilen enerjidir.</p>
+                        <div class="comparison-grid">
+                            <div class="comp-card cold">
+                                <h4>Çekim potansiyel</h4>
+                                <ul>
+                                    <li>Yerçekimi etkisiyle <strong>yükseklikten</strong> gelir</li>
+                                    <li><strong>Ağırlık (kütle)</strong> ve <strong>yükseklik</strong>e bağlıdır</li>
+                                </ul>
+                            </div>
+                            <div class="comp-card warm">
+                                <h4>Esneklik potansiyel</h4>
+                                <ul>
+                                    <li>Esnek cisimlerin (yay, lastik, sünger) sıkışması / gerilmesi</li>
+                                    <li>Kuvvet kalkınca eski hâline döner</li>
+                                </ul>
+                            </div>
+                        </div>
+                    `
+                },
+                {
+                    unitId: 2,
+                    unitName: "2. Ünite: Kuvvet ve Enerjiyi Keşfedelim",
+                    title: "Enerjinin Korunumu ve Sarkaç",
+                    important: "Yok Olmaz, Dönüşür",
+                    badge: "F.7.2.2",
+                    content: `
+                        <div class="note-highlight">
+                            <strong>Enerjinin Korunumu Kanunu:</strong> Enerji yoktan var olamaz, var olan yok olmaz; bir türden başka türe dönüşebilir.
+                        </div>
+                        <p><strong>Sarkaç / salıncak:</strong></p>
+                        <ul class="styled-list">
+                            <li><strong>En üst:</strong> Çekim potansiyel enerji en büyük, kinetik = 0</li>
+                            <li><strong>İnerken:</strong> Potansiyel azalır, kinetik artar</li>
+                            <li><strong>En alt (orta):</strong> Kinetik enerji en büyük değere ulaşır</li>
+                        </ul>
+                    `
+                },
+                {
+                    unitId: 2,
+                    unitName: "2. Ünite: Kuvvet ve Enerjiyi Keşfedelim",
+                    title: "Sürtünme Kuvveti ve Enerji",
+                    important: "Isı · Ses · Işık",
+                    badge: "F.7.2.2",
+                    content: `
+                        <p>Hareketli cisimlerin kinetik enerjisi sürtünme etkisiyle <strong>ısı, ses ve ışık</strong> enerjisine dönüşür; cisim yavaşlar ve durur.</p>
+                        <div class="note-alert">
+                            🚗 <strong>Kaçış rampası:</strong> Fren arızasında ağır taşıtlar sürtünmeli yüzey + eğim ile kinetik enerjiyi kademeli olarak ısı ve potansiyel enerjiye dönüştürerek durur.
                         </div>
                     `
                 },
                 {
                     unitId: 3,
-                    unitName: "3. Ünite: Kuvvet ve Enerji",
-                    title: "Kinetik ve Potansiyel Enerji",
-                    important: "Enerjinin Korunumu",
-                    badge: "F.7.3.2.1",
+                    unitName: "3. Ünite: Vücudumuzdaki Sistemler",
+                    title: "Sindirim Sistemi Organları",
+                    important: "Sıra + Emilim",
+                    badge: "F.7.3.1",
                     content: `
+                        <p><strong>Sindirim:</strong> Besinlerin hücrelere geçebilecek kadar küçük yapı taşlarına ayrılmasıdır.</p>
                         <ul class="styled-list">
-                            <li><strong>Kinetik Enerji (Hareket Enerjisi):</strong> Hareket eden tüm cisimlerin enerjisidir. Cismin <strong>kütlesine</strong> ve <strong>süratine</strong> bağlıdır.</li>
-                            <li><strong>Çekim Potansiyel Enerjisi:</strong> Cismin yüksekliğinden dolayı sahip olduğu enerjidir. Cismin <strong>ağırlığına</strong> ve <strong>yerden yüksekliğine (h)</strong> bağlıdır.</li>
-                            <li><strong>Esneklik Potansiyel Enerjisi:</strong> Sıkıştırılmış veya gerilmiş esnek cisimlerde (yay, ok) depolanan enerjidir.</li>
+                            <li><strong>Ağız:</strong> Besinlerin alındığı ilk organ</li>
+                            <li><strong>Yutak:</strong> Ağızdan yemek borusuna iletir</li>
+                            <li><strong>Yemek borusu:</strong> Kasılma–gevşeme ile mideye taşır</li>
+                            <li><strong>Mide:</strong> Kaslı yapıyla çalkalayarak bulamaç hâline getirir</li>
+                            <li><strong>İnce bağırsak:</strong> Sindirimin tamamlandığı ve <strong>emilimin</strong> gerçekleştiği yer</li>
+                            <li><strong>Kalın bağırsak:</strong> Atıklardaki su, mineral ve vitamin emilimi</li>
+                            <li><strong>Anüs:</strong> Sindirilmeyen atıkların dışarı atıldığı kısım</li>
                         </ul>
                     `
                 },
-
-                // 4. ÜNİTE
+                {
+                    unitId: 3,
+                    unitName: "3. Ünite: Vücudumuzdaki Sistemler",
+                    title: "Sindirim Çeşitleri ve Yardımcı Organlar",
+                    important: "Safra = Fiziksel",
+                    badge: "F.7.3.1",
+                    content: `
+                        <div class="comparison-grid">
+                            <div class="comp-card cold">
+                                <h4>Fiziksel (mekanik)</h4>
+                                <ul>
+                                    <li>Enzim kullanılmaz</li>
+                                    <li>Dişler ve kas hareketleriyle parçalama</li>
+                                </ul>
+                            </div>
+                            <div class="comp-card warm">
+                                <h4>Kimyasal</h4>
+                                <ul>
+                                    <li><strong>Enzimler</strong> + su ile yapı taşlarına bölünme</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <ul class="styled-list" style="margin-top:0.75rem;">
+                            <li><strong>Karaciğer:</strong> <em>Safra</em> sıvısı → yağların <strong>fiziksel</strong> sindirimi</li>
+                            <li><strong>Pankreas:</strong> <em>Pankreas öz suyu</em> → karbonhidrat, protein ve yağların <strong>kimyasal</strong> sindirimi</li>
+                        </ul>
+                        <div class="note-alert">
+                            💡 <strong>Sağlık:</strong> Aşırı yağlı/baharatlı/paketli gıda mideyi bozar. Su, lifli besin ve düzenli egzersiz sindirimi destekler.
+                        </div>
+                    `
+                },
+                {
+                    unitId: 3,
+                    unitName: "3. Ünite: Vücudumuzdaki Sistemler",
+                    title: "Dolaşım Sistemi: Kalp, Damar, Kan",
+                    important: "Alyuvar · Akyuvar · Pulcuk",
+                    badge: "F.7.3.2",
+                    content: `
+                        <p>Besin ve oksijeni hücrelere taşır; atıkları uzaklaştırır.</p>
+                        <ul class="styled-list">
+                            <li><strong>Kalp:</strong> Göğüs kafesinde; kanı vücuda pompalayan kaslı organ</li>
+                            <li><strong>Atardamar:</strong> Kalpten organlara</li>
+                            <li><strong>Toplardamar:</strong> Organlardan kalbe</li>
+                            <li><strong>Kılcal damar:</strong> Hücre–kan madde alışverişi</li>
+                        </ul>
+                        <div class="note-highlight">
+                            <strong>Kan hücreleri:</strong> Alyuvar (O₂–CO₂ taşıma) · Akyuvar (mikrop/hastalık savunu) · Kan pulcukları (pıhtılaşma / kanamayı durdurma)
+                        </div>
+                    `
+                },
+                {
+                    unitId: 3,
+                    unitName: "3. Ünite: Vücudumuzdaki Sistemler",
+                    title: "Küçük ve Büyük Kan Dolaşımı",
+                    important: "Küçük = Akciğer",
+                    badge: "F.7.3.2",
+                    content: `
+                        <div class="comparison-grid">
+                            <div class="comp-card cold">
+                                <h4>Küçük dolaşım</h4>
+                                <ul>
+                                    <li>Kalp ↔ akciğerler</li>
+                                    <li>Kirli kanı oksijence zenginleştirir</li>
+                                    <li>Sağ karıncık → akciğer atardamarı → akciğerler → akciğer toplardamarı → sol kulakçık</li>
+                                </ul>
+                            </div>
+                            <div class="comp-card warm">
+                                <h4>Büyük dolaşım</h4>
+                                <ul>
+                                    <li>Kalp ↔ tüm vücut organları</li>
+                                    <li>Temiz kanı dağıtır, kirli kanı kalbe toplar</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p style="margin-top:0.75rem;"><strong>Türk Kızılay:</strong> Kan bağışı stoklarını yöneten temel kuruluş. Hareketsizlik, aşırı tuz/yağ, stres damar sağlığını bozar; su ve spor korur.</p>
+                    `
+                },
+                {
+                    unitId: 3,
+                    unitName: "3. Ünite: Vücudumuzdaki Sistemler",
+                    title: "Solunum Sistemi",
+                    important: "Alveol = Gaz Alışverişi",
+                    badge: "F.7.3.3",
+                    content: `
+                        <p>Oksijen alımı ve karbon dioksit atımı için çalışır.</p>
+                        <div class="note-highlight">
+                            <strong>Yol:</strong> Burun → Yutak → Gırtlak → Soluk borusu → Akciğerler (bronş, bronşçuk, alveol)
+                        </div>
+                        <ul class="styled-list">
+                            <li><strong>Alveol (hava keseciği):</strong> Kılcal damarlarla çevrili; <strong>gaz alışverişinin</strong> yapıldığı yer</li>
+                            <li><strong>Diyafram:</strong> Akciğerlerin altında; kasılıp gevşeyerek soluk alıp vermeyi sağlar</li>
+                        </ul>
+                        <div class="note-alert">
+                            🚭 Sigara/alkol/tütün zararlıdır. <strong>Yeşilay</strong> bağımlılıklarla mücadele eder. Ortam havalandırma + temiz hava egzersizi şarttır.
+                        </div>
+                    `
+                },
+                {
+                    unitId: 3,
+                    unitName: "3. Ünite: Vücudumuzdaki Sistemler",
+                    title: "Boşaltım Sistemi ve Yardımcı Organlar",
+                    important: "Böbrek → İdrar",
+                    badge: "F.7.3.4",
+                    content: `
+                        <p>Kandaki zararlı atıkları ve fazla suyu süzerek uzaklaştırır.</p>
+                        <ul class="styled-list">
+                            <li><strong>Böbrekler:</strong> Kanı süzüp idrar oluşturur (fasulye biçimi)</li>
+                            <li><strong>Üreter (idrar borusu):</strong> Böbrek → mesane</li>
+                            <li><strong>Mesane:</strong> İdrarın depolandığı yer</li>
+                            <li><strong>Üretra (idrar kanalı):</strong> Vücut dışına atım</li>
+                        </ul>
+                        <div class="note-highlight">
+                            <strong>Yardımcı:</strong> Deri (ter → su/tuz) · Akciğerler (soluk verme → CO₂ + su buharı) · Kalın bağırsak (sindirilmeyen atık + su)
+                        </div>
+                        <p>Yeterli su böbrek taşı ve enfeksiyonu önler. Aşırı tuz, gereksiz ilaç ve hijyen ihmalinden kaçınılmalı.</p>
+                    `
+                },
                 {
                     unitId: 4,
-                    unitName: "4. Ünite: Saf Madde ve Karışımlar",
-                    title: "Atomun Yapısı, Element ve Bileşikler",
-                    important: "Saf Maddeler",
-                    badge: "F.7.4.1.1",
+                    unitName: "4. Ünite: Işığın Kırılması ve Mercekler",
+                    title: "Işığın Kırılması Nedir?",
+                    important: "Yoğunluk ↑ Hız ↓",
+                    badge: "F.7.4.1",
                     content: `
-                        <p><strong>Atomun Yapısı:</strong> Çekirdekte Proton (+) ve Nötron (yüksüz); katmanlarda dönen Elektron (-) bulunur.</p>
-                        <p><strong>Element:</strong> Aynı cins atomlardan oluşan saf maddelerdir (Örn: Demir - Fe, Oksijen - O2, Altın - Au). Sembollerle gösterilir.</p>
-                        <p><strong>Bileşik:</strong> En az iki farklı elementin kimyasal bağlarla birleşmesiyle oluşan saf maddelerdir (Örn: Su - H2O, Karbondioksit - CO2, Sofra tuzu - NaCl). Formüllerle gösterilir. Kendini oluşturan maddelerin özelliklerini GÖSTERMEZLER!</p>
-                    `
-                },
-
-                // 5. ÜNİTE
-                {
-                    unitId: 5,
-                    unitName: "5. Ünite: Işığın Madde ile Etkileşimi",
-                    title: "Aynalar ve Kullanım Alanları",
-                    important: "Düz, Çukur ve Tümsek Ayna",
-                    badge: "F.7.5.1.1",
-                    content: `
-                        <ul class="styled-list">
-                            <li><strong>Düz Ayna:</strong> Görüntü daima düz, cisimle aynı boyda ve simetriktir. (Örn: Evlerimizdeki aynalar, periskop).</li>
-                            <li><strong>Çukur Ayna (Dev Aynası):</strong> Işığı odakta toplar. Cisme yaklaştıkça <strong>DÜZ ve DEV GÖRÜNTÜ</strong> oluşturur. (Örn: Dişçi aynası, makyaj aynası, teleskop, araba farı).</li>
-                            <li><strong>Tümsek Ayna:</strong> Işığı dağıtır. Daima <strong>DÜZ ve KÜÇÜK</strong> görüntü vererek geniş bir görüş alanı sağlar. (Örn: Araba yan aynaları, kavşak güvenlik aynaları, mağaza aynaları).</li>
-                        </ul>
-                    `
-                },
-
-                // 6. ÜNİTE
-                {
-                    unitId: 6,
-                    unitName: "6. Ünite: Canlılarda Üreme, Büyüme ve Gelişme",
-                    title: "İnsanda ve Hayvanlarda Üreme & Başkalaşım",
-                    important: "Döllenme & Başkalaşım Aşamaları",
-                    badge: "F.7.6.1.1",
-                    content: `
-                        <p><strong>İnsanda Üreme Sıralaması:</strong></p>
-                        <p>Sperm (n) + Yumurta (n) &rarr; <span class="highlight">Döllenme</span> &rarr; <strong>Zigot (2n)</strong> &rarr; <strong>Embriyo</strong> (ilk 8 hafta) &rarr; <strong>Fetüs</strong> &rarr; <strong>Bebek</strong>.</p>
+                        <p><strong>Işığın kırılması:</strong> Işık ışınlarının saydam bir ortamdan yoğunluğu farklı başka bir saydam ortama geçerken <strong>doğrultu ve hız değiştirerek</strong> ilerlemesidir.</p>
                         <div class="note-highlight">
-                            🦋 <strong>Başkalaşım (Metamorfoz):</strong> Yumurtadan çıkan yavrunun ana canlıya benzemeyip zamanla gelişim geçirerek ana canlıya benzemesidir (Örn: Kurbağa, Kelebek, İpekböceği, Sinek).
+                            <strong>Sebep:</strong> Farklı yoğunluktaki ortamlarda ışığın yayılma hızı farklıdır. Saydam ortamın <strong>yoğunluğu arttıkça ışığın hızı azalır</strong>.
                         </div>
                     `
                 },
-
-                // 7. ÜNİTE
                 {
-                    unitId: 7,
-                    unitName: "7. Ünite: Elektrik Devreleri",
-                    title: "Seri & Paralel Bağlama ve Ampul Parlaklığı",
-                    important: "Yazılıda Kesin Çıkar!",
-                    badge: "F.7.7.1.1",
+                    unitId: 4,
+                    unitName: "4. Ünite: Işığın Kırılması ve Mercekler",
+                    title: "Kırılma Kanunları",
+                    important: "Normale Yaklaş / Uzaklaş",
+                    badge: "F.7.4.1",
                     content: `
+                        <ul class="styled-list">
+                            <li><strong>Gelen ışın:</strong> Ortama ulaşan ışın</li>
+                            <li><strong>Kırılan ışın:</strong> Yoğunluğu farklı ortama geçerken doğrultu değiştiren ışın</li>
+                            <li><strong>Yüzey normali (N):</strong> Temas noktasından yüzeye dik (90°) varsayılan çizgi</li>
+                            <li><strong>Gelme / kırılma açısı:</strong> Işın ile normal arasındaki açı</li>
+                        </ul>
                         <div class="comparison-grid">
                             <div class="comp-card cold">
-                                <h4>🔗 Seri Bağlama</h4>
+                                <h4>Az → Çok yoğun</h4>
                                 <ul>
-                                    <li>Ampuller uç uca tek bir hat üzerinde dizilir.</li>
-                                    <li>Ampul sayısı arttıkça eşdeğer direnç artar, ampul parlaklığı <strong>AZALIR</strong>.</li>
-                                    <li>Biri patlarsa veya sökülürse <u>hepsi söner</u>!</li>
+                                    <li><strong>Normale yaklaşarak</strong> kırılır</li>
+                                    <li>Kırılma açısı &lt; gelme açısı</li>
+                                    <li>Hız azalır</li>
                                 </ul>
                             </div>
                             <div class="comp-card warm">
-                                <h4>⚡ Paralel Bağlama</h4>
+                                <h4>Çok → Az yoğun</h4>
                                 <ul>
-                                    <li>Ampuller farklı kollar üzerine bağlanır.</li>
-                                    <li>Ampul sayısı artsa da her bir ampulün parlaklığı <strong>DEĞİŞMEZ</strong>.</li>
-                                    <li>Biri patlarsa <u>diğerleri yanmaya devam eder</u> (Evlerimizdeki tesisat).</li>
+                                    <li><strong>Normalden uzaklaşarak</strong> kırılır</li>
+                                    <li>Kırılma açısı &gt; gelme açısı</li>
+                                    <li>Hız artar</li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="note-alert">
-                            ⚠️ <strong>Ölçü Aletleri Kuralı:</strong> 
-                            Ampermetre devreye <strong>SERİ</strong> bağlanır (İç direnci çok küçüktür). 
-                            Voltmetre devreye <strong>PARALEL</strong> bağlanır (İç direnci çok büyüktür).
+                        <div class="note-alert" style="margin-top:0.75rem;">
+                            💡 Gelen, normal ve kırılan ışın <strong>aynı düzlemdedir</strong>. Dike (90°) gelen ışın <strong>doğrultu değiştirmeden</strong> geçer; yalnızca hızı değişir.
                         </div>
+                    `
+                },
+                {
+                    unitId: 4,
+                    unitName: "4. Ünite: Işığın Kırılması ve Mercekler",
+                    title: "Görünür Derinlik ve Günlük Örnekler",
+                    important: "Balık Daha Yakın",
+                    badge: "F.7.4.1",
+                    content: `
+                        <ul class="styled-list">
+                            <li><strong>Havadan suya bakış (az → çok):</strong> Sudaki cisimler / balıklar olduğundan <strong>daha yakında</strong> görünür.</li>
+                            <li><strong>Sudan havaya bakış (çok → az):</strong> Dalgıç dışarıdaki cisimleri olduğundan <strong>daha uzakta</strong> görür.</li>
+                            <li>Su dolu bardaktaki kalemin kırık görünmesi, su birikintisindeki paranın yüzeye yakın görünmesi kırılmadandır.</li>
+                        </ul>
+                    `
+                },
+                {
+                    unitId: 4,
+                    unitName: "4. Ünite: Işığın Kırılması ve Mercekler",
+                    title: "Mercek Nedir?",
+                    important: "Optik Merkez = Kırılmaz",
+                    badge: "F.7.4.2",
+                    content: `
+                        <p><strong>Mercek:</strong> En az bir yüzeyi küresel olan, cam veya sert plastikten saydam cisimlerdir.</p>
+                        <ul class="styled-list">
+                            <li><strong>Asal eksen:</strong> Merceğin yatay merkezinden geçen çizgi</li>
+                            <li><strong>Optik merkez (O):</strong> Asal eksende merceğin ortası — buraya gelen ışınlar <strong>kırılmadan</strong> geçer</li>
+                        </ul>
+                    `
+                },
+                {
+                    unitId: 4,
+                    unitName: "4. Ünite: Işığın Kırılması ve Mercekler",
+                    title: "İnce Kenarlı (Yakınsak) Mercek",
+                    important: "Toplar · Hipermetrop",
+                    badge: "F.7.4.2",
+                    content: `
+                        <p>Ortası kalın, kenarları ince; çift taraflı ok sembolüyle gösterilir. Işınları bir noktada <strong>toplar</strong>.</p>
+                        <ul class="styled-list">
+                            <li><strong>Odak (F):</strong> Asal eksene paralel ışınların kırılıp toplandığı nokta</li>
+                            <li><strong>Görüntü:</strong> Yakındaki cisimleri <strong>büyük ve düz</strong> gösterir (büyüteç)</li>
+                            <li><strong>Kullanım:</strong> Büyüteç, mikroskop, teleskop, fotoğraf makinesi, projeksiyon; <strong>hipermetrop</strong> (yakını görememe) gözlükleri</li>
+                        </ul>
+                        <div class="note-alert">
+                            ⚠️ <strong>Orman yangını:</strong> Cam şişe / su dolu pet şişe ince kenarlı mercek gibi güneş ışığını toplar; kuru otları tutuşturabilir.
+                        </div>
+                    `
+                },
+                {
+                    unitId: 4,
+                    unitName: "4. Ünite: Işığın Kırılması ve Mercekler",
+                    title: "Kalın Kenarlı (Iraksak) Mercek",
+                    important: "Dağıtır · Miyop",
+                    badge: "F.7.4.2",
+                    content: `
+                        <p>Kenarları kalın, ortası ince; uçları içe dönük ok sembolüyle gösterilir. Işınları <strong>dağıtır</strong>.</p>
+                        <ul class="styled-list">
+                            <li><strong>Odak (F):</strong> Paralel ışınlar dağılarak kırılır; uzantıların kesiştiği nokta odaktır</li>
+                            <li><strong>Görüntü:</strong> Cisimleri olduğundan <strong>küçük</strong> gösterir; daha geniş alan görülür</li>
+                            <li><strong>Kullanım:</strong> Dış kapı dürbünü, araç feneri; <strong>miyop</strong> (uzağı görememe) gözlükleri</li>
+                        </ul>
                     `
                 }
             ],
-
-            // 2026-2027 MEB Resmi 7. Sınıf Müfredatı (Tüm Ünitelerin Ayrıntılı Konu ve Kazanım Dökümü)
             curriculum: [
                 {
                     unitId: 1,
                     unit: "1. Ünite",
-                    name: "Güneş Sistemi ve Ötesi",
-                    hours: "16 Saat (%11.1)",
-                    period: "1. Dönem (Eylül - Ekim)",
-                    lgsWeight: "7. Sınıf 1. Yazılı Konusu",
-                    status: "Mevcut & Aktif",
-                    examTip: "Sınav Tuzağı: Işık yılı bir ZAMAN birimi DEĞİLDİR! Işığın 1 yılda aldığı 9.5 trilyon kilometrelik UZAKLIK birimidir. Yıldızlar ısı ve ışık yayar, gezegenler ise yansıtır.",
+                    name: "Uzay Çağı",
+                    hours: "1. Dönem",
+                    period: "1. Dönem",
+                    status: "Aktif",
+                    examTip: "Türksat 6A = ilk yerli-millî haberleşme (9 Temmuz 2024). İMECE = yerli gözlem. Alper Gezeravcı = 13 deney. Işık yılı = mesafe. Büyük yıldız sonu = süpernova → nötron yıldızı / kara delik.",
                     topics: [
-                        {
-                            title: "Uzay Araştırmaları ve Teknolojisi",
-                            code: "F.7.1.1.1",
-                            summary: "Yapay uydular (Türksat, Göktürk, Rasat), uzay istasyonları, uzay mekikleri ve sondaları. Uzay kirliliği nedenleri ve sonuçları. Uzay teknolojisinin günlük yaşama kazandırdıkları (teflon, cırt cırt, duman dedektörü, dijital termometre, GPS)."
-                        },
-                        {
-                            title: "Teleskobun Yapısı & Astronomlar",
-                            code: "F.7.1.1.2",
-                            summary: "Teleskobun gökbilimindeki önemi (Optik, radyo, x-ışını teleskopları). Rasathanelerin (gözlemevlerinin) kurulma şartları (şehir ışıklarından uzak, yüksek, bulutsuz tepe noktalar). Ali Kuşçu, Uluğ Bey, Galileo ve Hubble."
-                        },
-                        {
-                            title: "Gök Cisimleri: Yıldızlar, Galaksiler ve Evren",
-                            code: "F.7.1.2.1",
-                            summary: "Bulutsu (Nebula - yıldızların doğum yeri). Yıldızların yaşam döngüsü (Küçük kütleli -> Beyaz cüce; Büyük kütleli -> Süpernova -> Nötron yıldızı veya Karadelik). Takımyıldızları (Büyükayı, Küçükayı, Avcı). Galaksi türleri (Sarmal, Eliptik, Düzensiz; Samanyolu sarmaldır, Avcı kolundayız). Kuyruklu yıldızlar (Kirli kartopu)."
-                        }
+                        { code: "F.7.1.1", title: "Türkiye ve uzay araştırmaları", summary: "Uzay araçları; aktif/pasif uydular; TUA; Alper Gezeravcı; uzay kirliliği; rasathane; teleskoplar." },
+                        { code: "F.7.1.2", title: "Uzayda neler var?", summary: "Yıldız oluşumu ve döngü; renk-sıcaklık; takımyıldız; ışık yılı; galaksi; evren hiyerarşisi." }
                     ]
                 },
                 {
                     unitId: 2,
                     unit: "2. Ünite",
-                    name: "Hücre ve Bölünmeler",
-                    hours: "28 Saat (%19.4)",
-                    period: "1. Dönem (Ekim - Aralık)",
-                    lgsWeight: "7. Sınıf 1. ve 2. Yazılı Konusu",
-                    status: "Mevcut & Aktif",
-                    examTip: "Kritik Fark: Mitoz vücut hücrelerinde görülür (2n -> 2n, 2 hücre, çeşitlilik YOK). Mayoz üreme ana hücrelerinde görülür (2n -> n, 4 hücre, parça değişimi ile çeşitlilik VAR!).",
+                    name: "Kuvvet ve Enerjiyi Keşfedelim",
+                    hours: "1. Dönem",
+                    period: "1. Dönem",
+                    status: "Aktif",
+                    examTip: "İş = net kuvvet + aynı doğrultuda yer değiştirme. Çanta ile yatay yürümek = iş yok. Enerji = iş yapabilme (J). Sarkaç en üstte Ep max, en altta Ek max. Sürtünme → ısı/ses/ışık.",
                     topics: [
-                        {
-                            title: "Hücrenin Temel Kısımları ve Organeller",
-                            code: "F.7.2.1.1",
-                            summary: "Hücre zarı (seçici geçirgen), Sitoplazma ve Çekirdek (yönetim merkezi, DNA). Organeller: Ribozom (protein), Mitokondri (enerji/ATP), Kloroplast (fotosentez, sadece bitkide), Koful (bitkide büyük ve az, hayvanda küçük ve çok), Sentrozom (bölünme, sadece hayvanda), Lizozom (sindirim), Golgi (salgı/paket), Endoplazmik retikulum (taşıma). Bitki vs Hayvan hücresi karşılaştırması."
-                        },
-                        {
-                            title: "Mitoz Bölünme ve Evreleri",
-                            code: "F.7.2.2.1",
-                            summary: "Tek hücrelilerde üremeyi, çok hücrelilerde büyüme, gelişme ve yaraların onarımını sağlar. Kromozom sayısı SABİT kalır (2n -> 2n). Oluşan 2 hücre genetik ikizdir. Evreler (PMAT): Hazırlık (DNA eşlenmesi) -> Profaz -> Metafaz (kromozomlar ortada dizilir) -> Anafaz (kardeş kromatitler zıt kutuplara ayrılır) -> Telofaz ve Sitokinez (boğumlanma/ara lamel)."
-                        },
-                        {
-                            title: "Mayoz Bölünme ve Eşeyli Üreme",
-                            code: "F.7.2.3.1",
-                            summary: "Üreme ana hücrelerinde (testis, yumurtalık) gerçekleşir, sperm ve yumurta hücrelerini üretir. Kromozom sayısı YARIYA İNER (2n -> n, tür içi kromozom sayısının nesiller boyu sabit kalmasını sağlar). Parça Değişimi (Crossing-over): Homolog kromozomlar arası gen değiş tokuşu genetik çeşitliliği sağlar."
-                        }
+                        { code: "F.7.2.1", title: "Kuvvet, iş ve enerji", summary: "Fiziksel iş şartları; Joule; kinetik; çekim ve esneklik potansiyel enerji." },
+                        { code: "F.7.2.2", title: "Enerji dönüşümleri ve korunumu", summary: "Korunum kanunu; sarkaç; sürtünme; kaçış rampası." }
                     ]
                 },
                 {
                     unitId: 3,
                     unit: "3. Ünite",
-                    name: "Kuvvet ve Enerji",
-                    hours: "24 Saat (%16.7)",
-                    period: "1. Dönem (Aralık - Ocak)",
-                    lgsWeight: "7. Sınıf 2. Yazılı Konusu",
-                    status: "Mevcut & Aktif",
-                    examTip: "Fiziksel İş Kuralı: Bir kuvvetin iş yapabilmesi için cismin KUVVET DOĞRULTUSUNDA hareket etmesi şarttır! Sırtında çantayla düz yolda yürüyen çocuk fiziksel anlamda İŞ YAPMAZ.",
+                    name: "Vücudumuzdaki Sistemler",
+                    hours: "1.–2. Dönem",
+                    period: "1.–2. Dönem",
+                    status: "Aktif",
+                    examTip: "Safra = yağların fiziksel sindirimi (kimyasal değil!). Küçük dolaşım: sağ karıncık → akciğer → sol kulakçık. Gaz alışverişi = alveol. Böbrek oksijen süzmez.",
                     topics: [
-                        {
-                            title: "Kütle ve Ağırlık İlişkisi",
-                            code: "F.7.3.1.1",
-                            summary: "Kütle (m): Değişmeyen madde miktarıdır, birimi kg veya g, eşit kollu teraziyle ölçülür, Evren'in her yerinde aynıdır. Ağırlık (G): Kütleye etki eden yer çekimi kuvvetidir, birimi Newton (N), dinamometreyle ölçülür, gök cisminin büyüklüğüne göre değişir (Ay'daki ağırlık Dünya'dakinin 1/6'sı kadardır)."
-                        },
-                        {
-                            title: "Fiziksel Anlamda İş (W = F . x)",
-                            code: "F.7.3.2.1",
-                            summary: "İş = Uygulanan Kuvvet x Alınan Yol. Birimi Joule (J). İş yapılabilmesi için: 1) Kuvvet uygulanmalı, 2) Cisim kuvvetle aynı doğrultuda yer değiştirmelidir. Örnek: Kutuyu yukarı kaldıran iş yapar, duvara yüklenip hareket ettiremeyen iş yapmaz!"
-                        },
-                        {
-                            title: "Kinetik Enerji, Potansiyel Enerji ve Korunum",
-                            code: "F.7.3.3.1",
-                            summary: "Kinetik Enerji: Hareket eden cisimlerin enerjisi (kütle ve sürate bağlı). Çekim Potansiyel Enerjisi: Yüksekteki cisimlerin enerjisi (kütle ve yüksekliğe bağlı). Esneklik Potansiyel Enerjisi: Gerilmiş yay veya paket lastiği. Enerjinin Korunumu: Enerji yok olmaz, sadece birbirine dönüşür (Sürtünme yoksa Potansiyel Enerji + Kinetik Enerji = Sabit Mekanik Enerji)."
-                        }
+                        { code: "F.7.3.1", title: "Sindirim sistemi", summary: "Organ sırası; fiziksel/kimyasal sindirim; karaciğer–pankreas; sağlık." },
+                        { code: "F.7.3.2", title: "Dolaşım sistemi", summary: "Kalp, damarlar, kan hücreleri; küçük/büyük dolaşım; Kızılay." },
+                        { code: "F.7.3.3", title: "Solunum sistemi", summary: "Yol sırası; alveol; diyafram; Yeşilay." },
+                        { code: "F.7.3.4", title: "Boşaltım sistemi", summary: "Böbrek–üreter–mesane–üretra; yardımcı organlar; sağlık." }
                     ]
                 },
                 {
                     unitId: 4,
                     unit: "4. Ünite",
-                    name: "Saf Madde ve Karışımlar",
-                    hours: "28 Saat (%19.4)",
-                    period: "2. Dönem (Şubat - Mart)",
-                    lgsWeight: "7. Sınıf 2. Dönem 1. Yazılı",
-                    status: "Mevcut & Aktif",
-                    examTip: "Unutma: Element ve Bileşikler SAF MADDELERDİR (belli erime/kaynama noktaları vardır). Karışımlar ise saf değildir, formülle gösterilmezler ve fiziksel yollarla ayrılırlar.",
+                    name: "Işığın Kırılması ve Mercekler",
+                    hours: "2. Dönem",
+                    period: "2. Dönem",
+                    status: "Aktif",
+                    examTip: "Az→çok: normale yaklaşır, hız ↓. İnce kenarlı = yakınsak = toplar = hipermetrop. Kalın kenarlı = ıraksak = dağıtır = miyop. Pet şişe = ince kenarlı yangın riski.",
                     topics: [
-                        {
-                            title: "Atomun Yapısı ve Geçmişten Günümüze Modeller",
-                            code: "F.7.4.1.1",
-                            summary: "Atomun temel tanecikleri: Çekirdekte Proton (+), Nötron (yüksüz); katmanlarda dönen Elektron (-). Atom modelleri tarihi: Democritus (bölünemez tanecik) -> Dalton (içi dolu berk küre) -> Thomson (üzümlü kek) -> Rutherford (çekirdekli model, gezegen modeli) -> Bohr (yörüngeli model) -> Modern Atom Teorisi (elektron bulutu)."
-                        },
-                        {
-                            title: "Saf Maddeler: Elementler ve Bileşikler",
-                            code: "F.7.4.2.1",
-                            summary: "Element: Tek cins atomdan oluşan saf madde. Sembollerle gösterilir (H, He, Li, Be, B, C, N, O, F, Ne, Na, Mg, Al, Si, P, S, Cl, Ar, K, Ca). Bileşik: En az iki farklı elementin kimyasal bağla birleşmesi. Formüllerle gösterilir (H2O, CO2, NaCl, NH3, CH4, HCl). Bileşikler kendini oluşturan elementlerin özelliklerini GÖSTERMEZ!"
-                        },
-                        {
-                            title: "Karışımlar ve Karışımları Ayırma Yöntemleri",
-                            code: "F.7.4.3.1",
-                            summary: "Homojen Karışım (Çözelti): Her yerinde aynı özellik (Tuzlu su, hava, maden suyu, kolonya, alaşımlar). Heterojen Karışım: Kumlu su, ayran, zeytinyağı-su, salata. Çözünme hızını artıranlar: Sıcaklık artışı, karıştırma, temas yüzeyi (pudra şekeri > küp şeker). Ayırma yöntemleri: Buharlaştırma, Damıtma (ayrımsal damıtma - kaynama noktası farkı), Yoğunluk farkı (ayırma hunisi), Mıknatısla ayırma (demir, nikel, kobalt), Süzme."
-                        }
-                    ]
-                },
-                {
-                    unitId: 5,
-                    unit: "5. Ünite",
-                    name: "Işığın Madde ile Etkileşimi",
-                    hours: "28 Saat (%19.4)",
-                    period: "2. Dönem (Nisan - Mayıs)",
-                    lgsWeight: "7. Sınıf 2. Dönem 1. ve 2. Yazılı",
-                    status: "Mevcut & Aktif",
-                    examTip: "Ayna Kuralları: Düz ayna daima cisimle aynı boyda ve düz görüntü verir. Tümsek ayna DAİMA DÜZ VE KÜÇÜK (Geniş görüş alanı: otopark/kavşak). Çukur ayna devasa düz görüntü veya ters görüntü verebilir (dişçi aynası, teleskop).",
-                    topics: [
-                        {
-                            title: "Işığın Soğurulması ve Cisimlerin Renkli Görünmesi",
-                            code: "F.7.5.1.1",
-                            summary: "Koyu renkli cisimler ışığı çok soğurur (ısınır), açık renkler yansıtır (serin kalır). Güneş enerjisinin kullanım alanları (güneş panelleri, güneş fırınları). Cisimler kendi renklerindeki ışığı yansıtır, diğer renkleri soğurur. Beyaz cisim tüm renkleri yansıtır, siyah cisim tüm renkleri soğurur."
-                        },
-                        {
-                            title: "Aynalar ve Görüntü Özellikleri",
-                            code: "F.7.5.2.1",
-                            summary: "Düzlem Aynalar: Simetrik, düz, cisimle eşit boyda ve eşit mesafede görüntü (Ev aynaları, periskop). Çukur Ayna: Işığı bir noktada (odak noktası) toplar. Cisme yakınken DÜZ ve BÜYÜK (makyaj aynası, dişçi aynası), uzaktayken TERS görüntü verir. Tümsek Ayna: Işığı dağıtır. Her zaman DÜZ ve KÜÇÜK görüntü vererek geniş bir alanı gösterir (Araç yan aynası, kavşak güvenlik aynaları)."
-                        },
-                        {
-                            title: "Işığın Kırılması ve Mercekler",
-                            code: "F.7.5.3.1",
-                            summary: "Işığın yoğunluğu farklı saydam bir ortamdan diğerine geçerken hızının ve doğrultusunun değişmesi. Az yoğundan (hava) -> Çok yoğuna (su/cam) geçerken NORMALE YAKLAŞIR ve yavaşlar. Çok yoğundan -> Az yoğuna geçerken NORMALDEN UZAKLAŞIR ve hızlanır. İnce kenarlı mercek (Işığı toplar, hipermetrop göz kusurunu düzeltir, büyüteç görevi görür). Kalın kenarlı mercek (Işığı dağıtır, miyop göz kusurunu düzeltir)."
-                        }
-                    ]
-                },
-                {
-                    unitId: 6,
-                    unit: "6. Ünite",
-                    name: "Canlılarda Üreme, Büyüme ve Gelişme",
-                    hours: "10 Saat (%6.9)",
-                    period: "2. Dönem (Mayıs)",
-                    lgsWeight: "7. Sınıf 2. Yazılı Konusu",
-                    status: "Mevcut & Aktif",
-                    examTip: "Çimlenme Şartları: SOS (Sıcaklık, Oksijen, Su). Çimlenen tohum fotosentez YAPMAZ (yeşil yaprağı yoktur), bu yüzden çimlenmek için IŞIK GEREKMEZ!",
-                    topics: [
-                        {
-                            title: "İnsanda Üreme, Büyüme ve Gelişme",
-                            code: "F.7.6.1.1",
-                            summary: "Erkek üreme sistemi (testis, sperm kanalı, salgı bezleri, penis). Dişi üreme sistemi (yumurtalık, yumurta kanalı - döllenmenin olduğu yer!, döl yatağı/rahim, vajina). Zigot (döllenmiş yumurta) -> Embriyo -> Fetüs -> Bebek. Anne adayının dikkat etmesi gerekenler (sağlıklı beslenme, röntgenden/ilaçtan kaçınma)."
-                        },
-                        {
-                            title: "Hayvanlarda Üreme ve Başkalaşım (Metamorfoz)",
-                            code: "F.7.6.2.1",
-                            summary: "Eşeyli üreme (İç döllenme/iç gelişme - memeliler; İç döllenme/dış gelişme - kuşlar, sürüngenler; Dış döllenme/dış gelişme - balıklar, kurbağalar). Başkalaşım geçiren canlılar: Yumurtadan çıkan yavrunun ana canlıya benzemeyip zamanla değişim geçirmesi (Kurbağa, kelebek, ipek böceği, sinek)."
-                        },
-                        {
-                            title: "Bitkilerde Eşeyli ve Eşeysiz Üreme, Çimlenme",
-                            code: "F.7.6.2.2",
-                            summary: "Çiçeğin kısımları: Çanak yaprak (yeşil, korur), Taç yaprak (renkli, kokulu, böcekleri çeker), Erkek organ (başçık ve sapçık - polen üretir), Dişi organ (tepecik, dişicik borusu, yumurtalık). Tozlaşma -> Döllenme -> Tohum ve Meyve oluşumu. Çimlenme için gerekli şartlar: Uygun Sıcaklık + Oksijen + Su (Nem). Çimlenmede ışık aranmaz!"
-                        }
-                    ]
-                },
-                {
-                    unitId: 7,
-                    unit: "7. Ünite",
-                    name: "Elektrik Devreleri",
-                    hours: "10 Saat (%6.9)",
-                    period: "2. Dönem (Haziran)",
-                    lgsWeight: "7. Sınıf Yıl Sonu Değerlendirmesi",
-                    status: "Mevcut & Aktif",
-                    examTip: "Altın Kural: Seri bağlı devrede ampul sayısı arttıkça eşdeğer direnç artar, ampul parlaklığı AZALIR (Biri patlarsa hepsi söner). Paralel bağlı devrede ampul sayısı artsa da parlaklık DEĞİŞMEZ (Biri patlarsa diğerleri yanmaya devam eder)!",
-                    topics: [
-                        {
-                            title: "Ampullerin Bağlanma Şekilleri: Seri ve Paralel Bağlama",
-                            code: "F.7.7.1.1",
-                            summary: "Seri Bağlama: Ampullerin uç uca tek bir hat üzerinde dizilmesi. Akım her ampulden aynı geçer. Ampul sayısı arttıkça toplam direnç artar, kollardan geçen akım azalır, parlaklık düşer. Paralel Bağlama: Ampullerin farklı kollara bağlanması. Her kolun gerilimi pil gerilimine eşittir. Ampul sayısı artsa da parlaklık değişmez. Evlerimizde tesisat paralel bağlıdır."
-                        },
-                        {
-                            title: "Akım, Gerilim ve Direnç İlişkisi (Ohm Kanunu)",
-                            code: "F.7.7.1.2",
-                            summary: "Ohm Kanunu: Bir iletkenin uçları arasındaki gerilimin (V), iletkenden geçen akıma (I) oranı sabittir ve bu oran iletkenin direncine (R) eşittir: V = I . R. Gerilim birimi Volt (V, Voltmetre ile ölçülür ve devreye PARALEL bağlanır). Akım birimi Amper (A, Ampermetre ile ölçülür ve devreye SERİ bağlanır). Direnç birimi Ohm (Ω)."
-                        }
+                        { code: "F.7.4.1", title: "Işığın kırılması", summary: "Tanım; normale yaklaşma/uzaklaşma; dik geliş; görünür derinlik." },
+                        { code: "F.7.4.2", title: "Mercekler", summary: "Optik merkez; ince/kalın kenarlı; odak; kullanım; yangın uyarısı." }
                     ]
                 }
             ],
-
             quiz: [
-                // 1. ÜNİTE: GÜNEŞ SİSTEMİ VE ÖTESİ
                 {
                     id: "7-q1",
                     unitId: 1,
-                    unitName: "1. Ünite: Güneş Sistemi ve Ötesi",
-                    topic: "Uzay Araştırmaları & Işık Yılı",
-                    difficulty: "Yazılı Klasik Soru",
-                    question: "Gökbilimde kullanılan 'Işık Yılı' kavramı ile ilgili olarak aşağıdakilerden hangisi DOĞRUDUR?",
+                    unitName: "1. Ünite: Uzay Çağı",
+                    topic: "Türkiye'nin Yapay Uyduları",
+                    difficulty: "Klasik",
+                    question: "9 Temmuz 2024 tarihinde uzaya fırlatılan ve Türkiye'nin ilk yerli ve millî haberleşme uydusu olma özelliğini taşıyan yapay uydu aşağıdakilerden hangisidir?",
                     options: [
-                        "Işığın Dünya etrafında bir yılda kaç tur attığını gösteren zaman birimidir.",
-                        "Gök cisimleri arasındaki mesafeyi ölçmek için kullanılan bir UZAKLIK birimidir.",
-                        "Yalnızca Güneş Sistemi içerisindeki gezegenler arası süreyi ifade eder.",
-                        "Bir yıldızın yaşını belirlemek için kullanılan astronomik süredir."
+                        "Göktürk-1",
+                        "Türksat 6A",
+                        "İMECE",
+                        "Türksat 5B"
                     ],
                     correct: 1,
-                    explanation: "Işık yılı kesinlikle bir zaman birimi DEĞİLDİR! Işığın boşlukta 1 yılda kat ettiği yaklaşık 9.5 trilyon kilometrelik MESAFE / UZAKLIK birimidir."
+                    explanation: "Türksat 6A, 9 Temmuz 2024'te fırlatılan Türkiye'nin ilk yerli ve millî haberleşme uydusudur. İMECE gözlem uydusudur; Göktürk serisi de keşif/gözlem amaçlıdır."
                 },
                 {
                     id: "7-q2",
                     unitId: 1,
-                    unitName: "1. Ünite: Güneş Sistemi ve Ötesi",
-                    topic: "Türkiye'nin Uyduları",
-                    difficulty: "Genel Kültür & MEB Kazanım",
-                    question: "Aşağıdakilerden hangisi Türkiye'nin uzayda aktif olarak görev yapan YERLİ VE MİLLİ haberleşme uydusudur?",
+                    unitName: "1. Ünite: Uzay Çağı",
+                    topic: "İlk İnsanlı Uzay Misyonu",
+                    difficulty: "Klasik",
+                    question: "Türkiye'nin ilk insanlı uzay misyonunu gerçekleştirerek Uluslararası Uzay İstasyonu'nda (ISS) 13 farklı bilimsel deney yapan astronotumuz kimdir?",
                     options: [
-                        "Göktürk-1",
-                        "BİLSAT",
-                        "Türksat 6A",
-                        "Rasat"
+                        "Ali Kuşçu",
+                        "Umut Yıldız",
+                        "Alper Gezeravcı",
+                        "Canan Dağdeviren"
                     ],
                     correct: 2,
-                    explanation: "Türksat 6A, Türkiye'nin ilk yerli ve milli haberleşme uydusudur. Göktürk ve İMECE ise yerli gözlem uydularımızdır."
+                    explanation: "Alper Gezeravcı Türkiye'nin ilk uzay yolcusudur; ISS'te 13 bilimsel deney gerçekleştirmiş, uzaydan ilk mesajı “İstikbal göklerdedir.” olmuştur."
                 },
-
-                // 2. ÜNİTE: HÜCRE VE BÖLÜNMELER
                 {
                     id: "7-q3",
-                    unitId: 2,
-                    unitName: "2. Ünite: Hücre ve Bölünmeler",
-                    topic: "Hücre Organelleri",
-                    difficulty: "Yazılı Sorusu",
-                    question: "Bitki hücresi ile hayvan hücresi mikroskopta incelendiğinde aşağıdakilerden hangisi YALNIZCA bitki hücresinde gözlemlenir?",
+                    unitId: 1,
+                    unitName: "1. Ünite: Uzay Çağı",
+                    topic: "Yıldız Yaşam Döngüsü",
+                    difficulty: "Yazılı Seviyesi",
+                    question: "Başlangıç kütlesi Güneş kütlesinden çok büyük olan bir yıldızın yaşam döngüsünün sonunda geçirdiği şiddetli patlamaya ve sonrasında dönüşebileceği yapıya ne ad verilir?",
                     options: [
-                        "Sentrozom organeli",
-                        "Hücre zarı ve çekirdek",
-                        "Hücre duvarı (çeperi) ve Kloroplast",
-                        "Mitokondri ve ribozom"
+                        "Süpernova patlaması — kara delik / nötron yıldızı",
+                        "Gezegenimsi bulutsu — beyaz cüce",
+                        "Kırmızı dev — önyıldız",
+                        "Atbaşı patlaması — takımyıldız"
                     ],
-                    correct: 2,
-                    explanation: "Hücre çeperi (duvarı) ve fotosentez yaparak besin üreten kloroplast organeli sadece bitki hücrelerinde bulunur; hayvan hücrelerinde bulunmaz."
+                    correct: 0,
+                    explanation: "Büyük kütleli yıldızlar kırmızı süperdev olduktan sonra süpernova patlaması yaşar; sonuç nötron yıldızı (pulsar) veya kara deliktir. Beyaz cüce küçük kütleli yıldızların sonudur."
                 },
                 {
                     id: "7-q4",
-                    unitId: 2,
-                    unitName: "2. Ünite: Hücre ve Bölünmeler",
-                    topic: "Mitoz vs Mayoz Bölünme",
-                    difficulty: "Kritik Karşılaştırma",
-                    question: "Mayoz bölünmeyi mitoz bölünmeden ayıran ve tür içi GENETİK ÇEŞİTLİLİĞİ sağlayan en önemli olay hangisidir?",
+                    unitId: 1,
+                    unitName: "1. Ünite: Uzay Çağı",
+                    topic: "Işık Yılı",
+                    difficulty: "Tuzak Soru",
+                    question: "Astronomi derslerinde kullanılan “ışık yılı” kavramı ile ilgili verilen bilgilerden hangisi DOĞRUDUR?",
                     options: [
-                        "Kromozomların hücre ortasına dizilmesi",
-                        "DNA'nın bölünme öncesinde kendini eşlemesi",
-                        "Homolog kromozomlar arasında gerçekleşen Parça Değişimi (Crossing-Over)",
-                        "Sitoplazmanın boğumlanarak ikiye ayrılması"
+                        "Yıldızların yaşını ölçmeye yarayan bir zaman birimidir.",
+                        "Işığın boşlukta 1 yılda katettiği mesafeyi belirten bir uzunluk / uzaklık birimidir.",
+                        "Teleskopların büyütme gücünü gösteren bir birimdir.",
+                        "Güneş'in kendi etrafında dönme süresini ifade eder."
                     ],
-                    correct: 2,
-                    explanation: "Mayoz-1 evresinde homolog kromozomlar arasında gerçekleşen parça değişimi (crossing-over), genetik çeşitliliğin (kardeşlerin birbirinden farklı olmasının) temel sebebidir."
+                    correct: 1,
+                    explanation: "Işık yılı zaman birimi değildir; ışığın bir yılda aldığı yolu ifade eden mesafe (uzunluk) birimidir."
                 },
-
-                // 3. ÜNİTE: KUVVET VE ENERJİ
                 {
                     id: "7-q5",
-                    unitId: 3,
-                    unitName: "3. Ünite: Kuvvet ve Enerji",
+                    unitId: 2,
+                    unitName: "2. Ünite: Kuvvet ve Enerjiyi Keşfedelim",
                     topic: "Fiziksel Anlamda İş",
-                    difficulty: "Yazılı Tuzak Soru",
-                    question: "Fiziksel anlamda iş yapılabilmesi için aşağıdaki iki temel şarttan hangisi KESİNLİKLE BİRLİKTE SAĞLANMALIDIR?",
+                    difficulty: "Klasik",
+                    question: "Bir cisme uygulanan kuvvet sonucunda fiziksel anlamda iş yapılmış sayılabilmesi için gerekli koşullar aşağıdakilerden hangisinde doğru verilmiştir?",
                     options: [
-                        "Cisme kuvvet uygulanmalı ve cisim bu uygulanan kuvvet doğrultusunda yol almalıdır.",
-                        "Cismin sürati sürekli artmalı ve kütlesi azalmalıdır.",
-                        "Cisim yalnızca dikey yönde yukarıya doğru taşınmalıdır.",
-                        "Uygulanan kuvvet cisme zıt yönde etki etmelidir."
+                        "Cisme kuvvet uygulanması ve cismin uygulanan kuvvet doğrultusunda yer değiştirmesi gerekir.",
+                        "Cismin sabit hızla durmadan dairesel hareket yapması gerekir.",
+                        "Cisme etki eden net kuvvetin sıfır olması gerekir.",
+                        "Uygulanan kuvvetin cismin hareket yönüne dik olması gerekir."
                     ],
                     correct: 0,
-                    explanation: "Fiziksel iş (W = F . x): Bir cisme kuvvet uygulanmalı ve cisim uygulanan bu kuvvetle AYNI DOĞRULTUDA yer değiştirmelidir. Çantasını sırtında sallamadan düz yolda yürüyen öğrenci fiziksel anlamda iş yapmaz!"
+                    explanation: "Fiziksel iş için net kuvvet ve bu kuvvet doğrultusunda yer değiştirme şarttır. Kuvvet harekete dikse veya yer değiştirme yoksa iş yapılmaz."
                 },
-
-                // 4. ÜNİTE: SAF MADDE VE KARIŞIMLAR
                 {
                     id: "7-q6",
-                    unitId: 4,
-                    unitName: "4. Ünite: Saf Madde ve Karışımlar",
-                    topic: "Element ve Bileşikler",
-                    difficulty: "MEB Kavram Sorusu",
-                    question: "Su (H2O) ve Sofra Tuzu (NaCl) gibi maddelerin ortak özelliği aşağıdakilerden hangisidir?",
+                    unitId: 2,
+                    unitName: "2. Ünite: Kuvvet ve Enerjiyi Keşfedelim",
+                    topic: "İş Yapılmayan Durumlar",
+                    difficulty: "Tuzak Soru",
+                    question: "Aşağıdaki günlük yaşam durumlarından hangisinde FİZİKSEL ANLAMDA İŞ YAPILMAMIŞTIR?",
                     options: [
-                        "Aynı cins atomlardan oluşmuş element olmaları",
-                        "Fiziksel yöntemlerle daha basit maddelere ayrıştırılabilmeleri",
-                        "Belirli formüllerle gösterilen Saf Madde (Bileşik) olmaları",
-                        "Kendisini oluşturan maddelerin kimyasal özelliklerini aynen korumaları"
+                        "Oyuncak arabayı iterek hareket ettiren çocuk",
+                        "Sırtındaki ağır çanta ile düz koridorda yatay doğrultuda sabit hızla yürüyen öğrenci",
+                        "Düşen tahta kalemini yerden kaldırıp masaya koyan öğretmen",
+                        "Halteri yerden havaya kaldıran sporcu"
                     ],
-                    correct: 2,
-                    explanation: "Bileşikler en az iki farklı elementin kimyasal yollarla birleştiği saf maddelerdir. Formüllerle gösterilirler ve kendini oluşturan elementlerin özelliklerini kesinlikle GÖSTERMEZLER (Örn: Yanıcı H2 ve yakıcı O2 birleşip söndürücü H2O suyunu oluşturur)."
+                    correct: 1,
+                    explanation: "Çantanın ağırlığı yukarı yöndedir; öğrenci yatay yürür. Kuvvet ile yer değiştirme aynı doğrultuda olmadığı için fiziksel iş yapılmamıştır."
                 },
-
-                // 5. ÜNİTE: IŞIĞIN MADDE İLE ETKİLEŞİMİ
                 {
                     id: "7-q7",
-                    unitId: 5,
-                    unitName: "5. Ünite: Işığın Madde ile Etkileşimi",
-                    topic: "Aynalar ve Kullanım Alanları",
-                    difficulty: "Günlük Hayat Uygulaması",
-                    question: "Araçların sağ-sol yan aynalarında ve keskin yol virajlarındaki kavşak aynalarında geniş bir görüş alanı sağlamak amacıyla hangi ayna türü kullanılır?",
+                    unitId: 2,
+                    unitName: "2. Ünite: Kuvvet ve Enerjiyi Keşfedelim",
+                    topic: "Çekim Potansiyel Enerji",
+                    difficulty: "Yazılı Seviyesi",
+                    question: "Aynı yükseklikten serbest bırakılan iki cisimden ağırlığı büyük olanın kuma batma miktarı daha fazla olmaktadır. Bu durum aşağıdakilerden hangisini ispatlar?",
                     options: [
-                        "Çukur Ayna",
-                        "Tümsek Ayna",
-                        "Düz Ayna",
-                        "İnce Kenarlı Mercek"
+                        "Kinetik enerjinin hıza bağlı olduğunu",
+                        "Çekim potansiyel enerjisinin ağırlığa (kütleye) bağlı olduğunu",
+                        "Esneklik potansiyel enerjisinin gerilme miktarına bağlı olduğunu",
+                        "Enerjinin kaybolduğunu"
                     ],
                     correct: 1,
-                    explanation: "Tümsek ayna üzerine gelen ışınları dağıtır ve daima düz, cisimden KÜÇÜK görüntü vererek çok geniş bir görüş alanı sağlar. Bu yüzden araç yan aynalarında ve güvenlik kavşak aynalarında tümsek ayna kullanılır."
+                    explanation: "Aynı yükseklikte ağırlığı büyük olanın çekim potansiyel enerjisi daha fazladır; bu enerji dönüşerek kuma daha çok batmasını sağlar."
                 },
-
-                // 6. ÜNİTE: CANLILARDA ÜREME
                 {
                     id: "7-q8",
-                    unitId: 6,
-                    unitName: "6. Ünite: Canlılarda Üreme, Büyüme ve Gelişme",
-                    topic: "İnsanda Üreme Sıralaması",
-                    difficulty: "Sıralama Sorusu",
-                    question: "İnsanda döllenmeden bebeğin doğumuna kadar geçen süreçteki biyolojik gelişim aşamalarının doğru sıralanışı hangisidir?",
+                    unitId: 2,
+                    unitName: "2. Ünite: Kuvvet ve Enerjiyi Keşfedelim",
+                    topic: "Enerji Dönüşümü · Sarkaç",
+                    difficulty: "Klasik",
+                    question: "Sürtünmesiz ortamda A noktasından serbest bırakılan sarkaç bilyesi en alt B noktasından geçip C'ye çıkmaktadır. A'dan B'ye gelirken enerji değişimi nasıldır?",
                     options: [
-                        "Zigot &rarr; Embriyo &rarr; Fetüs &rarr; Bebek",
-                        "Embriyo &rarr; Zigot &rarr; Fetüs &rarr; Bebek",
-                        "Fetüs &rarr; Zigot &rarr; Embriyo &rarr; Bebek",
-                        "Zigot &rarr; Fetüs &rarr; Embriyo &rarr; Bebek"
-                    ],
-                    correct: 0,
-                    explanation: "Sperm ve yumurtanın birleşmesiyle oluşan ilk hücreye ZİGOT denir. Zigot bölünüp çoğalarak EMBRİYO'yu, 8. haftadan sonra FETÜS'ü ve en sonunda BEBEK'i oluşturur."
-                },
-
-                // 7. ÜNİTE: ELEKTRİK DEVRELERİ
-                {
-                    id: "7-q9",
-                    unitId: 7,
-                    unitName: "7. Ünite: Elektrik Devreleri",
-                    topic: "Seri ve Paralel Bağlama",
-                    difficulty: "Yazılı Garanti Soru",
-                    question: "Özdeş ampullerden oluşan paralel bağlı bir devredeki ampullerden biri duydan söküldüğünde diğer ampullerin durumu ne olur?",
-                    options: [
-                        "Bütün ampuller anında söner.",
-                        "Diğer ampuller aynı parlaklıkta yanmaya devam eder.",
-                        "Diğer ampullerin parlaklığı 2 katına çıkar.",
-                        "Devredeki pil hemen biter."
+                        "Potansiyel enerji artar, kinetik enerji azalır.",
+                        "Potansiyel enerji azalır, kinetik enerji artar.",
+                        "Hem potansiyel hem kinetik enerji artar.",
+                        "Toplam enerji sürekli azalır."
                     ],
                     correct: 1,
-                    explanation: "Paralel bağlı devrelerde her ampul kendi bağımsız elektrik koluna sahiptir. Bir ampul patlasa veya sökülse bile diğer kollar etkilenmez ve aynı parlaklıkta yanmaya devam eder. Evlerimizdeki priz ve lambalar da bu yüzden paralel bağlıdır."
+                    explanation: "Yükseklik azalınca potansiyel enerji azalır, kinetik enerji artar. Sürtünmesiz ortamda toplam mekanik enerji korunur."
+                },
+                {
+                    id: "7-q9",
+                    unitId: 3,
+                    unitName: "3. Ünite: Vücudumuzdaki Sistemler",
+                    topic: "Sindirime Yardımcı Organlar",
+                    difficulty: "Tuzak Soru",
+                    question: "Karaciğer ve pankreas organlarından salgılanan sıvılar ile ilgili aşağıdakilerden hangisi DOĞRUDUR?",
+                    options: [
+                        "Karaciğerin salgıladığı safra sıvısı yağların kimyasal sindirimini sağlar.",
+                        "Pankreas öz suyu sadece karbonhidratların fiziksel sindiriminde görev alır.",
+                        "Karaciğerden salgılanan safra sıvısı yağların fiziksel (mekanik) sindirimini gerçekleştirir.",
+                        "Mide öz suyu ince bağırsakta salgılanarak proteinleri parçalar."
+                    ],
+                    correct: 2,
+                    explanation: "Safra yağları fiziksel/mekanik olarak parçalar (emülsiyon). Kimyasal sindirim pankreas öz suyu ve enzimlerle yapılır."
+                },
+                {
+                    id: "7-q10",
+                    unitId: 3,
+                    unitName: "3. Ünite: Vücudumuzdaki Sistemler",
+                    topic: "Küçük Kan Dolaşımı",
+                    difficulty: "Yazılı Seviyesi",
+                    question: "Küçük kan dolaşımının temel amacı ve izlediği yol aşağıdakilerden hangisinde doğru ifade edilmiştir?",
+                    options: [
+                        "Kirli kanın akciğerlerde temizlenmesini sağlar; sağ karıncıktan başlayıp sol kulakçıkta biter.",
+                        "Temiz kanı tüm vücuda dağıtır; sol karıncıktan başlayıp sağ kulakçıkta biter.",
+                        "Oksijence zengin kanı böbreklere taşımaktır.",
+                        "Sindirilmiş besinleri hücrelere ulaştırmaktır."
+                    ],
+                    correct: 0,
+                    explanation: "Küçük dolaşım kalp–akciğer arasındadır: sağ karıncık → akciğer atardamarı → akciğerler → akciğer toplardamarı → sol kulakçık."
+                },
+                {
+                    id: "7-q11",
+                    unitId: 3,
+                    unitName: "3. Ünite: Vücudumuzdaki Sistemler",
+                    topic: "Alveol",
+                    difficulty: "Klasik",
+                    question: "Akciğerlerde etrafı kılcal damarlarla kaplı olan ve gaz alışverişinin (oksijen–karbon dioksit) gerçekleştiği temel yapı hangisidir?",
+                    options: [
+                        "Bronş",
+                        "Alveol (hava keseciği)",
+                        "Gırtlak",
+                        "Soluk borusu"
+                    ],
+                    correct: 1,
+                    explanation: "Alveoller kılcal damarlarla çevrilidir; O₂–CO₂ gaz alışverişi burada gerçekleşir."
+                },
+                {
+                    id: "7-q12",
+                    unitId: 3,
+                    unitName: "3. Ünite: Vücudumuzdaki Sistemler",
+                    topic: "Boşaltıma Yardımcı Organlar",
+                    difficulty: "Tuzak Soru",
+                    question: "Boşaltım sistemine yardımcı organlar ve atıkları ile ilgili eşleştirmelerden hangisi YANLIŞTIR?",
+                    options: [
+                        "Deri → terleme ile su ve tuz atılması",
+                        "Akciğer → soluk verme ile karbon dioksit ve su buharı atılması",
+                        "Kalın bağırsak → sindirilmeyen besin atıklarının atılması",
+                        "Böbrek → soluk alma ile oksijenin süzülmesi"
+                    ],
+                    correct: 3,
+                    explanation: "Böbrek kanı süzerek idrar oluşturur; oksijen süzmez. Oksijen solunum sistemiyle alınır."
+                },
+                {
+                    id: "7-q13",
+                    unitId: 4,
+                    unitName: "4. Ünite: Işığın Kırılması ve Mercekler",
+                    topic: "Az → Çok Yoğun Kırılma",
+                    difficulty: "Klasik",
+                    question: "Işık ışınlarının az yoğun saydam ortamdan çok yoğun saydam ortama geçerken izlediği yol ile ilgili hangisi DOĞRUDUR?",
+                    options: [
+                        "Normale yaklaşarak kırılır ve hızı azalır.",
+                        "Normalden uzaklaşarak kırılır ve hızı artar.",
+                        "Hiç kırılmadan aynı hızla yoluna devam eder.",
+                        "Kırılma açısı gelme açısından daha büyük olur."
+                    ],
+                    correct: 0,
+                    explanation: "Az yoğundan çok yoğuna geçişte ışık normale yaklaşır, kırılma açısı küçülür ve hız azalır."
+                },
+                {
+                    id: "7-q14",
+                    unitId: 4,
+                    unitName: "4. Ünite: Işığın Kırılması ve Mercekler",
+                    topic: "Görünür Derinlik",
+                    difficulty: "Yazılı Seviyesi",
+                    question: "İskelede duran balıkçının sudaki balığı olduğundan daha yakında görmesinin temel sebebi nedir?",
+                    options: [
+                        "Işığın suda tamamen soğurulması",
+                        "Sudan havaya geçen ışık ışınlarının kırılarak göze ulaşması",
+                        "Düzlem aynadaki simetrik görüntü oluşumu",
+                        "Balığın ışık kaynağı olması"
+                    ],
+                    correct: 1,
+                    explanation: "Balıktan çıkan ışınlar sudan havaya (çok → az) geçerken kırılır; balıkçı balığı gerçek konumundan daha yakında görür."
+                },
+                {
+                    id: "7-q15",
+                    unitId: 4,
+                    unitName: "4. Ünite: Işığın Kırılması ve Mercekler",
+                    topic: "İnce Kenarlı Mercek",
+                    difficulty: "Klasik",
+                    question: "Asal eksene paralel ışınları bir noktada toplayan, yakınsak mercek olarak adlandırılan ve hipermetrop düzelten mercek hangisidir?",
+                    options: [
+                        "Kalın kenarlı (ıraksak) mercek",
+                        "İnce kenarlı (yakınsak) mercek",
+                        "Tümsek ayna",
+                        "Düzlem ayna"
+                    ],
+                    correct: 1,
+                    explanation: "İnce kenarlı (yakınsak) mercek ışığı toplar; hipermetrop gözlüklerinde kullanılır."
+                },
+                {
+                    id: "7-q16",
+                    unitId: 4,
+                    unitName: "4. Ünite: Işığın Kırılması ve Mercekler",
+                    topic: "Orman Yangını · Pet Şişe",
+                    difficulty: "Tuzak Soru",
+                    question: "Ormanlara bırakılan su dolu pet şişelerin güneşli havada yangına yol açabilmesinin nedeni şişenin hangi optik araç gibi davranmasıdır?",
+                    options: [
+                        "Kalın kenarlı mercek gibi ışığı dağıtması",
+                        "İnce kenarlı mercek gibi ışığı bir noktada toplaması",
+                        "Düzlem ayna gibi ışığı yansıtması",
+                        "Işığı tamamen soğurarak yok etmesi"
+                    ],
+                    correct: 1,
+                    explanation: "Su dolu pet şişe ince kenarlı mercek gibi davranır; güneş ışığını bir noktada toplayarak tutuşmaya yol açabilir."
                 }
             ],
-
             flashcards: [
-                { id: "7f-fc1", front: "Işık yılı zaman birimi midir?", back: "Hayır. Işığın 1 yılda aldığı MESAFE / UZAKLIK birimidir (~9.5 trilyon km)." },
-                { id: "7f-fc2", front: "Çimlenme için ışık gerekir mi?", back: "Hayır. Çimlenme için uygun sıcaklık + oksijen + su yeterlidir (SOS)." },
-                { id: "7f-fc3", front: "Mayozda genetik çeşitlilik nasıl artar?", back: "Homolog kromozomlar arasında parça değişimi (crossing-over) ile." },
-                { id: "7f-fc4", front: "Ev tesisatı seri mi paralel mi?", back: "Paralel. Bir lamba sönse diğerleri yanmaya devam eder." }
-            ]
+                { id: "7f-fc1", unitId: 1, front: "Türksat 6A ne zaman fırlatıldı? Özelliği?", back: "9 Temmuz 2024 — Türkiye'nin ilk yerli ve millî haberleşme uydusu." },
+                { id: "7f-fc2", unitId: 1, front: "İMECE ne işe yarar?", back: "Yerli ve millî gözlem uydusu; hedef tespit, doğal afet, tarım (15 Nisan 2023)." },
+                { id: "7f-fc3", unitId: 1, front: "Alper Gezeravcı'nın ISS'te yaptığı deney sayısı?", back: "13 bilimsel deney. İlk mesaj: “İstikbal göklerdedir.”" },
+                { id: "7f-fc4", unitId: 1, front: "Işık yılı nedir?", back: "Zaman değil mesafe birimi; ışığın 1 yılda aldığı yol." },
+                { id: "7f-fc5", unitId: 1, front: "Büyük kütleli yıldızın sonu?", back: "Süpernova → nötron yıldızı (pulsar) veya kara delik." },
+                { id: "7f-fc6", unitId: 1, front: "Kutup Yıldızı hangi yönde?", back: "Küçükayı'da; her zaman Kuzey'i gösterir." },
+                { id: "7f-fc7", unitId: 2, front: "Fiziksel iş için iki şart nedir?", back: "Net kuvvet + bu kuvvet doğrultusunda yer değiştirme. Birim: Joule (J)." },
+                { id: "7f-fc8", unitId: 2, front: "Çantayla yatay yürümek iş midir?", back: "Hayır — kuvvet yukarı, hareket yatay; aynı doğrultuda değil." },
+                { id: "7f-fc9", unitId: 2, front: "Enerji nedir? Birimi?", back: "İş yapabilme yeteneği. Birim: Joule (J)." },
+                { id: "7f-fc10", unitId: 2, front: "Sarkaçta en üst / en alt enerji?", back: "En üst: Ep max, Ek = 0. En alt: Ek max." },
+                { id: "7f-fc11", unitId: 2, front: "Sürtünme kinetik enerjiyi neye dönüştürür?", back: "Isı, ses ve ışık enerjisine — cisim yavaşlar/durur." },
+                { id: "7f-fc12", unitId: 3, front: "Safra ne işe yarar?", back: "Karaciğerden salgılanır; yağların fiziksel (mekanik) sindirimini sağlar." },
+                { id: "7f-fc13", unitId: 3, front: "Küçük kan dolaşımı yolu?", back: "Sağ karıncık → akciğer atardamarı → akciğerler → akciğer toplardamarı → sol kulakçık." },
+                { id: "7f-fc14", unitId: 3, front: "Gaz alışverişi nerede olur?", back: "Alveol (hava kesecikleri) — kılcal damarlarla çevrili." },
+                { id: "7f-fc15", unitId: 3, front: "Boşaltım organ sırası?", back: "Böbrek → üreter → mesane → üretra." },
+                { id: "7f-fc16", unitId: 3, front: "Alyuvar / akyuvar / pulcuk?", back: "Alyuvar: O₂–CO₂ · Akyuvar: savunma · Pulcuk: pıhtılaşma." },
+                { id: "7f-fc17", unitId: 4, front: "Az → çok yoğun kırılma?", back: "Normale yaklaşır; kırılma açısı küçülür; hız azalır." },
+                { id: "7f-fc18", unitId: 4, front: "İnce kenarlı mercek ne yapar?", back: "Yakınsak — ışığı toplar; hipermetrop; büyüteç." },
+                { id: "7f-fc19", unitId: 4, front: "Kalın kenarlı mercek ne yapar?", back: "Iraksak — ışığı dağıtır; miyop; cisimleri küçük gösterir." },
+                { id: "7f-fc20", unitId: 4, front: "Pet şişe neden yangın riski?", back: "İnce kenarlı mercek gibi güneş ışığını bir noktada toplar." }
+            ],
+            exams: []
         },
-
         // ==========================================
         // 8. SINIF TÜRKÇE (LGS)
         // ==========================================
@@ -1508,115 +1743,18 @@ const EDUCATION_DATA = {
         // ==========================================
         "7-turkce": {
             title: "7. Sınıf Türkçe",
-            subtitle: "Fiillerde anlam, kipler ve yazım kuralları",
+            subtitle: "İçerikler güncelleniyor — yakında yeni MEB notları eklenecek",
             presentation: {
-                title: "Fiillerde Anlam & Kipler",
-                desc: "İş-oluş-durum fiilleri, haber/dilek kipleri ve yazılıya hazırlık notları.",
+                title: "Yakında",
+                desc: "7. sınıf Türkçe üniteleri yeniden hazırlanıyor.",
                 file: "#",
-                slidesCount: "Not + Test Odaklı",
-                badge: "Yazılı Hazırlık"
+                slidesCount: "Hazırlanıyor",
+                badge: "Güncelleniyor"
             },
-            notes: [
-                {
-                    unitId: 1,
-                    unitName: "1. Ünite: Fiillerde Anlam",
-                    title: "İş - Oluş - Durum Fiilleri",
-                    important: "Yazılıda Sık Çıkar",
-                    badge: "T.7.1",
-                    content: `
-                        <ul class="styled-list">
-                            <li><strong>İş fiili:</strong> İradi ve nesneye yönelir (yazmak, kırmak).</li>
-                            <li><strong>Oluş fiili:</strong> Doğal değişim (büyümek, sararmak).</li>
-                            <li><strong>Durum fiili:</strong> Durumu bildirir, nesne almaz (uyumak, oturmak).</li>
-                        </ul>
-                    `
-                },
-                {
-                    unitId: 2,
-                    unitName: "2. Ünite: Fiil Kipleri",
-                    title: "Haber ve Dilek Kipleri",
-                    important: "Tablo Ezberi",
-                    badge: "T.7.2",
-                    content: `
-                        <div class="note-highlight">
-                            <strong>Haber:</strong> görülen geçmiş (-di), öğrenilen geçmiş (-miş), şimdiki (-yor), gelecek (-ecek), geniş (-r).<br>
-                            <strong>Dilek:</strong> gerekli (-meli), istek (-e), dilek-şart (-se), emir.
-                        </div>
-                    `
-                },
-                {
-                    unitId: 3,
-                    unitName: "3. Ünite: Yazım Kuralları",
-                    title: "Sık Karıştırılan Yazımlar",
-                    important: "Puan Kaçırmamak İçin",
-                    badge: "T.7.3",
-                    content: `
-                        <ul class="styled-list">
-                            <li><em>de / da</em> bağlacı ayrı yazılır; hâl eki bitişik.</li>
-                            <li><em>ki</em> bağlacı ayrı; ilgi zamiri ve ek bitişik.</li>
-                            <li>Birleşik fiillerde anlam kayması varsa bitişik yazım olabilir.</li>
-                        </ul>
-                    `
-                }
-            ],
-            curriculum: [
-                { unitId: 1, unit: "1. Ünite", name: "Fiillerde Anlam", hours: "10 Saat", period: "1. Dönem", status: "Aktif", topics: [
-                    { code: "T.7.1.1", title: "İş-Oluş-Durum", summary: "Fiilleri anlamına göre ayırt etme." }
-                ]},
-                { unitId: 2, unit: "2. Ünite", name: "Fiil Kipleri", hours: "12 Saat", period: "1. Dönem", status: "Aktif", topics: [
-                    { code: "T.7.2.1", title: "Haber kipleri", summary: "-di, -miş, -yor, -ecek, -r." },
-                    { code: "T.7.2.2", title: "Dilek kipleri", summary: "-meli, -e, -se, emir." }
-                ]},
-                { unitId: 3, unit: "3. Ünite", name: "Yazım Kuralları", hours: "8 Saat", period: "2. Dönem", status: "Aktif", topics: [
-                    { code: "T.7.3.1", title: "de/da ve ki", summary: "Bağlaç / ek ayrımı." }
-                ]}
-            ],
-            quiz: [
-                {
-                    id: "7t-q1",
-                    unitId: 1,
-                    unitName: "1. Ünite: Fiillerde Anlam",
-                    topic: "İş-Oluş-Durum",
-                    difficulty: "Yazılı",
-                    question: "'Yapraklar sonbaharda sarardı.' cümlesindeki fiil türü nedir?",
-                    options: ["İş fiili", "Oluş fiili", "Durum fiili", "Yardıcı fiil"],
-                    correct: 1,
-                    explanation: "'Sararmak' doğal bir değişimi bildirdiği için oluş fiilidir."
-                },
-                {
-                    id: "7t-q2",
-                    unitId: 2,
-                    unitName: "2. Ünite: Fiil Kipleri",
-                    topic: "Haber Kipleri",
-                    difficulty: "Yazılı",
-                    question: "'Yarın sinemaya gideceğiz.' cümlesindeki kip hangisidir?",
-                    options: ["Şimdiki zaman", "Geniş zaman", "Görülen geçmiş", "Gelecek zaman"],
-                    correct: 3,
-                    explanation: "'-ecek' eki gelecek zaman (haber kipi) bildirir."
-                },
-                {
-                    id: "7t-q3",
-                    unitId: 3,
-                    unitName: "3. Ünite: Yazım Kuralları",
-                    topic: "de/da",
-                    difficulty: "Kritik",
-                    question: "Aşağıdakilerin hangisinde 'de' bağlacı doğru yazılmıştır?",
-                    options: [
-                        "Beninde geleceğim.",
-                        "Ben de geleceğim.",
-                        "Evde ki kitapları getir.",
-                        "Okuldada vardı."
-                    ],
-                    correct: 1,
-                    explanation: "Bağlaç olan 'de/da' her zaman ayrı yazılır: 'Ben de geleceğim.'"
-                }
-            ],
-            flashcards: [
-                { id: "7t-fc1", front: "Oluş fiili örneği?", back: "büyümek, sararmak, yaşlanmak..." },
-                { id: "7t-fc2", front: "Dilek kipleri nelerdir?", back: "gereklik (-meli), istek (-e), dilek-şart (-se), emir." },
-                { id: "7t-fc3", front: "de bağlacı nasıl yazılır?", back: "Her zaman ayrı: 'Sen de gel.'" },
-                { id: "7t-fc4", front: "Durum fiili nesne alır mı?", back: "Genelde almaz: uyumak, oturmak, gülmek..." }
-            ]
+            notes: [],
+            curriculum: [],
+            quiz: [],
+            flashcards: []
         },
 
         // ==========================================

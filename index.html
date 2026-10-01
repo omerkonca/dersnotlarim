@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ders Notlarım | Akıllı Tahta & Öğrenci Portalı</title>
-    <meta name="description" content="7. ve 8. Sınıf Fen Bilimleri, Türkçe, LGS konu anlatımları, interaktif slaytlar, simülasyonlar ve soru çözümleri.">
+    <meta name="description" content="5–8. Sınıf Fen Bilimleri ve Türkçe: MEB notları, LGS hazırlık, yazılı prova ve akıllı tahta sunumları.">
     <meta name="theme-color" content="#0f172a">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
@@ -13,7 +13,7 @@
     <!-- Open Graph / paylaşım -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Ders Notlarım | Akıllı Tahta & Öğrenci Portalı">
-    <meta property="og:description" content="7-8. sınıf Fen ve Türkçe: konu notları, LGS soruları, canlı simülasyonlar ve akıllı tahta araçları.">
+    <meta property="og:description" content="Ortaokul Fen ve Türkçe: konu notları, LGS soruları, yazılı prova ve akıllı tahta araçları.">
     <meta property="og:url" content="https://dersnotlarim.vercel.app">
     <meta property="og:site_name" content="Ders Notlarım">
     <meta name="twitter:card" content="summary_large_image">
@@ -26,7 +26,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css?v=6.3">
+    <link rel="stylesheet" href="css/style.css?v=6.9">
 </head>
 <body class="mode-teacher">
 
@@ -34,7 +34,7 @@
     <header class="navbar">
         <div class="container nav-container">
             <div class="brand-logo" onclick="app.showHome()" style="cursor: pointer;">
-                <div class="brand-icon">📚</div>
+                <div class="brand-icon" aria-hidden="true"></div>
                 <div>
                     <span class="brand-title">Ders<span>Notlarım</span></span>
                     <span class="brand-subtitle">Dershane & Akıllı Tahta</span>
@@ -101,172 +101,115 @@
          1. ANA SAYFA GÖRÜNÜMÜ (HOME VIEW)
          ========================================== -->
     <div id="view-home" class="page-view">
-        <div class="container">
-            
-            <!-- Hero Karşılama -->
-            <section class="home-hero">
-                <span class="home-tag">✨ MEB 2026 - 2027 EĞİTİM ÖĞRETİM YILI RESMİ MÜFREDATI</span>
-                <h1 class="home-title">Öğrenci & Öğretmen Ders Portalı</h1>
+        <section class="home-hero-plane">
+            <div class="home-hero-glow" aria-hidden="true"></div>
+            <div class="container home-hero">
+                <p class="home-brand">DersNotlarım</p>
+                <h1 class="home-title">Ortaokul Fen &amp; Türkçe çalışma alanı</h1>
                 <p class="home-desc">
-                    Dershanede işlediğimiz akıllı tahta sunumları, sınavda garanti çıkacak altın notlar ve interaktif soru çözümleri. Çalışmak istediğiniz dersi seçin.
+                    MEB müfredatına uygun notlar, testler ve yazılı provası — sınıfını seç, çalışmaya başla.
                 </p>
-            </section>
+                <div class="home-cta-row">
+                    <a class="btn-home-cta" href="#ders-katalogu">Dersleri gör</a>
+                    <span class="home-year">2026–2027</span>
+                </div>
+            </div>
+        </section>
 
-            <!-- KATEGORİLER / DERSLER BAŞLIĞI -->
+        <div class="container home-catalog" id="ders-katalogu">
             <div class="section-title-bar">
-                <h2>📂 Ders Kategorileri</h2>
-                <span>Lütfen sınıf ve branşınızı seçin</span>
+                <div>
+                    <h2>Aktif dersler</h2>
+                    <p class="section-sub">Hazır içerikler</p>
+                </div>
             </div>
 
-            <!-- DERS KARTLARI GRID -->
             <div class="category-cards-grid">
-                
-                <!-- KART 1: 8. SINIF FEN (LGS) -->
-                <div class="course-card featured">
+                <article class="course-card featured" onclick="app.selectSubject('8', 'fen')">
                     <div class="course-card-top">
-                        <span class="course-grade-badge lgs">LGS &bull; 8. Sınıf</span>
-                        <span class="course-status-badge">Aktif &bull; 1. Ünite</span>
+                        <span class="course-grade-badge lgs">LGS · 8. Sınıf</span>
+                        <span class="course-status-badge">Aktif</span>
                     </div>
-                    <div class="course-icon">🌪️</div>
-                    <h3 class="course-title">8. Sınıf Fen Bilimleri</h3>
-                    <p class="course-desc">
-                        1. Ünite: Mevsimler ve İklim. Dünya'nın dönme ekseni, basınç alanları, rüzgarlar ve LGS'de çıkmış sorular.
-                    </p>
-                    <div class="course-features">
-                        <span>🖥️ 7 Slaytlık Akıllı Tahta Sunumu</span>
-                        <span>📝 Sınav Taktikleri & Notlar</span>
-                        <span>❓ 4 Yeni Nesil Çözümlü Test</span>
-                    </div>
+                    <h3 class="course-title">Fen Bilimleri</h3>
+                    <p class="course-desc">Mevsimler, genetik, basınç ve LGS odaklı notlar ile soru bankası.</p>
+                    <div class="course-meta">Sunum · Not · Test</div>
                     <div class="course-actions">
-                        <button class="btn-course-primary" onclick="app.selectSubject('8', 'fen')">
-                            Ders Alanına Git &rarr;
-                        </button>
-                        <a href="8-sinif.html" target="_blank" class="btn-course-secondary" title="Slaytı Doğrudan Aç">
-                            🖥️ Sunumu Başlat
-                        </a>
+                        <button type="button" class="btn-course-primary" onclick="event.stopPropagation(); app.selectSubject('8', 'fen')">Aç</button>
+                        <a href="8-sinif.html" target="_blank" class="btn-course-secondary" onclick="event.stopPropagation()">Sunum</a>
                     </div>
-                </div>
+                </article>
 
-                <!-- KART 2: 7. SINIF FEN -->
-                <div class="course-card">
+                <article class="course-card" onclick="app.selectSubject('8', 'turkce')">
                     <div class="course-card-top">
-                        <span class="course-grade-badge">7. Sınıf</span>
-                        <span class="course-status-badge">Aktif &bull; 1. Ünite</span>
+                        <span class="course-grade-badge lgs">LGS · 8. Sınıf</span>
+                        <span class="course-status-badge">Aktif</span>
                     </div>
-                    <div class="course-icon">🪐</div>
-                    <h3 class="course-title">7. Sınıf Fen Bilimleri</h3>
-                    <p class="course-desc">
-                        1. Ünite: Güneş Sistemi ve Ötesi. Uzay araştırmaları, Türkiye'nin uyduları, teleskoplar, bulutsular ve yıldız döngüsü.
-                    </p>
-                    <div class="course-features">
-                        <span>🖥️ 7 Bölümlük İnteraktif Sunum</span>
-                        <span>📝 Yazılıya Hazırlık Notları</span>
-                        <span>❓ Çözümlü Deneme Testi</span>
-                    </div>
+                    <h3 class="course-title">Türkçe</h3>
+                    <p class="course-desc">Fiilimsiler, paragraf ve cümle türleri — LGS sözel hazırlık.</p>
+                    <div class="course-meta">Not · Test · Kart</div>
                     <div class="course-actions">
-                        <button class="btn-course-primary" onclick="app.selectSubject('7', 'fen')">
-                            Ders Alanına Git &rarr;
-                        </button>
-                        <a href="7-sinif.html" target="_blank" class="btn-course-secondary" title="Slaytı Doğrudan Aç">
-                            🖥️ Sunumu Başlat
-                        </a>
+                        <button type="button" class="btn-course-primary" onclick="event.stopPropagation(); app.selectSubject('8', 'turkce')">Aç</button>
                     </div>
-                </div>
+                </article>
 
-                <!-- KART 3: 8. SINIF TÜRKÇE (LGS) -->
-                <div class="course-card">
-                    <div class="course-card-top">
-                        <span class="course-grade-badge lgs">LGS &bull; 8. Sınıf</span>
-                        <span class="course-status-badge">Aktif &bull; Fiilimsiler</span>
-                    </div>
-                    <div class="course-icon">📖</div>
-                    <h3 class="course-title">8. Sınıf Türkçe</h3>
-                    <p class="course-desc">
-                        Fiilimsiler, Paragrafta Anlam, Cümle Türleri ve LGS Sözel Mantık Taktikleri.
-                    </p>
-                    <div class="course-features">
-                        <span>📝 Fiilimsi Şifreleri</span>
-                        <span>❓ Paragraf + Cümle Testleri</span>
-                        <span>🃏 Hafıza Kartları</span>
-                    </div>
-                    <div class="course-actions">
-                        <button class="btn-course-primary" onclick="app.selectSubject('8', 'turkce')">
-                            Ders Alanına Git &rarr;
-                        </button>
-                    </div>
-                </div>
-
-                <!-- KART 4: 7. SINIF TÜRKÇE -->
-                <div class="course-card">
+                <article class="course-card" onclick="app.selectSubject('7', 'fen')">
                     <div class="course-card-top">
                         <span class="course-grade-badge">7. Sınıf</span>
-                        <span class="course-status-badge">Aktif &bull; Fiiller</span>
+                        <span class="course-status-badge">Aktif</span>
                     </div>
-                    <div class="course-icon">✍️</div>
-                    <h3 class="course-title">7. Sınıf Türkçe</h3>
-                    <p class="course-desc">
-                        Fiillerde Anlam (İş, Oluş, Durum), Haber ve Dilek Kipleri, Yazım Kuralları.
-                    </p>
-                    <div class="course-features">
-                        <span>📝 Kip Tabloları</span>
-                        <span>❓ Yazılıya Hazırlık Soruları</span>
-                        <span>🃏 Hafıza Kartları</span>
-                    </div>
+                    <h3 class="course-title">Fen Bilimleri</h3>
+                    <p class="course-desc">Uzay, enerji, sistemler ve optik — not, test, flaş kart.</p>
+                    <div class="course-meta">4 ünite · Not · Test</div>
                     <div class="course-actions">
-                        <button class="btn-course-primary" onclick="app.selectSubject('7', 'turkce')">
-                            Ders Alanına Git &rarr;
-                        </button>
+                        <button type="button" class="btn-course-primary" onclick="event.stopPropagation(); app.selectSubject('7', 'fen')">Aç</button>
+                        <a href="7-sinif.html" target="_blank" class="btn-course-secondary" onclick="event.stopPropagation()">Sunum</a>
                     </div>
-                </div>
+                </article>
 
-                <!-- KART 5: 6. SINIF FEN -->
-                <div class="course-card">
+                <article class="course-card" onclick="app.selectSubject('6', 'fen')">
                     <div class="course-card-top">
                         <span class="course-grade-badge">6. Sınıf</span>
-                        <span class="course-status-badge">Aktif &bull; Şampiyon Paketi</span>
+                        <span class="course-status-badge">Aktif</span>
                     </div>
-                    <div class="course-icon">🪐</div>
-                    <h3 class="course-title">6. Sınıf Fen Bilimleri</h3>
-                    <p class="course-desc">
-                        1–7. ünite + sınav tuzakları, şampiyon flaş kartlar ve 1.–2. dönem yazılı prova.
-                    </p>
-                    <div class="course-features">
-                        <span>⚡ Sınav Şampiyonu</span>
-                        <span>📄 2 Yazılı Prova</span>
-                        <span>🃏 49 Hafıza Kartı</span>
-                    </div>
+                    <h3 class="course-title">Fen Bilimleri</h3>
+                    <p class="course-desc">1–7. ünite, sınav şampiyonu hap bilgiler ve yazılı prova.</p>
+                    <div class="course-meta">7 ünite · Yazılı · Hap</div>
                     <div class="course-actions">
-                        <button class="btn-course-primary" onclick="app.selectSubject('6', 'fen')">
-                            Ders Alanına Git &rarr;
-                        </button>
+                        <button type="button" class="btn-course-primary" onclick="event.stopPropagation(); app.selectSubject('6', 'fen')">Aç</button>
                     </div>
-                </div>
+                </article>
 
-                <!-- KART 6: 5. SINIF FEN -->
-                <div class="course-card">
+                <article class="course-card" onclick="app.selectSubject('5', 'fen')">
                     <div class="course-card-top">
                         <span class="course-grade-badge">5. Sınıf</span>
-                        <span class="course-status-badge">Aktif &bull; Şampiyon Paketi</span>
+                        <span class="course-status-badge">Aktif</span>
                     </div>
-                    <div class="course-icon">🌞</div>
-                    <h3 class="course-title">5. Sınıf Fen Bilimleri</h3>
-                    <p class="course-desc">
-                        1–7. ünite + sınav tuzakları, karşılaştırma tabloları ve hap flaş kartlar.
-                    </p>
-                    <div class="course-features">
-                        <span>⚡ Sınav Şampiyonu</span>
-                        <span>❓ 23 Yazılı Sorusu</span>
-                        <span>🃏 16 Hap Kart</span>
-                    </div>
+                    <h3 class="course-title">Fen Bilimleri</h3>
+                    <p class="course-desc">1–7. ünite notları, şampiyon tuzaklar ve yazılı provası.</p>
+                    <div class="course-meta">7 ünite · Yazılı · Hap</div>
                     <div class="course-actions">
-                        <button class="btn-course-primary" onclick="app.selectSubject('5', 'fen')">
-                            Ders Alanına Git &rarr;
-                        </button>
+                        <button type="button" class="btn-course-primary" onclick="event.stopPropagation(); app.selectSubject('5', 'fen')">Aç</button>
                     </div>
-                </div>
-
+                </article>
             </div>
 
+            <div class="section-title-bar upcoming-bar">
+                <div>
+                    <h2>Yakında</h2>
+                    <p class="section-sub">İçerikler güncelleniyor</p>
+                </div>
+            </div>
+
+            <div class="category-cards-grid upcoming-grid">
+                <article class="course-card upcoming">
+                    <div class="course-card-top">
+                        <span class="course-grade-badge">7. Sınıf</span>
+                        <span class="course-status-badge pending">Güncelleniyor</span>
+                    </div>
+                    <h3 class="course-title">Türkçe</h3>
+                    <p class="course-desc">Yeni MEB notları ve testler hazırlanıyor.</p>
+                </article>
+            </div>
         </div>
     </div>
 
@@ -900,12 +843,12 @@ Selin</textarea>
     </footer>
 
     <!-- JS -->
-    <script src="js/sound-fx.js?v=6.3"></script>
-    <script src="js/qrcode.min.js?v=6.3"></script>
-    <script src="js/data.js?v=6.3"></script>
-    <script src="js/board-tools.js?v=6.3"></script>
-    <script src="js/interactive-lab.js?v=6.3"></script>
-    <script src="js/app.js?v=6.3"></script>
+    <script src="js/sound-fx.js?v=6.9"></script>
+    <script src="js/qrcode.min.js?v=6.9"></script>
+    <script src="js/data.js?v=6.9"></script>
+    <script src="js/board-tools.js?v=6.9"></script>
+    <script src="js/interactive-lab.js?v=6.9"></script>
+    <script src="js/app.js?v=6.9"></script>
     <script>
         function toggleWheelModal() {
             const modal = document.getElementById('lucky-wheel-modal');
